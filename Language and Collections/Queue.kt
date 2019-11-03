@@ -1,7 +1,6 @@
 import java.util.ArrayDeque
 
 class Queue<T> {
-
     private val deque = ArrayDeque<T>()
 
     val isEmpty: Boolean
@@ -21,13 +20,5 @@ class Queue<T> {
 
     fun size(): Int {
         return deque.size
-    }
-
-    companion object {
-
-        @JvmStatic
-        fun main(args: Array<String>) {
-
-        }
     }
 }
