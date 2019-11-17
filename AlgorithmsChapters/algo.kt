@@ -1,5 +1,5 @@
 fun isPrime(n:Int):Int {
-    var answer = if ((n > 1)) 1 else 0
+    var answer = if (n > 1) 1 else 0
     var i = 2
     while (i * i <= n)
     {

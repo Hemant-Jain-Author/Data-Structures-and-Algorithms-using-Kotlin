@@ -67,7 +67,7 @@ fun main(args: Array<String>) {
     tt.add("banana")
     tt.add("apple")
     tt.add("mango")
-    println("\nSearch results for apple, banana, grapes and mango :")
+    println("Search results for apple, banana, grapes and mango :")
     tt.find("apple")
     tt.find("banana")
     tt.find("mango")

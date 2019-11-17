@@ -32,7 +32,7 @@ class Queue {
         val value: Int
         if (size <= 0) {
             println("Queue is empty.")
-            return -999
+            return Int.MIN_VALUE
         } else {
             count--
             value = data[front]

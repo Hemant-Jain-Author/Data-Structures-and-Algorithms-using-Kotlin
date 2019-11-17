@@ -60,14 +60,14 @@ class Tree {
 
     internal val isHeap: Boolean
         get() {
-            val infi = -9999999
+            val infi = Int.MIN_VALUE
             return isCompleteTree && isHeapUtil(root, infi)
         }
 
     internal val isHeap2: Boolean
         get() {
             val count = numNodes()
-            val parentValue = -9999999
+            val parentValue = Int.MIN_VALUE
             return isHeapUtil2(root, 0, count, parentValue)
         }
 
@@ -991,7 +991,7 @@ class Tree {
     internal fun isBSTArray(preorder: IntArray, size: Int): Boolean {
         val stk = Stack<Int>()
         var value: Int
-        var root = -999999
+        var root = Int.MIN_VALUE
         for (i in 0 until size) {
             value = preorder[i]
 

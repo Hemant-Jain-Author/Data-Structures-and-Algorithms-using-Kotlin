@@ -39,7 +39,7 @@ class Graph(cnt:Int) {
     fun print() {
         for (i in 0 until count) {
             val ad = Adj.get(i)
-            print("\nVertex " + i + " is connected to : ")
+            print("Vertex " + i + " is connected to : ")
             for (adn in ad) {
                 print("(" + adn.dest + ", " + adn.cost + ") ")
             }
@@ -121,7 +121,7 @@ class Graph(cnt:Int) {
                 dfsUtil2(i, visited, stk)
             }
         }
-        print("topologicalSort :: ")
+        print("TopologicalSort :: ")
         while (stk.isEmpty() != true)
         {
             print(" " + stk.pop())
@@ -180,7 +180,7 @@ class Graph(cnt:Int) {
     fun printAllPath(src:Int, dest:Int) {
         val visited = BooleanArray(count)
         val path = Stack<Int>()
-        print("printAllPath :: ")
+        print("PrintAllPath :: ")
         printAllPathDFS(visited, src, dest, path)
         println()
     }
@@ -225,7 +225,7 @@ class Graph(cnt:Int) {
         val que = LinkedList<Int>()
         que.add(source)
         level[source] = 0
-        println("\nNode - Level")
+        println("Node - Level")
         while (que.isEmpty() == false)
         {
             val curr = que.remove()
@@ -470,7 +470,7 @@ class Graph(cnt:Int) {
         for (i in 0 until count)
         {
             previous[i] = -1
-            dist[i] = 999999 // infinite
+            dist[i] = Int.MAX_VALUE // infinite
         }
         dist[source] = 0
         previous[source] = -1
@@ -504,11 +504,11 @@ class Graph(cnt:Int) {
         {
             if (dist[i] == Integer.MAX_VALUE)
             {
-                println(" node id " + i + " prev " + previous[i] + " distance : Unreachable")
+                println("Node id " + i + " prev " + previous[i] + " distance : Unreachable")
             }
             else
             {
-                println(" node id " + i + " prev " + previous[i] + " distance : " + dist[i])
+                println("Node id " + i + " prev " + previous[i] + " distance : " + dist[i])
             }
         }
     }
@@ -552,7 +552,7 @@ class Graph(cnt:Int) {
         val path = IntArray(count)
         for (i in 0 until count)
         {
-            distance[i] = 999999 // infinite
+            distance[i] = Int.MAX_VALUE // infinite
             path[i] = -1
         }
         distance[source] = 0
@@ -591,7 +591,7 @@ class Graph(cnt:Int) {
         for (i in 0 until count)
         {
             previous[i] = -1
-            dist[i] = 999999 // infinite
+            dist[i] = Int.MAX_VALUE // infinite
         }
         dist[source] = 0
         previous[source] = -1
@@ -624,11 +624,11 @@ class Graph(cnt:Int) {
         {
             if (dist[i] == Integer.MAX_VALUE)
             {
-                println(" \n node id " + i + " prev " + previous[i] + " distance : Unreachable")
+                println("Node id " + i + " prev " + previous[i] + " distance : Unreachable")
             }
             else
             {
-                println(" node id " + i + " prev " + previous[i] + " distance : " + dist[i])
+                println("Node id " + i + " prev " + previous[i] + " distance : " + dist[i])
             }
         }
     }
@@ -641,7 +641,7 @@ class Graph(cnt:Int) {
         for (i in 0 until gph.count)
         {
             previous[i] = -1
-            dist[i] = 999999 // infinite
+            dist[i] = Int.MAX_VALUE // infinite
         }
         val comp = EdgeComparator()
         val pq = PriorityQueue<Edge>(100, comp)

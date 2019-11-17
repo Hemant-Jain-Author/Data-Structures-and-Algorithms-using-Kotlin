@@ -380,7 +380,7 @@ class LinkedList {
             return true
         } else {
             reverse()
-            println("loop not found")
+            println("Loop not found")
             return false
         }
     }
@@ -393,18 +393,18 @@ class LinkedList {
 
         while (fastPtr!!.next != null && fastPtr.next!!.next != null) {
             if (head === fastPtr.next || head === fastPtr.next!!.next) {
-                println("circular list loop found")
+                println("Circular list loop found")
                 return 2
             }
             slowPtr = slowPtr!!.next
             fastPtr = fastPtr.next!!.next
             if (slowPtr === fastPtr) {
-                println("loop found")
+                println("Loop found")
 
                 return 1
             }
         }
-        println("loop not found")
+        println("Loop not found")
         return 0
     }
 }
@@ -414,17 +414,17 @@ fun main(args: Array<String>) {
     ll.addHead(2)
     ll.addHead(3)
     ll.print()
-    println("&&")
+    println("---")
     val ll2 = LinkedList()
     ll2.addHead(1)
     ll2.addHead(2)
     ll2.addHead(3)
     ll2.print()
-    println("**")
+    println("---")
 
     val l2 = ll.copyList()
     l2.print();
-    println("**")
+    println("---")
     val l3 = ll.copyListReversed();
     l3.print()
     println()

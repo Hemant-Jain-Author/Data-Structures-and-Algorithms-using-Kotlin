@@ -1,8 +1,6 @@
 import java.util.PriorityQueue
 import java.util.Arrays
 
-
-@JvmStatic
 fun demo(args: Array<String>) {
 
     val pq = PriorityQueue<Int>()
@@ -189,7 +187,6 @@ fun PrintLargerHalf3(arr: IntArray, size: Int) {
     println()
 }
 
-@JvmStatic
 fun main4(args: Array<String>) {
     val arr = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
     PrintLargerHalf(arr, 8)
@@ -229,7 +226,6 @@ fun sortK(arr: IntArray, size: Int, k: Int) {
 }
 
 // Testing Code
-@JvmStatic
 fun main5(args: Array<String>) {
     val k = 3
     val arr = intArrayOf(1, 5, 4, 10, 50, 9)
@@ -353,7 +349,6 @@ fun JoinRopes2(ropes: IntArray, size: Int): Int {
     return total
 }
 
-@JvmStatic
 fun main6(args: Array<String>) {
     val cups = intArrayOf(2, 1, 7, 4, 2)
     ChotaBhim(cups, cups.size)
@@ -410,7 +405,6 @@ fun kthLargestStream(k: Int): Int {
     }
 }
 
-@JvmStatic
 fun main(args: Array<String>) {
     kthLargestStream(3)
 }

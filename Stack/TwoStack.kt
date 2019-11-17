@@ -30,18 +30,18 @@ class TwoStack {
         if (top1 >= 0) {
             return data[top1--]
         } else {
-            print("Stack Empty!")
+            print("Stack is Empty!")
         }
-        return -999
+        return Int.MIN_VALUE
     }
 
     fun StackPop2(): Int {
         if (top2 < MAX_SIZE) {
             return data[top2++]
         } else {
-            print("Stack Empty!")
+            print("Stack is Empty!")
         }
-        return -999
+        return Int.MIN_VALUE
     }
 }
 

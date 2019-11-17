@@ -104,7 +104,7 @@ fun isUniqueChar(str: String): Boolean {
         } else if ('a' <= c && 'z' >= c) {
             index = c - 'a'
         } else {
-            println("Unknown Char!\n")
+            println("Unknown Char!")
             return false
         }
         if (bitarr[index] != 0) {
@@ -159,7 +159,7 @@ fun isPermutation(s1: String, s2: String): Boolean {
     val count = IntArray(256)
     val length = s1.length
     if (s2.length != length) {
-        println("is permutation return false\n")
+        println("is permutation return false")
         return false
     }
     for (i in 0..255) {
@@ -173,11 +173,11 @@ fun isPermutation(s1: String, s2: String): Boolean {
     }
     for (i in 0 until length) {
         if (count[i] != 0) {
-            println("is permutation return false\n")
+            println("is permutation return false")
             return false
         }
     }
-    println("is permutation return true\n")
+    println("is permutation return true")
     return true
 }
 

@@ -21,7 +21,7 @@ class Stack2 {
     @Throws(IllegalStateException::class)
     fun push(value: Int) {
         if (size() == capacity) {
-            println("size dubbelled")
+            println("Size dubbelled")
             val newData = IntArray(capacity * 2)
             System.arraycopy(data, 0, newData, 0, capacity)
             data = newData
@@ -39,6 +39,7 @@ class Stack2 {
         return data[top]
     }
 
+    @Throws(IllegalStateException::class)
     fun pop(): Int {
         if (isEmpty) {
             throw IllegalStateException("StackEmptyException")
@@ -47,7 +48,7 @@ class Stack2 {
         val topVal = data[top]
         top--
         if (size() == capacity / 2 && capacity > minCapacity) {
-            println("size halfed")
+            println("Size halfed")
             capacity = capacity / 2
             val newData = IntArray(capacity)
             System.arraycopy(data, 0, newData, 0, capacity)

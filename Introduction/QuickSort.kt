@@ -34,10 +34,8 @@ class QuickSort(array:IntArray) {
             }
         }
         swap(arr, upper, start) // upper is the pivot position
-        quickSortUtil(arr, start, upper - 1) // pivot -1 is the upper for left
-        // sub array.
-        quickSortUtil(arr, upper + 1, stop) // pivot + 1 is the lower for right
-        // sub array.
+        quickSortUtil(arr, start, upper - 1) // pivot -1 is the upper for left sub array.
+        quickSortUtil(arr, upper + 1, stop) // pivot + 1 is the lower for right sub array.
     }
     fun sort() {
         val size = arr.size

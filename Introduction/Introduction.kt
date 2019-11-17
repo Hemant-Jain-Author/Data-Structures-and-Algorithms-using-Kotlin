@@ -93,7 +93,7 @@ fun BinarySearch(arr:IntArray, size:Int, value:Int):Int {
     var high = size - 1
     while (low <= high)
     {
-        mid = low + (high - low) / 2 // To avoid the overflow
+        mid = (low + high) / 2
         if (arr[mid] == value)
         {
             return mid
@@ -112,16 +112,19 @@ fun BinarySearch(arr:IntArray, size:Int, value:Int):Int {
     }
     return -1
 }
+
 fun main3() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
     println("Sum of values in array:" + SequentialSearch(arr, arr.size, 7))
     println("Sum of values in array:" + BinarySearch(arr, arr.size, 7))
 }
+
 fun rotateArray(a:IntArray, n:Int, k:Int) {
     reverseArray(a, 0, k - 1)
     reverseArray(a, k, n - 1)
     reverseArray(a, 0, n - 1)
 }
+
 fun reverseArray(a:IntArray, start:Int, end:Int) {
     var i = start
     var j = end
@@ -134,6 +137,7 @@ fun reverseArray(a:IntArray, start:Int, end:Int) {
         j--
     }
 }
+
 fun reverseArray2(a:IntArray) {
     var start = 0
     var end = a.size - 1
@@ -148,11 +152,13 @@ fun reverseArray2(a:IntArray) {
         j--
     }
 }
+
 fun main4() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6)
     rotateArray(arr, arr.size, 2)
     printArray(arr, arr.size)
 }
+
 fun maxSubArraySum(a:IntArray, size:Int):Int {
     var maxSoFar = 0
     var maxEndingHere = 0
@@ -170,10 +176,12 @@ fun maxSubArraySum(a:IntArray, size:Int):Int {
     }
     return maxSoFar
 }
+
 fun main5() {
     var arr = intArrayOf(1, -2, 3, 4, -4, 6, -4, 3, 2)
     println("Max sub array sum :" + maxSubArraySum(arr, 9))
 }
+
 fun WaveArray2(arr:IntArray) {
     var size = arr.size
     /* Odd elements are lesser then even elements. */
@@ -191,6 +199,7 @@ fun WaveArray2(arr:IntArray) {
         i += 2
     }
 }
+
 fun WaveArray(arr:IntArray) {
     var size = arr.size
     Arrays.sort(arr)
@@ -202,6 +211,7 @@ fun WaveArray(arr:IntArray) {
         i += 2
     }
 }
+
 /* Testing code */
 fun main6() {
     var arr = intArrayOf(8, 1, 2, 3, 4, 5, 6, 4, 2)
@@ -212,6 +222,7 @@ fun main6() {
     WaveArray2(arr2)
     printArray(arr2, arr2.size)
 }
+
 fun indexArray(arr:IntArray, size:Int) {
     for (i in 0 until size)
     {
@@ -232,6 +243,7 @@ fun indexArray(arr:IntArray, size:Int) {
         }
     }
 }
+
 fun indexArray2(arr:IntArray, size:Int) {
     var temp:Int
     for (i in 0 until size)
@@ -245,6 +257,7 @@ fun indexArray2(arr:IntArray, size:Int) {
         }
     }
 }
+
 /* Testing code */
 fun main7() {
     var arr = intArrayOf(8, -1, 6, 1, 9, 3, 2, 7, 4, -1)
@@ -256,6 +269,7 @@ fun main7() {
     indexArray(arr2, size)
     printArray(arr2, size)
 }
+
 fun Sort1toN(arr:IntArray, size:Int) {
     var curr:Int
     var value:Int
@@ -274,6 +288,7 @@ fun Sort1toN(arr:IntArray, size:Int) {
         }
     }
 }
+
 fun Sort1toN2(arr:IntArray, size:Int) {
     var temp:Int
     for (i in 0 until size)
@@ -286,6 +301,7 @@ fun Sort1toN2(arr:IntArray, size:Int) {
         }
     }
 }
+
 fun main8() {
     var arr = intArrayOf(8, 5, 6, 1, 9, 3, 2, 7, 4, 10)
     var size = arr.size
@@ -296,6 +312,7 @@ fun main8() {
     Sort1toN(arr2, size)
     printArray(arr2, size)
 }
+
 fun SmallestPositiveMissingNumber(arr:IntArray, size:Int):Int {
     var found:Int
     for (i in 1 until size + 1)
@@ -316,6 +333,7 @@ fun SmallestPositiveMissingNumber(arr:IntArray, size:Int):Int {
     }
     return -1
 }
+
 fun SmallestPositiveMissingNumber2(arr:IntArray, size:Int):Int {
     var hs = HashMap<Int, Int>()
     for (i in 0 until size)
@@ -331,6 +349,7 @@ fun SmallestPositiveMissingNumber2(arr:IntArray, size:Int):Int {
     }
     return -1
 }
+
 fun SmallestPositiveMissingNumber3(arr:IntArray, size:Int):Int {
     var aux = IntArray(size)
     Arrays.fill(aux, -1)
@@ -350,6 +369,7 @@ fun SmallestPositiveMissingNumber3(arr:IntArray, size:Int):Int {
     }
     return -1
 }
+
 fun SmallestPositiveMissingNumber4(arr:IntArray, size:Int):Int {
     var temp:Int
     for (i in 0 until size)
@@ -370,6 +390,7 @@ fun SmallestPositiveMissingNumber4(arr:IntArray, size:Int):Int {
     }
     return -1
 }
+
 fun main9() {
     var arr = intArrayOf(8, 5, 6, 1, 9, 11, 2, 7, 4, 10)
     var size = arr.size
@@ -378,6 +399,7 @@ fun main9() {
     println("Max sub array sum :" + SmallestPositiveMissingNumber3(arr, size))
     println("Max sub array sum :" + SmallestPositiveMissingNumber4(arr, size))
 }
+
 fun MaxMinArr(arr:IntArray, size:Int) {
     var aux = Arrays.copyOf(arr, size)
     var start = 0
@@ -396,6 +418,7 @@ fun MaxMinArr(arr:IntArray, size:Int) {
         }
     }
 }
+
 fun ReverseArr(arr:IntArray, startInput: Int, stopInput:Int) {
     var start = startInput
     var stop = stopInput
@@ -406,12 +429,14 @@ fun ReverseArr(arr:IntArray, startInput: Int, stopInput:Int) {
         stop -= 1
     }
 }
+
 fun MaxMinArr2(arr:IntArray, size:Int) {
     for (i in 0 until (size - 1))
     {
         ReverseArr(arr, i, size - 1)
     }
 }
+
 /* Testing code */
 fun main10() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7)
@@ -423,6 +448,7 @@ fun main10() {
     MaxMinArr2(arr2, size2)
     printArray(arr2, size2)
 }
+
 fun maxCircularSum(arr:IntArray, size:Int):Int {
     var sumAll = 0
     var currvar = 0
@@ -443,11 +469,13 @@ fun maxCircularSum(arr:IntArray, size:Int):Int {
     }
     return maxvar
 }
+
 /* Testing code */
 fun main11() {
     var arr = intArrayOf(10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
     println("MaxCirculrSm: " + maxCircularSum(arr, arr.size))
 }
+
 fun ArrayIndexMaxDiff(arr:IntArray, size:Int):Int {
     var maxDiff = -1
     var j:Int
@@ -466,6 +494,7 @@ fun ArrayIndexMaxDiff(arr:IntArray, size:Int):Int {
     }
     return maxDiff
 }
+
 fun ArrayIndexMaxDiff2(arr:IntArray, size:Int):Int {
     var leftMin = IntArray(size)
     var rightMax = IntArray(size)
@@ -517,12 +546,14 @@ fun ArrayIndexMaxDiff2(arr:IntArray, size:Int):Int {
     }
     return maxDiff
 }
+
 fun main12() {
     var arr = intArrayOf(33, 9, 10, 3, 2, 60, 30, 33, 1)
     println("ArrayIndexMaxDiff : " + ArrayIndexMaxDiff(arr, arr.size))
     println("ArrayIndexMaxDiff : " + ArrayIndexMaxDiff2(arr, arr.size))
     // System.out.println("ArrayIndexMaxDiff : " + ArrayIndexMaxDiff3(arr, arr.length));
 }
+
 fun maxPathSum(arr1:IntArray, size1:Int, arr2:IntArray, size2:Int):Int {
     var i = 0
     var j = 0
@@ -564,12 +595,14 @@ fun maxPathSum(arr1:IntArray, size1:Int, arr2:IntArray, size2:Int):Int {
     result += Math.max(sum1, sum2)
     return result
 }
+
 /* Testing code */
 fun main13() {
     var arr1 = intArrayOf(12, 13, 18, 20, 22, 26, 70)
     var arr2 = intArrayOf(11, 15, 18, 19, 20, 26, 30, 31)
     println("Max Path Sum :: " + maxPathSum(arr1, arr1.size, arr2, arr2.size))
 }
+
 fun towerOfHanoi(num:Int, src:Char, dst:Char, temp:Char) {
     if (num < 1)
     {
@@ -579,11 +612,13 @@ fun towerOfHanoi(num:Int, src:Char, dst:Char, temp:Char) {
     println("Move " + num + " disk from peg " + src + " to peg " + dst)
     towerOfHanoi(num - 1, temp, dst, src)
 }
+
 fun main14() {
     var num = 4
     println("The sequence of moves involved in the Tower of Hanoi are :\n")
     towerOfHanoi(num, 'A', 'C', 'B')
 }
+
 fun GCD(m:Int, n:Int):Int {
     if (m < n)
     {
@@ -595,6 +630,7 @@ fun GCD(m:Int, n:Int):Int {
     }
     return (GCD(n, m % n))
 }
+
 fun fibonacci(n:Int):Int {
     if (n <= 1)
     {
@@ -602,6 +638,7 @@ fun fibonacci(n:Int):Int {
     }
     return fibonacci(n - 1) + fibonacci(n - 2)
 }
+
 fun permutation(arr:IntArray, i:Int, length:Int) {
     if (length == i)
     {
@@ -619,6 +656,7 @@ fun permutation(arr:IntArray, i:Int, length:Int) {
     }
     return
 }
+
 fun main15() {
     var arr = IntArray(5)
     for (i in 0..4)
@@ -627,6 +665,7 @@ fun main15() {
     }
     permutation(arr, 0, 5)
 }
+
 // Binary Search Algorithm - Recursive
 fun BinarySearchRecursive(arr:IntArray, low:Int, high:Int, value:Int):Int {
     if (low > high)
@@ -645,6 +684,7 @@ fun BinarySearchRecursive(arr:IntArray, low:Int, high:Int, value:Int):Int {
         return BinarySearchRecursive(arr, low, mid - 1, value)
     }
 }
+
 /* Testing code */
 fun main16() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)

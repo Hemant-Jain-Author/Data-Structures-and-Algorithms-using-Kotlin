@@ -84,14 +84,16 @@ fun precedence(x: Char): Int {
     if (x == '(') {
         return 0
     }
-    if (x == '+' || x == '-') {
+    else if (x == '+' || x == '-') {
         return 1
     }
-    if (x == '*' || x == '/' || x == '%')
+    else if (x == '*' || x == '/' || x == '%')
         return 2
-    return if (x == '^') {
-        3
-    } else 4
+    else if (x == '^') {
+        return 3
+    } 
+    else
+        return 4
 }
 
 fun infixToPostfix(expn: String): String {
@@ -227,11 +229,11 @@ fun main5() {
     val arr = intArrayOf(6, 5, 4, 3, 2, 4, 5, 7, 9)
     val size = arr.size
     var value = StockSpanRange(arr)
-    print("\nStockSpanRange : ")
+    print("StockSpanRange : ")
     for (`val` in value)
         print(" $`val`")
     value = StockSpanRange2(arr)
-    print("\nStockSpanRange : ")
+    print("StockSpanRange : ")
     for (`val` in value)
         print(" $`val`")
 }
@@ -597,7 +599,7 @@ fun main13() {
     println("Given expn $expn1")
     printParenthesisNumber(expn1, size)
     size = expn2.length
-    println("\nGiven expn $expn2")
+    println("Given expn $expn2")
     printParenthesisNumber(expn2, size)
 }
 
@@ -837,7 +839,7 @@ fun DistNearestFill(arr: Array<IntArray>, maxCol: Int, maxRow: Int) {
         for (j in 0 until maxRow) {
             println("" + traversed[i][j])
         }
-        println("\n")
+        println("")
     }
 }
 

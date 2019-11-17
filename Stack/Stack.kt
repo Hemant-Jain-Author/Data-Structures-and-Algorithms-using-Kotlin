@@ -33,6 +33,7 @@ class Stack {
         return data[top]
     }
 
+    @Throws(IllegalStateException::class)
     fun pop(): Int {
         if (isEmpty) {
             throw IllegalStateException("StackEmptyException")

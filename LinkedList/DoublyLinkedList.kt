@@ -29,6 +29,7 @@ class DoublyLinkedList {
         return size
     }
 
+    @Throws(IllegalStateException::class)
     fun peek(): Int {
         if (isEmpty)
             throw IllegalStateException("EmptyListException")
@@ -61,6 +62,7 @@ class DoublyLinkedList {
         size++
     }
 
+    @Throws(IllegalStateException::class)
     fun removeHead(): Int {
         if (isEmpty)
             throw IllegalStateException("EmptyListException")

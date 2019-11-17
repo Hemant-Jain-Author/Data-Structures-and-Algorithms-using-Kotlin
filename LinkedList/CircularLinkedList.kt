@@ -11,6 +11,7 @@ class CircularLinkedList {
         return size
     }
 
+    @Throws(IllegalStateException::class)
     fun peek(): Int {
         if (isEmpty)
             throw IllegalStateException("EmptyListException")

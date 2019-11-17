@@ -118,7 +118,7 @@ fun main2() {
 }
 
 fun printRepeating(arr: IntArray, size: Int) {
-    print(" \nRepeating elements are ")
+    print("Repeating elements are ")
     for (i in 0 until size) {
         for (j in i + 1 until size) {
             if (arr[i] == arr[j]) {
@@ -130,7 +130,7 @@ fun printRepeating(arr: IntArray, size: Int) {
 
 fun printRepeating2(arr: IntArray, size: Int) {
     Arrays.sort(arr)
-    print(" \nRepeating elements are ")
+    print("Repeating elements are ")
 
     for (i in 1 until size) {
         if (arr[i] == arr[i - 1]) {
@@ -141,7 +141,7 @@ fun printRepeating2(arr: IntArray, size: Int) {
 
 fun printRepeating3(arr: IntArray, size: Int) {
     val hs = HashSet<Int>()
-    print(" \nRepeating elements are ")
+    print("Repeating elements are ")
     for (i in 0 until size) {
         if (hs.contains(arr[i])) {
             print(" " + arr[i])
@@ -159,7 +159,7 @@ fun printRepeating4(arr: IntArray, size: Int, range: Int) {
         count[i] = 0
         i++
     }
-    print(" \nRepeating elements are ")
+    print("Repeating elements are ")
     i = 0
     while (i < size) {
         if (count[arr[i]] == 1) {
@@ -533,7 +533,7 @@ fun FindDifference2(arr: IntArray, size: Int, value: Int): Boolean {
 
 fun findMinDiff(arr: IntArray, size: Int): Int {
     Arrays.sort(arr)
-    var diff = 9999999
+    var diff = Int.MAX_VALUE
 
     for (i in 0 until size - 1) {
         if (arr[i + 1] - arr[i] < diff)
@@ -543,7 +543,7 @@ fun findMinDiff(arr: IntArray, size: Int): Int {
 }
 
 fun MinDiffPair(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int): Int {
-    var minDiff = 9999999
+    var minDiff = Int.MAX_VALUE
     var first = 0
     var second = 0
     var out1 = 0
@@ -578,7 +578,7 @@ fun main9() {
 }
 
 fun ClosestPair(arr: IntArray, size: Int, value: Int) {
-    var diff = 999999
+    var diff = Int.MAX_VALUE
     var first = -1
     var second = -1
     var curr: Int
@@ -603,7 +603,7 @@ fun ClosestPair2(arr: IntArray, size: Int, value: Int) {
     var diff: Int
     var curr: Int
     Arrays.sort(arr)
-    diff = 9999999
+    diff = Int.MAX_VALUE
     run {
         while (start < stop) {
             curr = value - (arr[start] + arr[stop])
@@ -876,7 +876,7 @@ fun getMax2(arr: IntArray, size: Int): Int {
     var maxCount = 1
     var curr = arr[0]
     var currCount = 1
-    Arrays.sort(arr) // Sort(arr,size);
+    Arrays.sort(arr) 
     for (i in 1 until size) {
         if (arr[i] == arr[i - 1]) {
             currCount++
@@ -940,7 +940,7 @@ fun getMajority2(arr: IntArray, size: Int): Int {
     val majIndex = size / 2
     var count : Int
     val candidate: Int
-    Arrays.sort(arr) // Sort(arr,size);
+    Arrays.sort(arr) 
     candidate = arr[majIndex]
     count = 0
     for (i in 0 until size) {
@@ -1013,17 +1013,14 @@ fun SearchBotinicArrayMax(arr: IntArray, size: Int): Int {
     }
     while (start <= end) {
         mid = (start + end) / 2
-        if (arr[mid - 1] < arr[mid] && arr[mid + 1] < arr[mid])
-        // maxima
+        if (arr[mid - 1] < arr[mid] && arr[mid + 1] < arr[mid]) // maxima
         {
             maximaFound = 1
             break
-        } else if (arr[mid - 1] < arr[mid] && arr[mid] < arr[mid + 1])
-        // increasing
+        } else if (arr[mid - 1] < arr[mid] && arr[mid] < arr[mid + 1]) // increasing
         {
             start = mid + 1
-        } else if (arr[mid - 1] > arr[mid] && arr[mid] > arr[mid + 1])
-        // decreasing
+        } else if (arr[mid - 1] > arr[mid] && arr[mid] > arr[mid + 1])  // decreasing
         {
             end = mid - 1
         } else {
@@ -1201,7 +1198,7 @@ fun maxProfit(stocks: IntArray, size: Int): Int {
 
 fun main15() {
     val first = intArrayOf(10, 150, 6, 67, 61, 16, 86, 6, 67, 78, 150, 3, 28, 143)
-    println("maxProfit : " + maxProfit(first, first.size))
+    println("MaxProfit : " + maxProfit(first, first.size))
 }
 
 fun findMedian(arrFirst: IntArray, sizeFirst: Int, arrSecond: IntArray, sizeSecond: Int): Int {
@@ -1229,13 +1226,14 @@ fun findMedian(arrFirst: IntArray, sizeFirst: Int, arrSecond: IntArray, sizeSeco
 fun main16() {
     val first = intArrayOf(1, 5, 6, 6, 6, 6, 6, 6, 7, 8, 10, 13, 20, 30)
     val second = intArrayOf(1, 5, 6, 6, 6, 6, 6, 6, 7, 8, 10, 13, 20, 30)
-    println("findMedian : " + findMedian(first, first.size, second, second.size))
+    println("FindMedian : " + findMedian(first, first.size, second, second.size))
 }
 
 fun BinarySearch01(arr: IntArray, size: Int): Int {
     return if (size == 1 && arr[0] == 1) {
         0
-    } else BinarySearch01Util(arr, 0, size - 1)
+    } else 
+        BinarySearch01Util(arr, 0, size - 1)
 }
 
 fun BinarySearch01Util(arr: IntArray, start: Int, end: Int): Int {
@@ -1338,7 +1336,7 @@ fun main18() {
 }
 
 fun minAbsDiffAdjCircular(arr: IntArray, size: Int): Int {
-    var diff = 9999999
+    var diff = Int.MAX_VALUE
     if (size < 2)
         return -1
 
@@ -1436,8 +1434,8 @@ fun isAP(arr: IntArray, size: Int): Boolean {
 }
 
 fun isAP2(arr: IntArray, size: Int): Boolean {
-    var first = 9999999
-    var second = 9999999
+    var first = Int.MAX_VALUE
+    var second = Int.MAX_VALUE
     var value: Int
     val hs = HashSet<Int>()
     for (i in 0 until size) {
@@ -1463,8 +1461,8 @@ fun isAP2(arr: IntArray, size: Int): Boolean {
 }
 
 fun isAP3(arr: IntArray, size: Int): Boolean {
-    var first = 9999999
-    var second = 9999999
+    var first = Int.MAX_VALUE
+    var second = Int.MAX_VALUE
     val count = IntArray(size)
     var index = -1
     for (i in 0 until size) {
@@ -1511,7 +1509,7 @@ fun findBalancedPoint(arr: IntArray, size: Int): Int {
 
 fun main22() {
     val arr = intArrayOf(-7, 1, 5, 2, -4, 3, 0)
-    println("findBalancedPoint : " + findBalancedPoint(arr, arr.size))
+    println("FindBalancedPoint : " + findBalancedPoint(arr, arr.size))
 
 }
 

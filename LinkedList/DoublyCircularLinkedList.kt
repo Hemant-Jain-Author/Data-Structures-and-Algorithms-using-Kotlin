@@ -29,6 +29,7 @@ class DoublyCircularLinkedList {
         return size
     }
 
+    @Throws(IllegalStateException::class)
     fun peekHead(): Int {
         if (isEmpty)
             throw IllegalStateException("EmptyListException")

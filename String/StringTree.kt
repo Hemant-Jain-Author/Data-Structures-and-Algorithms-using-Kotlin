@@ -94,7 +94,7 @@ fun main(args: Array<String>) {
     tt.add("banana")
     tt.add("apple")
     tt.add("mango")
-    println("\nSearch results for apple, banana, grapes and mango :\n")
+    println("Search results for apple, banana, grapes and mango :")
     tt.find("apple")
     tt.find("banana")
     tt.find("banan")
@@ -107,4 +107,3 @@ fun main(args: Array<String>) {
     println("frequency(mango) returned :: " + tt.frequency("mango"))
     println("frequency(hemant) returned :: " + tt.frequency("hemant"))
 }
-

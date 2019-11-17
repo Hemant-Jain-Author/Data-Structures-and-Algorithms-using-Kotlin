@@ -24,11 +24,9 @@ fun quickSelectUtil(arr: IntArray, lower: Int, upper: Int, k: Int) {
     swap(arr, upper, start) // upper is the pivot position
 
     if (k < upper)
-        quickSelectUtil(arr, start, upper - 1, k) // pivot -1 is the upper for
-    // left sub array.
+        quickSelectUtil(arr, start, upper - 1, k) // pivot -1 is the upper for left sub array.
     if (k > upper)
-        quickSelectUtil(arr, upper + 1, stop, k) // pivot + 1 is the lower for
-    // right sub array.
+        quickSelectUtil(arr, upper + 1, stop, k) // pivot + 1 is the lower for right sub array.
 }
 
 fun swap(arr: IntArray, first: Int, second: Int) {

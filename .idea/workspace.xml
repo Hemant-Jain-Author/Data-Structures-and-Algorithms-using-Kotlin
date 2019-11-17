@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b04dc547-09ef-425c-a8d9-bd299eb00d13" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/algo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/algo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graph/Graph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/Graph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graph/GraphAM.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/GraphAM.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Heap/HeapEx.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Heap/HeapEx.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Introduction/Introduction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Introduction/Introduction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Introduction/QuickSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Introduction/QuickSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/CircularLinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/CircularLinkedList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/DoublyCircularLinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/DoublyCircularLinkedList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/DoublyLinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/DoublyLinkedList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/LinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/LinkedList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/Queue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Queue/Queue.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Searching/Searching.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Searching/Searching.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/QuickSelect.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/QuickSelect.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/.StackExercise.java.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/Stack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/Stack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/Stack2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/Stack2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/StackExercise.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/StackExercise.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/TwoStack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/TwoStack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/StringAlgo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/StringAlgo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/StringTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/StringTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/TST.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/TST.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/Trie.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/Trie.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Tree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/Tree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script.sh" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>prims</find>
+      <find>999999</find>
+      <find>-Int.MAX_VALUE</find>
+      <find>\n</find>
+      <find>99</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Int.MAX_VALUE</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/AlgorithmsChapters/algo.kt" />
+        <option value="$PROJECT_DIR$/AlgorithmsChapters/twitter.txt" />
+        <option value="$PROJECT_DIR$/Graph/GraphAM.kt" />
+        <option value="$PROJECT_DIR$/Graph/Graph.kt" />
+        <option value="$PROJECT_DIR$/Heap/HeapEx.kt" />
+        <option value="$PROJECT_DIR$/Introduction/Introduction.kt" />
+        <option value="$PROJECT_DIR$/Introduction/QuickSort.kt" />
+        <option value="$PROJECT_DIR$/LinkedList/CircularLinkedList.kt" />
+        <option value="$PROJECT_DIR$/LinkedList/DoublyCircularLinkedList.kt" />
+        <option value="$PROJECT_DIR$/LinkedList/DoublyLinkedList.kt" />
+        <option value="$PROJECT_DIR$/LinkedList/LinkedList.kt" />
+        <option value="$PROJECT_DIR$/Queue/Queue.kt" />
+        <option value="$PROJECT_DIR$/Searching/Searching.kt" />
+        <option value="$PROJECT_DIR$/Sorting/QuickSelect.kt" />
+        <option value="$PROJECT_DIR$/Stack/Stack.kt" />
+        <option value="$PROJECT_DIR$/Stack/Stack2.kt" />
+        <option value="$PROJECT_DIR$/Stack/StackExercise.kt" />
+        <option value="$PROJECT_DIR$/Stack/TwoStack.kt" />
+        <option value="$PROJECT_DIR$/String/StringAlgo.kt" />
+        <option value="$PROJECT_DIR$/String/StringTree.kt" />
+        <option value="$PROJECT_DIR$/String/Trie.kt" />
+        <option value="$PROJECT_DIR$/String/TST.kt" />
+        <option value="$PROJECT_DIR$/Tree/Tree.kt" />
+        <option value="$PROJECT_DIR$/script.sh" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/Data-Structures-and-Algorithms-in-Kotlin.iml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="696" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Data-Structures-and-Algorithms-in-Kotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Data-Structures-and-Algorithms-in-Kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Data-Structures-and-Algorithms-in-Kotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Data-Structures-and-Algorithms-in-Kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="Tree" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b04dc547-09ef-425c-a8d9-bd299eb00d13" name="Default Changelist" comment="" />
+      <created>1574004136188</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574004136188</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-4" y="0" width="1374" height="739" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Learn" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.244713" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Learn" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.244713" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" />
+      <window_info anchor="bottom" id="Run" order="5" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/AlgorithmsChapters/twitter.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="126" selection-end-line="4" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/Graph.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2736">
+          <caret line="643" column="35" selection-start-line="643" selection-start-column="35" selection-end-line="643" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graph/GraphAM.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2085">
+          <caret line="139" column="26" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Heap/HeapEx.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="422" selection-start-line="422" selection-end-line="422" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Introduction/Analysis.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="242" column="3" lean-forward="true" selection-start-line="242" selection-start-column="3" selection-end-line="242" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Introduction/Introduction.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="711" column="1" lean-forward="true" selection-start-line="711" selection-start-column="1" selection-end-line="711" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Introduction/QuickSort.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="53" column="1" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Heap/MedianHeap.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Heap/Heap.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HashTable/CountMap.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlgorithmsChapters/algo.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="103" column="1" lean-forward="true" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LinkedList/CircularLinkedList.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="165" column="1" lean-forward="true" selection-start-line="165" selection-start-column="1" selection-end-line="165" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LinkedList/DoublyCircularLinkedList.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LinkedList/LinkedList.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="434" column="1" lean-forward="true" selection-start-line="434" selection-start-column="1" selection-end-line="434" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LinkedList/DoublyLinkedList.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="262" column="1" lean-forward="true" selection-start-line="262" selection-start-column="1" selection-end-line="262" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Queue/Queue.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Queue/QueueEx.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Queue/QueueLL.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Queue/QueueUsingStack.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Searching/Searching.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="1888" column="1" lean-forward="true" selection-start-line="1888" selection-start-column="1" selection-end-line="1888" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sorting/BubbleSort.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sorting/BucketSort.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sorting/InsertionSort.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sorting/MergeSort.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sorting/MergeSort1.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sorting/QuickSelect.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sorting/QuickSort.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sorting/SortingEx.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="375" column="1" lean-forward="true" selection-start-line="375" selection-start-column="1" selection-end-line="375" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stack/Stack.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stack/Stack2.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stack/StackExercise.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="993" column="31" lean-forward="true" selection-start-line="993" selection-start-column="31" selection-end-line="993" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stack/StackLL.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="65" column="1" lean-forward="true" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stack/TwoStack.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="59" column="1" lean-forward="true" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/String/StringAlgo.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="421" column="1" lean-forward="true" selection-start-line="421" selection-start-column="1" selection-end-line="421" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/String/StringMatching.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="140" column="1" lean-forward="true" selection-start-line="140" selection-start-column="1" selection-end-line="140" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/String/StringTree.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/String/Trie.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="91" column="1" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/String/TST.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tree/Tree.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="1034" column="15" lean-forward="true" selection-start-line="1034" selection-start-column="15" selection-end-line="1034" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

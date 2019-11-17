@@ -92,9 +92,9 @@ class GraphAM internal constructor(cnt:Int) {
         }
         for (i in 0 until count) {
             if (dist[i] == Integer.MAX_VALUE) {
-                println(" \n node id " + i + " prev " + previous[i] + " distance : Unreachable")
+                println("Node id " + i + " prev " + previous[i] + " distance : Unreachable")
             } else {
-                println(" node id " + i + " prev " + previous[i] + " distance : " + dist[i])
+                println("Node id " + i + " prev " + previous[i] + " distance : " + dist[i])
             }
         }
     }
@@ -135,9 +135,9 @@ class GraphAM internal constructor(cnt:Int) {
         }
         for (i in 0 until count) {
             if (dist[i] == Integer.MAX_VALUE) {
-                println(" \n node id " + i + " prev " + previous[i] + " distance : Unreachable")
+                println("Node id " + i + " prev " + previous[i] + " distance : Unreachable")
             } else {
-                println(" node id " + i + " prev " + previous[i] + " distance : " + dist[i])
+                println("Node id " + i + " prev " + previous[i] + " distance : " + dist[i])
             }
         }
     }
