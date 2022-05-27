@@ -1,8 +1,8 @@
 class TwoStack {
     private val MAX_SIZE = 50
-    internal var top1: Int = 0
-    internal var top2: Int = 0
-    internal var data: IntArray
+    var top1: Int
+    var top2: Int
+    var data: IntArray
 
     init {
         top1 = -1
@@ -10,7 +10,7 @@ class TwoStack {
         data = IntArray(MAX_SIZE)
     }
 
-    fun StackPush1(value: Int) {
+    fun push1(value: Int) {
         if (top1 < top2 - 1) {
             data[++top1] = value
         } else {
@@ -18,7 +18,7 @@ class TwoStack {
         }
     }
 
-    fun StackPush2(value: Int) {
+    fun push2(value: Int) {
         if (top1 < top2 - 1) {
             data[--top2] = value
         } else {
@@ -26,35 +26,35 @@ class TwoStack {
         }
     }
 
-    fun StackPop1(): Int {
+    fun pop1(): Int {
         if (top1 >= 0) {
             return data[top1--]
         } else {
-            print("Stack is Empty!")
+            print("Stack Empty!")
         }
-        return Int.MIN_VALUE
+        return -999
     }
 
-    fun StackPop2(): Int {
+    fun pop2(): Int {
         if (top2 < MAX_SIZE) {
             return data[top2++]
         } else {
-            print("Stack is Empty!")
+            print("Stack Empty!")
         }
-        return Int.MIN_VALUE
+        return -999
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val st = TwoStack()
-    for (i in 0..9) {
-        st.StackPush1(i)
-    }
-    for (j in 0..9) {
-        st.StackPush2(j + 10)
-    }
-    for (i in 0..9) {
-        println("stack one pop value is : " + st.StackPop1())
-        println("stack two pop value is : " + st.StackPop2())
-    }
+    st.push1(1)
+    st.push1(2)
+    st.push1(3)
+    st.push2(4)
+    st.push2(5)
+    st.push2(6)
+    println("stk1 pop: " + st.pop1())
+    println("stk1 pop: " + st.pop1())
+    println("stk2 pop: " + st.pop2())
+    println("stk2 pop: " + st.pop2())
 }

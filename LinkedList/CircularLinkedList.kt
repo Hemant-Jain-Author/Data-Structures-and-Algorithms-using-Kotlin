@@ -4,17 +4,16 @@ class CircularLinkedList {
 
     val isEmpty: Boolean
         get() = size == 0
-
-    class Node(var value: Int, var next: Node?)
+     
+    private class Node(val value: Int, var next: Node?)
 
     fun size(): Int {
         return size
     }
 
-    @Throws(IllegalStateException::class)
+    /* Other methods */
     fun peek(): Int {
-        if (isEmpty)
-            throw IllegalStateException("EmptyListException")
+        if (isEmpty) throw IllegalStateException("EmptyListException")
         return tail!!.next!!.value
     }
 
@@ -49,11 +48,10 @@ class CircularLinkedList {
             throw IllegalStateException("EmptyListException")
         }
         val value = tail!!.next!!.value
-        if (tail === tail!!.next)
-            tail = null
-        else
+        if (tail === tail!!.next) 
+            tail = null 
+        else 
             tail!!.next = tail!!.next!!.next
-
         size--
         return value
     }
@@ -62,27 +60,22 @@ class CircularLinkedList {
         if (isEmpty) {
             return false
         }
+
         var curr = tail!!.next
         val head = tail!!.next
 
-        if (curr!!.value == key)
-        // head and single node case.
-        {
-            if (curr === curr.next)
-            // single node case
-                tail = null
-            else
-            // head case
+        if (curr!!.value == key) { // head and single node case.
+            if (curr === curr.next) // single node case
+                tail = null 
+            else  // head case
                 tail!!.next = tail!!.next!!.next
             return true
         }
-
         var prev = curr
         curr = curr.next
-
         while (curr !== head) {
             if (curr!!.value == key) {
-                if (curr === tail)
+                if (curr === tail) 
                     tail = prev
                 prev!!.next = curr.next
                 return true
@@ -90,15 +83,16 @@ class CircularLinkedList {
             prev = curr
             curr = curr.next
         }
-
         return false
     }
 
     fun copyListReversed(): CircularLinkedList {
         val cl = CircularLinkedList()
-        var curr: Node? = tail!!.next
+        if (tail == null) {
+            return cl
+        }
+        var curr = tail!!.next
         val head = curr
-
         if (curr != null) {
             cl.addHead(curr.value)
             curr = curr.next
@@ -112,9 +106,11 @@ class CircularLinkedList {
 
     fun copyList(): CircularLinkedList {
         val cl = CircularLinkedList()
-        var curr: Node? = tail!!.next
+        if (tail == null) {
+            return cl
+        }
+        var curr = tail!!.next
         val head = curr
-
         if (curr != null) {
             cl.addTail(curr.value)
             curr = curr.next
@@ -126,10 +122,10 @@ class CircularLinkedList {
         return cl
     }
 
-    fun searchList(data: Int): Boolean {
+    fun search(data: Int): Boolean {
         var temp = tail
         for (i in 0 until size) {
-            if (temp!!.value == data)
+            if (temp!!.value == data) 
                 return true
             temp = temp.next
         }
@@ -143,6 +139,7 @@ class CircularLinkedList {
 
     fun print() {
         if (isEmpty) {
+            println("Empty List.")
             return
         }
         var temp = tail!!.next
@@ -150,17 +147,100 @@ class CircularLinkedList {
             print(temp!!.value.toString() + " ")
             temp = temp.next
         }
-        print(temp!!.value)
+        println(temp!!.value)
     }
 }
 
-fun main(args: Array<String>) {
+fun main1() {
     val ll = CircularLinkedList()
     ll.addHead(1)
     ll.addHead(2)
     ll.addHead(3)
+    ll.print()
+    println(ll.size())
+    println(ll.isEmpty)
+    println(ll.peek())
+    println(ll.search(3))
+}
+
+/*
+3 2 1
+3
+false
+3
+true
+*/
+
+fun main2() {
+    val ll = CircularLinkedList()
+    ll.addTail(1)
+    ll.addTail(2)
+    ll.addTail(3)
+    ll.print()
+}
+
+/*
+1 2 3
+*/
+
+fun main3() {
+    val ll = CircularLinkedList()
     ll.addHead(1)
     ll.addHead(2)
     ll.addHead(3)
     ll.print()
+    ll.removeHead()
+    ll.print()
+    ll.removeNode(2)
+    ll.print()
+    ll.deleteList()
+    ll.print()
+}
+
+/*
+3 2 1
+2 1
+1
+Empty List.
+*/
+
+fun main4() {
+    val ll = CircularLinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(3)
+    ll.print()
+    val ll2 = ll.copyList()
+    ll2.print()
+    val ll3 = ll.copyListReversed()
+    ll3.print()
+}
+
+/*
+3 2 1
+3 2 1
+1 2 3
+*/
+
+fun main5() {
+    val ll = CircularLinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(3)
+    ll.print()
+    ll.removeNode(2)
+    ll.print()
+}
+
+/*
+3 2 1
+3 1
+*/
+
+fun main() {
+    main1()
+    main2()
+    main3()
+    main4()
+    main5()
 }

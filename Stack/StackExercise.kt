@@ -1,9 +1,36 @@
 import java.util.Stack
 import java.util.Scanner
 import java.util.ArrayDeque
+import java.util.Arrays
+
+fun function2() {
+    println("fun2 line 1")
+}
+
+fun function1() {
+    println("fun1 line 1")
+    function2()
+    println("fun1 line 2")
+}
+
+/* Testing code */
+
+fun main1() {
+    println("main line 1")
+    function1()
+    println("main line 2")
+}
+
+/*
+main line 1
+fun1 line 1
+fun2 line 1
+fun1 line 2
+main line 2
+*/
 
 fun isBalancedParenthesis(expn: String): Boolean {
-    val stk = Stack<Char>()
+    val stk: Stack<Char> = Stack<Char>()
     for (ch in expn.toCharArray()) {
         when (ch) {
             '{', '[', '(' -> stk.push(ch)
@@ -21,46 +48,26 @@ fun isBalancedParenthesis(expn: String): Boolean {
     return stk.isEmpty()
 }
 
-fun main1() {
+fun main2() {
     val expn = "{()}[]"
     val value = isBalancedParenthesis(expn)
-    println("Given Expn:$expn")
-    println("Result after isParenthesisMatched:$value")
+    println("isBalancedParenthesis: $value")
 }
 
-fun <T> insertAtBottom(stk: Stack<T>, value: T) {
-    if (stk.isEmpty()) {
-        stk.push(value)
-    } else {
+/*
+isBalancedParenthesis: true
+*/
 
-        val out = stk.pop()
-        insertAtBottom(stk, value)
-        stk.push(out)
-    }
-}
-
-fun <T> reverseStack(stk: Stack<T>) {
-    if (stk.isEmpty()) {
-        return
-    } else {
-
-        val value = stk.pop()
-        reverseStack<T>(stk)
-        insertAtBottom<T>(stk, value)
-    }
-}
-
-fun postfixEvaluate(expn: String): Int {
-    val stk = Stack<Int>()
-    val tokens = Scanner(expn)
-
+fun postfixEvaluate(expn: String?): Int {
+    val stk: Stack<Int> = Stack<Int>()
+    val tokens: Scanner = Scanner(expn)
     while (tokens.hasNext()) {
         if (tokens.hasNextInt()) {
             stk.push(tokens.nextInt())
         } else {
-            val num1 = stk.pop()
-            val num2 = stk.pop()
-            val op = tokens.next().get(0)
+            val num1: Int = stk.pop()
+            val num2: Int = stk.pop()
+            val op: Char = tokens.next().get(0)
             when (op) {
                 '+' -> stk.push(num1 + num2)
                 '-' -> stk.push(num1 - num2)
@@ -73,33 +80,32 @@ fun postfixEvaluate(expn: String): Int {
     return stk.pop()
 }
 
-fun main2() {
+fun main3() {
     val expn = "6 5 2 3 + 8 * + 3 + *"
     val value = postfixEvaluate(expn)
-    println("Given Postfix Expn: $expn")
     println("Result after Evaluation: $value")
 }
+
+/*
+Result after Evaluation: 288
+*/
 
 fun precedence(x: Char): Int {
     if (x == '(') {
         return 0
     }
-    else if (x == '+' || x == '-') {
+    if (x == '+' || x == '-') {
         return 1
     }
-    else if (x == '*' || x == '/' || x == '%')
-        return 2
-    else if (x == '^') {
-        return 3
-    } 
-    else
-        return 4
+    if (x == '*' || x == '/' || x == '%') return 2
+    return if (x == '^') {
+        3
+    } else 4
 }
 
 fun infixToPostfix(expn: String): String {
     var output = ""
-    val out = infixToPostfix(expn.toCharArray())
-
+    val out: CharArray = infixToPostfix(expn.toCharArray())
     for (ch in out) {
         output = output + ch
     }
@@ -107,11 +113,9 @@ fun infixToPostfix(expn: String): String {
 }
 
 fun infixToPostfix(expn: CharArray): CharArray {
-    val stk = Stack<Char>()
-
+    val stk: Stack<Char> = Stack<Char>()
     var output = ""
     var out: Char
-
     for (ch in expn) {
         if (ch <= '9' && ch >= '0') {
             output = output + ch
@@ -126,9 +130,9 @@ fun infixToPostfix(expn: CharArray): CharArray {
                     output = "$output "
                 }
                 '(' -> stk.push(ch)
-                ')' -> while (stk.isEmpty() == false ) {
+                ')' -> while (stk.isEmpty() == false) {
                     out = stk.pop()
-                    if(out != '(')
+                    if(out != '(') 
                         output = "$output $out "
                     else
                         break
@@ -136,7 +140,6 @@ fun infixToPostfix(expn: CharArray): CharArray {
             }
         }
     }
-
     while (stk.isEmpty() == false) {
         out = stk.pop()
         output = "$output$out "
@@ -144,25 +147,28 @@ fun infixToPostfix(expn: CharArray): CharArray {
     return output.toCharArray()
 }
 
-fun main3() {
+fun main4() {
     val expn = "10+((3))*5/(16-4)"
     val value = infixToPostfix(expn)
     println("Infix Expn: $expn")
     println("Postfix Expn: $value")
 }
 
+/*
+Infix Expn: 10+((3))*5/(16-4)
+Postfix Expn: 10 3 5 * 16 4 - / +
+*/
+
 fun infixToPrefix(expn: String): String {
-    var expn = expn
-    var arr = expn.toCharArray()
+    var arr: CharArray = expn.toCharArray()
     reverseString(arr)
-    replaceParanthesis(arr)
+    replaceParenthesis(arr)
     arr = infixToPostfix(arr)
     reverseString(arr)
-    expn = arr.joinToString("")
-    return expn
+    return String(arr)
 }
 
-fun replaceParanthesis(a: CharArray) {
+fun replaceParenthesis(a: CharArray) {
     var lower = 0
     val upper = a.size - 1
     while (lower <= upper) {
@@ -188,19 +194,24 @@ fun reverseString(expn: CharArray) {
     }
 }
 
-fun main4() {
+fun main5() {
     val expn = "10+((3))*5/(16-4)"
     val value = infixToPrefix(expn)
     println("Infix Expn: $expn")
     println("Prefix Expn: $value")
 }
 
-fun StockSpanRange(arr: IntArray): IntArray {
+/*
+Infix Expn: 10+((3))*5/(16-4)
+Prefix Expn:  +10 * 3 / 5  - 16 4
+*/
+
+fun stockSpanRange(arr: IntArray): IntArray {
     val SR = IntArray(arr.size)
     SR[0] = 1
     for (i in 1 until arr.size) {
         SR[i] = 1
-        var j = i - 1
+        var j: Int = i - 1
         while (j >= 0 && arr[i] >= arr[j]) {
             SR[i]++
             j--
@@ -209,9 +220,8 @@ fun StockSpanRange(arr: IntArray): IntArray {
     return SR
 }
 
-fun StockSpanRange2(arr: IntArray): IntArray {
-    val stk = Stack<Int>()
-
+fun stockSpanRange2(arr: IntArray): IntArray {
+    val stk: Stack<Int> = Stack<Int>()
     val SR = IntArray(arr.size)
     stk.push(0)
     SR[0] = 1
@@ -225,24 +235,28 @@ fun StockSpanRange2(arr: IntArray): IntArray {
     return SR
 }
 
-fun main5() {
+fun main6() {
     val arr = intArrayOf(6, 5, 4, 3, 2, 4, 5, 7, 9)
-    val size = arr.size
-    var value = StockSpanRange(arr)
-    print("StockSpanRange : ")
-    for (`val` in value)
-        print(" $`val`")
-    value = StockSpanRange2(arr)
-    print("StockSpanRange : ")
-    for (`val` in value)
-        print(" $`val`")
+    var value = stockSpanRange(arr)
+    print("stockSpanRange : ")
+    for (`val` in value) print("$`val` ")
+    println()
+    value = stockSpanRange2(arr)
+    print("stockSpanRange : ")
+    for (`val` in value) print("$`val` ")
+    println()
 }
 
-fun GetMaxArea(arr: IntArray): Int {
+/*
+stockSpanRange : 1 1 1 1 1 4 6 8 9
+stockSpanRange : 1 1 1 1 1 4 6 8 9
+*/
+
+fun getMaxArea(arr: IntArray): Int {
     val size = arr.size
     var maxArea = -1
     var currArea: Int
-    var minHeight = 0
+    var minHeight : Int
     for (i in 1 until size) {
         minHeight = arr[i]
         for (j in i - 1 downTo 0) {
@@ -258,9 +272,9 @@ fun GetMaxArea(arr: IntArray): Int {
     return maxArea
 }
 
-fun GetMaxArea2(arr: IntArray): Int {
+fun getMaxArea2(arr: IntArray): Int {
     val size = arr.size
-    val stk = Stack<Int>()
+    val stk: Stack<Int> = Stack<Int>()
     var maxArea = 0
     var top: Int
     var topArea: Int
@@ -282,19 +296,35 @@ fun GetMaxArea2(arr: IntArray): Int {
     return maxArea
 }
 
-fun main6() {
+fun main7() {
     val arr = intArrayOf(7, 6, 5, 4, 4, 1, 6, 3, 1)
-    val size = arr.size
-    var value = GetMaxArea(arr)
-    println("GetMaxArea :: $value")
-    value = GetMaxArea2(arr)
-    println("GetMaxArea :: $value")
+    var value = getMaxArea(arr)
+    println("getMaxArea :: $value")
+    value = getMaxArea2(arr)
+    println("getMaxArea :: $value")
+}
+
+/*
+getMaxArea :: 20
+getMaxArea :: 20
+*/
+
+fun stockAnalystAdd(stk: Stack<Int>, value: Int) {
+    while (!stk.isEmpty() && stk.peek() <= value) stk.pop()
+    stk.push(value)
+}
+
+fun main7a() {
+    val arr = intArrayOf(20, 19, 10, 21, 40, 35, 39, 50, 45, 42)
+    val stk: Stack<Int> = Stack<Int>()
+    for (i in arr.indices.reversed()) stockAnalystAdd(stk, arr[i])
+    println(stk)
 }
 
 fun sortedInsert(stk: Stack<Int>, element: Int) {
     val temp: Int
-    if (stk.isEmpty() || element > stk.peek())
-        stk.push(element)
+    if (stk.isEmpty() || element > stk.peek()) 
+        stk.push(element) 
     else {
         temp = stk.pop()
         sortedInsert(stk, element)
@@ -302,70 +332,137 @@ fun sortedInsert(stk: Stack<Int>, element: Int) {
     }
 }
 
+fun main8() {
+    val stk: Stack<Int> = Stack<Int>()
+    stk.push(1)
+    stk.push(3)
+    stk.push(4)
+    println(stk)
+    sortedInsert(stk, 2)
+    println(stk)
+}
+
+/*
+[1, 3, 4]
+[1, 2, 3, 4]
+*/
+
 fun sortStack(stk: Stack<Int>) {
     val temp: Int
     if (stk.isEmpty() == false) {
         temp = stk.pop()
         sortStack(stk)
-        stk.push(temp)
+        sortedInsert(stk, temp)
     }
 }
 
 fun sortStack2(stk: Stack<Int>) {
     var temp: Int
-    val stk2 = Stack<Int>()
+    val stk2: Stack<Int> = Stack<Int>()
     while (stk.isEmpty() == false) {
         temp = stk.pop()
-        while (stk.isEmpty() == false && stk2.peek() < temp)
+        while (stk2.isEmpty() == false && stk2.peek() < temp) 
             stk.push(stk2.pop())
         stk2.push(temp)
     }
-    while (stk2.isEmpty() == false)
+    while (stk2.isEmpty() == false) 
         stk.push(stk2.pop())
 }
 
+fun main9() {
+    var stk: Stack<Int> = Stack<Int>()
+    stk.push(3)
+    stk.push(1)
+    stk.push(4)
+    stk.push(2)
+    println(stk)
+    sortStack(stk)
+    println(stk)
+    stk = Stack<Int>()
+    stk.push(3)
+    stk.push(1)
+    stk.push(4)
+    stk.push(2)
+    println(stk)
+    sortStack2(stk)
+    println(stk)
+}
+
+/*
+[3, 1, 4, 2]
+[1, 2, 3, 4]
+[3, 1, 4, 2]
+[1, 2, 3, 4]
+*/
+
 fun bottomInsert(stk: Stack<Int>, element: Int) {
     val temp: Int
-    if (stk.isEmpty())
-        stk.push(element)
-    else {
+    if (stk.isEmpty()) stk.push(element) else {
         temp = stk.pop()
         bottomInsert(stk, element)
         stk.push(temp)
     }
 }
 
-fun reverseStack2(stk: Stack<Int>) {
-    val que = ArrayDeque<Int>()
-    while (stk.isEmpty() == false)
-        que.add(stk.pop())
+fun main10() {
+    val stk: Stack<Int> = Stack<Int>()
+    stk.push(1)
+    stk.push(2)
+    stk.push(3)
+    println(stk)
+    bottomInsert(stk, 4)
+    println(stk)
+}
 
-    while (que.isEmpty() == false)
-        stk.push(que.remove())
+/*
+[1, 2, 3]
+[4, 1, 2, 3]
+*/
+
+fun <T> bottomInsert(stk: Stack<T>, value: T) {
+    if (stk.isEmpty()) {
+        stk.push(value)
+    } else {
+        val out: T = stk.pop()
+        bottomInsert(stk, value)
+        stk.push(out)
+    }
+}
+
+fun <T> reverseStack(stk: Stack<T>) {
+    if (stk.isEmpty()) {
+        return
+    } else {
+        val value: T = stk.pop()
+        reverseStack<T>(stk)
+        bottomInsert(stk, value)
+    }
+}
+
+fun reverseStack2(stk: Stack<Int>) {
+    val que: ArrayDeque<Int> = ArrayDeque<Int>()
+    while (stk.isEmpty() == false) que.add(stk.pop())
+    while (que.isEmpty() == false) stk.push(que.remove())
 }
 
 fun reverseKElementInStack(stk: Stack<Int>, k: Int) {
-    val que = ArrayDeque<Int>()
+    val que: ArrayDeque<Int> = ArrayDeque<Int>()
     var i = 0
     while (stk.isEmpty() == false && i < k) {
         que.add(stk.pop())
         i++
     }
-    while (que.isEmpty() == false)
-        stk.push(que.remove())
+    while (que.isEmpty() == false) stk.push(que.remove())
 }
 
 fun reverseQueue(que: ArrayDeque<Int>) {
-    val stk = Stack<Int>()
-    while (que.isEmpty() == false)
-        stk.push(que.remove())
-
-    while (stk.isEmpty() == false)
-        que.add(stk.pop())
+    val stk: Stack<Int> = Stack<Int>()
+    while (que.isEmpty() == false) stk.push(que.remove())
+    while (stk.isEmpty() == false) que.add(stk.pop())
 }
 
 fun reverseKElementInQueue(que: ArrayDeque<Int>, k: Int) {
-    val stk = Stack<Int>()
+    val stk: Stack<Int> = Stack<Int>()
     var i = 0
     var diff: Int
     var temp: Int
@@ -384,40 +481,44 @@ fun reverseKElementInQueue(que: ArrayDeque<Int>, k: Int) {
     }
 }
 
-fun main7() {
-    val stk = Stack<Int>()
+fun main11() {
+    val stk: Stack<Int> = Stack<Int>()
+    stk.push(1)
+    stk.push(2)
+    stk.push(3)
+    println(stk)
+}
+
+// [1, 2, 3]
+
+fun main12() {
+    val stk: Stack<Int> = Stack<Int>()
     stk.push(1)
     stk.push(2)
     stk.push(3)
     stk.push(4)
-    stk.push(5)
     println(stk)
-}
-
-
-fun main8() {
-    val stk = Stack<Int>()
-    stk.push(-2)
-    stk.push(13)
-    stk.push(16)
-    stk.push(-6)
-    stk.push(40)
+    reverseStack<Int>(stk)
     println(stk)
-
     reverseStack2(stk)
     println(stk)
     reverseKElementInStack(stk, 2)
     println(stk)
-    /*
-     * System.out.println(stk); sortStack2(stk); System.out.println(stk);
-     */
-    val que = ArrayDeque<Int>()
+    println()
+}
+
+/*
+[1, 2, 3, 4]
+[4, 3, 2, 1]
+[1, 2, 3, 4]
+[1, 2, 4, 3]
+*/
+
+fun main13() {
+    val que: ArrayDeque<Int> = ArrayDeque<Int>()
     que.add(1)
     que.add(2)
     que.add(3)
-    que.add(4)
-    que.add(5)
-    que.add(6)
     println(que)
     reverseQueue(que)
     println(que)
@@ -425,15 +526,19 @@ fun main8() {
     println(que)
 }
 
+/*
+[1, 2, 3]
+[3, 2, 1]
+[2, 3, 1]
+*/
+
 fun maxDepthParenthesis(expn: String, size: Int): Int {
-    val stk = Stack<Char>()
+    val stk: Stack<Char> = Stack<Char>()
     var maxDepth = 0
     var depth = 0
     var ch: Char
-
     for (i in 0 until size) {
         ch = expn[i]
-
         if (ch == '(') {
             stk.push(ch)
             depth += 1
@@ -441,7 +546,7 @@ fun maxDepthParenthesis(expn: String, size: Int): Int {
             stk.pop()
             depth -= 1
         }
-        if (depth > maxDepth)
+        if (depth > maxDepth) 
             maxDepth = depth
     }
     return maxDepth
@@ -453,101 +558,107 @@ fun maxDepthParenthesis2(expn: String, size: Int): Int {
     var ch: Char
     for (i in 0 until size) {
         ch = expn[i]
-        if (ch == '(')
-            depth += 1
-        else if (ch == ')')
+        if (ch == '(') 
+            depth += 1 
+        else if (ch == ')') 
             depth -= 1
-
-        if (depth > maxDepth)
+        
+        if (depth > maxDepth) 
             maxDepth = depth
     }
     return maxDepth
 }
 
-
-fun main9() {
+fun main14() {
     val expn = "((((A)))((((BBB()))))()()()())"
     val size = expn.length
-    val value = maxDepthParenthesis(expn, size)
-    val value2 = maxDepthParenthesis2(expn, size)
-
-    println("Given expn $expn")
-    println("Max depth parenthesis is $value")
-    println("Max depth parenthesis is $value2")
+    println("Max depth parenthesis is " + maxDepthParenthesis(expn, size))
+    println("Max depth parenthesis is " + maxDepthParenthesis2(expn, size))
 }
 
+/*
+Max depth parenthesis is 6
+Max depth parenthesis is 6
+*/
+
 fun longestContBalParen(string: String, size: Int): Int {
-    val stk = Stack<Int>()
+    val stk: Stack<Int> = Stack<Int>()
     stk.push(-1)
     var length = 0
-
     for (i in 0 until size) {
-
-        if (string[i] == '(')
-            stk.push(i)
-        else
-        // string[i] == ')'
-        {
+        if (string[i] == '(') stk.push(i) else {
             stk.pop()
-            if (stk.size != 0)
-                length = Math.max(length, i - stk.peek())
-            else
-                stk.push(i)
+            if (stk.size != 0) 
+                length = Math.max(length, i - stk.peek()) else stk.push(i)
         }
     }
     return length
 }
 
-fun main10() {
-    val expn = "())((()))(())()(()"
-    val size = expn.length
-    val value = longestContBalParen(expn, size)
-    println("longestContBalParen $value")
+fun longestContBalParen2(string: String, size: Int): Int {
+    val stk: Stack<Int> = Stack<Int>()
+    var length = 0
+    for (i in 0 until size) {
+        if (string[i] == '(') stk.push(i) else  // string[i] == ')'
+        {
+            if (stk.size != 0) {
+                length = Math.max(length, i - stk.peek() + 1)
+                stk.pop()
+            }
+        }
+    }
+    return length
 }
 
+fun main15() {
+    val expn = "())((()))(())()(()"
+    val size = expn.length
+    println("longestContBalParen " + longestContBalParen(expn, size))
+    println("longestContBalParen " + longestContBalParen2(expn, size))
+}
+
+// longestContBalParen 12
 fun reverseParenthesis(expn: String, size: Int): Int {
-    val stk = Stack<Char>()
+    val stk: Stack<Char> = Stack<Char>()
     var openCount = 0
     var closeCount = 0
     var ch: Char
-
     if (size % 2 == 1) {
         println("Invalid odd length $size")
         return -1
     }
     for (i in 0 until size) {
         ch = expn[i]
-        if (ch == '(')
-            stk.push(ch)
-        else if (ch == ')')
-            if (stk.size != 0 && stk.peek() == '(')
-                stk.pop()
-            else
+        if (ch == '(') 
+            stk.push(ch) 
+        else if (ch == ')') { 
+            if (stk.size != 0 && stk.peek() == '(') 
+                stk.pop() 
+            else 
                 stk.push(')')
+        }    
     }
     while (stk.size != 0) {
-        if (stk.pop() == '(')
-            openCount += 1
-        else
+        if (stk.pop() == '(') 
+            openCount += 1 
+        else 
             closeCount += 1
     }
     return Math.ceil(openCount / 2.0).toInt() + Math.ceil(closeCount / 2.0).toInt()
 }
 
-fun main11() {
-    val expn = "())((()))(())()(()()()()))"
+fun main16() {
     val expn2 = ")(())((("
     val size = expn2.length
     val value = reverseParenthesis(expn2, size)
-    println("Given expn : $expn2")
     println("reverse Parenthesis is : $value")
 }
 
+// reverse Parenthesis is : 3
 fun findDuplicateParenthesis(expn: String, size: Int): Boolean {
-    val stk = Stack<Char>()
+    val stk: Stack<Char> = Stack<Char>()
     var ch: Char
     var count: Int
-
     for (i in 0 until size) {
         ch = expn[i]
         if (ch == ')') {
@@ -556,19 +667,16 @@ fun findDuplicateParenthesis(expn: String, size: Int): Boolean {
                 stk.pop()
                 count += 1
             }
-            if (count <= 1)
+            if (count <= 1) 
                 return true
-        } else
+        } else 
             stk.push(ch)
     }
     return false
 }
 
-fun main12() {
-    // expn = "(((a+(b))+(c+d)))"
-    // expn = "(b)"
+fun main17() {
     val expn = "(((a+b))+c)"
-    println("Given expn : $expn")
     val size = expn.length
     val value = findDuplicateParenthesis(expn, size)
     println("Duplicate Found : $value")
@@ -576,7 +684,7 @@ fun main12() {
 
 fun printParenthesisNumber(expn: String, size: Int) {
     var ch: Char
-    val stk = Stack<Int>()
+    val stk: Stack<Int> = Stack<Int>()
     var output = String()
     var count = 1
     for (i in 0 until size) {
@@ -584,30 +692,32 @@ fun printParenthesisNumber(expn: String, size: Int) {
         if (ch == '(') {
             stk.push(count)
             output += count
+            output += " "
             count += 1
-        } else if (ch == ')')
+        } else if (ch == ')') {
             output += stk.pop()
+            output += " "
+        }
     }
-    println("Parenthesis Count ")
-    println(output)
+    println("Parenthesis Count :: $output")
 }
 
-fun main13() {
+fun main18() {
     val expn1 = "(((a+(b))+(c+d)))"
     val expn2 = "(((a+b))+c)((("
-    var size = expn1.length
-    println("Given expn $expn1")
-    printParenthesisNumber(expn1, size)
-    size = expn2.length
-    println("Given expn $expn2")
-    printParenthesisNumber(expn2, size)
+    printParenthesisNumber(expn1, expn1.length)
+    printParenthesisNumber(expn2, expn2.length)
 }
+
+/*
+Parenthesis Count :: 1 2 3 4 4 3 5 5 2 1
+Parenthesis Count :: 1 2 3 3 2 1 4 5 6
+*/
 
 fun nextLargerElement(arr: IntArray, size: Int) {
     val output = IntArray(size)
     var outIndex = 0
     var next: Int
-
     for (i in 0 until size) {
         next = -1
         for (j in i + 1 until size) {
@@ -618,17 +728,16 @@ fun nextLargerElement(arr: IntArray, size: Int) {
         }
         output[outIndex++] = next
     }
-    for (`val` in output)
+    for (`val` in output) 
         print("$`val` ")
+    println()
 }
 
 fun nextLargerElement2(arr: IntArray, size: Int) {
-    val stk = Stack<Int>()
-    // output = [-1] * size;
+    val stk: Stack<Int> = Stack<Int>()
     val output = IntArray(size)
-    var index = 0
+    var index : Int
     var curr: Int
-
     for (i in 0 until size) {
         curr = arr[i]
         // stack always have values in decreasing order.
@@ -643,12 +752,28 @@ fun nextLargerElement2(arr: IntArray, size: Int) {
         index = stk.pop()
         output[index] = -1
     }
-    for (`val` in output)
+    for (`val` in output) 
         print("$`val` ")
+    println()
 }
 
 fun nextSmallerElement(arr: IntArray, size: Int) {
-    val stk = Stack<Int>()
+    val output = IntArray(size)
+    Arrays.fill(output, -1)
+    for (i in 0 until size) {
+        for (j in i + 1 until size) {
+            if (arr[j] < arr[i]) {
+                output[i] = arr[j]
+                break
+            }
+        }
+    }
+    for (`val` in output) print("$`val` ")
+    println()
+}
+
+fun nextSmallerElement2(arr: IntArray, size: Int) {
+    val stk: Stack<Int> = Stack<Int>()
     val output = IntArray(size)
     var curr: Int
     var index: Int
@@ -666,20 +791,44 @@ fun nextSmallerElement(arr: IntArray, size: Int) {
         index = stk.pop()
         output[index] = -1
     }
-    for (`val` in output)
+    for (`val` in output) 
         print("$`val` ")
+    println()
 }
 
-fun main14() {
+fun main19() {
     val arr = intArrayOf(13, 21, 3, 6, 20, 3)
     val size = arr.size
     nextLargerElement(arr, size)
     nextLargerElement2(arr, size)
     nextSmallerElement(arr, size)
+    nextSmallerElement2(arr, size)
 }
 
+/*
+21 -1 6 20 -1 -1
+21 -1 6 20 -1 -1
+3 3 -1 3 3 -1
+*/
+
 fun nextLargerElementCircular(arr: IntArray, size: Int) {
-    val stk = Stack<Int>()
+    val output = IntArray(size)
+    Arrays.fill(output, -1)
+    for (i in 0 until size) {
+        for (j in 1 until size) {
+            if (arr[i] < arr[(i + j) % size]) {
+                output[i] = arr[(i + j) % size]
+                break
+            }
+        }
+    }
+    for (`val` in output) 
+        print("$`val` ")
+    println()
+}
+
+fun nextLargerElementCircular2(arr: IntArray, size: Int) {
+    val stk: Stack<Int> = Stack<Int>()
     var curr: Int
     var index: Int
     val output = IntArray(size)
@@ -697,260 +846,77 @@ fun nextLargerElementCircular(arr: IntArray, size: Int) {
         index = stk.pop()
         output[index] = -1
     }
-    for (`val` in output)
+    for (`val` in output) 
         print("$`val` ")
+    println()
 }
 
-fun main15() {
+fun main20() {
     val arr = intArrayOf(6, 3, 9, 8, 10, 2, 1, 15, 7)
-    val size = arr.size
-    nextLargerElementCircular(arr, size)
+    nextLargerElementCircular(arr, arr.size)
+    nextLargerElementCircular2(arr, arr.size)
 }
 
-fun RottenFruitUtil(
-    arr: Array<IntArray>, maxCol: Int, maxRow: Int, currCol: Int, currRow: Int, traversed: Array<IntArray>,
-    day: Int
-) { // Range check
-    if (currCol < 0 || currCol >= maxCol || currRow < 0 || currRow >= maxRow)
-        return
-    // Traversable and rot if not already rotten.
-    if (traversed[currCol][currRow] <= day || arr[currCol][currRow] == 0)
-        return
-    // Update rot time.
-    traversed[currCol][currRow] = day
-    // each line corresponding to 4 direction.
-    RottenFruitUtil(arr, maxCol, maxRow, currCol - 1, currRow, traversed, day + 1)
-    RottenFruitUtil(arr, maxCol, maxRow, currCol + 1, currRow, traversed, day + 1)
-    RottenFruitUtil(arr, maxCol, maxRow, currCol, currRow + 1, traversed, day + 1)
-    RottenFruitUtil(arr, maxCol, maxRow, currCol, currRow - 1, traversed, day + 1)
-}
-
-fun RottenFruit(arr: Array<IntArray>, maxCol: Int, maxRow: Int): Int {
-    val traversed = Array(maxCol) { IntArray(maxRow) }
-    for (i in 0 until maxCol) {
-        for (j in 0 until maxRow) {
-            traversed[i][j] = Integer.MAX_VALUE
-        }
-    }
-
-    for (i in 0 until maxCol - 1) {
-        for (j in 0 until maxRow - 1) {
-            if (arr[i][j] == 2)
-                RottenFruitUtil(arr, maxCol, maxRow, i, j, traversed, 0)
-        }
-    }
-
-    var maxDay = 0
-    for (i in 0 until maxCol - 1) {
-        for (j in 0 until maxRow - 1) {
-            if (arr[i][j] == 1) {
-                if (traversed[i][j] == Integer.MAX_VALUE)
-                    return -1
-                if (maxDay < traversed[i][j])
-                    maxDay = traversed[i][j]
-            }
-        }
-    }
-    return maxDay
-}
-
-fun main16() {
-    val arr = arrayOf(
-        intArrayOf(1, 0, 1, 1, 0),
-        intArrayOf(2, 1, 0, 1, 0),
-        intArrayOf(0, 0, 0, 2, 1),
-        intArrayOf(0, 2, 0, 0, 1),
-        intArrayOf(1, 1, 0, 0, 1)
-    )
-    println(RottenFruit(arr, 5, 5))
-}
-
-fun StepsOfKnightUtil(size: Int, currCol: Int, currRow: Int, traversed: Array<IntArray>, dist: Int) {
-    // Range check
-    if (currCol < 0 || currCol >= size || currRow < 0 || currRow >= size)
-        return
-
-    // Traversable and rot if not already rotten.
-    if (traversed[currCol][currRow] <= dist)
-        return
-
-    // Update rot time.
-    traversed[currCol][currRow] = dist
-    // each line corresponding to 4 direction.
-    StepsOfKnightUtil(size, currCol - 2, currRow - 1, traversed, dist + 1)
-    StepsOfKnightUtil(size, currCol - 2, currRow + 1, traversed, dist + 1)
-    StepsOfKnightUtil(size, currCol + 2, currRow - 1, traversed, dist + 1)
-    StepsOfKnightUtil(size, currCol + 2, currRow + 1, traversed, dist + 1)
-    StepsOfKnightUtil(size, currCol - 1, currRow - 2, traversed, dist + 1)
-    StepsOfKnightUtil(size, currCol + 1, currRow - 2, traversed, dist + 1)
-    StepsOfKnightUtil(size, currCol - 1, currRow + 2, traversed, dist + 1)
-    StepsOfKnightUtil(size, currCol + 1, currRow + 2, traversed, dist + 1)
-}
-
-fun StepsOfKnight(size: Int, srcX: Int, srcY: Int, dstX: Int, dstY: Int): Int {
-    val traversed = Array(size) { IntArray(size) }
-    for (i in 0 until size) {
-        for (j in 0 until size) {
-            traversed[i][j] = Integer.MAX_VALUE
-        }
-    }
-
-    StepsOfKnightUtil(size, srcX - 1, srcY - 1, traversed, 0)
-    return traversed[dstX - 1][dstY - 1]
-}
-
-fun main17() {
-    println(StepsOfKnight(20, 10, 10, 20, 20))
-}
-
-fun DistNearestFillUtil(
-    arr: Array<IntArray>, maxCol: Int, maxRow: Int, currCol: Int, currRow: Int,
-    traversed: Array<IntArray>, dist: Int
-) { // Range check
-    if (currCol < 0 || currCol >= maxCol || currRow < 0 || currRow >= maxRow)
-        return
-    // Traversable if their is a better distance.
-    if (traversed[currCol][currRow] <= dist)
-        return
-    // Update distance.
-    traversed[currCol][currRow] = dist
-    // each line corresponding to 4 direction.
-    DistNearestFillUtil(arr, maxCol, maxRow, currCol - 1, currRow, traversed, dist + 1)
-    DistNearestFillUtil(arr, maxCol, maxRow, currCol + 1, currRow, traversed, dist + 1)
-    DistNearestFillUtil(arr, maxCol, maxRow, currCol, currRow + 1, traversed, dist + 1)
-    DistNearestFillUtil(arr, maxCol, maxRow, currCol, currRow - 1, traversed, dist + 1)
-}
-
-fun DistNearestFill(arr: Array<IntArray>, maxCol: Int, maxRow: Int) {
-    val traversed = Array(maxCol) { IntArray(maxRow) }
-    for (i in 0 until maxCol) {
-        for (j in 0 until maxRow) {
-            traversed[i][j] = Integer.MAX_VALUE
-        }
-    }
-    for (i in 0 until maxCol) {
-        for (j in 0 until maxRow) {
-            if (arr[i][j] == 1)
-                DistNearestFillUtil(arr, maxCol, maxRow, i, j, traversed, 0)
-        }
-    }
-
-    for (i in 0 until maxCol) {
-        for (j in 0 until maxRow) {
-            println("" + traversed[i][j])
-        }
-        println("")
-    }
-}
-
-fun main18() {
-    val arr = arrayOf(
-        intArrayOf(1, 0, 1, 1, 0),
-        intArrayOf(1, 1, 0, 1, 0),
-        intArrayOf(0, 0, 0, 0, 1),
-        intArrayOf(0, 0, 0, 0, 1),
-        intArrayOf(0, 0, 0, 0, 1)
-    )
-    DistNearestFill(arr, 5, 5)
-}
-
-fun findLargestIslandUtil(
-    arr: Array<IntArray>, maxCol: Int, maxRow: Int, currCol: Int, currRow: Int, value: Int,
-    traversed: Array<IntArray>
-): Int {
-    if (currCol < 0 || currCol >= maxCol || currRow < 0 || currRow >= maxRow)
-        return 0
-    if (traversed[currCol][currRow] == 1 || arr[currCol][currRow] != value)
-        return 0
-    traversed[currCol][currRow] = 1
-    // each call corresponding to 8 direction.
-    return (1 + findLargestIslandUtil(arr, maxCol, maxRow, currCol - 1, currRow - 1, value, traversed)
-            + findLargestIslandUtil(arr, maxCol, maxRow, currCol - 1, currRow, value, traversed)
-            + findLargestIslandUtil(arr, maxCol, maxRow, currCol - 1, currRow + 1, value, traversed)
-            + findLargestIslandUtil(arr, maxCol, maxRow, currCol, currRow - 1, value, traversed)
-            + findLargestIslandUtil(arr, maxCol, maxRow, currCol, currRow + 1, value, traversed)
-            + findLargestIslandUtil(arr, maxCol, maxRow, currCol + 1, currRow - 1, value, traversed)
-            + findLargestIslandUtil(arr, maxCol, maxRow, currCol + 1, currRow, value, traversed)
-            + findLargestIslandUtil(arr, maxCol, maxRow, currCol + 1, currRow + 1, value, traversed))
-}
-
-fun findLargestIsland(arr: Array<IntArray>, maxCol: Int, maxRow: Int): Int {
-    var maxVal = 0
-    var currVal = 0
-    val traversed = Array(maxCol) { IntArray(maxRow) }
-    for (i in 0 until maxCol) {
-        for (j in 0 until maxRow) {
-            traversed[i][j] = Integer.MAX_VALUE
-        }
-    }
-    for (i in 0 until maxCol) {
-        for (j in 0 until maxRow) {
-            run {
-                currVal = findLargestIslandUtil(arr, maxCol, maxRow, i, j, arr[i][j], traversed)
-                if (currVal > maxVal)
-                    maxVal = currVal
-            }
-        }
-    }
-    return maxVal
-}
-
-fun main19() {
-    val arr = arrayOf(
-        intArrayOf(1, 0, 1, 1, 0),
-        intArrayOf(1, 0, 0, 1, 0),
-        intArrayOf(0, 1, 1, 1, 1),
-        intArrayOf(0, 1, 0, 0, 0),
-        intArrayOf(1, 1, 0, 0, 1)
-    )
-    println("Largest Island : " + findLargestIsland(arr, 5, 5))
-}
-
+// 9 9 10 10 15 15 15 -1 9
 fun isKnown(relation: Array<IntArray>, a: Int, b: Int): Boolean {
     return if (relation[a][b] == 1) true else false
 }
 
 fun findCelebrity(relation: Array<IntArray>, count: Int): Int {
-    val stk = Stack<Int>()
-    var first = 0
-    var second = 0
+    var i: Int
+    var j: Int
+    var cel : Boolean
+    i = 0
+    while (i < count) {
+        cel = true
+        j = 0
+        while (j < count) {
+            if (i != j && (!isKnown(relation, j, i) || isKnown(relation, i, j))) {
+                cel = false
+                break
+            }
+            j++
+        }
+        if (cel == true) return i
+        i++
+    }
+    return -1
+}
+
+fun findCelebrity2(relation: Array<IntArray>, count: Int): Int {
+    val stk: Stack<Int> = Stack<Int>()
+    var first : Int
+    var second : Int
     for (i in 0 until count) {
         stk.push(i)
     }
     first = stk.pop()
     while (stk.size != 0) {
         second = stk.pop()
-        if (isKnown(relation, first, second))
-            first = second
+        if (isKnown(relation, first, second)) first = second
     }
     for (i in 0 until count) {
-        if (first != i && isKnown(relation, first, i))
-            return -1
-        if (first != i && isKnown(relation, i, first) == false)
-            return -1
+        if (first != i && isKnown(relation, first, i)) return -1
+        if (first != i && isKnown(relation, i, first) == false) return -1
     }
     return first
 }
 
-fun findCelebrity2(relation: Array<IntArray>, count: Int): Int {
+fun findCelebrity3(relation: Array<IntArray>, count: Int): Int {
     var first = 0
     var second = 1
-
     for (i in 0 until count - 1) {
-        if (isKnown(relation, first, second))
-            first = second
+        if (isKnown(relation, first, second)) first = second
         second = second + 1
     }
     for (i in 0 until count) {
-        if (first != i && isKnown(relation, first, i))
-            return -1
-        if (first != i && isKnown(relation, i, first) == false)
-            return -1
+        if (first != i && isKnown(relation, first, i)) return -1
+        if (first != i && isKnown(relation, i, first) == false) return -1
     }
     return first
 }
 
-fun main20() {
+fun main21() {
     val arr = arrayOf(
         intArrayOf(1, 0, 1, 1, 0),
         intArrayOf(1, 0, 0, 1, 0),
@@ -958,40 +924,41 @@ fun main20() {
         intArrayOf(0, 0, 0, 0, 0),
         intArrayOf(1, 1, 0, 1, 1)
     )
-
+    println("Celebrity : " + findCelebrity3(arr, 5))
     println("Celebrity : " + findCelebrity(arr, 5))
     println("Celebrity : " + findCelebrity2(arr, 5))
 }
 
-fun IsMinHeap(arr: IntArray, size: Int): Int {
+/*
+Celebrity : 3
+Celebrity : 3
+*/
+
+fun isMinHeap(arr: IntArray, size: Int): Int {
     for (i in 0..(size - 2) / 2) {
         if (2 * i + 1 < size) {
-            if (arr[i] > arr[2 * i + 1])
-                return 0
+            if (arr[i] > arr[2 * i + 1]) return 0
         }
         if (2 * i + 2 < size) {
-            if (arr[i] > arr[2 * i + 2])
-                return 0
+            if (arr[i] > arr[2 * i + 2]) return 0
         }
     }
     return 1
 }
 
-fun IsMaxHeap(arr: IntArray, size: Int): Int {
+fun isMaxHeap(arr: IntArray, size: Int): Int {
     for (i in 0..(size - 2) / 2) {
         if (2 * i + 1 < size) {
-            if (arr[i] < arr[2 * i + 1])
-                return 0
+            if (arr[i] < arr[2 * i + 1]) return 0
         }
         if (2 * i + 2 < size) {
-            if (arr[i] < arr[2 * i + 2])
-                return 0
+            if (arr[i] < arr[2 * i + 2]) return 0
         }
     }
     return 1
 }
 
-fun main(args: Array<String>) {
+fun main() {
     main1()
     main2()
     main3()
@@ -999,6 +966,7 @@ fun main(args: Array<String>) {
     main5()
     main6()
     main7()
+    main7a()
     main8()
     main9()
     main10()
@@ -1012,4 +980,5 @@ fun main(args: Array<String>) {
     main18()
     main19()
     main20()
+    main21()
 }

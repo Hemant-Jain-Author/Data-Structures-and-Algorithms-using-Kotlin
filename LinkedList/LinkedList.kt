@@ -1,4 +1,6 @@
 class LinkedList {
+    
+    class Node(var value: Int, var next: Node? = null )
 
     private var head: Node? = null
     private var size = 0
@@ -6,33 +8,14 @@ class LinkedList {
     val isEmpty: Boolean
         get() = size == 0
 
-
-    class Node {
-        var value: Int = 0
-        var next: Node? = null
-
-        constructor(v: Int, nxt: Node?) {
-            value = v
-            next = nxt
-        }
-
-        constructor(v: Int) {
-            value = v
-            next = null
-        }
-    }
-
-    // Other Methods.
     fun size(): Int {
         return size
     }
 
     // Other Methods.
-
     @Throws(IllegalStateException::class)
     fun peek(): Int {
-        if (isEmpty)
-            throw IllegalStateException("EmptyListException")
+        if (isEmpty) throw IllegalStateException("EmptyListException")
         return head!!.value
     }
 
@@ -44,11 +27,9 @@ class LinkedList {
     fun addTail(value: Int) {
         val newNode = Node(value, null)
         var curr = head
-
         if (head == null) {
             head = newNode
         }
-
         while (curr!!.next != null) {
             curr = curr.next
         }
@@ -57,19 +38,17 @@ class LinkedList {
 
     @Throws(IllegalStateException::class)
     fun removeHead(): Int {
-        if (isEmpty)
-            throw IllegalStateException("EmptyListException")
+        if (isEmpty) throw IllegalStateException("EmptyListException")
         val value = head!!.value
         head = head!!.next
         size--
         return value
     }
 
-    fun searchList(data: Int): Boolean {
+    fun search(data: Int): Boolean {
         var temp = head
         while (temp != null) {
-            if (temp.value == data)
-                return true
+            if (temp.value == data) return true
             temp = temp.next
         }
         return false
@@ -77,16 +56,12 @@ class LinkedList {
 
     fun deleteNode(delValue: Int): Boolean {
         var temp = head
-
-        if (isEmpty)
-            return false
-
+        if (isEmpty) return false
         if (delValue == head!!.value) {
             head = head!!.next
             size--
             return true
         }
-
         while (temp!!.next != null) {
             if (temp.next!!.value == delValue) {
                 temp.next = temp.next!!.next
@@ -98,35 +73,34 @@ class LinkedList {
         return false
     }
 
-    fun deleteNodes(delValue: Int) {
+    fun deleteNodes(delValue: Int): Boolean {
         var currNode = head
         var nextNode: Node?
-
-        while (currNode != null && currNode.value == delValue)
-        /* first node */ {
+        var found = false
+        while (currNode != null && currNode.value == delValue) { /* first node */
             head = currNode.next
             currNode = head
+            found = true
         }
-
         while (currNode != null) {
             nextNode = currNode.next
             if (nextNode != null && nextNode.value == delValue) {
                 currNode.next = nextNode.next
+                found = true
             } else {
                 currNode = nextNode
             }
         }
+        return found
     }
 
     fun reverseRecurseUtil(currentNode: Node?, nextNode: Node?): Node? {
         val ret: Node?
-        if (currentNode == null)
-            return null
+        if (currentNode == null) return null
         if (currentNode.next == null) {
             currentNode.next = nextNode
             return currentNode
         }
-
         ret = reverseRecurseUtil(currentNode.next, currentNode)
         currentNode.next = nextNode
         return ret
@@ -139,7 +113,7 @@ class LinkedList {
     fun reverse() {
         var curr = head
         var prev: Node? = null
-        var next: Node? = null
+        var next: Node?
         while (curr != null) {
             next = curr.next
             curr.next = prev
@@ -151,7 +125,7 @@ class LinkedList {
 
     fun copyListReversed(): LinkedList {
         var tempNode: Node? = null
-        var tempNode2: Node? = null
+        var tempNode2: Node?
         var curr = head
         while (curr != null) {
             tempNode2 = Node(curr.value, tempNode)
@@ -163,26 +137,25 @@ class LinkedList {
         return ll2
     }
 
-    fun copyList(): LinkedList {
-        var headNode: Node? = null
-        var tailNode: Node? = null
+    fun copyList(): LinkedList? {
+        var headNode: Node?
+        var tailNode: Node?
         var tempNode: Node?
         var curr: Node? = head
         val ll2 = LinkedList()
-
         if (head == null)
-            return ll2
-
+            return ll2  
+              
         headNode = Node(curr!!.value, null)
         tailNode = headNode
         curr = curr.next
-
         while (curr != null) {
             tempNode = Node(curr.value, null)
             tailNode!!.next = tempNode
             tailNode = tempNode
             curr = curr.next
         }
+        
         ll2.head = headNode
         return ll2
     }
@@ -192,26 +165,25 @@ class LinkedList {
     }
 
     fun compareList(head1: Node?, head2: Node?): Boolean {
-        return if (head1 == null && head2 == null)
-            true
-        else if (head1 == null || head2 == null || head1.value != head2.value)
-            false
-        else
-            compareList(head1.next, head2.next)
+        if (head1 == null && head2 == null) 
+            return true 
+        else if (head1 == null || head2 == null || head1.value != head2.value) 
+            return false 
+        else 
+            return compareList(head1.next, head2.next)
     }
 
-    fun compareList2(ll2: LinkedList): Boolean {
+    fun compareList2(ll2: LinkedList?): Boolean {
         var head1 = head
-        var head2 = ll2.head
-
+        var head2 = ll2!!.head
         while (head1 != null && head2 != null) {
-            if (head1.value != head2.value)
+            if (head1.value != head2.value) 
                 return false
             head1 = head1.next
             head2 = head2.next
         }
-
-        return if (head1 == null && head2 == null) true else false
+        return if (head1 == null && head2 == null) true 
+        else false
     }
 
     fun findLength(): Int {
@@ -224,9 +196,9 @@ class LinkedList {
         return count
     }
 
-    fun nthNodeFromBegining(index: Int): Int {
-        if (index > size() || index < 1)
-            return Integer.MAX_VALUE
+    fun nthNodeFromBeginning(index: Int): Int {
+        if (index > size() || index < 1) 
+            return Int.MAX_VALUE
         var count = 0
         var curr = head
         while (curr != null && count < index - 1) {
@@ -240,10 +212,10 @@ class LinkedList {
         val size = findLength()
         val startIndex: Int
         if (size != 0 && size < index) {
-            return Integer.MAX_VALUE
+            return Int.MAX_VALUE
         }
         startIndex = size - index + 1
-        return nthNodeFromBegining(startIndex)
+        return nthNodeFromBeginning(startIndex)
     }
 
     fun nthNodeFromEnd2(index: Int): Int {
@@ -254,10 +226,8 @@ class LinkedList {
             count++
             forward = forward.next
         }
-
-        if (forward == null)
-            return Integer.MAX_VALUE
-
+        if (forward == null) 
+            return Int.MAX_VALUE
         while (forward != null) {
             forward = forward.next
             curr = curr!!.next
@@ -266,10 +236,10 @@ class LinkedList {
     }
 
     fun findIntersection(lst2: LinkedList): Node? {
-        var head2 = lst2.head
+        val head2 = lst2.head
         var l1 = 0
         var l2 = 0
-        var tempHead = this.head
+        var tempHead = head
         var tempHead2 = head2
         while (tempHead != null) {
             l1++
@@ -279,26 +249,26 @@ class LinkedList {
             l2++
             tempHead2 = tempHead2.next
         }
-
         var diff: Int
-        if (l1 < 12) {
-            val temp = head
-            head = head2
-            head2 = temp
+        tempHead = head
+        tempHead2 = head2
+        if (l1 < l2) {
+            val temp = tempHead
+            tempHead = tempHead2
+            tempHead2 = temp
             diff = l2 - l1
         } else {
             diff = l1 - l2
         }
-
         while (diff > 0) {
-            head = head!!.next
+            tempHead = tempHead!!.next
             diff--
         }
-        while (head !== head2) {
-            head = head!!.next
-            head2 = head2!!.next
+        while (tempHead !== tempHead2) {
+            tempHead = tempHead!!.next
+            tempHead2 = tempHead2!!.next
         }
-        return head
+        return tempHead
     }
 
     fun deleteList() {
@@ -312,12 +282,12 @@ class LinkedList {
             print(temp.value.toString() + " ")
             temp = temp.next
         }
+        println()
     }
 
     fun sortedInsert(value: Int) {
         val newNode = Node(value, null)
         var curr = head
-
         if (curr == null || curr.value > value) {
             newNode.next = head
             head = newNode
@@ -326,9 +296,83 @@ class LinkedList {
         while (curr!!.next != null && curr.next!!.value < value) {
             curr = curr.next
         }
-
         newNode.next = curr.next
         curr.next = newNode
+    }
+
+    fun bubbleSort() {
+        var curr: Node?
+        var end: Node? = null
+        var temp: Int
+        if (head == null || head!!.next == null) {
+            return
+        }
+        var flag = true
+        while (flag) {
+            flag = false
+            curr = head
+            while (curr!!.next !== end) {
+                if (curr!!.value > curr.next!!.value) {
+                    flag = true
+                    temp = curr.value
+                    curr.value = curr.next!!.value
+                    curr.next!!.value = temp
+                }
+                curr = curr.next
+            }
+            end = curr
+        }
+    }
+
+    fun selectionSort() {
+        var curr: Node?
+        var end: Node? = null
+        var maxNode: Node?
+        var temp: Int
+        var max: Int
+        if (head == null || head!!.next == null) {
+            return
+        }
+        while (head !== end) {
+            curr = head
+            max = curr!!.value
+            maxNode = curr
+            while (curr!!.next !== end) {
+                if (max < curr!!.next!!.value) {
+                    maxNode = curr.next
+                    max = curr.next!!.value
+                }
+                curr = curr.next
+            }
+            end = curr
+            if (curr!!.value < max) {
+                temp = curr.value
+                curr.value = max
+                maxNode!!.value = temp
+            }
+        }
+    }
+
+    fun insertionSort() {
+        var curr: Node?
+        var stop: Node?
+        var temp: Int
+        if (head == null || head!!.next == null) {
+            return
+        }
+        stop = head!!.next
+        while (stop != null) {
+            curr = head
+            while (curr !== stop) {
+                if (curr!!.value > stop.value) {
+                    temp = curr.value
+                    curr.value = stop.value
+                    stop.value = temp
+                }
+                curr = curr.next
+            }
+            stop = stop.next
+        }
     }
 
     fun removeDuplicate() {
@@ -354,11 +398,25 @@ class LinkedList {
     }
 
     fun loopDetect(): Boolean {
+        var curr = head
+        val hs: HashSet<Node> = HashSet<Node>()
+        while (curr != null) {
+            if (hs.contains(curr)) {
+                println("loop found")
+                return true
+            }
+            hs.add(curr)
+            curr = curr.next
+        }
+        println("loop not found")
+        return false
+    }
+
+    fun loopDetect2(): Boolean {
         var slowPtr: Node?
         var fastPtr: Node?
         fastPtr = head
         slowPtr = fastPtr
-
         while (fastPtr!!.next != null && fastPtr.next!!.next != null) {
             slowPtr = slowPtr!!.next
             fastPtr = fastPtr.next!!.next
@@ -380,7 +438,7 @@ class LinkedList {
             return true
         } else {
             reverse()
-            println("Loop not found")
+            println("loop not found")
             return false
         }
     }
@@ -390,46 +448,283 @@ class LinkedList {
         var fastPtr: Node?
         fastPtr = head
         slowPtr = fastPtr
-
         while (fastPtr!!.next != null && fastPtr.next!!.next != null) {
             if (head === fastPtr.next || head === fastPtr.next!!.next) {
-                println("Circular list loop found")
+                println("circular list loop found")
                 return 2
             }
             slowPtr = slowPtr!!.next
             fastPtr = fastPtr.next!!.next
             if (slowPtr === fastPtr) {
-                println("Loop found")
-
+                println("loop found")
                 return 1
             }
         }
-        println("Loop not found")
+        println("loop not found")
         return 0
     }
+
+    fun loopPointDetect(): Node? {
+        var slowPtr: Node?
+        var fastPtr: Node?
+        fastPtr = head
+        slowPtr = fastPtr
+        while (fastPtr!!.next != null && fastPtr.next!!.next != null) {
+            slowPtr = slowPtr!!.next
+            fastPtr = fastPtr.next!!.next
+            if (slowPtr === fastPtr) {
+                return slowPtr
+            }
+        }
+        return null
+    }
+
+    fun removeLoop() {
+        val loopPoint : Node? = loopPointDetect() ?: return
+        var firstPtr = head
+        if (loopPoint === head) {
+            while (firstPtr!!.next !== head) firstPtr = firstPtr!!.next
+            firstPtr!!.next = null
+            return
+        }
+        var secondPtr : Node?= loopPoint
+        while (firstPtr!!.next !== secondPtr!!.next) {
+            firstPtr = firstPtr!!.next
+            secondPtr = secondPtr!!.next
+        }
+        secondPtr!!.next = null
+    }
 }
-fun main(args: Array<String>) {
+
+fun main1() {
     val ll = LinkedList()
     ll.addHead(1)
     ll.addHead(2)
     ll.addHead(3)
     ll.print()
-    println("---")
-    val ll2 = LinkedList()
-    ll2.addHead(1)
-    ll2.addHead(2)
-    ll2.addHead(3)
-    ll2.print()
-    println("---")
+    println("Size : " + ll.size())
+    println("Size : " + ll.findLength())
+    println("Is empty : " + ll.isEmpty)
+    println("Peek : " + ll.peek())
+    ll.addTail(4)
+    ll.print()
+}
 
+/*
+3 2 1 
+Size : 3
+Size : 3
+Is empty : false
+Peek : 3
+3 2 1 4
+*/
+
+fun main2() {
+    val ll = LinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(3)
+    ll.print()
+    println("search : " + ll.search(2))
+    ll.removeHead()
+    ll.print()
+}
+
+/*
+3 2 1 
+search : true
+2 1 
+*/
+
+fun main3() {
+    val ll = LinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(1)
+    ll.addHead(3)
+    ll.print()
+    println("deleteNode : " + ll.deleteNode(2))
+    ll.print()
+    println("deleteNodes : " + ll.deleteNodes(1))
+    ll.print()
+}
+
+/*
+3 1 2 1 2 1 
+deleteNode : true
+3 1 1 2 1 
+deleteNodes : true
+3 2 
+*/
+
+fun main4() {
+    val ll = LinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(3)
+    ll.print()
+    ll.reverse()
+    ll.print()
+    ll.reverseRecurse()
+    ll.print()
     val l2 = ll.copyList()
-    l2.print();
-    println("---")
-    val l3 = ll.copyListReversed();
+    l2!!.print()
+    val l3 = ll.copyListReversed()
     l3.print()
-    println()
-    println(ll.nthNodeFromBegining(2))
+}
+
+/*
+3 2 1 
+1 2 3 
+3 2 1 
+3 2 1 
+1 2 3 
+*/
+
+fun main5() {
+    val ll = LinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(3)
+    ll.print()
+    val l2 = ll.copyList()
+    l2!!.print()
+    val l3 = ll.copyListReversed()
+    l3.print()
+    println("compareList : " + ll.compareList(l2))
+    println("compareList : " + ll.compareList2(l2))
+    println("compareList : " + ll.compareList(l3))
+    println("compareList : " + ll.compareList2(l3))
+}
+
+/*
+3 2 1 
+3 2 1 
+1 2 3 
+compareList : true
+compareList : true
+compareList : false
+compareList : false
+*/
+
+fun main6() {
+    val ll = LinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(3)
+    ll.addHead(4)
+    ll.print()
+    println(ll.nthNodeFromBeginning(2))
     println(ll.nthNodeFromEnd(2))
     println(ll.nthNodeFromEnd2(2))
+}
 
+/*
+3 2 1 
+2
+2
+2
+*/
+
+fun main7() {
+    val ll = LinkedList()
+    ll.sortedInsert(1)
+    ll.sortedInsert(2)
+    ll.sortedInsert(3)
+    ll.print()
+    ll.sortedInsert(1)
+    ll.sortedInsert(2)
+    ll.sortedInsert(3)
+    ll.print()
+    ll.removeDuplicate()
+    ll.print()
+}
+
+/*
+1 2 3 
+1 1 2 2 3 3 
+1 2 3
+*/
+
+fun main8() {
+    val ll = LinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(3)
+    ll.print()
+    ll.makeLoop()
+    ll.loopDetect()
+    ll.loopDetect2()
+    ll.loopTypeDetect()
+    ll.removeLoop()
+    ll.loopDetect2()
+}
+
+/*
+3 2 1 
+loop found
+circular list loop found
+loop not found
+*/
+/* 
+fun main9() {
+    val ll = LinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    val ll2 = LinkedList()
+    ll2.addHead(3)
+    ll2.head!!.next = ll.head
+    ll.addHead(4)
+    ll2.addHead(5)
+    ll.print()
+    ll2.print()
+    val nd = ll.findIntersection(ll2)
+    if (nd != null) println("Intersection:: " + nd.value)
+}
+*/
+/*
+4 2 1 
+5 3 2 1 
+Intersection:: 2
+*/
+
+fun main10() {
+    val ll = LinkedList()
+    ll.addHead(1)
+    ll.addHead(10)
+    ll.addHead(9)
+    ll.addHead(7)
+    ll.addHead(2)
+    ll.addHead(3)
+    ll.addHead(5)
+    ll.addHead(4)
+    ll.addHead(6)
+    ll.addHead(8)
+    ll.print()
+    ll.insertionSort()
+    ll.print()
+    ll.reverse()
+    ll.print()
+    ll.bubbleSort();
+    ll.print()
+    ll.reverse()
+    ll.print()
+    ll.selectionSort();
+    ll.print()
+}
+
+// Testing code
+fun main() {
+    main1()
+    main2()
+    main3()
+    main4()
+    main5()
+    main6()
+    main7()
+    main8()
+    //main9()
+    main10()
 }

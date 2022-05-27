@@ -3,7 +3,7 @@ import java.util.LinkedHashSet
 
 object LinkedHashSetDemo {
     @JvmStatic
-    fun main(args: Array<String>) {
+    fun main() {
         // Create a hash set.
         val hs = HashSet<String>()
         // Add elements to the hash set.

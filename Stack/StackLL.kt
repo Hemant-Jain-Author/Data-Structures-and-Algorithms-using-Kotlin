@@ -1,15 +1,15 @@
 class StackLL {
     private var head: Node? = null
-    private var size = 0
+    private var length = 0
 
-    val isEmpty: Boolean
-        get() = size == 0
-
-    private class Node(var value: Int, var next: Node?)
+    private class Node(val value: Int, var next: Node?)
 
     fun size(): Int {
-        return size
+        return length
     }
+
+    val isEmpty: Boolean
+        get() = length == 0
 
     @Throws(IllegalStateException::class)
     fun peek(): Int {
@@ -21,7 +21,7 @@ class StackLL {
 
     fun push(value: Int) {
         head = Node(value, head)
-        size++
+        length++
     }
 
     @Throws(IllegalStateException::class)
@@ -31,18 +31,8 @@ class StackLL {
         }
         val value = head!!.value
         head = head!!.next
-        size--
+        length--
         return value
-    }
-
-    fun insertAtBottom(value: Int) {
-        if (isEmpty) {
-            push(value)
-        } else {
-            val temp = pop()
-            insertAtBottom(value)
-            push(temp)
-        }
     }
 
     fun print() {
@@ -51,10 +41,11 @@ class StackLL {
             print(temp.value.toString() + " ")
             temp = temp.next
         }
+        println()
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val s = StackLL()
     s.push(1)
     s.push(2)
@@ -62,5 +53,4 @@ fun main(args: Array<String>) {
     s.print()
     println(s.pop())
     println(s.pop())
-    s.print()
 }

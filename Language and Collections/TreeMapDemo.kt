@@ -1,6 +1,6 @@
 import java.util.TreeMap
 
-fun main(args: Array<String>) {
+fun main() {
     // create a tree map.
     val tm = TreeMap<String, Int>()
     // Put elements into the map

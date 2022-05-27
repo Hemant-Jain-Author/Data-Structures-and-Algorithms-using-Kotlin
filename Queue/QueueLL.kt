@@ -5,7 +5,7 @@ class QueueLL {
     val isEmpty: Boolean
         get() = size == 0
 
-    private class Node(var value: Int, var next: Node?)
+    private class Node(val value: Int, var next: Node?)
 
     fun size(): Int {
         return size
@@ -13,20 +13,17 @@ class QueueLL {
 
     @Throws(IllegalStateException::class)
     fun peek(): Int {
-        if (isEmpty)
-            throw IllegalStateException("StackEmptyException")
+        if (isEmpty) throw IllegalStateException("StackEmptyException")
         val value: Int
-        if (tail === tail!!.next)
-            value = tail!!.value
-        else
+        if (tail === tail!!.next) 
+            value = tail!!.value 
+        else 
             value = tail!!.next!!.value
-
         return value
     }
 
     fun add(value: Int) {
         val temp = Node(value, null)
-
         if (tail == null) {
             tail = temp
             tail!!.next = tail
@@ -40,9 +37,8 @@ class QueueLL {
 
     @Throws(IllegalStateException::class)
     fun remove(): Int {
-        if (isEmpty)
-            throw IllegalStateException("StackEmptyException")
-
+        if (size == 0) throw IllegalStateException("StackEmptyException")
+        
         var value : Int
         if (tail === tail!!.next) {
             value = tail!!.value
@@ -54,12 +50,29 @@ class QueueLL {
         size--
         return value
     }
+
+    fun print() {
+        if (size == 0) {
+            print("Queue is empty.")
+            return
+        }
+        var temp = tail!!.next
+        print("Queue is : ")
+        for (i in 0 until size) {
+            print(temp!!.value.toString() + " ")
+            temp = temp.next
+        }
+        println()
+    }
 }
-fun main(args: Array<String>) {
-    val q = QueueLL()
-    q.add(1)
-    q.add(2)
-    q.add(3)
-    for (i in 0..2)
-        println(q.remove())
+
+fun main() {
+    val que = QueueLL()
+    que.add(1)
+    que.add(2)
+    que.add(3)
+    println("isEmpty : " + que.isEmpty)
+    println("size : " + que.size())
+    println("Queue remove : " + que.remove())
+    println("Queue remove : " + que.remove())
 }

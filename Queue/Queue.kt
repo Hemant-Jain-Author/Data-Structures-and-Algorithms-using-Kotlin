@@ -1,19 +1,18 @@
-class Queue {
-    private var count: Int = 0
-    private val capacity = 100
+class Queue @JvmOverloads constructor(private val capacity: Int = 1000) {
     private val data: IntArray
-    internal var front = 0
-    internal var back = 0
+    private var size = 0
+    var front = 0
+    var back = 0
 
-    internal val isEmpty: Boolean
-        get() = count == 0
+    val isEmpty: Boolean
+        get() = size == 0
 
-    internal val size: Int
-        get() = count
+    fun size(): Int {
+        return size
+    }
 
     init {
-        count = 0
-        data = IntArray(100)
+        data = IntArray(capacity)
     }
 
     fun add(value: Int): Boolean {
@@ -21,9 +20,9 @@ class Queue {
             println("Queue is full.")
             return false
         } else {
-            count++
+            size++
             data[back] = value
-            back = ++back % (capacity - 1)
+            back = ++back % capacity
         }
         return true
     }
@@ -34,21 +33,38 @@ class Queue {
             println("Queue is empty.")
             return Int.MIN_VALUE
         } else {
-            count--
+            size--
             value = data[front]
-            front = ++front % (capacity - 1)
+            front = ++front % capacity
         }
         return value
     }
+
+    fun print() {
+        if (size == 0) {
+            print("Queue is empty.")
+            return
+        }
+        var temp = front
+        var s = size
+        print("Queue is : ")
+        while (s > 0) {
+            s--
+            print(data[temp].toString() + " ")
+            temp = (temp + 1) % capacity
+        }
+        println()
+    }
 }
 
-fun main(args: Array<String>) {
+// Testing code
+fun main() {
     val que = Queue()
-
-    for (i in 0..19) {
-        que.add(i)
-    }
-    for (i in 0..21) {
-        println(que.remove())
-    }
+    que.add(1)
+    que.add(2)
+    que.add(3)
+    println("isEmpty : " + que.isEmpty)
+    println("size : " + que.size())
+    println("Queue remove : " + que.remove())
+    println("Queue remove : " + que.remove())
 }

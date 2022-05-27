@@ -3,12 +3,11 @@ fun bruteForceSearch(text: String, pattern: String): Int {
 }
 
 fun bruteForceSearch(text: CharArray, pattern: CharArray): Int {
-    var i = 0
-    var j = 0
     val n = text.size
     val m = pattern.size
+    var i = 0
     while (i <= n - m) {
-        j = 0
+        var j = 0
         while (j < m && pattern[j] == text[i + j]) {
             j++
         }
@@ -27,8 +26,6 @@ fun robinKarp(text: String, pattern: String): Int {
 fun robinKarp(text: CharArray, pattern: CharArray): Int {
     val n = text.size
     val m = pattern.size
-    var i: Int
-    var j: Int
     val prime = 101
     var powm = 1
     var TextHash = 0
@@ -37,7 +34,7 @@ fun robinKarp(text: CharArray, pattern: CharArray): Int {
         return -1
     }
 
-    i = 0
+    var i = 0
     while (i < m - 1) {
         powm = (powm shl 1) % prime
         i++
@@ -45,12 +42,13 @@ fun robinKarp(text: CharArray, pattern: CharArray): Int {
 
     i = 0
     while (i < m) {
-        PatternHash = ((PatternHash shl 1) + pattern[i].toInt()) % prime
-        TextHash = ((TextHash shl 1) + text[i].toInt()) % prime
+        PatternHash = ((PatternHash shl 1) + pattern[i].code) % prime
+        TextHash = ((TextHash shl 1) + text[i].code) % prime
         i++
     }
 
     i = 0
+    var j: Int
     while (i <= n - m) {
         if (TextHash == PatternHash) {
             j = 0
@@ -63,7 +61,7 @@ fun robinKarp(text: CharArray, pattern: CharArray): Int {
             if (j == m)
                 return i
         }
-        TextHash = ((TextHash - text[i].toInt() * powm shl 1) + text[i + m].toInt()) % prime
+        TextHash = ((TextHash - text[i].code * powm shl 1) + text[i + m].code) % prime
         if (TextHash < 0) {
             TextHash = TextHash + prime
         }
@@ -132,7 +130,7 @@ fun KMPFindCount(text: CharArray, pattern: CharArray): Int {
     return count
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val st1 = "hello, world!"
     val st2 = "world"
     println("BruteForceSearch return : " + bruteForceSearch(st1, st2))

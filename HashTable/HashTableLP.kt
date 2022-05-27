@@ -1,10 +1,12 @@
 class HashTableLP(private val tableSize: Int) {
-    internal var Arr: IntArray
-    internal var Flag: IntArray
+    var Key: IntArray
+    var Value: IntArray
+    var Flag: IntArray
 
     init {
-        Arr = IntArray(tableSize + 1)
-        Flag = IntArray(tableSize + 1, { EMPTY_VALUE})
+        Key = IntArray(tableSize + 1)
+        Value = IntArray(tableSize + 1)
+        Flag = IntArray(tableSize + 1){EMPTY_VALUE}
     }
 
     companion object {
@@ -14,24 +16,24 @@ class HashTableLP(private val tableSize: Int) {
     }
 
     /* Other Methods */
-
-    internal fun computeHash(key: Int): Int {
+    fun computeHash(key: Int): Int {
         return key % tableSize
     }
 
-    internal fun resolverFun(index: Int): Int {
+    fun resolverFun(index: Int): Int {
         return index
     }
 
-    internal fun resolverFun2(index: Int): Int {
+    fun resolverFun2(index: Int): Int {
         return index * index
     }
 
-    internal fun add(value: Int): Boolean {
-        var hashValue = computeHash(value)
+    fun add(key: Int, value: Int): Boolean {
+        var hashValue = computeHash(key)
         for (i in 0 until tableSize) {
-            if (Flag!![hashValue] == EMPTY_VALUE || Flag!![hashValue] == DELETED_VALUE) {
-                Arr[hashValue] = value
+            if (Flag[hashValue] == EMPTY_VALUE || Flag[hashValue] == DELETED_VALUE) {
+                Key[hashValue] = key
+                Value[hashValue] = value
                 Flag[hashValue] = FILLED_VALUE
                 return true
             }
@@ -41,31 +43,47 @@ class HashTableLP(private val tableSize: Int) {
         return false
     }
 
-    internal fun find(value: Int): Boolean {
-        var hashValue = computeHash(value)
+    fun add(value: Int): Boolean {
+        return add(value, value)
+    }
+
+    fun find(key: Int): Boolean {
+        var hashValue = computeHash(key)
         for (i in 0 until tableSize) {
-            if (Flag!![hashValue] == EMPTY_VALUE) {
+            if (Flag[hashValue] == EMPTY_VALUE) {
                 return false
             }
-
-            if (Flag!![hashValue] == FILLED_VALUE && Arr!![hashValue] == value) {
+            if (Flag[hashValue] == FILLED_VALUE && Key[hashValue] == key) {
                 return true
             }
-
             hashValue += resolverFun(i)
             hashValue %= tableSize
         }
         return false
     }
 
-    internal fun remove(value: Int): Boolean {
-        var hashValue = computeHash(value)
+    fun get(key: Int): Int {
+        var hashValue = computeHash(key)
         for (i in 0 until tableSize) {
-            if (Flag!![hashValue] == EMPTY_VALUE) {
+            if (Flag[hashValue] == EMPTY_VALUE) {
+                return -1
+            }
+            if (Flag[hashValue] == FILLED_VALUE && Key[hashValue] == key) {
+                return Value[hashValue]
+            }
+            hashValue += resolverFun(i)
+            hashValue %= tableSize
+        }
+        return -1
+    }
+
+    fun remove(key: Int): Boolean {
+        var hashValue = computeHash(key)
+        for (i in 0 until tableSize) {
+            if (Flag[hashValue] == EMPTY_VALUE) {
                 return false
             }
-
-            if (Flag!![hashValue] == FILLED_VALUE && Arr!![hashValue] == value) {
+            if (Flag[hashValue] == FILLED_VALUE && Key[hashValue] == key) {
                 Flag[hashValue] = DELETED_VALUE
                 return true
             }
@@ -75,22 +93,26 @@ class HashTableLP(private val tableSize: Int) {
         return false
     }
 
-    internal fun print() {
+    fun print() {
+        print("Hash Table contains ::")
         for (i in 0 until tableSize) {
-            if (Flag!![i] == FILLED_VALUE) {
-                println("Node at index [" + i + " ] :: " + Arr!![i])
+            if (Flag[i] == FILLED_VALUE) {
+                print("(" + Key[i] + "=>" + Value[i] + ") ")
             }
         }
+        println()
     }
 }
 
-fun main(args: Array<String>) {
+// Testing code
+fun main() {
     val ht = HashTableLP(1000)
-    ht.add(1)
-    ht.add(2)
-    ht.add(3)
+    ht.add(1, 10)
+    ht.add(2, 20)
+    ht.add(3, 30)
     ht.print()
-    println(ht.remove(1))
-    println(ht.remove(4))
-    ht.print()
+    println("Find key 2 : " + ht.find(2))
+    println("Value at  key 2 : " + ht.get(2))
+    ht.remove(2)
+    println("Find key 2 : " + ht.find(2))
 }

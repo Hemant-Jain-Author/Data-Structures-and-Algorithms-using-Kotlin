@@ -1,5 +1,5 @@
 
-fun main(args: Array<String>) {
+fun main() {
     val str1 = "hello"
     val str2 = "hello"
     val str3 = "Hello"

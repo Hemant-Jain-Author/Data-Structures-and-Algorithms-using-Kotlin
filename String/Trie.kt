@@ -3,7 +3,7 @@ class Trie {
     private val CharCount = 26
 
 
-    inner class Node(c: Char) {
+    inner class Node() {
         var isLastChar: Boolean = false
         var child: Array<Node?>
 
@@ -17,32 +17,31 @@ class Trie {
     }
 
     init {
-        root = Node(' ')// first node with dummy value.
+        root = Node()// first node with dummy value.
     }
 
     fun add(str: String?): Node? {
         return if (str == null) {
             root
-        } else add(root, str.toLowerCase(), 0)
+        } else add(root, str.lowercase(), 0)
     }
 
     fun add(curr: Node?, str: String, index: Int): Node {
-        var curr = curr
         if (curr == null) {
-            curr = Node(str[index - 1])
+            return Node()
         }
 
         if (str.length == index) {
             curr.isLastChar = true
         } else {
-            curr.child[str[index] - 'a'] = add(curr.child!![str[index] - 'a'], str, index + 1)
+            curr.child[str[index] - 'a'] = add(curr.child[str[index] - 'a'], str, index + 1)
         }
         return curr
     }
 
-    fun remove(str: String?) {
-        var str: String? = str ?: return
-        str = str!!.toLowerCase()
+    fun remove(st: String?) {
+        var str: String? = st ?: return
+        str = str!!.lowercase()
         remove(root, str, 0)
     }
 
@@ -56,12 +55,12 @@ class Trie {
             }
             return
         }
-        remove(curr.child!![str[index] - 'a'], str, index + 1)
+        remove(curr.child[str[index] - 'a'], str, index + 1)
     }
 
-    fun find(str: String?): Boolean {
-        var str: String? = str ?: return false
-        str = str!!.toLowerCase()
+    fun find(st: String?): Boolean {
+        var str: String? = st ?: return false
+        str = str!!.lowercase()
         return find(root, str, 0)
     }
 
@@ -71,22 +70,16 @@ class Trie {
         }
         return if (str.length == index) {
             curr.isLastChar
-        } else find(curr.child!![str[index] - 'a'], str, index + 1)
+        } else find(curr.child[str[index] - 'a'], str, index + 1)
     }
 }
 
-fun main(args: Array<String>) {
-    val t = Trie()
-    val a = "hemant"
-    val b = "heman"
-    val c = "hemantjain"
-    val d = "jain"
-    t.add(a)
-    t.add(d)
-    println(t.find(a))
-    t.remove(a)
-    t.remove(d)
-    println(t.find(a))
-    println(t.find(c))
-    println(t.find(d))
+fun main() {
+    val tt = Trie()
+    tt.add("banana");
+    tt.add("apple");
+    tt.add("mango");
+    println("Apple Found : " + tt.find("apple"));
+    println("Banana Found : " + tt.find("banana"));
+    println("Grapes Found : " + tt.find("grapes"));
 }

@@ -1,6 +1,6 @@
 import java.util.LinkedList
 
-fun main(args: Array<String>) {
+fun main() {
     val ll = LinkedList<Int>()
     ll.addFirst(2) // 8 is added to the list
     ll.addLast(10) // 9 is added to last of the list.

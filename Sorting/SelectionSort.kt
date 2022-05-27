@@ -1,8 +1,8 @@
-fun more(value1: Int, value2: Int): Boolean {
+fun greater(value1: Int, value2: Int): Boolean {
     return value1 > value2
 }
 
-fun SelectionSort(arr: IntArray)// sorted array created from back.
+fun SelectionSort(arr: IntArray) // sorted array created in reverse order.
 {
     val size = arr.size
     var i: Int
@@ -26,7 +26,7 @@ fun SelectionSort(arr: IntArray)// sorted array created from back.
     }
 }
 
-fun SelectionSort2(arr: IntArray) // sorted array created from front
+fun SelectionSort2(arr: IntArray) // sorted array created in forward direction    
 {
     val size = arr.size
     var i: Int
@@ -51,7 +51,7 @@ fun SelectionSort2(arr: IntArray) // sorted array created from front
 }
 
 
-fun main(args: Array<String>) {
+fun main() {
     val array = intArrayOf(9, 1, 8, 2, 7, 3, 6, 4, 5)
     SelectionSort(array)
     for (i in array.indices) {

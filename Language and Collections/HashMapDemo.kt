@@ -7,7 +7,7 @@ import java.util.HashMap
 
 object HashMapDemo {
     @JvmStatic
-    fun main(args: Array<String>) {
+    fun main() {
         // Create a hash map.
         val hm = HashMap<String, Int>()
         // Put elements into the map

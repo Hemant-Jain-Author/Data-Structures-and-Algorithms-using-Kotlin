@@ -1,6 +1,6 @@
 import java.util.*
 
-fun main(args: Array<String>) {
+fun main() {
     val stack = Stack<Int>()
     stack.push(1)
     stack.push(2)

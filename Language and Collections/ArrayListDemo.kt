@@ -2,7 +2,7 @@ import java.util.ArrayList
 
 object ArrayListDemo {
     @JvmStatic
-    fun main(args: Array<String>) {
+    fun main() {
         val al = ArrayList<Int>()
 
         al.add(1) // add 1 to the end of the list

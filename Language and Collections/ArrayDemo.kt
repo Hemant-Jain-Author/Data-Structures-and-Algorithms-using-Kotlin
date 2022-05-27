@@ -1,6 +1,6 @@
 object ArrayDemo {
     @JvmStatic
-    fun main(args: Array<String>) {
+    fun main() {
         val arr = IntArray(10)
         for (i in 0..9) {
             arr[i] = i

@@ -2,7 +2,7 @@ import java.util.HashSet
 
 object HashSetDemo {
     @JvmStatic
-    fun main(args: Array<String>) {
+    fun main() {
         // Create a hash set.
         val hs = HashSet<String>()
         // Add elements to the hash set.

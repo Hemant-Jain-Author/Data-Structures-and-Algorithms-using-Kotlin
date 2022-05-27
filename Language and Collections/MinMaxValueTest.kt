@@ -1,5 +1,5 @@
 
-fun main(args: Array<String>) {
+fun main() {
 
     val maxByte = java.lang.Byte.MAX_VALUE
     val minByte = java.lang.Byte.MIN_VALUE

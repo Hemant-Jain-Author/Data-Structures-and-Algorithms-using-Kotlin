@@ -5,34 +5,16 @@ class DoublyCircularLinkedList {
 
     val isEmpty: Boolean
         get() = size == 0
+    
+    private class Node(val value: Int, var next: Node?, var prev: Node?)
 
-    private class Node {
-        var value: Int = 0
-        var next: Node? = null
-        var prev: Node? = null
-
-        constructor(v: Int, nxt: Node?, prv: Node?) {
-            value = v
-            next = nxt
-            prev = prv
-        }
-
-        constructor(v: Int) {
-            value = v
-            next = this
-            prev = this
-        }
-    }
     /* Other methods */
-
     fun size(): Int {
         return size
     }
 
-    @Throws(IllegalStateException::class)
     fun peekHead(): Int {
-        if (isEmpty)
-            throw IllegalStateException("EmptyListException")
+        if (isEmpty) throw IllegalStateException("EmptyListException")
         return head!!.value
     }
 
@@ -71,18 +53,14 @@ class DoublyCircularLinkedList {
     }
 
     fun removeHead(): Int {
-        if (size == 0)
-            throw IllegalStateException("EmptyListException")
-
+        if (size == 0) throw IllegalStateException("EmptyListException")
         val value = head!!.value
         size--
-
         if (size == 0) {
             head = null
             tail = null
             return value
         }
-
         val next = head!!.next
         next!!.prev = tail
         tail!!.next = next
@@ -91,18 +69,14 @@ class DoublyCircularLinkedList {
     }
 
     fun removeTail(): Int {
-        if (size == 0)
-            throw IllegalStateException("EmptyListException")
-
+        if (size == 0) throw IllegalStateException("EmptyListException")
         val value = tail!!.value
         size--
-
         if (size == 0) {
             head = null
             tail = null
             return value
         }
-
         val prev = tail!!.prev
         prev!!.next = head
         head!!.prev = prev
@@ -110,17 +84,14 @@ class DoublyCircularLinkedList {
         return value
     }
 
-    fun isPresent(key: Int): Boolean {
+    fun search(key: Int): Boolean {
         var temp = head
-        if (head == null)
-            return false
-
+        if (head == null) return false
         do {
-            if (temp!!.value == key)
+            if (temp!!.value == key) 
                 return true
             temp = temp.next
         } while (temp !== head)
-
         return false
     }
 
@@ -132,6 +103,7 @@ class DoublyCircularLinkedList {
 
     fun print() {
         if (isEmpty) {
+            println("Empty List.")
             return
         }
         var temp = head
@@ -139,17 +111,85 @@ class DoublyCircularLinkedList {
             print(temp!!.value.toString() + " ")
             temp = temp.next
         }
-        print(temp!!.value)
+        println(temp!!.value)
     }
 }
 
-fun main(args: Array<String>) {
+fun main1() {
     val ll = DoublyCircularLinkedList()
     ll.addHead(1)
     ll.addHead(2)
     ll.addHead(3)
+    ll.print()
+    println(ll.size())
+    println(ll.isEmpty)
+    println(ll.peekHead())
+    println(ll.search(3))
+}
+
+/*
+3 2 1
+3
+false
+3
+true
+*/
+
+fun main2() {
+    val ll = DoublyCircularLinkedList()
+    ll.addTail(1)
+    ll.addTail(2)
+    ll.addTail(3)
+    ll.print()
+    ll.removeHead()
+    ll.print()
+    ll.removeTail()
+    ll.print()
+    ll.deleteList()
+    ll.print()
+}
+
+/*
+1 2 3
+2 3
+2
+Empty List.
+*/
+
+fun main3() {
+    val ll = DoublyCircularLinkedList()
     ll.addHead(1)
     ll.addHead(2)
     ll.addHead(3)
     ll.print()
+    ll.removeHead()
+    ll.print()
+}
+
+/*
+3 2 1
+2 1
+*/
+
+fun main4() {
+    val ll = DoublyCircularLinkedList()
+    ll.addHead(1)
+    ll.addHead(2)
+    ll.addHead(3)
+    ll.print()
+    ll.removeTail()
+    ll.print()
+}
+
+/*
+3 2 1
+3 2
+*/
+
+// Testing code
+fun main() {
+    main1()
+    main2()
+    main3()
+    main4()
 }

@@ -14,7 +14,7 @@ class more : Comparator<Int> {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
 
     val pq = PriorityQueue<Int>()
     //PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());

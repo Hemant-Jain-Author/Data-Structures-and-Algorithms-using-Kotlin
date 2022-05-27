@@ -1,29 +1,60 @@
-fun BucketSort(array: IntArray, lowerRange: Int, upperRange: Int) {
-    var i: Int
-    var j: Int
-    val size = array.size
-    val range = upperRange - lowerRange
-    val count = IntArray(range)
+import java.util.ArrayList
+import java.util.Arrays
+import java.util.Collections
 
-    i = 0
-    while (i < size) {
-        count[array[i] - lowerRange]++
-        i++
+// Allowed values from 0 to maxValue.
+fun BucketSort(arr: IntArray, maxValue: Int) {
+    val numBucket = 5
+    BucketSortUtil(arr, maxValue, numBucket)
+}
+
+fun BucketSortUtil(arr: IntArray, maxValue: Int, numBucket: Int) {
+    val length = arr.size
+    if (length == 0) return
+    val bucket: ArrayList<ArrayList<Int>> = ArrayList<ArrayList<Int>>(numBucket)
+
+    // Create empty buckets
+    for (i in 0 until numBucket) 
+        bucket.add(ArrayList<Int>())
+    
+    val div: Int = Math.ceil(maxValue.toDouble() / numBucket).toInt()
+
+    // Add elements into the buckets
+    for (i in 0 until length) {
+        if (arr[i] < 0 || arr[i] > maxValue) {
+            println("Value out of range.")
+            return
+        }
+        var bucketIndex = arr[i] / div
+
+        // Maximum value will be assigned to last bucket.
+        if (bucketIndex >= numBucket) 
+            bucketIndex = numBucket - 1
+        bucket.get(bucketIndex).add(arr[i])
     }
 
-    j = 0
-    i = 0
-    while (i < range) {
-        while (count[i] > 0) {
-            array[j++] = i + lowerRange
-            count[i]--
+    // Sort the elements of each bucket.
+    for (i in 0 until numBucket) {
+        Collections.sort<Int>(bucket.get(i))
+    }
+
+    // Populate output from the sorted subarray.
+    var index = 0
+    var count: Int
+    for (i in 0 until numBucket) {
+        val temp: ArrayList<Int> = bucket.get(i)
+        count = temp.size
+        for (j in 0 until count) {
+            arr[index++] = temp.get(j)
         }
-        i++
     }
 }
-fun main(args: Array<String>) {
-    val array = intArrayOf(23, 24, 22, 21, 26, 25, 27, 28, 21, 21)
-    BucketSort(array, 20, 30)
+
+// Testing code
+fun main() {
+    val array = intArrayOf(1, 34, 7, 99, 5, 23, 45, 88, 77, 19, 91, 100)
+    val maxValue = 100
+    BucketSort(array, maxValue)
     for (i in array.indices) {
         print(array[i].toString() + " ")
     }

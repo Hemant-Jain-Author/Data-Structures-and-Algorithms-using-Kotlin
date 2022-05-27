@@ -2,32 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04dc547-09ef-425c-a8d9-bd299eb00d13" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/algo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/algo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Graph/Graph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/Graph.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph/GraphAM.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/GraphAM.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Heap/HeapEx.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Heap/HeapEx.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Introduction/Introduction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Introduction/Introduction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Introduction/QuickSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Introduction/QuickSort.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList/CircularLinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/CircularLinkedList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList/DoublyCircularLinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/DoublyCircularLinkedList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList/DoublyLinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/DoublyLinkedList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList/LinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/LinkedList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Queue/Queue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Queue/Queue.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Searching/Searching.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Searching/Searching.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorting/QuickSelect.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/QuickSelect.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stack/.StackExercise.java.swp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stack/Stack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/Stack.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stack/Stack2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/Stack2.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stack/StackExercise.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/StackExercise.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stack/TwoStack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/TwoStack.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/String/StringAlgo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/StringAlgo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/String/StringTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/StringTree.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/String/TST.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/TST.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/String/Trie.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/Trie.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tree/Tree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/Tree.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script.sh" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,9 +13,6 @@
   <component name="DefaultGradleProjectSettings">
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -85,6 +59,9 @@
       </list>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
       <list>
@@ -100,6 +77,7 @@
     <option name="width" value="1346" />
     <option name="height" value="696" />
   </component>
+  <component name="ProjectId" id="29fBw3t2u1cofvM6nY90YSjE14n" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -125,21 +103,18 @@
       <pane id="Scope" />
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/hemant/Documents/Github/Data-Structures-and-Algorithms-in-Kotlin"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>

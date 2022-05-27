@@ -33,7 +33,7 @@ class CountMap<T> {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val cm = CountMap<Int>()
     cm.add(2)
     cm.add(2)

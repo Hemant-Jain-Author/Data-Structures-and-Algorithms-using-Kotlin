@@ -1,6 +1,6 @@
 import java.util.TreeSet
 
-fun main(args: Array<String>) {
+fun main() {
     // Create a tree set.
     val ts = TreeSet<String>()
     // Add elements to the tree set.

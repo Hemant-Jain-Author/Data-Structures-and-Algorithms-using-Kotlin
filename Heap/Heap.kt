@@ -1,435 +1,171 @@
-import java.util.PriorityQueue
-import java.util.Arrays
+class Heap {
+    private var size : Int// Number of elements in Heap
+    private var arr : IntArray// The Heap array
+    var isMinHeap: Boolean
+
+    constructor(isMin: Boolean) {
+        arr = IntArray(32) // Initial capacity is 32
+        size = 0
+        isMinHeap = isMin
+    }
+
+    constructor(array: IntArray, isMin: Boolean) {
+        size = array.size
+        arr = array
+        isMinHeap = isMin
+        // Build Heap operation over array
+        for (i in size / 2 downTo 0) {
+            percolateDown(i)
+        }
+    }
+
+    fun compare(arr: IntArray, first: Int, second: Int): Boolean {
+        if (isMinHeap) 
+            return arr[first] - arr[second] > 0 // Min heap compare
+        else 
+            return arr[first] - arr[second] < 0 // Max heap compare
+    }
+
+    // Other Methods.
+    private fun percolateDown(parent: Int) {
+        val lChild = 2 * parent + 1
+        val rChild = lChild + 1
+        var child = -1
+        if (lChild < size) {
+            child = lChild
+        }
+        if (rChild < size && compare(arr, lChild, rChild)) {
+            child = rChild
+        }
+        if (child != -1 && compare(arr, parent, child)) {
+            val temp = arr[parent]
+            arr[parent] = arr[child]
+            arr[child] = temp
+            percolateDown(child)
+        }
+    }
+
+    private fun percolateUp(child: Int) {
+        val parent = (child - 1) / 2
+        if (parent >= 0 && compare(arr, parent, child)) {
+            val temp = arr[child]
+            arr[child] = arr[parent]
+            arr[parent] = temp
+            percolateUp(parent)
+        }
+    }
+
+    fun isEmpty(): Boolean {
+        return size == 0
+    }
+
+    fun length(): Int {
+        return size
+    }
+
+    fun peek(): Int {
+        if (isEmpty()) {
+            throw IllegalStateException()
+        }
+        return arr[0]
+    }
+
+    fun add(value: Int) {
+        if (size == arr.size) {
+            doubleSize()
+        }
+        arr[size++] = value
+        percolateUp(size - 1)
+    }
+    
+    private fun doubleSize() {
+        val old = arr
+        arr = IntArray(arr.size * 2)
+        System.arraycopy(old, 0, arr, 0, size)
+    }
+
+    fun remove(): Int {
+        if (isEmpty()) {
+            throw IllegalStateException()
+        }
+        val value = arr[0]
+        arr[0] = arr[size - 1]
+        size--
+        percolateDown(0)
+        return value
+    }
+
+    fun print() {
+        print("Heap : ")
+        for (i in 0 until size) {
+            print(arr[i].toString() + " ")
+        }
+        println()
+    }
+
+    fun delete(value: Int): Boolean {
+        for (i in 0 until size) {
+            if (arr[i] == value) {
+                arr[i] = arr[size - 1]
+                size -= 1
+                percolateUp(i)
+                percolateDown(i)
+                return true
+            }
+        }
+        return false
+    }
+}
 
 fun main1() {
-
-    val pq = PriorityQueue<Int>()
-    // PriorityQueue<Integer> pq = new
-    // PriorityQueue<Integer>(Collections.reverseOrder());
-    val arr = intArrayOf(1, 2, 10, 8, 7, 3, 4, 6, 5, 9)
-
-    for (i in arr) {
-        pq.add(i)
-    }
-    println("Printing Priority Queue Heap : $pq")
-
-    print("Dequeue elements of Priority Queue ::")
-    while (pq.isEmpty() == false) {
-        print(" " + pq.remove())
-    }
+    val hp = Heap(true)
+    hp.add(1)
+    hp.add(6)
+    hp.add(5)
+    hp.add(7)
+    hp.add(3)
+    hp.add(4)
+    hp.add(2)
+    hp.print()
+    while (!hp.isEmpty()) 
+        print(hp.remove().toString() + " ")
+    println()
 }
 
-fun KthSmallest(arr: IntArray, size: Int, k: Int): Int {
-    Arrays.sort(arr)
-    return arr[k - 1]
-}
+/*
+1 3 2 7 6 5 4 
+1 2 3 4 5 6 7 
+*/
 
-fun KthSmallest2(arr: IntArray, size: Int, k: Int): Int {
-    var i = 0
-    var value = 0
-    val pq = PriorityQueue<Int>()
-    i = 0
-    while (i < size) {
-        pq.add(arr[i])
-        i++
+fun heapSort(array: IntArray, inc: Boolean) {
+    // Create max heap for increasing order sorting.
+    val hp = Heap(array, !inc)
+    for (i in array.indices) {
+        array[array.size - i - 1] = hp.remove()
     }
-    i = 0
-    while (i < size && i < k) {
-        value = pq.remove()
-        i += 1
-    }
-    return value
-}
-
-fun isMinHeap(arr: IntArray, size: Int): Boolean {
-    var lchild: Int
-    var rchild: Int
-    // last element index size - 1
-    for (parent in 0 until size / 2 + 1) {
-        lchild = parent * 2 + 1
-        rchild = parent * 2 + 2
-        // heap property check.
-        if (lchild < size && arr[parent] > arr[lchild] || rchild < size && arr[parent] > arr[rchild])
-            return false
-    }
-    return true
-}
-
-fun isMaxHeap(arr: IntArray, size: Int): Boolean {
-    var lchild: Int
-    var rchild: Int
-    // last element index size - 1
-    for (parent in 0 until size / 2 + 1) {
-        lchild = parent * 2 + 1
-        rchild = lchild + 1
-        // heap property check.
-        if (lchild < size && arr[parent] < arr[lchild] || rchild < size && arr[parent] < arr[rchild])
-            return false
-    }
-    return true
 }
 
 fun main2() {
-    val arr = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    println("Kth Smallest :: " + KthSmallest(arr, arr.size, 3))
-    val arr2 = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    println("Kth Smallest :: " + KthSmallest2(arr2, arr2.size, 3))
-    val arr3 = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    println("isMaxHeap :: " + isMaxHeap(arr3, arr3.size))
-    val arr4 = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    Arrays.sort(arr4)
-    println("isMinHeap :: " + isMinHeap(arr4, arr4.size))
-}
-
-fun KSmallestProduct(arr: IntArray, size: Int, k: Int): Int {
-    Arrays.sort(arr)// , size, 1);
-    var product = 1
-    for (i in 0 until k)
-        product *= arr[i]
-    return product
-}
-
-fun swap(arr: IntArray, i: Int, j: Int) {
-    val temp = arr[i]
-    arr[i] = arr[j]
-    arr[j] = temp
-}
-
-fun QuickSelectUtil(arr: IntArray, lower: Int, upper: Int, k: Int) {
-    var lower = lower
-    var upper = upper
-    if (upper <= lower)
-        return
-
-    val pivot = arr[lower]
-
-    val start = lower
-    val stop = upper
-
-    while (lower < upper) {
-        while (lower < upper && arr[lower] <= pivot) {
-            lower++
-        }
-        while (lower <= upper && arr[upper] > pivot) {
-            upper--
-        }
-        if (lower < upper) {
-            swap(arr, upper, lower)
-        }
+    val a2 = intArrayOf(1, 9, 6, 7, 8, 2, 4, 5, 3)
+    heapSort(a2, true)
+    for (i in a2.indices) {
+        print(a2[i].toString() + " ")
     }
-
-    swap(arr, upper, start) // upper is the pivot position
-    if (k < upper)
-        QuickSelectUtil(arr, start, upper - 1, k) // pivot -1 is the upper for left sub array.
-    if (k > upper)
-        QuickSelectUtil(arr, upper + 1, stop, k) // pivot + 1 is the lower for right sub array.
-}
-
-fun KSmallestProduct3(arr: IntArray, size: Int, k: Int): Int {
-    QuickSelectUtil(arr, 0, size - 1, k)
-    var product = 1
-    for (i in 0 until k)
-        product *= arr[i]
-    return product
-}
-
-fun KSmallestProduct2(arr: IntArray, size: Int, k: Int): Int {
-    val pq = PriorityQueue<Int>()
-    var i = 0
-    var product = 1
-    i = 0
-    while (i < size) {
-        pq.add(arr[i])
-        i++
-    }
-    i = 0
-    while (i < size && i < k) {
-        product *= pq.remove()
-        i += 1
-    }
-    return product
-}
-
-fun main3() {
-    val arr = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    println("Kth Smallest product:: " + KSmallestProduct(arr, 8, 3))
-    val arr2 = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    println("Kth Smallest product:: " + KSmallestProduct2(arr2, 8, 3))
-    val arr3 = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    println("Kth Smallest product:: " + KSmallestProduct3(arr3, 8, 3))
-}
-
-fun PrintLargerHalf(arr: IntArray, size: Int) {
-    Arrays.sort(arr)// , size, 1);
-    for (i in size / 2 until size)
-        print(arr[i])
     println()
-}
-
-fun PrintLargerHalf2(arr: IntArray, size: Int) {
-    val product = 1
-    val pq = PriorityQueue<Int>()
-    for (i in 0 until size) {
-        pq.add(arr[i])
+    val a3 = intArrayOf(1, 9, 6, 7, 8, 2, 4, 5, 3)
+    heapSort(a3, false)
+    for (i in a3.indices) {
+        print(a3[i].toString() + " ")
     }
-
-    for (i in 0 until size / 2)
-        pq.remove()
-    println(pq)
 }
-
-fun PrintLargerHalf3(arr: IntArray, size: Int) {
-    QuickSelectUtil(arr, 0, size - 1, size / 2)
-    for (i in size / 2 until size)
-        print(arr[i])
-    println()
-}
-
-
-fun main4() {
-    val arr = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    PrintLargerHalf(arr, 8)
-    val arr2 = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    PrintLargerHalf2(arr2, 8)
-    val arr3 = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
-    PrintLargerHalf3(arr3, 8)
-}
-
-fun sortK(arr: IntArray, size: Int, k: Int) {
-    val pq = PriorityQueue<Int>()
-    var i = 0
-    i = 0
-    while (i < k) {
-        pq.add(arr[i])
-        i++
-    }
-
-    val output = IntArray(size, {0})
-    var index = 0
-
-    i = k
-    while (i < size) {
-        output[index++] = pq.remove()
-        pq.add(arr[i])
-        i++
-    }
-    while (pq.size > 0)
-        output[index++] = pq.remove()
-
-    i = 0
-    while (i < size) {
-        arr[i] = output[i]
-        i++
-    }
-    for(i in output)
-        print(i.toString() + " ")
-}
-
-// Testing Code
-fun main5() {
-    val k = 3
-    val arr = intArrayOf(1, 5, 4, 10, 50, 9)
-    val size = arr.size
-    sortK(arr, size, k)
-}
-
-fun ChotaBhim(cups: IntArray, size: Int): Int {
-    var time = 60
-    Arrays.sort(cups)
-    var total = 0
-    var index: Int
-    var temp: Int
-    while (time > 0) {
-        total += cups[0]
-        cups[0] = Math.ceil(cups[0] / 2.0).toInt()
-        index = 0
-        temp = cups[0]
-        while (index < size - 1 && temp < cups[index + 1]) {
-            cups[index] = cups[index + 1]
-            index += 1
-        }
-        cups[index] = temp
-        time -= 1
-    }
-    println("Total : $total")
-    return total
-}
-
-fun ChotaBhim2(cups: IntArray, size: Int): Int {
-    var time = 60
-    Arrays.sort(cups)
-    var total = 0
-    var i: Int
-    var temp: Int
-    while (time > 0) {
-        total += cups[0]
-        cups[0] = Math.ceil(cups[0] / 2.0).toInt()
-        i = 0
-        // Insert into proper location.
-        while (i < size - 1) {
-            if (cups[i] > cups[i + 1])
-                break
-            temp = cups[i]
-            cups[i] = cups[i + 1]
-            cups[i + 1] = temp
-            i += 1
-        }
-        time -= 1
-    }
-    println("Total : $total")
-    return total
-}
-
-fun ChotaBhim3(cups: IntArray, size: Int): Int {
-    var time = 60
-    val pq = PriorityQueue<Int>( { a, b -> b - a })
-    var i = 0
-    i = 0
-    while (i < size) {
-        pq.add(cups[i])
-        i++
-    }
-
-    var total = 0
-    var value: Int
-    while (time > 0) {
-        value = pq.remove()
-        total += value
-        value = Math.ceil(value / 2.0).toInt()
-        pq.add(value)
-        time -= 1
-    }
-    println("Total : $total")
-    return total
-}
-
-fun JoinRopes(ropes: IntArray, size: Int): Int {
-    ropes.sortDescending()
-
-    var total = 0
-    var value = 0
-    val temp: Int
-    var index: Int
-    var length = size
-
-    while (length >= 2) {
-        value = ropes[length - 1] + ropes[length - 2]
-        total += value
-        index = length - 2
-
-        while (index > 0 && ropes[index - 1] < value) {
-            ropes[index] = ropes[index - 1]
-            index -= 1
-        }
-        ropes[index] = value
-        length--
-    }
-    println("Total : $total")
-    return total
-}
-
-fun JoinRopes2(ropes: IntArray, size: Int): Int {
-    val pq = PriorityQueue<Int>()
-    var i = 0
-    i = 0
-    while (i < size) {
-        pq.add(ropes[i])
-        i++
-    }
-
-    var total = 0
-    var value = 0
-    while (pq.size > 1) {
-        value = pq.remove()
-        value += pq.remove()
-        pq.add(value)
-        total += value
-    }
-    println("Total : $total")
-    return total
-}
-
-fun main6() {
-    val cups = intArrayOf(2, 1, 7, 4, 2)
-    ChotaBhim(cups, cups.size)
-    val cups2 = intArrayOf(2, 1, 7, 4, 2)
-    ChotaBhim2(cups2, cups.size)
-    val cups3 = intArrayOf(2, 1, 7, 4, 2)
-    ChotaBhim3(cups3, cups.size)
-
-    val ropes = intArrayOf(2, 1, 7, 4, 2)
-    JoinRopes(ropes, ropes.size)
-    val rope2 = intArrayOf(2, 1, 7, 4, 2)
-    JoinRopes2(rope2, rope2.size)
-}
-
-
-
 
 /*
-* public static int kthAbsDiff(int[] arr, int size, int k) { Sort(arr, size,1);
-* int diff[1000]; int index = 0; for (int i = 0; i < size - 1; i++) { for (int
-* j = i + 1; j < size; j++) diff[index++] = abs(arr[i] - arr[j]); } Sort(diff,
-* index); return diff[k - 1]; }
-*
-* int kthAbsDiff(int[] arr, int size, int k) { Sort(arr, size, 1); Heap hp; int
-* value = 0;
-*
-* for (int i = k + 1; i < size - 1; i++) HeapAdd(&hp,(abs(arr[i] - arr[i + 1]),
-* i, i + 1)); heapify(hp);
-*
-* for (int i = 0; i < k; i++) { tp = heapq.heappop(hp); value = tp[0]; src =
-* tp[1]; dst = tp[2]; if (dst + 1 < size) heapq.heappush(hp, (abs(arr[src] -
-* arr[dst + 1]), src, dst + 1)); } return value; }
-*
-* public static void main7(String[] args) { int arr[] = { 1, 2, 3, 4 };
-* System.out.println("", kthAbsDiff(arr, 4, 5)); return 0; }
-*/
-fun kthLargestStream(k: Int): Int {
-    val pq = PriorityQueue<Int>()
-    var size = 0
-    var data = 0
-    while (true) {
-        println("Enter data: ")
-        data = Integer.valueOf(readLine());
-
-        if (size < k - 1)
-            pq.add(data)
-        else {
-            if (size == k - 1)
-                pq.add(data)
-            else if (pq.peek() < data) {
-                pq.add(data)
-                pq.remove()
-            }
-            println("Kth larges element is :: " + pq.peek())
-        }
-        size += 1
-    }
-}
-
-fun main7() {
-    kthLargestStream(3)
-}
-/*
-* public static int minJumps(int[] arr, int size) { int *jumps = (int
-* *)malloc(sizeof(int) * size); //all jumps to maxint. int steps, j; jumps[0] =
-* 0;
-*
-* for (int i = 0; i < size; i++) { steps = arr[i]; // error checks can be added
-* hear. j = i + 1; while (j <= i + steps && j < size) { jumps[j] =
-* min(jumps[j], jumps[i] + 1); j += 1; } System.out.println("%s", jumps); }
-* return jumps[size - 1]; } public static void main2(String[] args) { int arr[]
-* = {1, 4, 3, 7, 6, 1, 0, 3, 5, 1, 10}; System.out.println("%d", minJumps(arr,
-* sizeof(arr) / sizeof(int))); return 0; }
+1 2 3 4 5 6 7 8 9 
+9 8 7 6 5 4 3 2 1
 */
 
-fun main(args: Array<String>){
-    //main1()
-    //main2()
-    //main3()
-    //main4()
-    main5()
-    //main6()
-    //main7()
+// Testing code
+fun main() {
+    main1()
+    main2();
 }

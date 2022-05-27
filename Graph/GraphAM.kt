@@ -3,15 +3,13 @@ import java.util.LinkedList
 import java.util.PriorityQueue
 import java.util.Stack
 import java.util.Queue
+import java.util.Arrays
 
-
-class GraphAM internal constructor(cnt:Int) {
-    internal var count: Int = 0
-    internal var adj: Array<IntArray>
+class GraphAM internal constructor(var count: Int) {
+    var adj: Array<IntArray>
 
     init {
-        count = cnt
-        adj = Array<IntArray>(count, { IntArray(count) })
+        adj = Array(count) { IntArray(count) }
     }
 
     fun addDirectedEdge(src: Int, dst: Int, cost: Int = 1) {
@@ -25,95 +23,86 @@ class GraphAM internal constructor(cnt:Int) {
 
     fun print() {
         for (i in 0 until count) {
-            print("Node index [ " + i + " ] is connected with : ")
+            print("Vertex $i is connected to : ")
             for (j in 0 until count) {
-                if (adj[i][j] != 0)
-                    print(j.toString() + " ")
+                if (adj[i][j] != 0) print(j.toString() + "(cost: " + adj[i][j] + ") ")
             }
-            println("")
+            println()
         }
     }
 
-    internal class Edge(dst: Int, cst: Int) {
-        var dest: Int = 0
-        var cost: Int = 0
-
-        init {
-            dest = dst
-            cost = cst
+    /*
+Vertex 0 is connected to : 1(cost: 1) 2(cost: 1) 
+Vertex 1 is connected to : 0(cost: 1) 2(cost: 1) 
+Vertex 2 is connected to : 0(cost: 1) 1(cost: 1) 3(cost: 1) 
+Vertex 3 is connected to : 2(cost: 1) 
+*/
+    private class Edge(var src: Int, var dest: Int, var cost: Int) : Comparable<Edge> {
+        override operator fun compareTo(other: Edge): Int {
+            return cost - other.cost
         }
     }
 
-    internal class EdgeComparator : Comparator<Edge> {
-        public override fun compare(x: Edge, y: Edge): Int {
-            if (x.cost < y.cost) {
-                return -1
-            }
-            if (x.cost > y.cost) {
-                return 1
-            }
-            return 0
-        }
-    }
-
-    fun dijkstra(src: Int) {
-        var source = src
-        val previous = IntArray(count)
-        val dist = IntArray(count)
+    fun dijkstra(source: Int) {
+        val previous = IntArray(count){-1}
+        val dist = IntArray(count){Int.MAX_VALUE}
         val visited = BooleanArray(count)
-        for (i in 0 until count) {
-            previous[i] = -1
-            dist[i] = Integer.MAX_VALUE // infinite
-            visited[i] = false
-        }
         dist[source] = 0
-        previous[source] = -1
-        val comp = EdgeComparator()
-        val queue = PriorityQueue<Edge>(100, comp)
-        var node = Edge(source, 0)
+        previous[source] = source
+        val queue: PriorityQueue<Edge> = PriorityQueue<Edge>(100)
+        var node = Edge(source, source, 0)
         queue.add(node)
         while (queue.isEmpty() != true) {
             node = queue.peek()
             queue.remove()
-            source = node.dest
-            visited[source] = true
+            val src = node.dest
+            visited[src] = true
             for (dest in 0 until count) {
-                val cost = adj[source][dest]
+                val cost = adj[src][dest]
                 if (cost != 0) {
-                    val alt = cost + dist[source]
+                    val alt = cost + dist[src]
                     if (dist[dest] > alt && visited[dest] == false) {
                         dist[dest] = alt
-                        previous[dest] = source
-                        node = Edge(dest, alt)
+                        previous[dest] = src
+                        node = Edge(src, dest, alt)
                         queue.add(node)
                     }
                 }
             }
         }
-        for (i in 0 until count) {
-            if (dist[i] == Integer.MAX_VALUE) {
-                println("Node id " + i + " prev " + previous[i] + " distance : Unreachable")
-            } else {
-                println("Node id " + i + " prev " + previous[i] + " distance : " + dist[i])
-            }
-        }
+        printPath(previous, dist, count, source)
     }
 
-    fun prims() {
-        val previous = IntArray(count)
-        val dist = IntArray(count)
+    fun printPathUtil(previous: IntArray, source: Int, dest: Int): String {
+        var path = ""
+        if (dest == source) path += source else {
+            path += printPathUtil(previous, source, previous[dest])
+            path += "->$dest"
+        }
+        return path
+    }
+
+    fun printPath(previous: IntArray, dist: IntArray, count: Int, source: Int) {
+        var output = "Shortest Paths: "
+        for (i in 0 until count) {
+            if (dist[i] == 99999) output += "($source->$i @ Unreachable) " else if (i != previous[i]) {
+                output += "("
+                output += printPathUtil(previous, source, i)
+                output += " @ " + dist[i] + ") "
+            }
+        }
+        println(output)
+    }
+
+    fun primsMST() {
+        val previous = IntArray(count){-1}
+        val dist = IntArray(count){Int.MAX_VALUE}
+        val visited = BooleanArray(count)
         var source = 0
-        val visited = BooleanArray(count)
-        for (i in 0 until count) {
-            previous[i] = -1
-            dist[i] = Integer.MAX_VALUE // infinite
-            visited[i] = false
-        }
         dist[source] = 0
-        previous[source] = -1
-        val comp = EdgeComparator()
-        val queue = PriorityQueue<Edge>(100, comp)
-        var node = Edge(source, 0)
+        previous[source] = source
+        val queue: PriorityQueue<Edge> = PriorityQueue<Edge>(100)
+        var node = Edge(source, source, 0)
         queue.add(node)
         while (queue.isEmpty() != true) {
             node = queue.peek()
@@ -123,41 +112,51 @@ class GraphAM internal constructor(cnt:Int) {
             for (dest in 0 until count) {
                 val cost = adj[source][dest]
                 if (cost != 0) {
-                    val alt = cost
-                    if (dist[dest] > alt && visited[dest] == false) {
-                        dist[dest] = alt
+                    if (dist[dest] > cost && visited[dest] == false) {
+                        dist[dest] = cost
                         previous[dest] = source
-                        node = Edge(dest, alt)
+                        node = Edge(source, dest, cost)
                         queue.add(node)
                     }
                 }
             }
         }
+
+        // printing result.
+        var sum = 0
+        var isMst = true
+        var output = "Edges are "
         for (i in 0 until count) {
-            if (dist[i] == Integer.MAX_VALUE) {
-                println("Node id " + i + " prev " + previous[i] + " distance : Unreachable")
-            } else {
-                println("Node id " + i + " prev " + previous[i] + " distance : " + dist[i])
+            if (dist[i] == Int.MAX_VALUE) {
+                output += "($i, Unreachable) "
+                isMst = false
+            } else if (previous[i] != i) {
+                output += "(" + previous[i] + "->" + i + " @ " + dist[i] + ") "
+                sum += dist[i]
             }
         }
+        if (isMst) {
+            println(output)
+            println("Total MST cost: $sum")
+        } else println("Can't get a Spanning Tree")
     }
 
-    fun hamiltonianPathUtil(path: IntArray, pSizeIn: Int, added: IntArray): Boolean {
-        var pSize = pSizeIn
+    /*
+Shortest Paths: (0->2->1 @ 6) (0->2 @ 1) (0->2->3 @ 3) (0->2->3->5->4 @ 13) (0->2->3->5 @ 7) (0->2->3->5->7->6 @ 15) (0->2->3->5->7 @ 8) (0->2->3->5->7->8 @ 25) 
+*/
+    fun hamiltonianPathUtil(path: IntArray, pSize: Int, added: IntArray): Boolean {
         // Base case full length path is found
         if (pSize == count) {
             return true
         }
         for (vertex in 0 until count) {
-            // there is a path from last element and next vertex
-            // and next vertex is not already included in path.
-            if (pSize == 0 || (adj[path[pSize - 1]][vertex] == 1 && added[vertex] == 0)) {
-                path[pSize++] = vertex
+            // There is an edge from last element of path and next vertex
+            // and the next vertex is not already included in the path.
+            if ((pSize == 0 || adj[path[pSize - 1]][vertex] == 1) && added[vertex] == 0) {
+                path[pSize] = vertex
                 added[vertex] = 1
-                if (hamiltonianPathUtil(path, pSize, added))
-                    return true
+                if (hamiltonianPathUtil(path, pSize + 1, added)) return true
                 // backtracking
-                pSize--
                 added[vertex] = 0
             }
         }
@@ -169,35 +168,37 @@ class GraphAM internal constructor(cnt:Int) {
         val added = IntArray(count)
         if (hamiltonianPathUtil(path, 0, added)) {
             print("Hamiltonian Path found :: ")
-            for (i in 0 until count)
-                print(" " + path[i])
-            println()
+            for (i in 0 until count) print(" " + path[i])
+            println("")
             return true
         }
         println("Hamiltonian Path not found")
         return false
     }
 
-    fun hamiltonianCycleUtil(path: IntArray, pSizeIn: Int, added: IntArray): Boolean {
-        var pSize = pSizeIn
+    /*
+Hamiltonian Path found ::  0 1 2 4 3
+hamiltonianPath : true
+
+Hamiltonian Path found ::  0 3 1 2 4
+hamiltonianPath :  true
+*/
+    fun hamiltonianCycleUtil(path: IntArray, pSize: Int, added: IntArray): Boolean {
         // Base case full length path is found
         // this last check can be modified to make it a path.
         if (pSize == count) {
-            if (adj[path[pSize - 1]][path[0]] == 1) {
+            return if (adj[path[pSize - 1]][path[0]] == 1) {
                 path[pSize] = path[0]
-                return true
-            } else
-                return false
+                true
+            } else false
         }
         for (vertex in 0 until count) {
             // there is a path from last element and next vertex
-            if (pSize == 0 || (adj[path[pSize - 1]][vertex] == 1 && added[vertex] == 0)) {
-                path[pSize++] = vertex
+            if (pSize == 0 || adj[path[pSize - 1]][vertex] == 1 && added[vertex] == 0) {
+                path[pSize] = vertex
                 added[vertex] = 1
-                if (hamiltonianCycleUtil(path, pSize, added))
-                    return true
+                if (hamiltonianCycleUtil(path, pSize + 1, added)) return true
                 // backtracking
-                pSize--
                 added[vertex] = 0
             }
         }
@@ -209,9 +210,8 @@ class GraphAM internal constructor(cnt:Int) {
         val added = IntArray(count)
         if (hamiltonianCycleUtil(path, 0, added)) {
             print("Hamiltonian Cycle found :: ")
-            for (i in 0..count)
-                print(" " + path[i])
-            println()
+            for (i in 0..count) print(" " + path[i])
+            println("")
             return true
         }
         println("Hamiltonian Cycle not found")
@@ -219,14 +219,18 @@ class GraphAM internal constructor(cnt:Int) {
     }
 }
 
+
+// Testing code.
 fun main1() {
-    val graph = GraphAM(4)
-    graph.addUndirectedEdge(0, 1, 1)
-    graph.addUndirectedEdge(0, 2, 1)
-    graph.addUndirectedEdge(1, 2, 1)
-    graph.addUndirectedEdge(2, 3, 1)
-    graph.print()
+    val gph = GraphAM(4)
+    gph.addUndirectedEdge(0, 1)
+    gph.addUndirectedEdge(0, 2)
+    gph.addUndirectedEdge(1, 2)
+    gph.addUndirectedEdge(2, 3)
+    gph.print()
 }
+
+// Testing code.
 fun main2() {
     val gph = GraphAM(9)
     gph.addUndirectedEdge(0, 1, 4)
@@ -243,11 +247,14 @@ fun main2() {
     gph.addUndirectedEdge(6, 7, 1)
     gph.addUndirectedEdge(6, 8, 6)
     gph.addUndirectedEdge(7, 8, 7)
-    gph.print()
-    gph.prims()
-    gph.dijkstra(0)
+    gph.primsMST()
 }
 
+/*
+Edges are (0->1 @ 4) (5->2 @ 4) (2->3 @ 7) (3->4 @ 9) (6->5 @ 2) (7->6 @ 1) (0->7 @ 8) (2->8 @ 2) 
+Total MST cost: 37
+*/
+// Testing code.
 fun main3() {
     val gph = GraphAM(9)
     gph.addUndirectedEdge(0, 2, 1)
@@ -261,46 +268,72 @@ fun main3() {
     gph.addUndirectedEdge(5, 7, 1)
     gph.addUndirectedEdge(6, 7, 7)
     gph.addUndirectedEdge(7, 8, 17)
-    gph.print()
-    gph.prims()
-    gph.dijkstra(1)
+    gph.dijkstra(0)
 }
 
+// Testing code.
 fun main4() {
     val count = 5
-    val graph = GraphAM(count)
-    val adj = arrayOf<IntArray>(
+    val gph = GraphAM(count)
+    val adj = arrayOf(
         intArrayOf(0, 1, 0, 1, 0),
         intArrayOf(1, 0, 1, 1, 0),
         intArrayOf(0, 1, 0, 0, 1),
         intArrayOf(1, 1, 0, 0, 1),
         intArrayOf(0, 1, 1, 1, 0)
     )
-    for (i in 0 until count)
-        for (j in 0 until count)
-            if (adj[i][j] == 1)
-                graph.addDirectedEdge(i, j, 1)
-    println("hamiltonianPath : " + graph.hamiltonianPath())
-    println("hamiltonianCycle : " + graph.hamiltonianCycle())
-    val graph2 = GraphAM(count)
-    val adj2 = arrayOf<IntArray>(
+    for (i in 0 until count) for (j in 0 until count) if (adj[i][j] == 1) gph.addDirectedEdge(i, j, 1)
+    println("hamiltonianPath : " + gph.hamiltonianPath())
+    val gph2 = GraphAM(count)
+    val adj2 = arrayOf(
         intArrayOf(0, 1, 0, 1, 0),
         intArrayOf(1, 0, 1, 1, 0),
         intArrayOf(0, 1, 0, 0, 1),
         intArrayOf(1, 1, 0, 0, 0),
         intArrayOf(0, 1, 1, 0, 0)
     )
-    for (i in 0 until count)
-        for (j in 0 until count)
-            if (adj2[i][j] == 1)
-                graph2.addDirectedEdge(i, j, 1)
-    println("hamiltonianPath : " + graph2.hamiltonianPath())
-    println("hamiltonianCycle : " + graph2.hamiltonianCycle())
+    for (i in 0 until count) for (j in 0 until count) if (adj2[i][j] == 1) gph2.addDirectedEdge(i, j, 1)
+    println("hamiltonianPath :  " + gph2.hamiltonianPath())
 }
 
-fun main(args : Array<String>) {
-    // main1()
-    // main2()
-    // main3()
-     main4()
+// Testing code.
+fun main5() {
+    val count = 5
+    val gph = GraphAM(count)
+    val adj = arrayOf(
+        intArrayOf(0, 1, 0, 1, 0),
+        intArrayOf(1, 0, 1, 1, 0),
+        intArrayOf(0, 1, 0, 0, 1),
+        intArrayOf(1, 1, 0, 0, 1),
+        intArrayOf(0, 1, 1, 1, 0)
+    )
+    for (i in 0 until count) for (j in 0 until count) if (adj[i][j] == 1) gph.addDirectedEdge(i, j, 1)
+    println("hamiltonianCycle : " + gph.hamiltonianCycle())
+    val gph2 = GraphAM(count)
+    val adj2 = arrayOf(
+        intArrayOf(0, 1, 0, 1, 0),
+        intArrayOf(1, 0, 1, 1, 0),
+        intArrayOf(0, 1, 0, 0, 1),
+        intArrayOf(1, 1, 0, 0, 0),
+        intArrayOf(0, 1, 1, 0, 0)
+    )
+    for (i in 0 until count) for (j in 0 until count) if (adj2[i][j] == 1) gph2.addDirectedEdge(i, j, 1)
+    println("hamiltonianCycle :  " + gph2.hamiltonianCycle())
+}
+
+/*
+Hamiltonian Cycle found ::  0 1 2 4 3 0
+hamiltonianCycle : true
+
+Hamiltonian Cycle not found
+hamiltonianCycle :  false
+*/
+
+// Testing code
+fun main() {
+    main1()
+    main2()
+    main3()
+    main4()
+    main5()
 }

@@ -1,6 +1,6 @@
 import java.util.ArrayDeque
 
-fun main(args: Array<String>) {
+fun main() {
     val que = ArrayDeque<Int>()
     que.add(1)
     que.add(2)

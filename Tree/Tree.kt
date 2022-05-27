@@ -1,427 +1,314 @@
 import java.util.ArrayDeque
 import java.util.Stack
 
-class Tree {
-    var root: Node? = null
-
-    class Node {
-        var value: Int = 0
-        var lChild: Node? = null
-        var rChild: Node? = null
-
-        constructor(v: Int, l: Node? = null, r: Node? = null) {
-            value = v
-            lChild = l
-            rChild = r
-        }
-    }
-
-    val isBST: Boolean
-        get() = isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE)
-
-    val isBST2: Boolean
-        get() {
-
-            val count = IntArray(1)
-            return isBST2(root, count)
-        }
-
-    internal val isCompleteTree: Boolean
-        get() {
-            val que = ArrayDeque<Node>()
-            var temp: Node? = null
-            var noChild = 0
-            if (root != null)
-                que.add(root)
-            while (que.size != 0) {
-                temp = que.remove()
-                if (temp!!.lChild != null) {
-                    if (noChild == 1)
-                        return false
-                    que.add(temp!!.lChild)
-                } else
-                    noChild = 1
-
-                if (temp!!.rChild != null) {
-                    if (noChild == 1)
-                        return false
-                    que.add(temp!!.rChild)
-                } else
-                    noChild = 1
-            }
-            return true
-        }
-
-    internal val isCompleteTree2: Boolean
-        get() {
-            val count = numNodes()
-            return isCompleteTreeUtil(root, 0, count)
-        }
-
-    internal val isHeap: Boolean
-        get() {
-            val infi = Int.MIN_VALUE
-            return isCompleteTree && isHeapUtil(root, infi)
-        }
-
-    internal val isHeap2: Boolean
-        get() {
-            val count = numNodes()
-            val parentValue = Int.MIN_VALUE
-            return isHeapUtil2(root, 0, count, parentValue)
-        }
+class Tree (var root: Node? = null) {
+    
+    class Node (var value: Int, var left: Node? = null, var right: Node? = null)        
 
     /* Other methods */
-
-    fun levelOrderBinaryTree(arr: IntArray) {
-        root = levelOrderBinaryTree(arr, 0)
+    fun createCompleteBinaryTree(arr: IntArray) {
+        root = createCompleteBinaryTree(arr, 0)
     }
 
-    fun levelOrderBinaryTree(arr: IntArray, start: Int): Node {
+    fun createCompleteBinaryTree(arr: IntArray, start: Int): Node {
         val size = arr.size
         val curr = Node(arr[start])
-
-        val left = 2 * start + 1
-        val right = 2 * start + 2
-
-        if (left < size)
-            curr.lChild = levelOrderBinaryTree(arr, left)
-        if (right < size)
-            curr.rChild = levelOrderBinaryTree(arr, right)
-
+        val leftIndex = 2 * start + 1
+        val rightIndex = 2 * start + 2
+        if (leftIndex < size) curr.left = createCompleteBinaryTree(arr, leftIndex)
+        if (rightIndex < size) curr.right = createCompleteBinaryTree(arr, rightIndex)
         return curr
     }
 
-    fun InsertNode(value: Int) {
-        root = InsertNode(root, value)
+    fun insert(value: Int) {
+        root = insert(root, value)
     }
 
-    private fun InsertNode(node: Node?, value: Int): Node {
-        var node = node
+    private fun insert(nd: Node?, value: Int): Node {
+        var node = nd
         if (node == null) {
             node = Node(value, null, null)
         } else {
             if (node.value > value) {
-                node.lChild = InsertNode(node.lChild, value)
+                node.left = insert(node.left, value)
             } else {
-                node.rChild = InsertNode(node.rChild, value)
+                node.right = insert(node.right, value)
             }
         }
         return node
     }
 
-    fun PrintPreOrder() {
-        PrintPreOrder(root)
+    fun printPreOrder() {
+        printPreOrder(root)
+        println()
     }
 
-    private fun PrintPreOrder(node: Node?)/* pre order */ {
+    private fun printPreOrder(node: Node?) { /* pre order */
         if (node != null) {
-            print(" " + node.value)
-            PrintPreOrder(node.lChild)
-            PrintPreOrder(node.rChild)
+            print(node.value.toString() + " ")
+            printPreOrder(node.left)
+            printPreOrder(node.right)
         }
     }
 
-    fun NthPreOrder(index: Int) {
+    fun nthPreOrder(index: Int) {
         val counter = intArrayOf(0)
-        NthPreOrder(root, index, counter)
+        nthPreOrder(root, index, counter)
     }
 
-    private fun NthPreOrder(node: Node?, index: Int, counter: IntArray)/* pre order */ {
+    private fun nthPreOrder(node: Node?, index: Int, counter: IntArray) { /* pre order */
         if (node != null) {
             counter[0]++
             if (counter[0] == index) {
-                print(node.value)
+                println(node.value)
             }
-            NthPreOrder(node.lChild, index, counter)
-            NthPreOrder(node.rChild, index, counter)
+            nthPreOrder(node.left, index, counter)
+            nthPreOrder(node.right, index, counter)
         }
     }
 
-    fun PrintPostOrder() {
-        PrintPostOrder(root)
+    fun printPostOrder() {
+        printPostOrder(root)
+        println()
     }
 
-    private fun PrintPostOrder(node: Node?)/* post order */ {
+    private fun printPostOrder(node: Node?) { /* post order */
         if (node != null) {
-            PrintPostOrder(node.lChild)
-            PrintPostOrder(node.rChild)
-            print(" " + node.value)
+            printPostOrder(node.left)
+            printPostOrder(node.right)
+            print(node.value.toString() + " ")
         }
     }
 
-    fun NthPostOrder(index: Int) {
+    fun nthPostOrder(index: Int) {
         val counter = intArrayOf(0)
-        NthPostOrder(root, index, counter)
+        nthPostOrder(root, index, counter)
     }
 
-    private fun NthPostOrder(node: Node?, index: Int, counter: IntArray)/* post order */ {
+    private fun nthPostOrder(node: Node?, index: Int, counter: IntArray) { /* post order */
         if (node != null) {
-            NthPostOrder(node.lChild, index, counter)
-            NthPostOrder(node.rChild, index, counter)
+            nthPostOrder(node.left, index, counter)
+            nthPostOrder(node.right, index, counter)
             counter[0]++
             if (counter[0] == index) {
-                print(" " + node.value)
+                println(node.value)
             }
         }
     }
 
-    fun PrintInOrder() {
-        PrintInOrder(root)
+    fun printInOrder() {
+        printInOrder(root)
+        println()
     }
 
-    private fun PrintInOrder(node: Node?)/* In order */ {
+    private fun printInOrder(node: Node?) { /* In order */
         if (node != null) {
-            PrintInOrder(node.lChild)
-            print(" " + node.value)
-            PrintInOrder(node.rChild)
+            printInOrder(node.left)
+            print(node.value.toString() + " ")
+            printInOrder(node.right)
         }
     }
 
-    fun NthInOrder(index: Int) {
+    fun nthInOrder(index: Int) {
         val counter = intArrayOf(0)
-        NthInOrder(root, index, counter)
+        nthInOrder(root, index, counter)
     }
 
-    private fun NthInOrder(node: Node?, index: Int, counter: IntArray) {
-
+    private fun nthInOrder(node: Node?, index: Int, counter: IntArray) {
         if (node != null) {
-            NthInOrder(node.lChild, index, counter)
+            nthInOrder(node.left, index, counter)
             counter[0]++
             if (counter[0] == index) {
-                print(" " + node.value)
+                println(node.value)
             }
-            NthInOrder(node.rChild, index, counter)
+            nthInOrder(node.right, index, counter)
         }
     }
 
-    fun PrintBredthFirst() {
-        val que = ArrayDeque<Node>()
+    fun printBreadthFirst() {
+        val que: ArrayDeque<Node> = ArrayDeque<Node>()
         var temp: Node
-        if (root != null)
-            que.add(root)
-
+        if (root != null) que.add(root)
         while (que.isEmpty() == false) {
             temp = que.remove()
-            print(" " + temp.value)
-
-            if (temp.lChild != null)
-                que.add(temp.lChild)
-            if (temp.rChild != null)
-                que.add(temp.rChild)
+            print(temp.value.toString() + " ")
+            if (temp.left != null) que.add(temp.left)
+            if (temp.right != null) que.add(temp.right)
         }
     }
 
-    fun PrintDepthFirst() {
-        val stk = ArrayDeque<Node>()
+    fun printDepthFirst() {
+        val stk: Stack<Node> = Stack<Node>()
         var temp: Node
-
-        if (root != null)
-            stk.push(root)
-
+        if (root != null) stk.push(root)
         while (stk.isEmpty() == false) {
             temp = stk.pop()
-            println(temp.value)
-
-            if (temp.lChild != null)
-                stk.push(temp.lChild)
-            if (temp.rChild != null)
-                stk.push(temp.rChild)
+            print(temp.value.toString() + " ")
+            if (temp.left != null) stk.push(temp.left)
+            if (temp.right != null) stk.push(temp.right)
         }
     }
 
-    internal fun PrintLevelOrderLineByLine() {
-        val que1 = ArrayDeque<Node>()
-        val que2 = ArrayDeque<Node>()
-        var temp: Node? = null
-        if (root != null)
-            que1.add(root)
+    fun printLevelOrderLineByLine() {
+        val que1: ArrayDeque<Node> = ArrayDeque<Node>()
+        val que2: ArrayDeque<Node> = ArrayDeque<Node>()
+        var temp: Node?
+        if (root != null) que1.add(root)
         while (que1.size != 0 || que2.size != 0) {
             while (que1.size != 0) {
                 temp = que1.remove()
-                print(" " + temp!!.value)
-                if (temp!!.lChild != null)
-                    que2.add(temp!!.lChild)
-                if (temp!!.rChild != null)
-                    que2.add(temp!!.rChild)
+                print(temp.value.toString() + " ")
+                if (temp.left != null) que2.add(temp.left)
+                if (temp.right != null) que2.add(temp.right)
             }
             println("")
-
             while (que2.size != 0) {
                 temp = que2.remove()
-                print(" " + temp!!.value)
-                if (temp!!.lChild != null)
-                    que1.add(temp.lChild)
-                if (temp.rChild != null)
-                    que1.add(temp.rChild)
+                print(temp.value.toString() + " ")
+                if (temp.left != null) que1.add(temp.left)
+                if (temp.right != null) que1.add(temp.right)
             }
-            println("")
+            println()
         }
     }
 
-    internal fun PrintLevelOrderLineByLine2() {
-        val que = ArrayDeque<Node>()
-        var temp: Node? = null
-        var count = 0
-
-        if (root != null)
-            que.add(root)
+    fun printLevelOrderLineByLine2() {
+        val que: ArrayDeque<Node> = ArrayDeque<Node>()
+        var temp: Node?
+        var count : Int
+        if (root != null) que.add(root)
         while (que.size != 0) {
             count = que.size
             while (count > 0) {
                 temp = que.remove()
-                print(" " + temp!!.value)
-                if (temp!!.lChild != null)
-                    que.add(temp!!.lChild)
-                if (temp!!.rChild != null)
-                    que.add(temp!!.rChild)
+                print(temp.value.toString() + " ")
+                if (temp.left != null) que.add(temp.left)
+                if (temp.right != null) que.add(temp.right)
                 count -= 1
             }
-            println("")
+            println()
         }
     }
 
-    internal fun PrintSpiralTree() {
-        val stk1 = Stack<Node>()
-        val stk2 = Stack<Node>()
-
+    fun printSpiralTree() {
+        val stk1: Stack<Node> = Stack<Node>()
+        val stk2: Stack<Node> = Stack<Node>()
         var temp: Node
-        if (root != null)
-            stk1.push(root)
+        if (root != null) stk1.push(root)
         while (stk1.size != 0 || stk2.size != 0) {
             while (stk1.size != 0) {
                 temp = stk1.pop()
-                print(" " + temp.value)
-                if (temp.rChild != null)
-                    stk2.push(temp.rChild)
-                if (temp.lChild != null)
-                    stk2.push(temp.lChild)
+                print(temp.value.toString() + " ")
+                if (temp.right != null) stk2.push(temp.right)
+                if (temp.left != null) stk2.push(temp.left)
             }
             while (stk2.size != 0) {
                 temp = stk2.pop()
-                print(" " + temp.value)
-                if (temp.lChild != null)
-                    stk1.push(temp.lChild)
-                if (temp.rChild != null)
-                    stk1.push(temp.rChild)
+                print(temp.value.toString() + " ")
+                if (temp.left != null) stk1.push(temp.left)
+                if (temp.right != null) stk1.push(temp.right)
             }
         }
+        println()
     }
 
-    fun Find(value: Int): Boolean {
+    fun find(value: Int): Boolean {
         var curr = root
-
         while (curr != null) {
-            if (curr.value == value) {
+            curr = if (curr.value == value) {
                 return true
             } else if (curr.value > value) {
-                curr = curr.lChild
+                curr.left
             } else {
-                curr = curr.rChild
+                curr.right
             }
         }
         return false
     }
 
-    fun Find2(value: Int): Boolean {
+    fun find2(value: Int): Boolean {
         var curr = root
-        while (curr != null && curr.value != value)
-            curr = if (curr.value > value) curr.lChild else curr.rChild
+        while (curr != null && curr.value != value) curr = if (curr.value > value) curr.left else curr.right
         return curr != null
     }
 
-    fun FindMin(): Int {
-        var node: Node? = root ?: return Integer.MAX_VALUE
-
-        while (node!!.lChild != null) {
-            node = node.lChild
+    fun findMin(): Int {
+        var node: Node? = root ?: return Int.MAX_VALUE
+        while (node!!.left != null) {
+            node = node.left
         }
         return node.value
     }
 
-    fun FindMax(): Int {
-        var node: Node? = root ?: return Integer.MIN_VALUE
-
-        while (node!!.rChild != null) {
-            node = node.rChild
+    fun findMax(): Int {
+        var node: Node? = root ?: return Int.MIN_VALUE
+        while (node!!.right != null) {
+            node = node.right
         }
         return node.value
     }
 
-    fun FindMaxNode(curr: Node?): Node? {
+    fun findMaxNode(curr: Node?): Node? {
         var node: Node? = curr ?: return null
-
-        while (node!!.rChild != null) {
-            node = node.rChild
+        while (node!!.right != null) {
+            node = node.right
         }
         return node
     }
 
-    fun FindMinNode(curr: Node?): Node? {
+    fun findMinNode(curr: Node?): Node? {
         var node: Node? = curr ?: return null
-
-        while (node!!.lChild != null) {
-            node = node.lChild
+        while (node!!.left != null) {
+            node = node.left
         }
         return node
     }
 
-    fun Free() {
+    fun free() {
         root = null
     }
 
-    fun DeleteNode(value: Int) {
-        root = DeleteNode(root, value)
+    fun deleteNode(value: Int) {
+        root = deleteNode(root, value)
     }
 
-    private fun DeleteNode(node: Node?, value: Int): Node? {
-        var temp: Node? = null
-
+    private fun deleteNode(node: Node?, value: Int): Node? {
         if (node != null) {
             if (node.value == value) {
-                if (node.lChild == null && node.rChild == null) {
+                if (node.left == null && node.right == null) {
                     return null
                 } else {
-                    if (node.lChild == null) {
-                        temp = node.rChild
-                        return temp
+                    if (node.left == null) {
+                        return node.right
                     }
-
-                    if (node.rChild == null) {
-                        temp = node.lChild
-                        return temp
+                    if (node.right == null) {
+                        return node.left
                     }
-                    val minNode = FindMinNode(node.rChild)
+                    val minNode = findMinNode(node.right)
                     val minValue = minNode!!.value
                     node.value = minValue
-                    node.rChild = DeleteNode(node.rChild, minValue)
+                    node.right = deleteNode(node.right, minValue)
                 }
             } else {
                 if (node.value > value) {
-                    node.lChild = DeleteNode(node.lChild, value)
+                    node.left = deleteNode(node.left, value)
                 } else {
-                    node.rChild = DeleteNode(node.rChild, value)
+                    node.right = deleteNode(node.right, value)
                 }
             }
         }
         return node
     }
 
-    fun TreeDepth(): Int {
-        return TreeDepth(root)
+    fun treeDepth(): Int {
+        return treeDepth(root)
     }
 
-    private fun TreeDepth(curr: Node?): Int {
-        if (curr == null)
-            return 0
-        else {
-            val lDepth = TreeDepth(curr.lChild)
-            val rDepth = TreeDepth(curr.rChild)
-
-            return if (lDepth > rDepth)
-                lDepth + 1
-            else
-                rDepth + 1
+    private fun treeDepth(curr: Node?): Int {
+        return if (curr == null) 0 else {
+            val lDepth = treeDepth(curr.left)
+            val rDepth = treeDepth(curr.right)
+            if (lDepth > rDepth) lDepth + 1 else rDepth + 1
         }
     }
 
@@ -430,94 +317,77 @@ class Tree {
     }
 
     private fun isEqualUtil(node1: Node?, node2: Node?): Boolean {
-        return if (node1 == null && node2 == null)
-            true
-        else if (node1 == null || node2 == null)
-            false
-        else
-            isEqualUtil(node1.lChild, node2.lChild) && isEqualUtil(node1.rChild, node2.rChild)
-                    && node1.value == node2.value
+        return if (node1 == null && node2 == null) true else if (node1 == null || node2 == null) false else isEqualUtil(
+            node1.left,
+            node2.left
+        ) && isEqualUtil(node1.right, node2.right) && node1.value == node2.value
     }
 
-    fun Ancestor(first: Int, second: Int): Node? {
-        var first = first
-        var second = second
+    fun ancestor(fst: Int, snd: Int): Node? {
+        var first = fst
+        var second = snd
         if (first > second) {
             val temp = first
             first = second
             second = temp
         }
-        return Ancestor(root, first, second)
+        return ancestor(root, first, second)
     }
 
-    private fun Ancestor(curr: Node?, first: Int, second: Int): Node? {
+    private fun ancestor(curr: Node?, first: Int, second: Int): Node? {
         if (curr == null) {
             return null
         }
-
         if (curr.value > first && curr.value > second) {
-            return Ancestor(curr.lChild, first, second)
+            return ancestor(curr.left, first, second)
         }
         return if (curr.value < first && curr.value < second) {
-            Ancestor(curr.rChild, first, second)
+            ancestor(curr.right, first, second)
         } else curr
     }
 
-    fun CopyTree(): Tree {
+    fun copyTree(): Tree {
         val tree2 = Tree()
-        tree2.root = CopyTree(root)
+        tree2.root = copyTree(root)
         return tree2
     }
 
-    private fun CopyTree(curr: Node?): Node? {
+    private fun copyTree(curr: Node?): Node? {
         val temp: Node
-        if (curr != null) {
+        return if (curr != null) {
             temp = Node(curr.value)
-            temp.lChild = CopyTree(curr.lChild)
-            temp.rChild = CopyTree(curr.rChild)
-            return temp
-        } else
-            return null
+            temp.left = copyTree(curr.left)
+            temp.right = copyTree(curr.right)
+            temp
+        } else null
     }
 
-    fun CopyMirrorTree(): Tree {
+    fun copyMirrorTree(): Tree {
         val tree2 = Tree()
-        tree2.root = CopyMirrorTree(root)
+        tree2.root = copyMirrorTree(root)
         return tree2
     }
 
-    private fun CopyMirrorTree(curr: Node?): Node? {
+    private fun copyMirrorTree(curr: Node?): Node? {
         val temp: Node
-        if (curr != null) {
+        return if (curr != null) {
             temp = Node(curr.value)
-            temp.rChild = CopyMirrorTree(curr.lChild)
-            temp.lChild = CopyMirrorTree(curr.rChild)
-            return temp
-        } else
-            return null
+            temp.right = copyMirrorTree(curr.left)
+            temp.left = copyMirrorTree(curr.right)
+            temp
+        } else null
     }
 
     @JvmOverloads
     fun numNodes(curr: Node? = root): Int {
-        return if (curr == null)
-            0
-        else
-            1 + numNodes(curr.rChild) + numNodes(curr.lChild)
+        return if (curr == null) 0 else 1 + numNodes(curr.right) + numNodes(curr.left)
     }
 
-    fun numFullNodesBT(): Int {
-        return numNodes(root)
-    }
-
-    fun numFullNodesBT(curr: Node?): Int {
-        var count: Int
-        if (curr == null)
-            return 0
-
-        count = numFullNodesBT(curr.rChild) + numFullNodesBT(curr.lChild)
-        if (curr.rChild != null && curr.lChild != null)
-            count++
-
+    @JvmOverloads
+    fun numFullNodesBT(curr: Node? = root): Int {
+        if (curr == null) return 0
+        var count = numFullNodesBT(curr.right) + numFullNodesBT(curr.left)
+        if (curr.right != null && curr.left != null) count++
         return count
     }
 
@@ -525,31 +395,20 @@ class Tree {
         return maxLengthPathBT(root)
     }
 
-    private fun maxLengthPathBT(curr: Node?)// diameter
-            : Int {
+    private fun maxLengthPathBT(curr: Node?): Int { // diameter
         var max: Int
         val leftPath: Int
         val rightPath: Int
         val leftMax: Int
         val rightMax: Int
-
-        if (curr == null)
-            return 0
-
-        leftPath = TreeDepth(curr.lChild)
-        rightPath = TreeDepth(curr.rChild)
-
+        if (curr == null) return 0
+        leftPath = treeDepth(curr.left)
+        rightPath = treeDepth(curr.right)
         max = leftPath + rightPath + 1
-
-        leftMax = maxLengthPathBT(curr.lChild)
-        rightMax = maxLengthPathBT(curr.rChild)
-
-        if (leftMax > max)
-            max = leftMax
-
-        if (rightMax > max)
-            max = rightMax
-
+        leftMax = maxLengthPathBT(curr.left)
+        rightMax = maxLengthPathBT(curr.right)
+        if (leftMax > max) max = leftMax
+        if (rightMax > max) max = rightMax
         return max
     }
 
@@ -558,12 +417,8 @@ class Tree {
     }
 
     private fun numLeafNodes(curr: Node?): Int {
-        if (curr == null)
-            return 0
-        return if (curr.lChild == null && curr.rChild == null)
-            1
-        else
-            numLeafNodes(curr.rChild) + numLeafNodes(curr.lChild)
+        if (curr == null) return 0
+        return if (curr.left == null && curr.right == null) 1 else numLeafNodes(curr.right) + numLeafNodes(curr.left)
     }
 
     fun sumAllBT(): Int {
@@ -571,40 +426,31 @@ class Tree {
     }
 
     private fun sumAllBT(curr: Node?): Int {
-        return if (curr == null) 0 else curr.value + sumAllBT(curr.lChild) + sumAllBT(curr.lChild)
-
+        return if (curr == null) 0 else curr.value + sumAllBT(curr.left) + sumAllBT(curr.right)
     }
 
     fun iterativePreOrder() {
-        val stk = Stack<Node>()
+        val stk: Stack<Node> = Stack<Node>()
         var curr: Node
-
-        if (root != null)
-            stk.add(root)
-
+        if (root != null) stk.add(root)
         while (stk.isEmpty() == false) {
             curr = stk.pop()
             print(curr.value.toString() + " ")
-
-            if (curr.rChild != null)
-                stk.push(curr.rChild)
-
-            if (curr.lChild != null)
-                stk.push(curr.lChild)
+            if (curr.right != null) stk.push(curr.right)
+            if (curr.left != null) stk.push(curr.left)
         }
+        println()
     }
 
     fun iterativePostOrder() {
-        val stk = Stack<Node>()
-        val visited = Stack<Int>()
+        val stk: Stack<Node> = Stack<Node>()
+        val visited: Stack<Int> = Stack<Int>()
         var curr: Node
         var vtd: Int
-
         if (root != null) {
             stk.add(root)
             visited.add(0)
         }
-
         while (stk.isEmpty() == false) {
             curr = stk.pop()
             vtd = visited.pop()
@@ -613,245 +459,232 @@ class Tree {
             } else {
                 stk.push(curr)
                 visited.push(1)
-                if (curr.rChild != null) {
-                    stk.push(curr.rChild)
+                if (curr.right != null) {
+                    stk.push(curr.right)
                     visited.push(0)
                 }
-                if (curr.lChild != null) {
-                    stk.push(curr.lChild)
+                if (curr.left != null) {
+                    stk.push(curr.left)
                     visited.push(0)
                 }
             }
         }
+        println()
     }
 
     fun iterativeInOrder() {
-        val stk = Stack<Node>()
-        val visited = Stack<Int>()
+        val stk: Stack<Node> = Stack<Node>()
+        val visited: Stack<Int> = Stack<Int>()
         var curr: Node
         var vtd: Int
-
         if (root != null) {
             stk.add(root)
             visited.add(0)
         }
-
         while (stk.isEmpty() == false) {
             curr = stk.pop()
             vtd = visited.pop()
             if (vtd == 1) {
                 print(curr.value.toString() + " ")
             } else {
-                if (curr.rChild != null) {
-                    stk.push(curr.rChild)
+                if (curr.right != null) {
+                    stk.push(curr.right)
                     visited.push(0)
                 }
                 stk.push(curr)
                 visited.push(1)
-                if (curr.lChild != null) {
-                    stk.push(curr.lChild)
+                if (curr.left != null) {
+                    stk.push(curr.left)
                     visited.push(0)
                 }
             }
         }
+        println()
     }
 
-    fun isBST3(root: Node?): Boolean {
-        if (root == null)
-            return true
-        if (root.lChild != null && FindMaxNode(root.lChild)!!.value > root.value)
-            return false
-        return if (root.rChild != null && FindMinNode(root.rChild)!!.value <= root.value) false else isBST3(root.lChild) && isBST3(
-            root.rChild
+    val isBST3: Boolean
+        get() = isBST3(root)
+
+    private fun isBST3(root: Node?): Boolean {
+        if (root == null) return true
+        if (root.left != null && findMaxNode(root.left)!!.value > root.value) return false
+        return if (root.right != null && findMinNode(root.right)!!.value <= root.value) false else isBST3(root.left) && isBST3(
+            root.right
         )
     }
 
-    fun isBST(curr: Node?, min: Int, max: Int): Boolean {
-        if (curr == null)
-            return true
+    val isBST: Boolean
+        get() = isBST(root, Int.MIN_VALUE, Int.MAX_VALUE)
 
+    private fun isBST(curr: Node?, min: Int, max: Int): Boolean {
+        if (curr == null) return true
         return if (curr.value < min || curr.value > max) false else isBST(
-            curr.lChild,
+            curr.left,
             min,
             curr.value
-        ) && isBST(curr.rChild, curr.value, max)
-
+        ) && isBST(curr.right, curr.value, max)
     }
 
-    private fun isBST2(root: Node?, count: IntArray)/* in order traversal */: Boolean {
+    val isBST2: Boolean
+        get() {
+            val count = IntArray(1)
+            return isBST2(root, count)
+        }
+
+    private fun isBST2(root: Node?, count: IntArray): Boolean { /* in order traversal */
         var ret: Boolean
         if (root != null) {
-            ret = isBST2(root.lChild, count)
-            if (!ret)
-                return false
-
-            if (count[0] > root.value)
-                return false
+            ret = isBST2(root.left, count)
+            if (!ret) return false
+            if (count[0] > root.value) return false
             count[0] = root.value
-
-            ret = isBST2(root.rChild, count)
-            if (!ret)
-                return false
+            ret = isBST2(root.right, count)
+            if (!ret) return false
         }
         return true
     }
 
-    internal fun isCompleteTreeUtil(curr: Node?, index: Int, count: Int): Boolean {
-        if (curr == null)
+    val isCompleteTree: Boolean
+        get() {
+            val que: ArrayDeque<Node> = ArrayDeque<Node>()
+            var temp: Node?
+            var noChild = 0
+            if (root != null) que.add(root)
+            while (que.size != 0) {
+                temp = que.remove()
+                if (temp.left != null) {
+                    if (noChild == 1) return false
+                    que.add(temp.left)
+                } else noChild = 1
+                if (temp.right != null) {
+                    if (noChild == 1) return false
+                    que.add(temp.right)
+                } else noChild = 1
+            }
             return true
-        return if (index > count) false else isCompleteTreeUtil(
-            curr.lChild,
-            index * 2 + 1,
-            count
-        ) && isCompleteTreeUtil(curr.rChild, index * 2 + 2, count)
+        }
+
+    fun isCompleteTreeUtil(curr: Node?, index: Int, count: Int): Boolean {
+        if (curr == null) return true
+        return if (index > count) false else isCompleteTreeUtil(curr.left, index * 2 + 1, count)
+                && isCompleteTreeUtil(curr.right, index * 2 + 2, count)
     }
 
-    internal fun isHeapUtil(curr: Node?, parentValue: Int): Boolean {
-        if (curr == null)
-            return true
-        return if (curr.value < parentValue) false else isHeapUtil(
-            curr.lChild,
+    val isCompleteTree2: Boolean
+        get() {
+            val count = numNodes()
+            return isCompleteTreeUtil(root, 0, count)
+        }
+
+    fun isHeapUtil(curr: Node?, parentValue: Int): Boolean {
+        if (curr == null) return true
+        return if (curr.value < parentValue) false else isHeapUtil(curr.left, curr.value) && isHeapUtil(
+            curr.right,
             curr.value
-        ) && isHeapUtil(curr.rChild, curr.value)
+        )
     }
 
-    internal fun isHeapUtil2(curr: Node?, index: Int, count: Int, parentValue: Int): Boolean {
-        if (curr == null)
-            return true
-        if (index > count)
-            return false
-        return if (curr.value < parentValue) false else isHeapUtil2(
-            curr.lChild,
-            index * 2 + 1,
-            count,
-            curr.value
-        ) && isHeapUtil2(curr.rChild, index * 2 + 2, count, curr.value)
+    val isHeap: Boolean
+        get() {
+            val infinite = -9999999
+            return isCompleteTree && isHeapUtil(root, infinite)
+        }
+
+    fun isHeapUtil2(curr: Node?, index: Int, count: Int, parentValue: Int): Boolean {
+        if (curr == null) return true
+        if (index > count) return false
+        return if (curr.value < parentValue) false else isHeapUtil2(curr.left, index * 2 + 1, count, curr.value)
+                && isHeapUtil2(curr.right, index * 2 + 2, count, curr.value)
     }
 
-    // void DFS(Node head)
-    // {
-    // Node curr = head, prev;
-    // int count = 0;
-    // while (curr && ! curr.visited)
-    // {
-    // count++;
-    // if (curr.lChild && ! curr.lChild.visited)
-    // {
-    // curr= curr.lChild;
-    // }
-    // else if (curr.rChild && ! curr.rChild.visited)
-    // {
-    // curr= curr.rChild;
-    // }
-    // else
-    // {
-    // System.out.print((" " + curr.value);
-    // curr.visited = 1;
-    // curr = head;
-    // }
-    // }
-    // System.out.print(("count is : " + count);
-    // }
+    val isHeap2: Boolean
+        get() {
+            val count = numNodes()
+            val parentValue = -9999999
+            return isHeapUtil2(root, 0, count, parentValue)
+        }
 
     fun treeToListRec(): Node? {
         return treeToListRec(root)
     }
 
     private fun treeToListRec(curr: Node?): Node? {
-        var Head: Node? = null
-        var Tail: Node? = null
-        if (curr == null)
-            return null
-
-        if (curr.lChild == null && curr.rChild == null) {
-            curr.lChild = curr
-            curr.rChild = curr
+        var Head: Node?
+        var Tail: Node?
+        if (curr == null) return null
+        if (curr.left == null && curr.right == null) {
+            curr.left = curr
+            curr.right = curr
             return curr
         }
-
-        if (curr.lChild != null) {
-            Head = treeToListRec(curr.lChild)
-            Tail = Head!!.lChild
-
-            curr.lChild = Tail
-            Tail!!.rChild = curr
-        } else
-            Head = curr
-
-        if (curr.rChild != null) {
-            val tempHead = treeToListRec(curr.rChild)
-            Tail = tempHead!!.lChild
-
-            curr.rChild = tempHead
-            tempHead.lChild = curr
-        } else
-            Tail = curr
-
-        Head.lChild = Tail
-        Tail!!.rChild = Head
+        if (curr.left != null) {
+            Head = treeToListRec(curr.left)
+            Tail = Head!!.left
+            curr.left = Tail
+            Tail!!.right = curr
+        } else Head = curr
+        if (curr.right != null) {
+            val tempHead = treeToListRec(curr.right)
+            Tail = tempHead!!.left
+            curr.right = tempHead
+            tempHead.left = curr
+        } else Tail = curr
+        Head.left = Tail
+        Tail!!.right = Head
         return Head
     }
 
     fun printAllPath() {
-        val stk = Stack<Int>()
+        val stk: Stack<Int> = Stack<Int>()
         printAllPathUtil(root, stk)
     }
 
     private fun printAllPathUtil(curr: Node?, stk: Stack<Int>) {
-        if (curr == null)
-            return
-
+        if (curr == null) return
         stk.push(curr.value)
-
-        if (curr.lChild == null && curr.rChild == null) {
+        if (curr.left == null && curr.right == null) {
             println(stk)
             stk.pop()
             return
         }
-
-        printAllPathUtil(curr.rChild, stk)
-        printAllPathUtil(curr.lChild, stk)
+        printAllPathUtil(curr.right, stk)
+        printAllPathUtil(curr.left, stk)
         stk.pop()
     }
 
-    fun LCA(first: Int, second: Int): Int {
-        val ans = LCA(root, first, second)
-        return ans?.value ?: Integer.MIN_VALUE
+    fun lca(first: Int, second: Int): Int {
+        val ans = lca(root, first, second)
+        return ans?.value ?: Int.MIN_VALUE
     }
 
-    private fun LCA(curr: Node?, first: Int, second: Int): Node? {
+    private fun lca(curr: Node?, first: Int, second: Int): Node? {
         val left: Node?
         val right: Node?
-
-        if (curr == null)
-            return null
-
-        if (curr.value == first || curr.value == second)
-            return curr
-
-        left = LCA(curr.lChild, first, second)
-        right = LCA(curr.rChild, first, second)
-
-        return if (left != null && right != null)
-            curr
-        else left ?: right
+        if (curr == null) return null
+        if (curr.value == first || curr.value == second) return curr
+        left = lca(curr.left, first, second)
+        right = lca(curr.right, first, second)
+        return if (left != null && right != null) curr else left ?: right
     }
 
-    fun LcaBST(first: Int, second: Int): Int {
-        return LcaBST(root, first, second)
+    fun lcaBST(first: Int, second: Int): Int {
+        val result: Int
+        result = if (first > second) lcaBST(root, second, first) else lcaBST(root, first, second)
+        if (result == Int.MAX_VALUE) println("lca does not exist") else println("lca is :$result")
+        return result
     }
 
-    private fun LcaBST(curr: Node?, first: Int, second: Int): Int {
+    private fun lcaBST(curr: Node?, first: Int, second: Int): Int {
         if (curr == null) {
-            return Integer.MAX_VALUE
+            return Int.MAX_VALUE
         }
-
-        if (curr.value > first && curr.value > second) {
-            return LcaBST(curr.lChild, first, second)
+        if (curr.value > second) {
+            return lcaBST(curr.left, first, second)
         }
-        return if (curr.value < first && curr.value < second) {
-            LcaBST(curr.rChild, first, second)
-        } else curr.value
+        if (curr.value < first) {
+            return lcaBST(curr.right, first, second)
+        }
+        return if (find(first) && find(second)) curr.value else Int.MAX_VALUE
     }
 
     fun trimOutsideRange(min: Int, max: Int) {
@@ -859,69 +692,58 @@ class Tree {
     }
 
     private fun trimOutsideRange(curr: Node?, min: Int, max: Int): Node? {
-        if (curr == null)
-            return null
-
-        curr.lChild = trimOutsideRange(curr.lChild, min, max)
-        curr.rChild = trimOutsideRange(curr.rChild, min, max)
-
+        if (curr == null) return null
+        curr.left = trimOutsideRange(curr.left, min, max)
+        curr.right = trimOutsideRange(curr.right, min, max)
         if (curr.value < min) {
-            return curr.rChild
+            return curr.right
         }
-
         return if (curr.value > max) {
-            curr.lChild
+            curr.left
         } else curr
-
     }
 
     fun printInRange(min: Int, max: Int) {
         printInRange(root, min, max)
+        println()
     }
 
     private fun printInRange(root: Node?, min: Int, max: Int) {
-        if (root == null)
-            return
-
-        printInRange(root.lChild, min, max)
-
-        if (root.value >= min && root.value <= max)
-            print(root.value.toString() + " ")
-
-        printInRange(root.rChild, min, max)
+        if (root == null) return
+        printInRange(root.left, min, max)
+        if (root.value >= min && root.value <= max) print(root.value.toString() + " ")
+        printInRange(root.right, min, max)
     }
 
-    fun FloorBST(`val`: Int): Int {
+    fun floorBST(`val`: Double): Int {
         var curr = root
-        var floor = Integer.MAX_VALUE
-
+        var floor = Int.MAX_VALUE
         while (curr != null) {
-            if (curr.value == `val`) {
+            if (curr.value.toDouble() == `val`) {
                 floor = curr.value
                 break
             } else if (curr.value > `val`) {
-                curr = curr.lChild
+                curr = curr.left
             } else {
                 floor = curr.value
-                curr = curr.rChild
+                curr = curr.right
             }
         }
         return floor
     }
 
-    fun CeilBST(`val`: Int): Int {
+    fun ceilBST(`val`: Double): Int {
         var curr = root
-        var ceil = Integer.MIN_VALUE
-
+        var ceil = Int.MIN_VALUE
         while (curr != null) {
-            if (curr.value == `val`) {
+            if (curr.value.toDouble() == `val`) {
                 ceil = curr.value
                 break
             } else if (curr.value > `val`) {
                 ceil = curr.value
-                curr = curr.lChild
+                curr = curr.left
             } else {
-                curr = curr.rChild
+                curr = curr.right
             }
         }
         return ceil
@@ -932,22 +754,12 @@ class Tree {
     }
 
     private fun findMaxBT(curr: Node?): Int {
-        val left: Int
-        val right: Int
-
-        if (curr == null)
-            return Integer.MIN_VALUE
-
+        if (curr == null) return Int.MIN_VALUE
         var max = curr.value
-
-        left = findMaxBT(curr.lChild)
-        right = findMaxBT(curr.rChild)
-
-        if (left > max)
-            max = left
-        if (right > max)
-            max = right
-
+        val leftmax = findMaxBT(curr.left)
+        val rightmax = findMaxBT(curr.right)
+        if (leftmax > max) max = leftmax
+        if (rightmax > max) max = rightmax
         return max
     }
 
@@ -956,52 +768,41 @@ class Tree {
     }
 
     fun searchBTUtil(curr: Node?, value: Int): Boolean {
-        val left: Boolean
-        val right: Boolean
-        if (curr == null)
-            return false
-
-        if (curr.value == value)
-            return true
-
-        left = searchBTUtil(curr.lChild, value)
-        if (left)
-            return true
-
-        right = searchBTUtil(curr.rChild, value)
-        return if (right) true else false
+        if (curr == null) return false
+        return if (curr.value == value || searchBTUtil(curr.left, value) || searchBTUtil(
+                curr.right,
+                value
+            )
+        ) true else false
     }
 
-    fun CreateBinaryTree(arr: IntArray) {
-        root = CreateBinaryTree(arr, 0, arr.size - 1)
+    fun createBinarySearchTree(arr: IntArray) {
+        root = createBinarySearchTree(arr, 0, arr.size - 1)
     }
 
-    private fun CreateBinaryTree(arr: IntArray, start: Int, end: Int): Node? {
-        var curr: Node? = null
-        if (start > end)
-            return null
-
+    private fun createBinarySearchTree(arr: IntArray, start: Int, end: Int): Node? {
+        if (start > end) return null
         val mid = (start + end) / 2
-        curr = Node(arr[mid])
-        curr.lChild = CreateBinaryTree(arr, start, mid - 1)
-        curr.rChild = CreateBinaryTree(arr, mid + 1, end)
+        val curr = Node(arr[mid])
+        curr.left = createBinarySearchTree(arr, start, mid - 1)
+        curr.right = createBinarySearchTree(arr, mid + 1, end)
         return curr
     }
 
-    internal fun isBSTArray(preorder: IntArray, size: Int): Boolean {
-        val stk = Stack<Int>()
+    fun isBSTArray(preorder: IntArray): Boolean {
+        val size = preorder.size
+        val stk: Stack<Int> = Stack<Int>()
         var value: Int
-        var root = Int.MIN_VALUE
+        var root = -999999
         for (i in 0 until size) {
             value = preorder[i]
 
             // If value of the right child is less than root.
-            if (value < root)
-                return false
+            if (value < root) return false
             // First left child values will be popped
             // Last popped value will be the root.
-            while (stk.size > 0 && stk.peek() < value)
-                root = stk.pop()
+            while (stk.size > 0 && stk.peek() < value) root = stk.pop()
+
             // add current value to the stack.
             stk.push(value)
         }
@@ -1009,38 +810,228 @@ class Tree {
     }
 }
 
-fun main(args: Array<String>) {
+fun main1() {
     val t = Tree()
     val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    t.levelOrderBinaryTree(arr)
-    println("")
+    t.createCompleteBinaryTree(arr)
+    t.printPreOrder()
+    // 1 2 4 8 9 5 10 3 6 7 
+    t.printPostOrder()
+    // 8 9 4 10 5 2 6 7 3 1 
+    t.printInOrder()
+    // 8 4 9 2 10 5 1 6 3 7 
+    t.iterativePreOrder()
+    // 1 2 4 8 9 5 10 3 6 7 
+    t.iterativePostOrder()
+    // 8 9 4 10 5 2 6 7 3 1 
+    t.iterativeInOrder()
+    // 8 4 9 2 10 5 1 6 3 7 
+    t.printBreadthFirst()
+    // 1 2 3 4 5 6 7 8 9 10 
+    t.printDepthFirst()
+    // 1 3 7 6 2 5 10 4 9 8
+    t.printLevelOrderLineByLine()
+/*
+1 
+2 3 
+4 5 6 7 
+8 9 10 
+*/
+    t.printLevelOrderLineByLine2()
+/*
+1 
+2 3 
+4 5 6 7 
+8 9 10 
+*/
+    t.printSpiralTree()
+    // 1 2 3 7 6 5 4 8 9 10 
+    t.nthInOrder(2)
+    t.nthPostOrder(2)
+    t.nthPreOrder(2)
+
+/*
+4
+9
+2
+*/
+    t.printAllPath()
+
+/*
+[1, 3, 7]
+[1, 3, 6]
+[1, 2, 5, 10]
+[1, 2, 4, 9]
+[1, 2, 4, 8]
+*/
+}
+
+fun main2() {
+    val t = Tree()
+    val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    t.createCompleteBinaryTree(arr)
+    println(t.numNodes())
+    // 10
+    println(t.sumAllBT())
+    // 55
+    println(t.numLeafNodes())
+    // 5
+    println(t.numFullNodesBT())
+    // 4
+    println(t.searchBT(9))
+    // true
+    println(t.findMaxBT())
+    // 10
+    println(t.treeDepth())
+    // 4
+    println(t.maxLengthPathBT())
+    // 6
+}
+
+fun main3() {
+    val t = Tree()
+    val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    t.createCompleteBinaryTree(arr)
+    val t2 = t.copyTree()
+    t2.printInOrder()
+/*
+8 4 9 2 10 5 1 6 3 7 
+*/
+    val t3 = t.copyMirrorTree()
+    t3.printInOrder()
+/*
+7 3 6 1 5 10 2 9 4 8
+*/
+    println(t.isEqual(t2))
+/*
+true
+*/
     println(t.isHeap)
     println(t.isHeap2)
     println(t.isCompleteTree)
+    println(t.isCompleteTree2)
+/*
+true
+true
+true
+true
+*/
+}
 
-    println("")
-    t.PrintBredthFirst()
-    println("")
-    t.PrintPreOrder()
-    println("")
-    t.PrintLevelOrderLineByLine()
-    println("")
-    t.PrintLevelOrderLineByLine2()
-    println("")
-    t.PrintSpiralTree()
-    println("")
-    t.printAllPath()
-    println("")
-    t.NthInOrder(4)
-    println("")
-    t.NthPostOrder(4)
-    println("")
-    t.NthPreOrder(4)
-    println("")
-    /*
- * t.PrintPostOrder(); System.out.println(); t.iterativePostOrder();
- * t.PrintBredthFirst(); // t.treeToListRec(); t.printAllPath();
- * System.out.println(t.LCA(10, 3)); t.iterativePreOrder(); t.PrintPreOrder();
- * // t.CreateBinaryTree(arr); // System.out.println(t.isBST2());
- */
+fun main4() {
+    val t = Tree()
+    t.insert(6)
+    t.insert(4)
+    t.insert(2)
+    t.insert(5)
+    t.insert(1)
+    t.insert(3)
+    t.insert(8)
+    t.insert(7)
+    t.insert(9)
+    t.insert(10)
+    t.printInOrder()
+
+/*
+1 2 3 4 5 6 7 8 9 10 
+*/
+    println(t.find(3))
+    println(t.find(16))
+/*
+true
+false
+*/
+    println(t.isBST)
+    println(t.isBST2)
+    println(t.isBST3)
+/*
+true
+true
+true
+*/
+}
+
+fun main8() {
+    val t = Tree()
+    t.insert(2)
+    t.insert(1)
+    t.insert(3)
+    t.insert(4)
+    println("Before delete operation.")
+    t.printInOrder()
+    t.deleteNode(2)
+    println("After delete operation.")
+    t.printInOrder()
+}
+
+/*
+Before delete operation.
+1 2 3 4 
+After delete operation.
+1 3 4 
+*/
+
+fun main5() {
+    val t = Tree()
+    val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    t.createBinarySearchTree(arr)
+    println(t.findMin())
+    println(t.findMax())
+    t.lcaBST(3, 4)
+    t.lcaBST(1, 4)
+    t.lcaBST(10, 4)
+}
+
+/*
+1
+10
+lca is :3
+lca is :2
+lca is :5
+*/
+
+fun main6() {
+    val t = Tree()
+    val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    t.createBinarySearchTree(arr)
+    t.printInOrder()
+    t.printInRange(4, 7)
+    t.trimOutsideRange(4, 7)
+    t.printInOrder()
+}
+
+/*
+1 2 3 4 5 6 7 8 9 10 
+4 5 6 7 
+4 5 6 7 
+*/
+
+fun main7() {
+    val t = Tree()
+    val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    t.createBinarySearchTree(arr)
+    println(t.ancestor(1, 10)!!.value)
+    // 5
+    println(t.ceilBST(5.5))
+    // 6
+    println(t.floorBST(5.5))
+    // 5
+    val arr1 = intArrayOf(5, 2, 4, 6, 9, 10)
+    val arr2 = intArrayOf(5, 2, 6, 4, 7, 9, 10)
+    println(t.isBSTArray(arr1))
+    println(t.isBSTArray(arr2))
+/*
+true
+false
+*/
+}
+
+fun main() {
+    main1()
+    main2()
+    main3()
+    main4()
+    main5()
+    main6()
+    main7()
 }

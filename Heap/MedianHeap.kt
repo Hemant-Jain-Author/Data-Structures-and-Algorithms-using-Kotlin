@@ -5,12 +5,16 @@ class MedianHeap {
     internal var minHeap: PriorityQueue<Int>
     internal var maxHeap: PriorityQueue<Int>
 
+    init {
+        minHeap = PriorityQueue<Int>()
+        maxHeap = PriorityQueue<Int>(Collections.reverseOrder())
+    }
+
     fun getMedian() : Int{
-        var median : Int
         if (maxHeap.size == 0 && minHeap.size == 0)
             return Integer.MAX_VALUE
 
-        return if (maxHeap.size == minHeap.size)
+        if (maxHeap.size == minHeap.size)
             return (maxHeap.peek() + minHeap.peek()) / 2
         else if (maxHeap.size > minHeap.size)
             return maxHeap.peek()
@@ -18,14 +22,9 @@ class MedianHeap {
             return minHeap.peek()
     }
 
-    init {
-        minHeap = PriorityQueue<Int>()
-        maxHeap = PriorityQueue<Int>(Collections.reverseOrder())
-    }
-
     // Other Methods.
-    fun insert(value: Int) {
-        var value = value
+    fun insert(valueIn: Int) {
+        var value = valueIn
         if (maxHeap.size == 0 || maxHeap.peek() >= value) {
             maxHeap.add(value)
         } else {
@@ -45,12 +44,12 @@ class MedianHeap {
     }
 }
 
-fun main(args: Array<String>) {
-    val arr = intArrayOf(1, 9, 2, 8, 3, 7, 4, 6, 5, 1, 9, 2, 8, 3, 7, 4, 6, 5, 10, 10)
+fun main() {
+    val arr = intArrayOf(1, 9, 2, 8, 3, 7, 4, 6, 5, 1)
     val hp = MedianHeap()
 
-    for (i in 0..19) {
-        hp.insert(arr[i])
-        println("Median after insertion of " + arr[i] + " is  " + hp.getMedian())
+    for (i in arr) {
+        hp.insert(i)
+        println("Median after insertion of " + i + " is  " + hp.getMedian())
     }
 }

@@ -4,20 +4,22 @@ import java.util.Arrays
 fun function2() {
     println("fun2 line 1")
 }
+
 fun function1() {
     println("fun1 line 1")
     function2()
     println("fun1 line 2")
 }
+
 fun main1() {
     println("main line 1")
     function1()
     println("main line 2")
 }
+
 fun factorial(i:Int):Int {
     // Termination Condition
-    if (i <= 1)
-    {
+    if (i <= 1) {
         return 1
     }
     // Body, Recursive Expansion
@@ -25,87 +27,73 @@ fun factorial(i:Int):Int {
 }
 ///////////////
 
-fun printInt1(numberInput:Int) {
-    var number = numberInput;
-    var digit = (number % 10 + '0'.toInt()).toChar()
-    number = number / 10
-    if (number != 0)
-    {
-        printInt1(number)
-    }
-    print("%c" + digit)
-}
-
 fun printInt(numberInput:Int) {
     var conversion = "0123456789ABCDEF"
     var base = 16
     var number = numberInput;
-    var digit = (number % base).toChar()
+    var digit = conversion[number % base]
     number = number / base
-    if (number != 0)
-    {
+    if (number != 0) {
         printInt(number)
     }
     print(digit)
 }
 
+fun main1A() {
+    var i = 1000
+    printInt(i)
+}
 
 fun printArray(arr:IntArray, count:Int) {
     print("[")
-    for (i in 0 until count)
-    {
+    for (i in 0 until count) {
         print(" " + arr[i])
     }
     print(" ]\n")
 }
+
 fun swap(arr:IntArray, x:Int, y:Int) {
     var temp = arr[x]
     arr[x] = arr[y]
     arr[y] = temp
     return
 }
+
 fun SumArray(arr:IntArray):Int {
     var size = arr.size
     var total = 0
-    for (index in 0 until size)
-    {
+    for (index in 0 until size) {
         total = total + arr[index]
     }
     return total
 }
+
 fun main2() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
     println("Sum of values in array:" + SumArray(arr))
 }
+
 fun SequentialSearch(arr:IntArray, size:Int, value:Int):Int {
-    for (i in 0 until size)
-    {
-        if (value == arr[i])
-        {
+    for (i in 0 until size) {
+        if (value == arr[i]) {
             run({ return i })
         }
     }
     return -1
 }
+
 fun BinarySearch(arr:IntArray, size:Int, value:Int):Int {
     var mid:Int
     var low = 0
     var high = size - 1
-    while (low <= high)
-    {
+    while (low <= high) {
         mid = (low + high) / 2
-        if (arr[mid] == value)
-        {
+        if (arr[mid] == value) {
             return mid
-        }
-        else
-        {
-            if (arr[mid] < value)
-            {
+        } else {
+            if (arr[mid] < value) {
                 low = mid + 1
-            }
-            else
-            {
+            } else {
                 high = mid - 1
             }
         }
@@ -128,8 +116,7 @@ fun rotateArray(a:IntArray, n:Int, k:Int) {
 fun reverseArray(a:IntArray, start:Int, end:Int) {
     var i = start
     var j = end
-    while (i < j)
-    {
+    while (i < j) {
         var temp = a[i]
         a[i] = a[j]
         a[j] = temp
@@ -143,8 +130,7 @@ fun reverseArray2(a:IntArray) {
     var end = a.size - 1
     var i = start
     var j = end
-    while (i < j)
-    {
+    while (i < j) {
         var temp = a[i]
         a[i] = a[j]
         a[j] = temp
@@ -162,15 +148,12 @@ fun main4() {
 fun maxSubArraySum(a:IntArray, size:Int):Int {
     var maxSoFar = 0
     var maxEndingHere = 0
-    for (i in 0 until size)
-    {
+    for (i in 0 until size) {
         maxEndingHere = maxEndingHere + a[i]
-        if (maxEndingHere < 0)
-        {
+        if (maxEndingHere < 0) {
             maxEndingHere = 0
         }
-        if (maxSoFar < maxEndingHere)
-        {
+        if (maxSoFar < maxEndingHere) {
             maxSoFar = maxEndingHere
         }
     }
@@ -186,14 +169,11 @@ fun WaveArray2(arr:IntArray) {
     var size = arr.size
     /* Odd elements are lesser then even elements. */
     var i = 1
-    while (i < size)
-    {
-        if ((i - 1) >= 0 && arr[i] > arr[i - 1])
-        {
+    while (i < size) {
+        if ((i - 1) >= 0 && arr[i] > arr[i - 1]) {
             swap(arr, i, i - 1)
         }
-        if ((i + 1) < size && arr[i] > arr[i + 1])
-        {
+        if ((i + 1) < size && arr[i] > arr[i + 1]) {
             swap(arr, i, i + 1)
         }
         i += 2
@@ -205,8 +185,7 @@ fun WaveArray(arr:IntArray) {
     Arrays.sort(arr)
     printArray(arr, arr.size)
     var i = 0
-    while (i < size - 1)
-    {
+    while (i < size - 1) {
         swap(arr, i, i + 1)
         i += 2
     }
@@ -224,21 +203,18 @@ fun main6() {
 }
 
 fun indexArray(arr:IntArray, size:Int) {
-    for (i in 0 until size)
-    {
+    for (i in 0 until size) {
         var curr = i
         var value = -1
         /* swaps to move elements in proper position. */
-        while (arr[curr] != -1 && arr[curr] != curr)
-        {
+        while (arr[curr] != -1 && arr[curr] != curr) {
             var temp = arr[curr]
             arr[curr] = value
             curr = temp
             value = curr
         }
         /* check if some swaps happened. */
-        if (value != -1)
-        {
+        if (value != -1) {
             arr[curr] = value
         }
     }
@@ -246,10 +222,8 @@ fun indexArray(arr:IntArray, size:Int) {
 
 fun indexArray2(arr:IntArray, size:Int) {
     var temp:Int
-    for (i in 0 until size)
-    {
-        while (arr[i] != -1 && arr[i] != i)
-        {
+    for (i in 0 until size) {
+        while (arr[i] != -1 && arr[i] != i) {
             /* swap arr[i] and arr[arr[i]] */
             temp = arr[i]
             arr[i] = arr[temp]
@@ -274,13 +248,11 @@ fun Sort1toN(arr:IntArray, size:Int) {
     var curr:Int
     var value:Int
     var next:Int
-    for (i in 0 until size)
-    {
+    for (i in 0 until size) {
         curr = i
         value = -1
         /* swaps to move elements in proper position. */
-        while (curr >= 0 && curr < size && arr[curr] != curr + 1)
-        {
+        while (curr >= 0 && curr < size && arr[curr] != curr + 1) {
             next = arr[curr]
             arr[curr] = value
             value = next
@@ -291,10 +263,8 @@ fun Sort1toN(arr:IntArray, size:Int) {
 
 fun Sort1toN2(arr:IntArray, size:Int) {
     var temp:Int
-    for (i in 0 until size)
-    {
-        while (arr[i] != i + 1 && arr[i] > 1)
-        {
+    for (i in 0 until size) {
+        while (arr[i] != i + 1 && arr[i] > 1) {
             temp = arr[i]
             arr[i] = arr[temp - 1]
             arr[temp - 1] = temp
@@ -315,19 +285,15 @@ fun main8() {
 
 fun SmallestPositiveMissingNumber(arr:IntArray, size:Int):Int {
     var found:Int
-    for (i in 1 until size + 1)
-    {
+    for (i in 1 until size + 1) {
         found = 0
-        for (j in 0 until size)
-        {
-            if (arr[j] == i)
-            {
+        for (j in 0 until size) {
+            if (arr[j] == i) {
                 found = 1
                 break
             }
         }
-        if (found == 0)
-        {
+        if (found == 0) {
             return i
         }
     }
@@ -336,14 +302,11 @@ fun SmallestPositiveMissingNumber(arr:IntArray, size:Int):Int {
 
 fun SmallestPositiveMissingNumber2(arr:IntArray, size:Int):Int {
     var hs = HashMap<Int, Int>()
-    for (i in 0 until size)
-    {
+    for (i in 0 until size) {
         hs.put(arr[i], 1)
     }
-    for (i in 1 until size + 1)
-    {
-        if (hs.containsKey(i) == false)
-        {
+    for (i in 1 until size + 1) {
+        if (hs.containsKey(i) == false) {
             return i
         }
     }
@@ -353,17 +316,13 @@ fun SmallestPositiveMissingNumber2(arr:IntArray, size:Int):Int {
 fun SmallestPositiveMissingNumber3(arr:IntArray, size:Int):Int {
     var aux = IntArray(size)
     Arrays.fill(aux, -1)
-    for (i in 0 until size)
-    {
-        if (arr[i] > 0 && arr[i] <= size)
-        {
+    for (i in 0 until size) {
+        if (arr[i] > 0 && arr[i] <= size) {
             aux[arr[i] - 1] = arr[i]
         }
     }
-    for (i in 0 until size)
-    {
-        if (aux[i] != i + 1)
-        {
+    for (i in 0 until size) {
+        if (aux[i] != i + 1) {
             return i + 1
         }
     }
@@ -372,19 +331,15 @@ fun SmallestPositiveMissingNumber3(arr:IntArray, size:Int):Int {
 
 fun SmallestPositiveMissingNumber4(arr:IntArray, size:Int):Int {
     var temp:Int
-    for (i in 0 until size)
-    {
-        while (arr[i] != i + 1 && arr[i] > 0 && arr[i] <= size)
-        {
+    for (i in 0 until size) {
+        while (arr[i] != i + 1 && arr[i] > 0 && arr[i] <= size) {
             temp = arr[i]
             arr[i] = arr[temp - 1]
             arr[temp - 1] = temp
         }
     }
-    for (i in 0 until size)
-    {
-        if (arr[i] != i + 1)
-        {
+    for (i in 0 until size) {
+        if (arr[i] != i + 1) {
             return i + 1
         }
     }
@@ -404,15 +359,11 @@ fun MaxMinArr(arr:IntArray, size:Int) {
     var aux = Arrays.copyOf(arr, size)
     var start = 0
     var stop = size - 1
-    for (i in 0 until size)
-    {
-        if (i % 2 == 0)
-        {
+    for (i in 0 until size) {
+        if (i % 2 == 0) {
             arr[i] = aux[stop]
             stop -= 1
-        }
-        else
-        {
+        } else {
             arr[i] = aux[start]
             start += 1
         }
@@ -422,8 +373,7 @@ fun MaxMinArr(arr:IntArray, size:Int) {
 fun ReverseArr(arr:IntArray, startInput: Int, stopInput:Int) {
     var start = startInput
     var stop = stopInput
-    while (start < stop)
-    {
+    while (start < stop) {
         swap(arr, start, stop)
         start += 1
         stop -= 1
@@ -431,8 +381,7 @@ fun ReverseArr(arr:IntArray, startInput: Int, stopInput:Int) {
 }
 
 fun MaxMinArr2(arr:IntArray, size:Int) {
-    for (i in 0 until (size - 1))
-    {
+    for (i in 0 until (size - 1)) {
         ReverseArr(arr, i, size - 1)
     }
 }
@@ -453,17 +402,14 @@ fun maxCircularSum(arr:IntArray, size:Int):Int {
     var sumAll = 0
     var currvar = 0
     var maxvar:Int
-    for (i in 0 until size)
-    {
+    for (i in 0 until size) {
         sumAll += arr[i]
         currvar += (i * arr[i])
     }
     maxvar = currvar
-    for (i in 1 until size)
-    {
+    for (i in 1 until size) {
         currvar = (currvar + sumAll) - (size * arr[size - i])
-        if (currvar > maxvar)
-        {
+        if (currvar > maxvar) {
             maxvar = currvar
         }
     }
@@ -479,13 +425,10 @@ fun main11() {
 fun ArrayIndexMaxDiff(arr:IntArray, size:Int):Int {
     var maxDiff = -1
     var j:Int
-    for (i in 0 until size)
-    {
+    for (i in 0 until size) {
         j = size - 1
-        while (j > i)
-        {
-            if (arr[j] > arr[i])
-            {
+        while (j > i) {
+            if (arr[j] > arr[i]) {
                 maxDiff = Math.max(maxDiff, j - i)
                 break
             }
@@ -503,28 +446,20 @@ fun ArrayIndexMaxDiff2(arr:IntArray, size:Int):Int {
     var j:Int
     var maxDiff:Int
     i = 1
-    while (i < size)
-    {
-        if (leftMin[i - 1] < arr[i])
-        {
+    while (i < size) {
+        if (leftMin[i - 1] < arr[i]) {
             leftMin[i] = leftMin[i - 1]
-        }
-        else
-        {
+        } else {
             leftMin[i] = arr[i]
         }
         i++
     }
     rightMax[size - 1] = arr[size - 1]
     i = size - 2
-    while (i >= 0)
-    {
-        if (rightMax[i + 1] > arr[i])
-        {
+    while (i >= 0) {
+        if (rightMax[i + 1] > arr[i]) {
             rightMax[i] = rightMax[i + 1]
-        }
-        else
-        {
+        } else {
             rightMax[i] = arr[i]
         }
         i--
@@ -532,15 +467,11 @@ fun ArrayIndexMaxDiff2(arr:IntArray, size:Int):Int {
     i = 0
     j = 0
     maxDiff = -1
-    while (j < size && i < size)
-    {
-        if (leftMin[i] < rightMax[j])
-        {
+    while (j < size && i < size) {
+        if (leftMin[i] < rightMax[j]) {
             maxDiff = Math.max(maxDiff, j - i)
             j = j + 1
-        }
-        else
-        {
+        } else {
             i = i + 1
         }
     }
@@ -560,20 +491,14 @@ fun maxPathSum(arr1:IntArray, size1:Int, arr2:IntArray, size2:Int):Int {
     var result = 0
     var sum1 = 0
     var sum2 = 0
-    while (i < size1 && j < size2)
-    {
-        if (arr1[i] < arr2[j])
-        {
+    while (i < size1 && j < size2) {
+        if (arr1[i] < arr2[j]) {
             sum1 += arr1[i]
             i += 1
-        }
-        else if (arr1[i] > arr2[j])
-        {
+        } else if (arr1[i] > arr2[j]) {
             sum2 += arr2[j]
             j += 1
-        }
-        else
-        {
+        } else {
             result += Math.max(sum1, sum2)
             result = result + arr1[i]
             sum1 = 0
@@ -582,13 +507,11 @@ fun maxPathSum(arr1:IntArray, size1:Int, arr2:IntArray, size2:Int):Int {
             j += 1
         }
     }
-    while (i < size1)
-    {
+    while (i < size1) {
         sum1 += arr1[i]
         i += 1
     }
-    while (j < size2)
-    {
+    while (j < size2) {
         sum2 += arr2[j]
         j += 1
     }
@@ -604,8 +527,7 @@ fun main13() {
 }
 
 fun towerOfHanoi(num:Int, src:Char, dst:Char, temp:Char) {
-    if (num < 1)
-    {
+    if (num < 1) {
         return
     }
     towerOfHanoi(num - 1, src, temp, dst)
@@ -620,35 +542,29 @@ fun main14() {
 }
 
 fun GCD(m:Int, n:Int):Int {
-    if (m < n)
-    {
+    if (m < n) {
         return (GCD(n, m))
     }
-    if (m % n == 0)
-    {
+    if (m % n == 0) {
         return (n)
     }
     return (GCD(n, m % n))
 }
 
 fun fibonacci(n:Int):Int {
-    if (n <= 1)
-    {
+    if (n <= 1) {
         return n
     }
     return fibonacci(n - 1) + fibonacci(n - 2)
 }
 
 fun permutation(arr:IntArray, i:Int, length:Int) {
-    if (length == i)
-    {
+    if (length == i) {
         printArray(arr, length)
         return
     }
     var j = i
-    j = i
-    while (j < length)
-    {
+    while (j < length) {
         swap(arr, i, j)
         permutation(arr, i + 1, length)
         swap(arr, i, j)
@@ -659,8 +575,7 @@ fun permutation(arr:IntArray, i:Int, length:Int) {
 
 fun main15() {
     var arr = IntArray(5)
-    for (i in 0..4)
-    {
+    for (i in 0..4) {
         arr[i] = i
     }
     permutation(arr, 0, 5)
@@ -671,16 +586,11 @@ fun BinarySearchRecursive(arr:IntArray, low:Int, high:Int, value:Int):Int {
     if (low > high)
         return -1
     var mid = (low + high) / 2
-    if (arr[mid] == value)
-    {
+    if (arr[mid] == value) {
         return mid
-    }
-    else if (arr[mid] < value)
-    {
+    } else if (arr[mid] < value) {
         return BinarySearchRecursive(arr, mid + 1, high, value)
-    }
-    else
-    {
+    } else {
         return BinarySearchRecursive(arr, low, mid - 1, value)
     }
 }
@@ -692,8 +602,9 @@ fun main16() {
     println(BinarySearchRecursive(arr, 0, arr.size - 1, 16))
 }
 
-fun main(args : Array<String>){
+fun main(){
     main1();
+    main1A();
     main2();
     main3();
     main4();

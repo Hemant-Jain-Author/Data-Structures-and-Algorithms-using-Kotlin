@@ -1,36 +1,37 @@
 class HashTableSC {
+    private val tableSize = 512
+    var listArray: Array<Node?>
 
-    private val tableSize: Int
-    internal var listArray: Array<Node?>
-
-    inner class Node( var value: Int,  var next: Node?)
+    inner class Node( val key: Int, val value: Int, var next: Node?)
 
     init {
-        tableSize = 512
         listArray = arrayOfNulls(tableSize)
     }
 
-    private fun computeHash(key: Int)// division method
-            : Int {
+    private fun computeHash(key: Int): Int { // division method
         return key % tableSize
     }
 
-    fun add(value: Int) {
-        val index = computeHash(value)
-        listArray[index] = Node(value, listArray[index])
+    fun add(key: Int, value: Int) {
+        val index = computeHash(key)
+        listArray[index] = Node(key, value, listArray[index])
     }
 
-    fun remove(value: Int): Boolean {
-        val index = computeHash(value)
+    fun add(value: Int) {
+        add(value, value)
+    }
+
+    fun remove(key: Int): Boolean {
+        val index = computeHash(key)
         var nextNode: Node?
         var head: Node? = listArray[index]
-        if (head != null && head.value == value) {
+        if (head != null && head.key == key) {
             listArray[index] = head.next
             return true
         }
         while (head != null) {
             nextNode = head.next
-            if (nextNode != null && nextNode.value == value) {
+            if (nextNode != null && nextNode.key == key) {
                 head.next = nextNode.next
                 return true
             } else {
@@ -41,37 +42,52 @@ class HashTableSC {
     }
 
     fun print() {
+        print("Hash Table contains ::")
         for (i in 0 until tableSize) {
-            println("printing for index value :: " + i + "List of value printing :: ")
-            var head: Node? = listArray!![i]
+            var head: Node? = listArray[i]
             while (head != null) {
-                println(head.value)
+                print("(" + head.key + "=>" + head.value + ") ")
                 head = head.next
             }
         }
+        println()
     }
 
-    fun find(value: Int): Boolean {
-        val index = computeHash(value)
-        var head: Node? = listArray!![index]
+    fun find(key: Int): Boolean {
+        val index = computeHash(key)
+        var head = listArray[index]
         while (head != null) {
-            if (head.value == value) {
+            if (head.key == key) {
                 return true
             }
             head = head.next
         }
         return false
     }
-}
 
-fun main(args: Array<String>) {
-    val ht = HashTableSC()
-
-    for (i in 100..109) {
-        ht.add(i)
+    fun get(key: Int): Int {
+        val index = computeHash(key)
+        var head = listArray[index]
+        while (head != null) {
+            if (head.key == key) {
+                return head.value
+            }
+            head = head.next
+        }
+        return -1
     }
-    println("search 100 :: " + ht.find(100))
-    println("remove 100 :: " + ht.remove(100))
-    println("search 100 :: " + ht.find(100))
-    println("remove 100 :: " + ht.remove(100))
 }
+
+// Testing code
+fun main() {
+    val ht = HashTableSC()
+    ht.add(1, 10)
+    ht.add(2, 20)
+    ht.add(3, 30)
+    ht.print()
+    println("Find key 2 : " + ht.find(2))
+    println("Value at  key 2 : " + ht.get(2))
+    ht.remove(2)
+    println("Find key 2 : " + ht.find(2))
+}
+    

@@ -1,7 +1,6 @@
 import java.lang.*
 import java.lang.Math
 
-
 fun fun1(n: Int): Int {
     var m = 0
     for (i in 0 until n) {

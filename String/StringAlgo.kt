@@ -8,10 +8,11 @@ fun matchExpUtil(exp: CharArray, str: CharArray, i: Int, j: Int): Boolean {
     if (exp[i] == '?' || exp[i] == str[j]) {
         return matchExpUtil(exp, str, i + 1, j + 1)
     }
-    return if (exp[i] == '*') {
-        (matchExpUtil(exp, str, i + 1, j) || matchExpUtil(exp, str, i, j + 1)
+    if (exp[i] == '*') {
+        return (matchExpUtil(exp, str, i + 1, j) || matchExpUtil(exp, str, i, j + 1)
                 || matchExpUtil(exp, str, i + 1, j + 1))
-    } else false
+    } else 
+        return false
 }
 
 fun matchExp(exp: String, str: String): Boolean {
@@ -404,7 +405,7 @@ fun main14() {
 }
 
 
-fun main(args: Array<String>) {
+fun main() {
     main1()
     main2()
     main3()
