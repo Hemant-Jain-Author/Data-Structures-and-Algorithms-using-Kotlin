@@ -288,7 +288,8 @@ class Graph(var count: Int) {
 	6 - 3
 	
 	BfsDistance :: 3
-		*/
+	*/
+
     fun isCyclePresentUndirectedDFS(index: Int, parentIndex: Int, visited: BooleanArray): Boolean {
         visited[index] = true
         var dest: Int
@@ -396,7 +397,7 @@ class Graph(var count: Int) {
       Cycle Presen : true
       Cycle Presen : true
       Cycle Presen : true
-        */
+    */
     fun isCyclePresentDFS(index: Int, visited: BooleanArray, marked: IntArray): Boolean {
         visited[index] = true
         marked[index] = 1
@@ -453,7 +454,7 @@ class Graph(var count: Int) {
       isCyclePresent : false
       isCyclePresent : true
       isCyclePresent : true
-      */
+    */
     fun transposeGraph(): Graph {
         val g = Graph(count)
         for (i in 0 until count) {
@@ -472,7 +473,7 @@ class Graph(var count: Int) {
       Vertex 2 is connected to : 0(cost: 1) 
       Vertex 3 is connected to : 1(cost: 1) 2(cost: 1) 
       Vertex 4 is connected to : 3(cost: 1) 
-          */
+    */
     fun isConnectedUndirected(): Boolean {
         val visited = BooleanArray(count)
         dfsUtil(0, visited)
@@ -486,7 +487,7 @@ class Graph(var count: Int) {
 
     /*
       isConnectedUndirected:: true
-      */
+    */
     fun isStronglyConnected(): Boolean {
         val visited = BooleanArray(count)
         dfsUtil(0, visited)
@@ -510,7 +511,8 @@ class Graph(var count: Int) {
 
     /*
       IsStronglyConnected:: true
-          */
+    */
+
     fun stronglyConnectedComponent() {
         val visited = BooleanArray(count)
         val stk: Stack<Int> = Stack<Int>()
@@ -537,8 +539,8 @@ class Graph(var count: Int) {
 	[1, 2, 0]
 	[4, 5, 3]
 	[6]
+    */
 
-		*/
     fun primsMST() {
         val previous = IntArray(count){-1}
         val dist = IntArray(count){Int.MAX_VALUE} // infinite
@@ -647,8 +649,8 @@ class Graph(var count: Int) {
 	Total MST cost: 37
 	
 	Shortest Paths: (0->1 @ 4) (0->1->2 @ 12) (0->1->2->3 @ 19) (0->7->6->5->4 @ 21) (0->7->6->5 @ 11) (0->7->6 @ 9) (0->7 @ 8) (0->1->2->8 @ 14) 
-	
 	*/
+
     // Unweighed graph
     fun shortestPath(source: Int) {
         var curr: Int
@@ -760,27 +762,27 @@ class Graph(var count: Int) {
     /*
       4
       4
-          */
-    fun isConnected(): Boolean {
-            val visited = BooleanArray(count)
+    */
 
-            // Find a vertex with non - zero degree
-            // DFS traversal of graph from a vertex with non - zero degree
-            var adl: LinkedList<Edge>
-            for (i in 0 until count) {
-                adl = Adj.get(i)
-                if (adl.size > 0) {
-                    dfsUtil(i, visited)
-                    break
-                }
+    fun isConnected(): Boolean {
+        val visited = BooleanArray(count)
+        // Find a vertex with non - zero degree
+        // DFS traversal of graph from a vertex with non - zero degree
+        var adl: LinkedList<Edge>
+        for (i in 0 until count) {
+            adl = Adj.get(i)
+            if (adl.size > 0) {
+                dfsUtil(i, visited)
+                break
             }
-            // Check if all non - zero degree count are visited
-            for (i in 0 until count) {
-                adl = Adj.get(i)
-                if (adl.size > 0) if (visited[i] == false) return false
-            }
-            return true
         }
+        // Check if all non - zero degree count are visited
+        for (i in 0 until count) {
+            adl = Adj.get(i)
+            if (adl.size > 0) if (visited[i] == false) return false
+        }
+        return true
+    }
 
     // Check if all non - zero degree nodes are connected
     // Count odd degree
@@ -823,7 +825,8 @@ class Graph(var count: Int) {
     /*
       graph is Semi-Eulerian
       graph is Eulerian
-          */
+    */
+
     fun isStronglyConnected2(): Boolean {
         val visited = BooleanArray(count)
         var index: Int
@@ -873,7 +876,7 @@ class Graph(var count: Int) {
 
     /*
       Shortest Paths: (0->1 @ 1)(0->1->2 @ 2)(0->1->2->3 @ 3)(0->1->2->3->4 @ 4)(0->1->2->5 @ 3)(0->7->6 @ 2)(0->7 @ 1)(0->7->8 @ 2)
-      */
+    */
 
     fun floydWarshall() {
         val V = count
@@ -940,6 +943,7 @@ class Graph(var count: Int) {
         printPath2(path, u, path[u][v])
         print("->$v")
     }
+    
     companion object {
         fun heightTreeParentArr(arr: IntArray): Int {
             val count = arr.size

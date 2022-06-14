@@ -232,20 +232,18 @@ fun sortK(arr: IntArray, size: Int, k: Int) {
         pq.add(arr[i])
         i++
     }
-    val output = IntArray(size)
+
     var index = 0
     i = k
     while (i < size) {
-        output[index++] = pq.remove()
+        arr[index++] = pq.remove()
         pq.add(arr[i])
         i++
     }
-    while (pq.size > 0) output[index++] = pq.remove()
-    i = 0
-    while (i < size) {
-        arr[i] = output[i]
-        i++
-    }
+
+    while (pq.size > 0) {
+        arr[index++] = pq.remove()
+    } 
 }
 
 // Testing Code
@@ -260,6 +258,7 @@ fun main5() {
 /*
 1 4 5 9 10 50 
 */
+
 // Testing code
 fun main() {
     main1()
