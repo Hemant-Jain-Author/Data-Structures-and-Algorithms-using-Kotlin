@@ -103,6 +103,7 @@ fun fibonacciSearch(arr: IntArray, size: Int, value: Int): Boolean {
     return if (arr[low + fibNMn2] == value) true else false
 }
 
+// Testing Code
 fun main1() {
     val first = intArrayOf(1, 3, 5, 7, 9, 25, 30)
     println(linearSearchUnsorted(first, 7, 8))
@@ -159,6 +160,7 @@ fun firstRepeated2(arr: IntArray, size: Int): Int {
     return 0
 }
 
+// Testing Code
 fun main2() {
     val first = intArrayOf(1, 3, 5, 3, 9, 1, 30)
     println(firstRepeated(first, first.size))
@@ -226,6 +228,7 @@ fun printRepeating4(arr: IntArray, size: Int, range: Int) {
     println()
 }
 
+// Testing Code
 fun main3() {
     val first = intArrayOf(1, 3, 5, 3, 9, 1, 30)
     printRepeating(first, first.size)
@@ -266,6 +269,7 @@ fun removeDuplicates2(arr: IntArray, size: Int): IntArray {
     return Arrays.copyOf(arr, j)
 }
 
+// Testing Code
 fun main4() {
     val first = intArrayOf(1, 3, 5, 3, 9, 1, 30)
     val ret = removeDuplicates(first, first.size)
@@ -385,6 +389,7 @@ fun findMissingNumber8(arr: IntArray, size: Int): Int {
     return -1
 }
 
+// Testing Code
 fun main5() {
     val first = intArrayOf(1, 5, 4, 3, 2, 7, 8, 9)
     println(findMissingNumber(first, first.size))
@@ -455,6 +460,7 @@ fun missingValues3(arr: IntArray, size: Int) {
     println()
 }
 
+// Testing Code
 fun main6() {
     val arr = intArrayOf(11, 14, 13, 17, 21, 18, 19, 23, 24)
     val size = arr.size
@@ -509,6 +515,7 @@ fun oddCount3(arr: IntArray, size: Int) {
     println("Odd values: $first $second")
 }
 
+// Testing Code
 fun main7() {
     val arr = intArrayOf(10, 25, 30, 10, 15, 25, 15)
     val size = arr.size
@@ -536,6 +543,7 @@ fun sumDistinct(arr: IntArray, size: Int) {
     println("sum : $sum")
 }
 
+// Testing Code
 fun main8() {
     val arr = intArrayOf(1, 2, 3, 1, 1, 4, 5, 6)
     val size = arr.size
@@ -617,6 +625,7 @@ fun minAbsSumPair2(arr: IntArray, size: Int) {
     println("Minimum sum elements are : " + arr[minFirst] + " , " + arr[minSecond])
 }
 
+// Testing Code
 fun main9() {
     val first = intArrayOf(1, 5, -10, 3, 2, -6, 8, 9, 6)
     minAbsSumPair2(first, first.size)
@@ -684,6 +693,7 @@ fun findPair4(arr: IntArray, size: Int, range: Int, value: Int): Boolean {
     return false
 }
 
+// Testing Code
 fun main10() {
     val first = intArrayOf(1, 5, 4, 3, 2, 7, 8, 9, 6)
     findPair(first, first.size, 8)
@@ -766,6 +776,7 @@ fun findPairTwoLists5(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int, ra
     return false
 }
 
+// Testing Code
 fun main10A() {
     val first = intArrayOf(1, 5, 4, 3, 2, 7, 8, 9, 6)
     val second = intArrayOf(1, 5, 4, 3, 2, 7, 8, 9, 6)
@@ -811,6 +822,7 @@ fun findDifference2(arr: IntArray, size: Int, value: Int): Boolean {
     return false
 }
 
+// Testing Code
 fun main11() {
     val first = intArrayOf(1, 5, 4, 3, 2, 7, 8, 9, 6)
     println(findDifference(first, first.size, 6))
@@ -842,6 +854,7 @@ fun findMinDiff2(arr: IntArray, size: Int): Int {
     return diff
 }
 
+// Testing Code
 fun main12() {
     val second = intArrayOf(1, 6, 4, 19, 17, 20)
     println("findMinDiff : " + findMinDiff(second, second.size))
@@ -894,6 +907,7 @@ fun minDiffPair2(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int): Int {
     return minDiff
 }
 
+// Testing Code
 fun main13() {
     val first = intArrayOf(1, 5, 4, 3, 2, 7, 8, 9, 6)
     val second = intArrayOf(6, 4, 19, 17, 20)
@@ -953,6 +967,7 @@ fun closestPair2(arr: IntArray, size: Int, value: Int) {
     println("closest pair is :: $first $second")
 }
 
+// Testing Code
 fun main14() {
     val first = intArrayOf(10, 20, 3, 4, 50, 80)
     closestPair(first, first.size, 47)
@@ -986,6 +1001,7 @@ fun sumPairRestArray(arr: IntArray, size: Int): Boolean {
     return false
 }
 
+// Testing Code
 fun main15() {
     val first = intArrayOf(1, 2, 4, 8, 16, 15)
     println(sumPairRestArray(first, first.size))
@@ -1023,6 +1039,7 @@ fun zeroSumTriplets2(arr: IntArray, size: Int) {
     }
 }
 
+// Testing Code
 fun main16() {
     val first = intArrayOf(0, -1, 2, -3, 1)
     zeroSumTriplets(first, first.size)
@@ -1059,6 +1076,7 @@ fun findTriplet2(arr: IntArray, size: Int, value: Int) {
     }
 }
 
+// Testing Code
 fun main17() {
     val first = intArrayOf(1, 5, 15, 6, 9, 8)
     findTriplet(first, first.size, 22)
@@ -1095,6 +1113,7 @@ fun abcTriplet2(arr: IntArray, size: Int) {
     }
 }
 
+// Testing Code
 fun main18() {
     val first = intArrayOf(1, 5, 15, 6, 9, 8)
     abcTriplet(first, first.size)
@@ -1131,6 +1150,7 @@ fun smallerThenTripletCount2(arr: IntArray, size: Int, value: Int) {
     println("smallerThenTripletCount:: $count")
 }
 
+// Testing Code
 fun main19() {
     val first = intArrayOf(-2, -1, 0, 1)
     smallerThenTripletCount(first, first.size, 2)
@@ -1161,6 +1181,7 @@ fun apTriplets(arr: IntArray, size: Int) {
     }
 }
 
+// Testing Code
 fun main20() {
     val arr = intArrayOf(2, 4, 10, 12, 14, 18, 36)
     apTriplets(arr, arr.size)
@@ -1191,6 +1212,7 @@ fun gpTriplets(arr: IntArray, size: Int) {
     }
 }
 
+// Testing Code
 fun main21() {
     val arr = intArrayOf(1, 2, 4, 8, 16)
     gpTriplets(arr, arr.size)
@@ -1248,6 +1270,7 @@ fun numberOfTriangles2(arr: IntArray, size: Int): Int {
     return count
 }
 
+// Testing Code
 fun main22() {
     val arr = intArrayOf(1, 2, 3, 4, 5)
     println(numberOfTriangles(arr, arr.size))
@@ -1312,6 +1335,7 @@ fun getMax3(arr: IntArray, size: Int, range: Int): Int {
     return max
 }
 
+// Testing Code
 fun main23() {
     val first = intArrayOf(1, 30, 5, 13, 9, 31, 5)
     println(getMax(first, first.size))
@@ -1399,6 +1423,7 @@ fun getMajority3(arr: IntArray, size: Int): Int {
     }
 }
 
+// Testing Code
 fun main24() {
     val first = intArrayOf(1, 5, 5, 13, 5, 31, 5)
     println(getMajority(first, first.size))
@@ -1422,6 +1447,7 @@ fun getMedian2(arr: IntArray, size: Int): Int {
     return arr[size / 2]
 }
 
+// Testing Code
 fun main25() {
     val first = intArrayOf(1, 5, 6, 6, 6, 6, 6, 6, 7, 8, 10, 13, 20, 30)
     println(getMedian(first, first.size))
@@ -1509,6 +1535,7 @@ fun findMaxBitonicArray(arr: IntArray, size: Int): Int {
     return -1
 }
 
+// Testing Code
 fun main26() {
     val first = intArrayOf(1, 5, 10, 13, 20, 30, 8, 7, 6)
     println(searchBitonicArrayMax(first, first.size))
@@ -1571,6 +1598,7 @@ fun findKeyCount2(arr: IntArray, size: Int, key: Int): Int {
     return lastIndex - firstIndex + 1
 }
 
+// Testing Code
 fun main27() {
     val first = intArrayOf(1, 5, 10, 13, 20, 30, 8, 7, 6)
     println(findKeyCount(first, first.size, 6))
@@ -1617,6 +1645,7 @@ fun isMajority(arr: IntArray, size: Int): Boolean {
     return if (count > size / 2) true else false
 }
 
+// Testing Code
 fun main28() {
     val arr = intArrayOf(3, 3, 3, 3, 4, 5, 10)
     println(isMajority(arr, arr.size))
@@ -1666,6 +1695,7 @@ fun maxProfit2(stocks: IntArray, size: Int): Int {
     return maxProfit
 }
 
+// Testing Code
 fun main29() {
     val first = intArrayOf(10, 150, 6, 67, 61, 16, 86, 6, 67, 78, 150, 3, 28, 143)
     println(maxProfit(first, first.size))
@@ -1699,6 +1729,7 @@ fun findMedian(arrFirst: IntArray, sizeFirst: Int, arrSecond: IntArray, sizeSeco
     }
 }
 
+// Testing Code
 fun main30() {
     val first = intArrayOf(1, 5, 6, 6, 6, 6, 6, 6, 7, 8, 10, 13, 20, 30)
     val second = intArrayOf(1, 5, 6, 6, 6, 6, 6, 6, 7, 8, 10, 13, 20, 30)
@@ -1735,6 +1766,7 @@ fun binarySearch01Util(arr: IntArray, start: Int, end: Int): Int {
     }
 }
 
+// Testing Code
 fun main31() {
     val first = intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1)
     println(search01(first, first.size))
@@ -1767,6 +1799,7 @@ fun rotationMax2(arr: IntArray, size: Int): Int {
     return rotationMaxUtil(arr, 0, size - 1)
 }
 
+// Testing Code
 fun main32() {
     val first = intArrayOf(34, 56, 77, 1, 5, 6, 6, 8, 10, 20, 30, 34)
     println(rotationMax(first, first.size))
@@ -1799,6 +1832,7 @@ fun findRotationMax2(arr: IntArray, size: Int): Int {
     return findRotationMaxUtil(arr, 0, size - 1)
 }
 
+// Testing Code
 fun main33() {
     val first = intArrayOf(34, 56, 77, 1, 5, 6, 6, 8, 10, 20, 30, 34)
     println(findRotationMax(first, first.size))
@@ -1814,6 +1848,7 @@ fun countRotation(arr: IntArray, size: Int): Int {
     return (maxIndex + 1) % size
 }
 
+// Testing Code
 fun main34() {
     val first = intArrayOf(34, 56, 77, 1, 5, 6, 6, 8, 10, 20, 30, 34)
     println(countRotation(first, first.size))
@@ -1855,6 +1890,7 @@ fun binarySearchRotateArray(arr: IntArray, size: Int, key: Int): Int {
     return binarySearchRotateArrayUtil(arr, 0, size - 1, key)
 }
 
+// Testing Code
 fun main35() {
     val first = intArrayOf(34, 56, 77, 1, 5, 6, 6, 6, 6, 6, 6, 7, 8, 10, 13, 20, 30)
     println(searchRotateArray(first, first.size, 20))
@@ -1908,7 +1944,7 @@ fun transformArrayAB1(arr: CharArray, size: Int) {
     }
 }
 
-//Testing Code
+// Testing Code
 fun main37() {
     val str: CharArray = "aaaabbbb".toCharArray()
     transformArrayAB1(str, str.size)
@@ -1966,7 +2002,7 @@ fun checkPermutation3(array1: CharArray, size1: Int, array2: CharArray, size2: I
     return true
 }
 
-//Testing Code
+// Testing Code
 fun main38() {
     val str1: CharArray = "aaaabbbb".toCharArray()
     val str2: CharArray = "bbaaaabb".toCharArray()
@@ -2051,7 +2087,7 @@ fun isAP3(arr: IntArray, size: Int): Boolean {
     return true
 }
 
-//Testing Code
+// Testing Code
 fun main39() {
     val arr = intArrayOf(20, 25, 15, 5, 0, 10, 35, 30)
     println(isAP(arr, arr.size))
@@ -2123,7 +2159,7 @@ fun findCeil(arr: IntArray, size: Int, value: Int): Int {
     return -1
 }
 
-//Testing Code
+// Testing Code
 fun main41() {
     val arr = intArrayOf(2, 4, 8, 16)
     println("Floor :  " + findFloor(arr, arr.size, 5))
@@ -2152,7 +2188,7 @@ fun closestNumber(arr: IntArray, size: Int, num: Int): Int {
     return output
 }
 
-//Testing Code
+// Testing Code
 fun main42() {
     val arr = intArrayOf(2, 4, 8, 16)
     println(closestNumber(arr, arr.size, 9))
@@ -2240,7 +2276,7 @@ fun frequencyCounts4(arr: IntArray, size: Int) {
     println()
 }
 
-//Testing Code
+// Testing Code
 fun main44() {
     val arr = intArrayOf(1, 2, 2, 2, 1)
     frequencyCounts(arr, arr.size)
@@ -2303,7 +2339,7 @@ fun kLargestElements2(arrIn: IntArray, size: Int, k: Int) {
     println()
 }
 
-//Testing Code
+// Testing Code
 fun main45() {
     val arr = intArrayOf(10, 50, 30, 60, 15)
     kLargestElements(arr, arr.size, 2)
@@ -2337,7 +2373,7 @@ fun fixPoint2(arr: IntArray, size: Int): Int {
     /* fix point not found so return invalid index */return -1
 }
 
-//Testing Code
+// Testing Code
 fun main46() {
     val arr = intArrayOf(-10, -2, 0, 3, 11, 12, 35, 51, 200)
     println(fixPoint(arr, arr.size))
@@ -2367,7 +2403,7 @@ fun subArraySums(arr: IntArray, size: Int, value: Int) {
     }
 }
 
-//Testing Code
+// Testing Code
 fun main47() {
     val arr = intArrayOf(15, 5, 5, 20, 10, 5, 5, 20, 10, 10)
     subArraySums(arr, arr.size, 20)
@@ -2419,7 +2455,7 @@ fun maxConSubArr2(A: IntArray, sizeA: Int, B: IntArray, sizeB: Int): Int {
     return maximum
 }
 
-//Testing Code
+// Testing Code
 fun main48() {
     val arr = intArrayOf(1, 2, -3, 4, 5, -10, 6, 7)
     maxConSub(arr, arr.size)
@@ -2475,7 +2511,7 @@ fun rainWater2(arr: IntArray, size: Int): Int {
     return water
 }
 
-//Testing Code
+// Testing Code
 fun main49() {
     val arr = intArrayOf(0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1)
     rainWater(arr, arr.size)
@@ -2503,7 +2539,7 @@ fun separateEvenAndOdd(arr: IntArray, size: Int) {
     }
 }
 
-//Testing Code
+// Testing Code
 fun main50() {
     val first = intArrayOf(1, 5, 6, 6, 6, 6, 6, 6, 7, 8, 10, 13, 20, 30)
     separateEvenAndOdd(first, first.size)
@@ -2550,8 +2586,7 @@ fun arrayIndexMaxDiff2(arr: IntArray, size: Int): Int {
     return maxDiff
 }
 
-/* Testing code */
-
+// Testing Code
 fun main51() {
     val arr = intArrayOf(33, 9, 10, 3, 2, 60, 30, 33, 1)
     println("arrayIndexMaxDiff : " + arrayIndexMaxDiff(arr, arr.size))
@@ -2597,8 +2632,7 @@ fun maxPathSum(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int): Int {
     return result
 }
 
-/* Testing code */
-
+// Testing Code
 fun main52() {
     val arr1 = intArrayOf(12, 13, 18, 20, 22, 26, 70)
     val arr2 = intArrayOf(11, 15, 18, 19, 20, 26, 30, 31)
@@ -2624,8 +2658,7 @@ fun maxSubArraySum(a: IntArray, size: Int): Int {
     return maxSoFar
 }
 
-/* Testing code */
-
+// Testing Code
 fun main53() {
     val arr = intArrayOf(1, -2, 3, 4, -4, 6, -4, 3, 2)
     println("Max sub array sum :" + maxSubArraySum(arr, 9))
@@ -2635,7 +2668,7 @@ fun main53() {
 Max sub array sum :10
 */
 
-// Testing code
+// Testing Code
 fun main() {
     main1();
     main2();

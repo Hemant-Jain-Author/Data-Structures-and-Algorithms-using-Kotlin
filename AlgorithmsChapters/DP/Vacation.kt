@@ -21,3 +21,7 @@ fun main() {
     val costs = intArrayOf(2, 7, 20)
     println("Min cost is:" + minCostTravel(days, costs))
 }
+
+/*
+Min cost is:13
+*/

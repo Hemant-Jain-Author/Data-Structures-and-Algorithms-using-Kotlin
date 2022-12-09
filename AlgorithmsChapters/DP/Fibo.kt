@@ -47,3 +47,10 @@ fun main() {
     println(fibonacciBU2(10))
     println(fibonacciTD(10))
 }
+
+/*
+55
+55
+55
+55
+*/

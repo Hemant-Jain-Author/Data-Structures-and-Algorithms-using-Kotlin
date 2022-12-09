@@ -11,7 +11,6 @@ class StackLL {
     val isEmpty: Boolean
         get() = length == 0
 
-    @Throws(IllegalStateException::class)
     fun peek(): Int {
         if (isEmpty) {
             throw IllegalStateException("StackEmptyException")
@@ -24,7 +23,6 @@ class StackLL {
         length++
     }
 
-    @Throws(IllegalStateException::class)
     fun pop(): Int {
         if (isEmpty) {
             throw IllegalStateException("StackEmptyException")
@@ -45,6 +43,7 @@ class StackLL {
     }
 }
 
+/* Testing code */
 fun main() {
     val s = StackLL()
     s.push(1)
@@ -54,3 +53,9 @@ fun main() {
     println(s.pop())
     println(s.pop())
 }
+
+/*
+3 2 1 
+3
+2
+*/

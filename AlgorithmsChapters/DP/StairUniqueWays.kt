@@ -25,3 +25,8 @@ fun main() {
     println("Unique way to reach top:: " + stairUniqueWaysBU(4))
     println("Unique way to reach top:: " + stairUniqueWaysBU2(4))
 }
+
+/*
+Unique way to reach top:: 5
+Unique way to reach top:: 5
+*/

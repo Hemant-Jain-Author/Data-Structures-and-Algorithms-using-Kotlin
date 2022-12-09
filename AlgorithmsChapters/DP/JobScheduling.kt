@@ -91,4 +91,8 @@ fun main() {
     println(maxValueJobsBU(start, finish, value, n))
 }
 
-
+/*
+17
+17
+17
+*/

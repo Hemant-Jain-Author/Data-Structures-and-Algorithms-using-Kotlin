@@ -60,7 +60,7 @@ class BinaryIndexTree internal constructor(arr: IntArray) {
     }
 }
 
-// Main function
+// Testing Code.
 fun main() {
     val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)
     val tree = BinaryIndexTree(arr)
@@ -73,3 +73,5 @@ fun main() {
     // Find sum after the value is updated
     println("Sum of elements in range(0, 5): " + tree.prefixSum(5))
 }
+
+

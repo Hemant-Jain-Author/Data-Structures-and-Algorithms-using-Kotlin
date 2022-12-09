@@ -54,6 +54,7 @@ class DoublyCircularLinkedList {
 
     fun removeHead(): Int {
         if (size == 0) throw IllegalStateException("EmptyListException")
+
         val value = head!!.value
         size--
         if (size == 0) {
@@ -70,6 +71,7 @@ class DoublyCircularLinkedList {
 
     fun removeTail(): Int {
         if (size == 0) throw IllegalStateException("EmptyListException")
+        
         val value = tail!!.value
         size--
         if (size == 0) {
@@ -115,6 +117,7 @@ class DoublyCircularLinkedList {
     }
 }
 
+// Testing Code.
 fun main1() {
     val ll = DoublyCircularLinkedList()
     ll.addHead(1)
@@ -135,6 +138,7 @@ false
 true
 */
 
+// Testing Code.
 fun main2() {
     val ll = DoublyCircularLinkedList()
     ll.addTail(1)
@@ -156,6 +160,7 @@ fun main2() {
 Empty List.
 */
 
+// Testing Code.
 fun main3() {
     val ll = DoublyCircularLinkedList()
     ll.addHead(1)
@@ -171,6 +176,7 @@ fun main3() {
 2 1
 */
 
+// Testing Code.
 fun main4() {
     val ll = DoublyCircularLinkedList()
     ll.addHead(1)
@@ -186,7 +192,7 @@ fun main4() {
 3 2
 */
 
-// Testing code
+// Testing Code.
 fun main() {
     main1()
     main2()

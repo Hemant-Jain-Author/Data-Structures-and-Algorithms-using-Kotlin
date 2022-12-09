@@ -22,7 +22,9 @@ fun findWays(n: Int, m: Int, V: Int): Int {
 }
 
 fun main() {
-    for (i in 1..6) {
-        print(findWays(i, 6, 6).toString() + " ")
-    }
+    print(findWays(4, 6, 6).toString() + " ")
 }
+
+/*
+10 
+*/

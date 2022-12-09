@@ -14,7 +14,6 @@ fun function1() {
 }
 
 /* Testing code */
-
 fun main1() {
     println("main line 1")
     function1()
@@ -48,6 +47,7 @@ fun isBalancedParenthesis(expn: String): Boolean {
     return stk.isEmpty()
 }
 
+/* Testing code */
 fun main2() {
     val expn = "{()}[]"
     val value = isBalancedParenthesis(expn)
@@ -80,6 +80,7 @@ fun postfixEvaluate(expn: String?): Int {
     return stk.pop()
 }
 
+/* Testing code */
 fun main3() {
     val expn = "6 5 2 3 + 8 * + 3 + *"
     val value = postfixEvaluate(expn)
@@ -147,6 +148,7 @@ fun infixToPostfix(expn: CharArray): CharArray {
     return output.toCharArray()
 }
 
+/* Testing code */
 fun main4() {
     val expn = "10+((3))*5/(16-4)"
     val value = infixToPostfix(expn)
@@ -194,6 +196,7 @@ fun reverseString(expn: CharArray) {
     }
 }
 
+/* Testing code */
 fun main5() {
     val expn = "10+((3))*5/(16-4)"
     val value = infixToPrefix(expn)
@@ -235,6 +238,7 @@ fun stockSpanRange2(arr: IntArray): IntArray {
     return SR
 }
 
+/* Testing code */
 fun main6() {
     val arr = intArrayOf(6, 5, 4, 3, 2, 4, 5, 7, 9)
     var value = stockSpanRange(arr)
@@ -296,6 +300,7 @@ fun getMaxArea2(arr: IntArray): Int {
     return maxArea
 }
 
+/* Testing code */
 fun main7() {
     val arr = intArrayOf(7, 6, 5, 4, 4, 1, 6, 3, 1)
     var value = getMaxArea(arr)
@@ -314,7 +319,8 @@ fun stockAnalystAdd(stk: Stack<Int>, value: Int) {
     stk.push(value)
 }
 
-fun main7a() {
+/* Testing code */
+fun main8() {
     val arr = intArrayOf(20, 19, 10, 21, 40, 35, 39, 50, 45, 42)
     val stk: Stack<Int> = Stack<Int>()
     for (i in arr.indices.reversed()) stockAnalystAdd(stk, arr[i])
@@ -332,7 +338,8 @@ fun sortedInsert(stk: Stack<Int>, element: Int) {
     }
 }
 
-fun main8() {
+/* Testing code */
+fun main9() {
     val stk: Stack<Int> = Stack<Int>()
     stk.push(1)
     stk.push(3)
@@ -369,7 +376,8 @@ fun sortStack2(stk: Stack<Int>) {
         stk.push(stk2.pop())
 }
 
-fun main9() {
+/* Testing code */
+fun main10() {
     var stk: Stack<Int> = Stack<Int>()
     stk.push(3)
     stk.push(1)
@@ -404,7 +412,8 @@ fun bottomInsert(stk: Stack<Int>, element: Int) {
     }
 }
 
-fun main10() {
+/* Testing code */
+fun main11() {
     val stk: Stack<Int> = Stack<Int>()
     stk.push(1)
     stk.push(2)
@@ -481,7 +490,8 @@ fun reverseKElementInQueue(que: ArrayDeque<Int>, k: Int) {
     }
 }
 
-fun main11() {
+/* Testing code */
+fun main12() {
     val stk: Stack<Int> = Stack<Int>()
     stk.push(1)
     stk.push(2)
@@ -491,7 +501,8 @@ fun main11() {
 
 // [1, 2, 3]
 
-fun main12() {
+/* Testing code */
+fun main13() {
     val stk: Stack<Int> = Stack<Int>()
     stk.push(1)
     stk.push(2)
@@ -514,7 +525,8 @@ fun main12() {
 [1, 2, 4, 3]
 */
 
-fun main13() {
+/* Testing code */
+fun main14() {
     val que: ArrayDeque<Int> = ArrayDeque<Int>()
     que.add(1)
     que.add(2)
@@ -569,7 +581,8 @@ fun maxDepthParenthesis2(expn: String, size: Int): Int {
     return maxDepth
 }
 
-fun main14() {
+/* Testing code */
+fun main15() {
     val expn = "((((A)))((((BBB()))))()()()())"
     val size = expn.length
     println("Max depth parenthesis is " + maxDepthParenthesis(expn, size))
@@ -610,7 +623,8 @@ fun longestContBalParen2(string: String, size: Int): Int {
     return length
 }
 
-fun main15() {
+/* Testing code */
+fun main16() {
     val expn = "())((()))(())()(()"
     val size = expn.length
     println("longestContBalParen " + longestContBalParen(expn, size))
@@ -618,6 +632,7 @@ fun main15() {
 }
 
 // longestContBalParen 12
+
 fun reverseParenthesis(expn: String, size: Int): Int {
     val stk: Stack<Char> = Stack<Char>()
     var openCount = 0
@@ -647,7 +662,8 @@ fun reverseParenthesis(expn: String, size: Int): Int {
     return Math.ceil(openCount / 2.0).toInt() + Math.ceil(closeCount / 2.0).toInt()
 }
 
-fun main16() {
+/* Testing code */
+fun main17() {
     val expn2 = ")(())((("
     val size = expn2.length
     val value = reverseParenthesis(expn2, size)
@@ -655,6 +671,7 @@ fun main16() {
 }
 
 // reverse Parenthesis is : 3
+
 fun findDuplicateParenthesis(expn: String, size: Int): Boolean {
     val stk: Stack<Char> = Stack<Char>()
     var ch: Char
@@ -675,7 +692,8 @@ fun findDuplicateParenthesis(expn: String, size: Int): Boolean {
     return false
 }
 
-fun main17() {
+/* Testing code */
+fun main18() {
     val expn = "(((a+b))+c)"
     val size = expn.length
     val value = findDuplicateParenthesis(expn, size)
@@ -702,7 +720,8 @@ fun printParenthesisNumber(expn: String, size: Int) {
     println("Parenthesis Count :: $output")
 }
 
-fun main18() {
+/* Testing code */
+fun main19() {
     val expn1 = "(((a+(b))+(c+d)))"
     val expn2 = "(((a+b))+c)((("
     printParenthesisNumber(expn1, expn1.length)
@@ -796,7 +815,8 @@ fun nextSmallerElement2(arr: IntArray, size: Int) {
     println()
 }
 
-fun main19() {
+/* Testing code */
+fun main20() {
     val arr = intArrayOf(13, 21, 3, 6, 20, 3)
     val size = arr.size
     nextLargerElement(arr, size)
@@ -851,13 +871,15 @@ fun nextLargerElementCircular2(arr: IntArray, size: Int) {
     println()
 }
 
-fun main20() {
+/* Testing code */
+fun main21() {
     val arr = intArrayOf(6, 3, 9, 8, 10, 2, 1, 15, 7)
     nextLargerElementCircular(arr, arr.size)
     nextLargerElementCircular2(arr, arr.size)
 }
 
 // 9 9 10 10 15 15 15 -1 9
+
 fun isKnown(relation: Array<IntArray>, a: Int, b: Int): Boolean {
     return if (relation[a][b] == 1) true else false
 }
@@ -916,7 +938,8 @@ fun findCelebrity3(relation: Array<IntArray>, count: Int): Int {
     return first
 }
 
-fun main21() {
+/* Testing code */
+fun main22() {
     val arr = arrayOf(
         intArrayOf(1, 0, 1, 1, 0),
         intArrayOf(1, 0, 0, 1, 0),
@@ -966,7 +989,6 @@ fun main() {
     main5()
     main6()
     main7()
-    main7a()
     main8()
     main9()
     main10()
@@ -981,4 +1003,5 @@ fun main() {
     main19()
     main20()
     main21()
+    main22()
 }

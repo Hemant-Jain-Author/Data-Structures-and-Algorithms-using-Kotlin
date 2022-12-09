@@ -20,3 +20,7 @@ fun main() {
     val arr = intArrayOf(10, 12, 9, 23, 25, 55, 49, 70)
     println("Length of lis is " + lis(arr))
 }
+
+/*
+Length of lis is 6
+*/

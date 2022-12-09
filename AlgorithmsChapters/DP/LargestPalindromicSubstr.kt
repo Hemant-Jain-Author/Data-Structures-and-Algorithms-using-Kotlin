@@ -30,3 +30,8 @@ fun main() {
     val str = "ABCAUCBCxxCBA"
     println("Max Palindromic Substrings len: " + largestPalinSubstr(str))
 }
+
+/*
+Max Length Palindromic Substrings : BCxxCB
+Max Palindromic Substrings len: 6 
+*/

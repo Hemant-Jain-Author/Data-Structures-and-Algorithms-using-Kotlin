@@ -90,6 +90,7 @@ class SegmentTree(input: IntArray) {
     }
 }
 
+// Testing Code.
 fun main() {
     val arr = intArrayOf(1, 2, 4, 8, 16, 32, 64)
     val tree = SegmentTree(arr)
@@ -99,3 +100,10 @@ fun main() {
     println("Sum of values in the range(0, 3): " + tree.getSum(1, 3))
     println("Sum of values of all the elements: " + tree.getSum(0, arr.size - 1))
 }
+
+/*
+Sum of values in the range(0, 3): 14
+Sum of values of all the elements: 127
+Sum of values in the range(0, 3): 22
+Sum of values of all the elements: 135
+*/

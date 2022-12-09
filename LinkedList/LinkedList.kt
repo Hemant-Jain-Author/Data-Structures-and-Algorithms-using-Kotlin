@@ -13,7 +13,7 @@ class LinkedList {
     }
 
     // Other Methods.
-    @Throws(IllegalStateException::class)
+
     fun peek(): Int {
         if (isEmpty) throw IllegalStateException("EmptyListException")
         return head!!.value
@@ -36,9 +36,9 @@ class LinkedList {
         curr.next = newNode
     }
 
-    @Throws(IllegalStateException::class)
     fun removeHead(): Int {
         if (isEmpty) throw IllegalStateException("EmptyListException")
+
         val value = head!!.value
         head = head!!.next
         size--
@@ -55,13 +55,15 @@ class LinkedList {
     }
 
     fun deleteNode(delValue: Int): Boolean {
-        var temp = head
-        if (isEmpty) return false
+        if (isEmpty) throw IllegalStateException("EmptyListException")
+
         if (delValue == head!!.value) {
             head = head!!.next
             size--
             return true
         }
+
+        var temp = head    
         while (temp!!.next != null) {
             if (temp.next!!.value == delValue) {
                 temp.next = temp.next!!.next
@@ -95,13 +97,13 @@ class LinkedList {
     }
 
     fun reverseRecurseUtil(currentNode: Node?, nextNode: Node?): Node? {
-        val ret: Node?
         if (currentNode == null) return null
+
         if (currentNode.next == null) {
             currentNode.next = nextNode
             return currentNode
         }
-        ret = reverseRecurseUtil(currentNode.next, currentNode)
+        val ret = reverseRecurseUtil(currentNode.next, currentNode)
         currentNode.next = nextNode
         return ret
     }
@@ -138,19 +140,17 @@ class LinkedList {
     }
 
     fun copyList(): LinkedList? {
-        var headNode: Node?
-        var tailNode: Node?
-        var tempNode: Node?
-        var curr: Node? = head
         val ll2 = LinkedList()
         if (head == null)
-            return ll2  
-              
-        headNode = Node(curr!!.value, null)
-        tailNode = headNode
+            return ll2
+            
+        var curr: Node? = head        
+        var headNode: Node? = Node(curr!!.value, null)
+        var tailNode: Node? = headNode
         curr = curr.next
+        
         while (curr != null) {
-            tempNode = Node(curr.value, null)
+            var tempNode = Node(curr.value, null)
             tailNode!!.next = tempNode
             tailNode = tempNode
             curr = curr.next
@@ -496,6 +496,7 @@ class LinkedList {
     }
 }
 
+// Testing Code.
 fun main1() {
     val ll = LinkedList()
     ll.addHead(1)
@@ -519,6 +520,7 @@ Peek : 3
 3 2 1 4
 */
 
+// Testing Code.
 fun main2() {
     val ll = LinkedList()
     ll.addHead(1)
@@ -536,6 +538,7 @@ search : true
 2 1 
 */
 
+// Testing Code.
 fun main3() {
     val ll = LinkedList()
     ll.addHead(1)
@@ -559,6 +562,7 @@ deleteNodes : true
 3 2 
 */
 
+// Testing Code.
 fun main4() {
     val ll = LinkedList()
     ll.addHead(1)
@@ -583,6 +587,7 @@ fun main4() {
 1 2 3 
 */
 
+// Testing Code.
 fun main5() {
     val ll = LinkedList()
     ll.addHead(1)
@@ -609,6 +614,7 @@ compareList : false
 compareList : false
 */
 
+// Testing Code.
 fun main6() {
     val ll = LinkedList()
     ll.addHead(1)
@@ -628,6 +634,7 @@ fun main6() {
 2
 */
 
+// Testing Code.
 fun main7() {
     val ll = LinkedList()
     ll.sortedInsert(1)
@@ -648,6 +655,7 @@ fun main7() {
 1 2 3
 */
 
+// Testing Code.
 fun main8() {
     val ll = LinkedList()
     ll.addHead(1)
@@ -690,6 +698,7 @@ fun main9() {
 Intersection:: 2
 */
 
+// Testing Code.
 fun main10() {
     val ll = LinkedList()
     ll.addHead(1)

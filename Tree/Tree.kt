@@ -378,12 +378,10 @@ class Tree (var root: Node? = null) {
         } else null
     }
 
-    @JvmOverloads
     fun numNodes(curr: Node? = root): Int {
         return if (curr == null) 0 else 1 + numNodes(curr.right) + numNodes(curr.left)
     }
 
-    @JvmOverloads
     fun numFullNodesBT(curr: Node? = root): Int {
         if (curr == null) return 0
         var count = numFullNodesBT(curr.right) + numFullNodesBT(curr.left)

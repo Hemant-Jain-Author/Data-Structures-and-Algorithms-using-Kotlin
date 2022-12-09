@@ -12,6 +12,7 @@ class CircularLinkedList {
     }
 
     /* Other methods */
+
     fun peek(): Int {
         if (isEmpty) throw IllegalStateException("EmptyListException")
         return tail!!.next!!.value
@@ -42,11 +43,9 @@ class CircularLinkedList {
         size++
     }
 
-    @Throws(IllegalStateException::class)
     fun removeHead(): Int {
-        if (isEmpty) {
-            throw IllegalStateException("EmptyListException")
-        }
+        if (isEmpty) throw IllegalStateException("EmptyListException")
+
         val value = tail!!.next!!.value
         if (tail === tail!!.next) 
             tail = null 
@@ -57,9 +56,7 @@ class CircularLinkedList {
     }
 
     fun removeNode(key: Int): Boolean {
-        if (isEmpty) {
-            return false
-        }
+        if (isEmpty) throw IllegalStateException("EmptyListException")
 
         var curr = tail!!.next
         val head = tail!!.next
@@ -151,6 +148,7 @@ class CircularLinkedList {
     }
 }
 
+// Testing Code.
 fun main1() {
     val ll = CircularLinkedList()
     ll.addHead(1)
@@ -171,6 +169,7 @@ false
 true
 */
 
+// Testing Code.
 fun main2() {
     val ll = CircularLinkedList()
     ll.addTail(1)
@@ -183,6 +182,7 @@ fun main2() {
 1 2 3
 */
 
+// Testing Code.
 fun main3() {
     val ll = CircularLinkedList()
     ll.addHead(1)
@@ -204,6 +204,7 @@ fun main3() {
 Empty List.
 */
 
+// Testing Code.
 fun main4() {
     val ll = CircularLinkedList()
     ll.addHead(1)
@@ -222,6 +223,7 @@ fun main4() {
 1 2 3
 */
 
+// Testing Code.
 fun main5() {
     val ll = CircularLinkedList()
     ll.addHead(1)
@@ -237,6 +239,7 @@ fun main5() {
 3 1
 */
 
+// Testing Code.
 fun main() {
     main1()
     main2()

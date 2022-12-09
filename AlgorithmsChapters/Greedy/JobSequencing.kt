@@ -21,8 +21,7 @@ class JobSequencing(ids: CharArray, deadlines: IntArray, profits: IntArray, n: I
     }
 
     fun print() {
-        Arrays.sort<Job>(
-            jobs,
+        Arrays.sort<Job>(jobs,
             Comparator<Job> { a: Job, b: Job -> b.profit - a.profit })
         val result = BooleanArray(maxDL)
         val job = CharArray(maxDL)
@@ -53,3 +52,8 @@ fun main() {
     val js = JobSequencing(id, deadline, profit, 5)
     js.print()
 }
+
+/*
+Profit is :: 151
+Jobs selected are:: b e a d
+*/

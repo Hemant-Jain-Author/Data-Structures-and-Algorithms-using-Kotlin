@@ -28,3 +28,8 @@ fun main() {
     println("Total cash: " + maxRobbery(arr))
     println("Total cash: " + maxRobbery2(arr))
 }
+
+/* 
+Total cash: 160
+Total cash: 160
+*/

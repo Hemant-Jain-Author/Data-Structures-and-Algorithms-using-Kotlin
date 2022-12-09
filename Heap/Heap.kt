@@ -1,6 +1,6 @@
 class Heap {
-    private var size : Int// Number of elements in Heap
-    private var arr : IntArray// The Heap array
+    private var size : Int // Number of elements in Heap
+    private var arr : IntArray // The Heap array
     var isMinHeap: Boolean
 
     constructor(isMin: Boolean) {
@@ -117,6 +117,7 @@ class Heap {
     }
 }
 
+// Testing code.
 fun main1() {
     val hp = Heap(true)
     hp.add(1)
@@ -145,6 +146,7 @@ fun heapSort(array: IntArray, inc: Boolean) {
     }
 }
 
+// Testing Code.
 fun main2() {
     val a2 = intArrayOf(1, 9, 6, 7, 8, 2, 4, 5, 3)
     heapSort(a2, true)

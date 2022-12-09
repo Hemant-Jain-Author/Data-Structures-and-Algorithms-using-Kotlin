@@ -45,6 +45,7 @@ class TwoStack {
     }
 }
 
+/* Testing code */
 fun main() {
     val st = TwoStack()
     st.push1(1)
@@ -58,3 +59,10 @@ fun main() {
     println("stk2 pop: " + st.pop2())
     println("stk2 pop: " + st.pop2())
 }
+
+/*
+stk1 pop: 3
+stk1 pop: 2
+stk2 pop: 6
+stk2 pop: 5
+*/

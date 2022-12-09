@@ -1,16 +1,15 @@
 fun CountSort(arr: IntArray, lowerRange: Int, upperRange: Int) {
-    var i: Int
-    var j: Int
     val size = arr.size
     val range = upperRange - lowerRange
     val count = IntArray(range)
-    i = 0
+    var i = 0
     while (i < size) {
         count[arr[i] - lowerRange]++
         i++
     }
-    j = 0
+    
     i = 0
+    var j = 0
     while (i < range) {
         while (count[i] > 0) {
             arr[j++] = i + lowerRange

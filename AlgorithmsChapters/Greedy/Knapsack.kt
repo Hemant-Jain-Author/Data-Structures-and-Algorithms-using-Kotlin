@@ -41,3 +41,7 @@ fun main() {
     val maxCost = getMaxCostGreedy(wt, cost, capacity)
     println("Maximum cost obtained = $maxCost")
 }
+
+/*
+Maximum cost obtained = 150
+*/

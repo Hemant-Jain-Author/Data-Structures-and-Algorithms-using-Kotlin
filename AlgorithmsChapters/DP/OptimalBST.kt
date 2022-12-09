@@ -104,3 +104,10 @@ fun main() {
     println("OBST cost:" + optBstCostBU(freq))
     println("OBST cost:" + optBstCostBU2(freq))
 }
+
+/*
+OBST cost:130
+OBST cost:130
+OBST cost:130
+OBST cost:130
+*/

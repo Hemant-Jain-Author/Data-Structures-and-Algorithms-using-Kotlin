@@ -39,7 +39,8 @@ fun printInt(numberInput:Int) {
     print(digit)
 }
 
-fun main1A() {
+// Testing Code.
+fun main2() {
     var i = 1000
     printInt(i)
 }
@@ -68,7 +69,8 @@ fun SumArray(arr:IntArray):Int {
     return total
 }
 
-fun main2() {
+// Testing Code.
+fun main3() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
     println("Sum of values in array:" + SumArray(arr))
 }
@@ -101,7 +103,8 @@ fun BinarySearch(arr:IntArray, size:Int, value:Int):Int {
     return -1
 }
 
-fun main3() {
+// Testing Code.
+fun main4() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
     println("Sum of values in array:" + SequentialSearch(arr, arr.size, 7))
     println("Sum of values in array:" + BinarySearch(arr, arr.size, 7))
@@ -139,7 +142,8 @@ fun reverseArray2(a:IntArray) {
     }
 }
 
-fun main4() {
+// Testing Code.
+fun main5() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6)
     rotateArray(arr, arr.size, 2)
     printArray(arr, arr.size)
@@ -160,7 +164,8 @@ fun maxSubArraySum(a:IntArray, size:Int):Int {
     return maxSoFar
 }
 
-fun main5() {
+// Testing Code.
+fun main6() {
     var arr = intArrayOf(1, -2, 3, 4, -4, 6, -4, 3, 2)
     println("Max sub array sum :" + maxSubArraySum(arr, 9))
 }
@@ -191,8 +196,8 @@ fun WaveArray(arr:IntArray) {
     }
 }
 
-/* Testing code */
-fun main6() {
+// Testing Code.
+fun main7() {
     var arr = intArrayOf(8, 1, 2, 3, 4, 5, 6, 4, 2)
     printArray(arr, arr.size)
     WaveArray(arr)
@@ -232,8 +237,8 @@ fun indexArray2(arr:IntArray, size:Int) {
     }
 }
 
-/* Testing code */
-fun main7() {
+// Testing Code.
+fun main8() {
     var arr = intArrayOf(8, -1, 6, 1, 9, 3, 2, 7, 4, -1)
     var size = arr.size
     indexArray2(arr, size)
@@ -272,7 +277,8 @@ fun Sort1toN2(arr:IntArray, size:Int) {
     }
 }
 
-fun main8() {
+// Testing Code.
+fun main9() {
     var arr = intArrayOf(8, 5, 6, 1, 9, 3, 2, 7, 4, 10)
     var size = arr.size
     Sort1toN2(arr, size)
@@ -346,7 +352,8 @@ fun SmallestPositiveMissingNumber4(arr:IntArray, size:Int):Int {
     return -1
 }
 
-fun main9() {
+// Testing Code.
+fun main10() {
     var arr = intArrayOf(8, 5, 6, 1, 9, 11, 2, 7, 4, 10)
     var size = arr.size
     println("Max sub array sum :" + SmallestPositiveMissingNumber(arr, size))
@@ -386,8 +393,8 @@ fun MaxMinArr2(arr:IntArray, size:Int) {
     }
 }
 
-/* Testing code */
-fun main10() {
+// Testing Code.
+fun main11() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7)
     var size = arr.size
     MaxMinArr(arr, size)
@@ -416,8 +423,8 @@ fun maxCircularSum(arr:IntArray, size:Int):Int {
     return maxvar
 }
 
-/* Testing code */
-fun main11() {
+// Testing Code.
+fun main12() {
     var arr = intArrayOf(10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
     println("MaxCirculrSm: " + maxCircularSum(arr, arr.size))
 }
@@ -478,7 +485,8 @@ fun ArrayIndexMaxDiff2(arr:IntArray, size:Int):Int {
     return maxDiff
 }
 
-fun main12() {
+// Testing Code.
+fun main13() {
     var arr = intArrayOf(33, 9, 10, 3, 2, 60, 30, 33, 1)
     println("ArrayIndexMaxDiff : " + ArrayIndexMaxDiff(arr, arr.size))
     println("ArrayIndexMaxDiff : " + ArrayIndexMaxDiff2(arr, arr.size))
@@ -519,8 +527,8 @@ fun maxPathSum(arr1:IntArray, size1:Int, arr2:IntArray, size2:Int):Int {
     return result
 }
 
-/* Testing code */
-fun main13() {
+// Testing Code.
+fun main14() {
     var arr1 = intArrayOf(12, 13, 18, 20, 22, 26, 70)
     var arr2 = intArrayOf(11, 15, 18, 19, 20, 26, 30, 31)
     println("Max Path Sum :: " + maxPathSum(arr1, arr1.size, arr2, arr2.size))
@@ -535,7 +543,8 @@ fun towerOfHanoi(num:Int, src:Char, dst:Char, temp:Char) {
     towerOfHanoi(num - 1, temp, dst, src)
 }
 
-fun main14() {
+// Testing Code.
+fun main15() {
     var num = 4
     println("The sequence of moves involved in the Tower of Hanoi are :\n")
     towerOfHanoi(num, 'A', 'C', 'B')
@@ -573,7 +582,8 @@ fun permutation(arr:IntArray, i:Int, length:Int) {
     return
 }
 
-fun main15() {
+// Testing Code.
+fun main16() {
     var arr = IntArray(5)
     for (i in 0..4) {
         arr[i] = i
@@ -595,8 +605,8 @@ fun BinarySearchRecursive(arr:IntArray, low:Int, high:Int, value:Int):Int {
     }
 }
 
-/* Testing code */
-fun main16() {
+// Testing Code.
+fun main17() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
     println(BinarySearchRecursive(arr, 0, arr.size - 1, 6))
     println(BinarySearchRecursive(arr, 0, arr.size - 1, 16))
@@ -604,7 +614,6 @@ fun main16() {
 
 fun main(){
     main1();
-    main1A();
     main2();
     main3();
     main4();
@@ -620,4 +629,6 @@ fun main(){
     main14();
     main15();
     main16();
+    main17();
+    
 }

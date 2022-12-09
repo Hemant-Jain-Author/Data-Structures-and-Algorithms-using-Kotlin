@@ -46,10 +46,8 @@ class Queue @JvmOverloads constructor(private val capacity: Int = 1000) {
             return
         }
         var temp = front
-        var s = size
         print("Queue is : ")
-        while (s > 0) {
-            s--
+        for (s in 0 until size) {
             print(data[temp].toString() + " ")
             temp = (temp + 1) % capacity
         }
@@ -63,6 +61,7 @@ fun main() {
     que.add(1)
     que.add(2)
     que.add(3)
+    que.print()
     println("isEmpty : " + que.isEmpty)
     println("size : " + que.size())
     println("Queue remove : " + que.remove())

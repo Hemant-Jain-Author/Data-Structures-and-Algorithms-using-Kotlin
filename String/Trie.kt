@@ -2,22 +2,13 @@ class Trie {
     var root: Node? = null
     private val CharCount = 26
 
-
     inner class Node() {
-        var isLastChar: Boolean = false
-        var child: Array<Node?>
-
-        init {
-            child = arrayOfNulls(CharCount)
-            for (i in 0 until CharCount) {
-                child[i] = null
-            }
-            isLastChar = false
-        }
+        var isLastChar : Boolean = false
+        var child: Array<Node?>  = arrayOfNulls(CharCount)
     }
 
     init {
-        root = Node()// first node with dummy value.
+        root = Node() // first node with dummy value.
     }
 
     fun add(str: String?): Node? {
@@ -26,9 +17,10 @@ class Trie {
         } else add(root, str.lowercase(), 0)
     }
 
-    fun add(curr: Node?, str: String, index: Int): Node {
+    private fun add(nd: Node?, str: String, index: Int): Node {
+        var curr = nd
         if (curr == null) {
-            return Node()
+            curr =  Node()
         }
 
         if (str.length == index) {
@@ -39,13 +31,13 @@ class Trie {
         return curr
     }
 
-    fun remove(st: String?) {
-        var str: String? = st ?: return
-        str = str!!.lowercase()
-        remove(root, str, 0)
+    fun remove(str: String?) {
+        if (str != null) {
+            remove(root, str.lowercase(), 0)
+        }
     }
 
-    fun remove(curr: Node?, str: String, index: Int) {
+    private fun remove(curr: Node?, str: String, index: Int) {
         if (curr == null) {
             return
         }
@@ -58,17 +50,16 @@ class Trie {
         remove(curr.child[str[index] - 'a'], str, index + 1)
     }
 
-    fun find(st: String?): Boolean {
-        var str: String? = st ?: return false
-        str = str!!.lowercase()
-        return find(root, str, 0)
+    fun find(str: String?): Boolean {
+        return if (str == null) {
+            false
+        } else find(root, str.lowercase(), 0)
     }
 
-    fun find(curr: Node?, str: String, index: Int): Boolean {
-        if (curr == null) {
-            return false
-        }
-        return if (str.length == index) {
+    private fun find(curr: Node?, str: String, index: Int): Boolean {
+        return if (curr == null) {
+            false
+        } else if (str.length == index) {
             curr.isLastChar
         } else find(curr.child[str[index] - 'a'], str, index + 1)
     }

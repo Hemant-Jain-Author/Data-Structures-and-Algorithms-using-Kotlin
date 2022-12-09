@@ -10,41 +10,28 @@ fun fun1(n: Int): Int {
 }
 
 fun fun2(n: Int): Int {
-    var i: Int
-    var j: Int
     var m = 0
-    i = 0
-    while (i < n) {
-        j = 0
-        while (j < n) {
+    for (i in 0 until n) {
+        for (j in 0 until n) {
             m += 1
-            j++
         }
-        i++
     }
     return m
 }
 
 fun fun3(n: Int): Int {
-    var i: Int
-    var j: Int
     var m = 0
-    i = 0
-    while (i < n) {
-        j = 0
-        while (j < i) {
+    for (i in 0 until n) {
+        for (j in 0 until i) {
             m += 1
-            j++
         }
-        i++
     }
     return m
 }
 
 fun fun4(n: Int): Int {
-    var i: Int
     var m = 0
-    i = 1
+    var i = 1
     while (i < n) {
         m += 1
         i = i * 2
@@ -53,9 +40,8 @@ fun fun4(n: Int): Int {
 }
 
 fun fun5(n: Int): Int {
-    var i: Int
     var m = 0
-    i = n
+    var i = n
     while (i > 0) {
         m += 1
         i = i / 2
@@ -64,75 +50,48 @@ fun fun5(n: Int): Int {
 }
 
 fun fun6(n: Int): Int {
-    var i: Int
-    var j: Int
-    var k: Int
     var m = 0
-    i = 0
-    while (i < n) {
-        j = 0
-        while (j < n) {
-            k = 0
-            while (k < n) {
+    for (i in 0 until n) {
+        for (j in 0 until n) {
+            for (k in 0 until n) {
                 m += 1
-                k++
             }
-            j++
         }
-        i++
     }
     return m
 }
 
 fun fun7(n: Int): Int {
-    var i: Int
-    var j: Int
-    var k: Int
     var m = 0
-    i = 0
-    while (i < n) {
-        j = 0
-        while (j < n) {
+    for (i in 0 until n) {
+        for (j in 0 until n) {
             m += 1
-            j++
         }
-        i++
     }
-    i = 0
-    while (i < n) {
-        k = 0
-        while (k < n) {
+
+    for (i in 0 until n) {
+        for (k in 0 until n) {
             m += 1
-            k++
         }
-        i++
     }
     return m
 }
 
 fun fun8(n: Int): Int {
-    var i: Int
-    var j: Int
     var m = 0
-    i = 0
-    while (i < n) {
-        j = 0
-        while (j < Math.sqrt(n.toDouble())) {
+    for (i in 0 until n) {
+        for (j in 0 until Math.sqrt(n.toDouble()).toInt()) {
             m += 1
-            j++
         }
-        i++
     }
     return m
 }
 
 fun fun9(n: Int): Int {
-    var i: Int
-    var j: Int
     var m = 0
-    i = n
+    var i = n
     while (i > 0) {
-        j = 0
+        var j = 0
         while (j < i) {
             m += 1
             j++
@@ -143,47 +102,31 @@ fun fun9(n: Int): Int {
 }
 
 fun fun10(n: Int): Int {
-    var i: Int
-    var j: Int
     var m = 0
-    i = 0
-    while (i < n) {
-        j = i
-        while (j > 0) {
+    for (i in 0 until n) {
+        for (j in i downTo 0) {
             m += 1
-            j--
         }
-        i++
     }
     return m
 }
 
 fun fun11(n: Int): Int {
-    var i: Int
-    var j: Int
-    var k: Int
     var m = 0
-    i = 0
-    while (i < n) {
-        j = i
-        while (j < n) {
-            k = j + 1
-            while (k < n) {
+    for (i in 0 until n) {
+        for (j in i until n) {
+            for (k in j+1 until n) {
                 m += 1
-                k++
             }
-            j++
         }
-        i++
     }
     return m
 }
 
 fun fun12(n: Int): Int {
-    var i: Int
-    var j = 0
     var m = 0
-    i = 0
+    var i = 0
+    var j = 0
     while (i < n) {
         while (j < n) {
             m += 1
@@ -195,12 +138,10 @@ fun fun12(n: Int): Int {
 }
 
 fun fun13(n: Int): Int {
-    var i: Int
-    var j = 0
     var m = 0
-    i = 1
+    var i = 1
     while (i <= n) {
-        j = 0
+        var j = 0
         while (j <= i) {
             m += 1
             j++
@@ -210,7 +151,8 @@ fun fun13(n: Int): Int {
     return m
 }
 
-fun main(args: Array<String>) {
+// Testing Code.
+fun main() {
     println("N = 100, Number of instructions O(n):: " + fun1(100))
     println("N = 100, Number of instructions O(n^2):: " + fun2(100))
     println("N = 100, Number of instructions O(n^2):: " + fun3(100))

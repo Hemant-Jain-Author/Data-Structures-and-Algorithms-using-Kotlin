@@ -31,11 +31,12 @@
     }
 
     
-        // Testing code.
-            fun main() {
-            val wt = intArrayOf(10, 40, 20, 30)
-            val cost = intArrayOf(60, 40, 90, 120)
-            val capacity = 50
-            val maxCost = getMaxCostFractional(wt, cost, capacity)
-            println("Maximum cost obtained = $maxCost")
-        }
+    // Testing code.
+        fun main() {
+        val wt = intArrayOf(10, 40, 20, 30)
+        val cost = intArrayOf(60, 40, 90, 120)
+        val capacity = 50
+        val maxCost = getMaxCostFractional(wt, cost, capacity)
+        println("Maximum cost obtained = $maxCost")
+    }
+

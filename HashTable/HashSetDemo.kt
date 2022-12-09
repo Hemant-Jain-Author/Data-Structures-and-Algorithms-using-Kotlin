@@ -1,4 +1,3 @@
-// Testing code
 fun main() {
     // Create a hash set.
     val hs: HashSet<String> = HashSet<String>()

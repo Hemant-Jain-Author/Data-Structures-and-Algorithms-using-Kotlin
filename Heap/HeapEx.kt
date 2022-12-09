@@ -75,6 +75,7 @@ fun isMaxHeap(arr: IntArray, size: Int): Boolean {
     return true
 }
 
+// Testing Code.
 fun main1() {
     val arr = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
     println("Kth Smallest :: " + kthSmallest(arr, 3))
@@ -86,6 +87,8 @@ fun main1() {
 Kth Smallest :: 5
 Kth Smallest :: 5
 */
+
+// Testing Code.
 fun main2() {
     val arr3 = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
     println("isMaxHeap :: " + isMaxHeap(arr3, arr3.size))
@@ -173,6 +176,7 @@ fun kSmallestProduct4(arr: IntArray, size: Int, k: Int): Int {
     return product
 }
 
+// Testing Code.
 fun main3() {
     val arr = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
     println("Kth Smallest product:: " + kSmallestProduct(arr, 3))
@@ -211,6 +215,7 @@ fun printLargerHalf3(arr: IntArray, size: Int) {
     println()
 }
 
+// Testing Code.
 fun main4() {
     val arr = intArrayOf(8, 7, 6, 5, 7, 5, 2, 1)
     printLargerHalf(arr, 8)

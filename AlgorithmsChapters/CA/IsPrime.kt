@@ -15,3 +15,8 @@ fun main() {
     println(isPrime(8))
     println(isPrime(11))
 }
+
+/* 
+false
+true
+*/

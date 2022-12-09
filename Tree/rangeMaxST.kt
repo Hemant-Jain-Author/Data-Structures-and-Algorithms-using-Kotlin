@@ -87,14 +87,14 @@ class rangeMaxST(input: IntArray) {
         // Current node value is updated with min. 
         segArr[index] = max(
             updateUtil(segStart, mid, ind, valu, 2 * index + 1),
-            updateUtil(mid + 1, segEnd, ind, valu, 2 * index + 2)
-        )
+            updateUtil(mid + 1, segEnd, ind, valu, 2 * index + 2))
 
         // Value of diff is propagated to the parent node.
         return segArr[index]
     }
 }
 
+// Testing Code.
 fun main() {
     val arr = intArrayOf(1, 8, 2, 7, 3, 6, 4, 5)
     val tree = rangeMaxST(arr)
@@ -105,3 +105,11 @@ fun main() {
     println("Max value in the range(1, 5): " + tree.getMax(1, 5))
     println("Max value of all the elements: " + tree.getMax(0, arr.size - 1))
 }
+
+/*
+Max value in the range(1, 5): 8
+Max value in the range(2, 7): 7
+Max value of all the elements: 8
+Max value in the range(1, 5): 9
+Max value of all the elements: 9
+*/

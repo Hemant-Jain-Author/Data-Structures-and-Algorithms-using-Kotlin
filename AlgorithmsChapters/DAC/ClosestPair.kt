@@ -99,13 +99,13 @@ private fun stripMin(q: Array<Point>, n: Int, d: Double): Double {
 }
 
 fun main() {
-    val arr = arrayOf(
-        intArrayOf(648, 896),
-        intArrayOf(269, 879),
-        intArrayOf(250, 922),
-        intArrayOf(453, 347),
-        intArrayOf(213, 17)
-    )
+    val arr = arrayOf( intArrayOf(648, 896), intArrayOf(269, 879), intArrayOf(250, 922), 
+                       intArrayOf(453, 347), intArrayOf(213, 17))
     println("Smallest distance is:" + closestPairBF(arr))
     println("Smallest distance is:" + closestPairDC(arr))
 }
+
+/* 
+Smallest distance is:47.01063709417264
+Smallest distance is:47.01063709417264
+*/

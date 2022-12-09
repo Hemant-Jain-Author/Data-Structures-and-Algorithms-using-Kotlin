@@ -3,15 +3,10 @@ class RBTree {
     private val NullNode: Node
 
     class Node(var data: Int, var left: Node?) {
-        var right : Node?
-        var parent : Node?
-        var colour : Boolean // true for red colour, false for black colour
-
-        init {
-            right = left
-            parent = left
-            colour = true // New node are red in colour.
-        }
+        var right : Node? = left
+        var parent : Node? = left
+        var colour : Boolean = true // true for red colour, false for black colour
+                                    // New node are red in colour.
     }
 
     init {
@@ -328,6 +323,7 @@ class RBTree {
     }
 }
 
+// Testing Code.
 fun main() {
     val tree = RBTree()
     tree.insert(1)

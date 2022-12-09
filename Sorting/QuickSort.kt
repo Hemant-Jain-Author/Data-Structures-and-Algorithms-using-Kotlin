@@ -1,10 +1,10 @@
-fun quickSort(arr: IntArray, low: Int, up: Int) {
-    var lower = low
-    var upper = up
-    if (upper <= lower) return
-    val pivot = arr[lower]
-    val start = lower
-    val stop = upper
+fun quickSort(arr: IntArray, start: Int, stop: Int) {
+    if (stop <= start) return
+
+    val pivot = arr[start]
+    var lower = start 
+    var upper = stop
+
     while (lower < upper) {
         while (arr[lower] <= pivot && lower < upper) {
             lower++
@@ -21,9 +21,8 @@ fun quickSort(arr: IntArray, low: Int, up: Int) {
     quickSort(arr, upper + 1, stop) // pivot + 1 is the lower for right sub array
 }
 
-fun QuickSort(arr: IntArray) {
-    val size = arr.size
-    quickSort(arr, 0, size - 1)
+fun quickSort(arr: IntArray) {
+    quickSort(arr, 0, arr.size - 1)
 }
 
 fun swap(arr: IntArray, first: Int, second: Int) {
@@ -34,8 +33,10 @@ fun swap(arr: IntArray, first: Int, second: Int) {
 
 fun main() {
     val array = intArrayOf(3, 4, 2, 1, 6, 5, 7, 8, 10, 9)
-    QuickSort(array)
+    quickSort(array)
     for (i in array.indices) {
         print(array[i].toString() + " ")
     }
 }
+
+// 1 2 3 4 5 6 7 8 9 10 

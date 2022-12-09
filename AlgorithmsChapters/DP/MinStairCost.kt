@@ -16,3 +16,7 @@ fun main() {
     val n = a.size
     print("minStairCost : " + minStairCost(a, n))
 }
+
+/*
+minStairCost : 18
+*/

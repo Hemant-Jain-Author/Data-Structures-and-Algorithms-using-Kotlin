@@ -11,9 +11,9 @@ class QueueLL {
         return size
     }
 
-    @Throws(IllegalStateException::class)
     fun peek(): Int {
         if (isEmpty) throw IllegalStateException("StackEmptyException")
+
         val value: Int
         if (tail === tail!!.next) 
             value = tail!!.value 
@@ -35,7 +35,6 @@ class QueueLL {
         size++
     }
 
-    @Throws(IllegalStateException::class)
     fun remove(): Int {
         if (size == 0) throw IllegalStateException("StackEmptyException")
         
@@ -71,6 +70,7 @@ fun main() {
     que.add(1)
     que.add(2)
     que.add(3)
+    que.print()
     println("isEmpty : " + que.isEmpty)
     println("size : " + que.size())
     println("Queue remove : " + que.remove())

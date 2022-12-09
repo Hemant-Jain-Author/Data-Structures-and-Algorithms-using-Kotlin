@@ -60,6 +60,7 @@ class Polynomial internal constructor(coeffs: IntArray? = null, pows: IntArray? 
 }
 
 
+// Testing Code.
 fun main() {
 	val c1 = intArrayOf(6, 5, 4)
 	val p1 = intArrayOf(2, 1, 0)

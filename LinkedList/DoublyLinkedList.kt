@@ -9,6 +9,7 @@ class DoublyLinkedList {
     private class Node(val value: Int, var next: Node?, var prev: Node?)
 
     /* Other methods */
+
     fun size(): Int {
         return size
     }
@@ -55,6 +56,7 @@ class DoublyLinkedList {
 
     fun removeHead(): Int {
         if (isEmpty) throw IllegalStateException("EmptyListException")
+    
         val value = head!!.value
         head = head!!.next
         if (head == null) 
@@ -66,8 +68,9 @@ class DoublyLinkedList {
     }
 
     fun removeNode(key: Int): Boolean {
-        var curr : Node? = head ?: return false // empty list
+        if (isEmpty) throw IllegalStateException("EmptyListException") // empty list
         
+        var curr : Node? = head
         if (curr!!.value == key) { // head is the node with value key.
             head = head!!.next
             size--
@@ -218,6 +221,7 @@ isEmpty : false
 true
 */
 
+// Testing Code.
 fun main2() {
     val ll = DoublyLinkedList()
     ll.sortedInsert(1)
@@ -238,6 +242,7 @@ fun main2() {
 1 2 3 
 */
 
+// Testing Code.
 fun main3() {
     val ll = DoublyLinkedList()
     ll.addHead(1)
@@ -256,6 +261,7 @@ fun main3() {
 1 2 3
 */
 
+// Testing Code.
 fun main4() {
     val ll = DoublyLinkedList()
     ll.addHead(1)
@@ -271,6 +277,7 @@ fun main4() {
 3 1 
 */
 
+// Testing Code.
 fun main5() {
     val ll = DoublyLinkedList()
     ll.addHead(1)

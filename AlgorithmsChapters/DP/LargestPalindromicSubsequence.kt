@@ -23,3 +23,7 @@ fun main() {
     val str = "ABCAUCBCxxCBA"
     println("Largest Palindromic Subseq: " + largestPalindromicSubseq(str))
 }
+
+/*
+Largest Palindromic Subseq: 9
+*/

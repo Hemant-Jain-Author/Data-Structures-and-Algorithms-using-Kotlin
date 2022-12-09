@@ -1,8 +1,7 @@
-fun bruteForceSearch(text: String, pattern: String): Int {
-    return bruteForceSearch(text.toCharArray(), pattern.toCharArray())
-}
-
-fun bruteForceSearch(text: CharArray, pattern: CharArray): Int {
+fun bruteForceSearch(txt: String, ptn: String): Int {
+    val text: CharArray = txt.toCharArray()
+    val pattern: CharArray = ptn.toCharArray()
+    
     val n = text.size
     val m = pattern.size
     var i = 0
@@ -19,17 +18,14 @@ fun bruteForceSearch(text: CharArray, pattern: CharArray): Int {
     return -1
 }
 
-fun robinKarp(text: String, pattern: String): Int {
-    return robinKarp(text.toCharArray(), pattern.toCharArray())
-}
-
-fun robinKarp(text: CharArray, pattern: CharArray): Int {
+fun robinKarp(txt: String, ptn: String): Int {
+    val text: CharArray = txt.toCharArray()
+    val pattern: CharArray = ptn.toCharArray()
+    
     val n = text.size
     val m = pattern.size
     val prime = 101
     var powm = 1
-    var TextHash = 0
-    var PatternHash = 0
     if (m == 0 || m > n) {
         return -1
     }
@@ -40,6 +36,8 @@ fun robinKarp(text: CharArray, pattern: CharArray): Int {
         i++
     }
 
+    var TextHash = 0
+    var PatternHash = 0
     i = 0
     while (i < m) {
         PatternHash = ((PatternHash shl 1) + pattern[i].code) % prime
@@ -70,7 +68,7 @@ fun robinKarp(text: CharArray, pattern: CharArray): Int {
     return -1
 }
 
-fun KMPPreprocess(pattern: CharArray, ShiftArr: IntArray) {
+private fun kmpPreprocess(pattern: CharArray, ShiftArr: IntArray) {
     val m = pattern.size
     var i = 0
     var j = -1
@@ -85,17 +83,16 @@ fun KMPPreprocess(pattern: CharArray, ShiftArr: IntArray) {
     }
 }
 
-fun KMP(text: String, pattern: String): Int {
-    return KMP(text.toCharArray(), pattern.toCharArray())
-}
+fun kmp(txt: String, ptn: String): Int {
+    val text: CharArray = txt.toCharArray()
+    val pattern: CharArray = ptn.toCharArray()
 
-fun KMP(text: CharArray, pattern: CharArray): Int {
-    var i = 0
-    var j = 0
     val n = text.size
     val m = pattern.size
     val ShiftArr = IntArray(m + 1)
-    KMPPreprocess(pattern, ShiftArr)
+    kmpPreprocess(pattern, ShiftArr)
+    var i = 0
+    var j = 0
     while (i < n) {
         while (j >= 0 && text[i] != pattern[j])
             j = ShiftArr[j]
@@ -108,14 +105,16 @@ fun KMP(text: CharArray, pattern: CharArray): Int {
     return -1
 }
 
-fun KMPFindCount(text: CharArray, pattern: CharArray): Int {
-    var i = 0
-    var j = 0
-    var count = 0
+fun kmpFindCount(txt: String, ptn: String): Int {
+    val text: CharArray = txt.toCharArray()
+    val pattern: CharArray = ptn.toCharArray()
     val n = text.size
     val m = pattern.size
     val ShiftArr = IntArray(m + 1)
-    KMPPreprocess(pattern, ShiftArr)
+    kmpPreprocess(pattern, ShiftArr)
+    var i = 0
+    var j = 0
+    var count = 0
     while (i < n) {
         while (j >= 0 && text[i] != pattern[j]) {
             j = ShiftArr[j]
@@ -135,5 +134,15 @@ fun main() {
     val st2 = "world"
     println("BruteForceSearch return : " + bruteForceSearch(st1, st2))
     println("RobinKarp return : " + robinKarp(st1, st2))
-    println("KMP return : " + KMP(st1, st2))
+    println("KMP return : " + kmp(st1, st2))
+
+    val st3 = "Only time will tell if we stand the test of time"
+    println("Frequency of time is : " +  kmpFindCount(st3, "time"))
 }
+
+/*
+BruteForceSearch return : 7
+RobinKarp return : 7
+KMP return : 7
+Frequency of time is : 2
+*/

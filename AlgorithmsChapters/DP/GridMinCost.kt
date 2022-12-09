@@ -37,3 +37,8 @@ fun main() {
     println(minCost(cost, 3, 3))
     println(minCostBU(cost, 3, 3))
 }
+
+/* 
+11
+11
+*/

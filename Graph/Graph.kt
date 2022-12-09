@@ -107,6 +107,7 @@ class Graph(var count: Int) {
 	Path between 0 & 6 : true
 	Path between 0 & 6 : true
 	*/
+
     fun topologicalSort() {
         val stk: Stack<Int> = Stack<Int>()
         val visited = BooleanArray(count)
@@ -123,7 +124,8 @@ class Graph(var count: Int) {
 
     /*
 	Topological Sort:: 1 4 6 3 5 7 8 0 2
-		*/
+	*/
+
     fun pathExist(source: Int, dest: Int): Boolean {
         val visited = BooleanArray(count)
         dfsUtil(source, visited)
@@ -187,7 +189,8 @@ class Graph(var count: Int) {
 	[0, 1, 3, 4]
 	[0, 1, 4]
 	[0, 2, 3, 4]
-		*/
+	*/
+
     fun rootVertex(): Int {
         val visited = BooleanArray(count)
         var retVal = -1
@@ -202,9 +205,8 @@ class Graph(var count: Int) {
     }
 
     /*
-	
 	Root vertex is :: 5
-		*/
+	*/
 
     fun transitiveClosureUtil(source: Int, dest: Int, tc: Array<IntArray>) {
         tc[source][dest] = 1
@@ -227,7 +229,8 @@ class Graph(var count: Int) {
 	1 1 1 1 
 	1 1 1 1 
 	0 0 0 1 
-		*/
+	*/
+
     fun bfsLevelNode(source: Int) {
         val visited = BooleanArray(count)
         val level = IntArray(count)
@@ -277,7 +280,6 @@ class Graph(var count: Int) {
     }
 
     /*
-	
 	Node  - Level
 	1 - 0
 	0 - 1
@@ -287,7 +289,7 @@ class Graph(var count: Int) {
 	3 - 3
 	6 - 3
 	
-	BfsDistance :: 3
+    BfsDistance(1, 6) : 3
 	*/
 
     fun isCyclePresentUndirectedDFS(index: Int, parentIndex: Int, visited: BooleanArray): Boolean {
@@ -356,10 +358,7 @@ class Graph(var count: Int) {
         return false
     }
 
-
-    //Different subsets are created.
     fun isCyclePresentUndirected3(): Boolean {
-        //Different subsets are created.
         val sets = arrayOfNulls<Sets>(count)
         for (i in 0 until count) sets[i] = Sets(i, 0)
         val edge: LinkedList<Edge> = LinkedList<Edge>()
@@ -398,6 +397,7 @@ class Graph(var count: Int) {
       Cycle Presen : true
       Cycle Presen : true
     */
+
     fun isCyclePresentDFS(index: Int, visited: BooleanArray, marked: IntArray): Boolean {
         visited[index] = true
         marked[index] = 1
@@ -455,6 +455,7 @@ class Graph(var count: Int) {
       isCyclePresent : true
       isCyclePresent : true
     */
+
     fun transposeGraph(): Graph {
         val g = Graph(count)
         for (i in 0 until count) {
@@ -474,6 +475,7 @@ class Graph(var count: Int) {
       Vertex 3 is connected to : 1(cost: 1) 2(cost: 1) 
       Vertex 4 is connected to : 3(cost: 1) 
     */
+    
     fun isConnectedUndirected(): Boolean {
         val visited = BooleanArray(count)
         dfsUtil(0, visited)
@@ -488,6 +490,7 @@ class Graph(var count: Int) {
     /*
       isConnectedUndirected:: true
     */
+    
     fun isStronglyConnected(): Boolean {
         val visited = BooleanArray(count)
         dfsUtil(0, visited)
@@ -640,8 +643,7 @@ class Graph(var count: Int) {
         println("Total MST cost: $sum")
     }
 
-    /*
-	
+    /*	
 	Edges are (0->1 @ 4) (5->2 @ 4) (2->3 @ 7) (3->4 @ 9) (6->5 @ 2) (7->6 @ 1) (0->7 @ 8) (2->8 @ 2) 
 	Total MST cost: 37
 	
@@ -755,10 +757,8 @@ class Graph(var count: Int) {
             }
         }
         printPath(path, distance, count, source)
-    }// Find a vertex with non - zero degree
+    }
 
-    // DFS traversal of graph from a vertex with non - zero degree
-    // Check if all non - zero degree count are visited
     /*
       4
       4
@@ -897,12 +897,10 @@ class Graph(var count: Int) {
             }
         }
 
-        // Pick intermediate vertices.
-        for (k in 0 until V) {
-            // Pick source vertices one by one.
-            for (i in 0 until V) {
-                // Pick destination vertices.
-                for (j in 0 until V) {
+        
+        for (k in 0 until V) { // Pick intermediate vertices.
+            for (i in 0 until V) { // Pick source vertices one by one.
+                for (j in 0 until V) { // Pick destination vertices.
                     // If we have a shorter path from i to j via k.
                     // then update dist[i][j] and  and path[i][j]
                     if (dist[i][k] + dist[k][j] < dist[i][j]) {
@@ -942,63 +940,6 @@ class Graph(var count: Int) {
         }
         printPath2(path, u, path[u][v])
         print("->$v")
-    }
-    
-    companion object {
-        fun heightTreeParentArr(arr: IntArray): Int {
-            val count = arr.size
-            val heightArr = IntArray(count)
-            val gph = Graph(count)
-            var source = 0
-            for (i in 0 until count) {
-                if (arr[i] != -1) {
-                    gph.addDirectedEdge(arr[i], i)
-                } else {
-                    source = i
-                }
-            }
-            val visited = BooleanArray(count)
-            visited[source] = true
-            val que: java.util.Queue<Int> = LinkedList<Int>()
-            que.add(source)
-            heightArr[source] = 0
-            var maxHight = 0
-            while (que.isEmpty() == false) {
-                val curr: Int = que.remove()
-                val height = heightArr[curr]
-                if (height > maxHight) {
-                    maxHight = height
-                }
-                val adl: LinkedList<Edge> = gph.Adj.get(curr)
-                for (adn in adl) {
-                    if (visited[adn.dest] == false) {
-                        visited[adn.dest] = true
-                        que.add(adn.dest)
-                        heightArr[adn.dest] = height + 1
-                    }
-                }
-            }
-            return maxHight
-        }
-
-        fun getHeight(arr: IntArray, height: IntArray?, index: Int): Int {
-            if (arr[index] == -1) {
-                return 0
-            } else {
-                return getHeight(arr, height, arr[index]) + 1
-            }
-        }
-
-        fun heightTreeParentArr2(arr: IntArray): Int {
-            val count = arr.size
-            val height = IntArray(count)
-            var maxHeight = -1
-            for (i in 0 until count) {
-                height[i] = getHeight(arr, height, i)
-                maxHeight = java.lang.Math.max(maxHeight, height[i])
-            }
-            return maxHeight
-        }
     }
 }
 
@@ -1154,7 +1095,7 @@ fun main9() {
 }
 
 //Testing Code
-fun main10A() {
+fun main10() {
     val gph = Graph(6)
     gph.addUndirectedEdge(0, 1)
     gph.addUndirectedEdge(1, 2)
@@ -1165,7 +1106,7 @@ fun main10A() {
 }
 
 // Testing Code
-fun main10() {
+fun main11() {
     val gph = Graph(5)
     gph.addDirectedEdge(0, 1)
     gph.addDirectedEdge(1, 2)
@@ -1177,7 +1118,7 @@ fun main10() {
 }
 
 // Testing Code
-fun main11() {
+fun main12() {
     val gph = Graph(7)
     gph.addDirectedEdge(0, 1)
     gph.addDirectedEdge(1, 2)
@@ -1191,7 +1132,7 @@ fun main11() {
 }
 
 // Testing Code
-fun main12() {
+fun main13() {
     val gph = Graph(9)
     gph.addUndirectedEdge(0, 1, 4)
     gph.addUndirectedEdge(0, 7, 8)
@@ -1216,7 +1157,7 @@ fun main12() {
 }
 
 // Testing Code
-fun main13() {
+fun main14() {
     val gph = Graph(5)
     gph.addDirectedEdge(0, 1, 3)
     gph.addDirectedEdge(0, 4, 2)
@@ -1230,13 +1171,6 @@ fun main13() {
 /*
 Shortest Paths: (0->4->1 @ 0) (0->4->1->2 @ 1) (0->4->1->2->3 @ 2) (0->4 @ 2) 
 */
-
-// Testing Code
-fun main14() {
-    val parentArray = intArrayOf(-1, 0, 1, 2, 3)
-    println(Graph.heightTreeParentArr(parentArray))
-    println(Graph.heightTreeParentArr2(parentArray))
-}
 
 // Testing Code
 fun main15() {
@@ -1327,6 +1261,15 @@ fun main19() {
 /*
 Shortest Paths : (0->1 @ 5) (0->1->2 @ 8) (0->1->2->3 @ 9) (1->2 @ 3) (1->2->3 @ 4) (2->3 @ 1) 
 */
+
+fun getHeight(arr: IntArray, height: IntArray?, index: Int): Int {
+    if (arr[index] == -1) {
+        return 0
+    } else {
+        return getHeight(arr, height, arr[index]) + 1
+    }
+}
+
 // Testing code
 fun main() {
     main0();
@@ -1339,7 +1282,6 @@ fun main() {
     main7(); 
     main8();
     main9();
-    main10A()
     main10()
     main11()
     main12()

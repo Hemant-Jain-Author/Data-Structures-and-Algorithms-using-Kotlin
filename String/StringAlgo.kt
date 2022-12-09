@@ -19,18 +19,20 @@ fun matchExp(exp: String, str: String): Boolean {
     return matchExpUtil(exp.toCharArray(), str.toCharArray(), 0, 0)
 }
 
+/* Testing code. */
 fun main1() {
     println(matchExp("*llo,?World?", "Hello, World!"))
 }
 
+// true
+
 fun match(src: String, ptn: String): Boolean {
     val source = src.toCharArray()
     val pattern = ptn.toCharArray()
-    var iSource = 0
-    var iPattern = 0
     val sourceLen = source.size
     val patternLen = pattern.size
-    iSource = 0
+    var iPattern = 0
+    var iSource = 0
     while (iSource < sourceLen) {
         if (source[iSource] == pattern[iPattern]) {
             iPattern++
@@ -43,9 +45,12 @@ fun match(src: String, ptn: String): Boolean {
     return false
 }
 
+/* Testing code. */
 fun main2() {
     println(match("harrypottermustnotgotoschool", "pottergo"))
 }
+
+// true
 
 fun myStrdup(src: CharArray): CharArray {
     val index = 0
@@ -69,13 +74,16 @@ fun isPrime(n: Int): Boolean {
     return answer
 }
 
+/* Testing code. */
 fun main3() {
-    print("Prime numbers under 100 :: ")
-    for (i in 0..99)
+    print("Prime numbers under 10 :: ")
+    for (i in 0..10)
         if (isPrime(i))
             print("$i ")
     println()
 }
+
+// Prime numbers under 10 :: 2 3 4 5 7 9 
 
 fun myAtoi(str: String): Int {
     var value = 0
@@ -87,9 +95,12 @@ fun myAtoi(str: String): Int {
     return value
 }
 
+/* Testing code. */
 fun main4() {
     println(myAtoi("1000"))
 }
+
+// 1000
 
 fun isUniqueChar(str: String): Boolean {
     val bitarr = IntArray(26)
@@ -118,43 +129,58 @@ fun isUniqueChar(str: String): Boolean {
     return true
 }
 
+/* Testing code. */
 fun main5() {
     println(isUniqueChar("aple"))
     println(isUniqueChar("apple"))
 }
 
+/*
+No duplicate detected!
+true
+Duplicate detected!
+false
+*/
+
+
 fun ToUpper(s: Char): Char {
-    var s = s
-    if (s.toInt() >= 97 && s.toInt() <= 97 + 25) {
-        s = (s.toInt() - 32).toChar()
+    if (s.code >= 97 && s.code <= 97 + 25) {
+        return (s.code - 32).toChar()
     }
     return s
 }
 
 fun ToLower(s: Char): Char {
-    var s = s
-    if (s.toInt() >= 65 && s.toInt() <= 65 + 25) {
-        s = (s.toInt() + 32).toChar()
+    if (s.code >= 65 && s.code <= 65 + 25) {
+        return (s.code + 32).toChar()
     }
     return s
 }
 
 fun LowerUpper(s: Char): Char {
-    var s = s
-    if (s.toInt() >= 97 && s.toInt() <= 97 + 25) {
-        s = (s.toInt() - 32).toChar()
-    } else if (s.toInt() >= 65 && s.toInt() <= 65 + 25) {
-        s = (s.toInt() + 32).toChar()
+    if (s.code >= 97 && s.code <= 97 + 25) {
+        return (s.code - 32).toChar()
+    } else if (s.code >= 65 && s.code <= 65 + 25) {
+        return (s.code + 32).toChar()
     }
     return s
 }
 
+/* Testing code. */
 fun main6() {
     println(ToLower('A'))
     println(ToUpper('a'))
     println(LowerUpper('s'))
     println(LowerUpper('S'))
 }
+
+/*
+a
+A
+S
+s
+*/
+
 
 fun isPermutation(s1: String, s2: String): Boolean {
     val count = IntArray(256)
@@ -168,9 +194,9 @@ fun isPermutation(s1: String, s2: String): Boolean {
     }
     for (i in 0 until length) {
         var ch = s1[i]
-        count[ch.toInt()]++
+        count[ch.code]++
         ch = s2[i]
-        count[ch.toInt()]--
+        count[ch.code]--
     }
     for (i in 0 until length) {
         if (count[i] != 0) {
@@ -182,9 +208,15 @@ fun isPermutation(s1: String, s2: String): Boolean {
     return true
 }
 
+/* Testing code. */
 fun main7() {
     println(isPermutation("apple", "plepa"))
 }
+
+/* 
+is permutation return true
+true
+*/
 
 fun isPalindrome(str: String): Boolean {
     var i = 0
@@ -202,10 +234,18 @@ fun isPalindrome(str: String): Boolean {
     }
 }
 
+/* Testing code. */
 fun main8() {
     println(isPalindrome("hello"))
-    println(isPalindrome("eoloe"))
+    println(isPalindrome("oyo"))
 }
+
+/* 
+String is not a Palindrome
+false
+String is a Palindrome
+true 
+*/
 
 fun pow(x: Int, n: Int): Int {
     val value: Int
@@ -220,14 +260,18 @@ fun pow(x: Int, n: Int): Int {
     }
 }
 
+/* Testing code. */
 fun main9() {
     println(pow(5, 2))
 }
+
+// 25
 
 fun myStrcmp(a: String, b: String): Int {
     var index = 0
     val len1 = a.length
     val len2 = b.length
+
     var minlen = len1
     if (len1 > len2) {
         minlen = len2
@@ -248,9 +292,12 @@ fun myStrcmp(a: String, b: String): Int {
     }
 }
 
+/* Testing code. */
 fun main10() {
     println(myStrcmp("abs", "abs"))
 }
+
+// 0
 
 fun reverseString(str: String): String {
     val a = str.toCharArray()
@@ -271,9 +318,9 @@ fun reverseStringUtil(a: CharArray) {
     }
 }
 
-fun reverseStringUtil(a: CharArray, lower: Int, upper: Int) {
-    var lower = lower
-    var upper = upper
+fun reverseStringUtil(a: CharArray, start: Int, stop: Int) {
+    var lower = start
+    var upper = stop
     var tempChar: Char
     while (lower < upper) {
         tempChar = a[lower]
@@ -302,51 +349,63 @@ fun reverseWords(str: String): String {
     return a.joinToString("")
 }
 
+/* Testing code. */
 fun main11() {
     println(reverseString("apple"))
     println(reverseWords("hello world"))
 }
 
+/*
+elppa
+world hello
+*/
+
 fun printAnagram(str: String) {
-    val a = str.toCharArray()
-    val n = a.size
-    printAnagram(a, n, n)
+    printAnagram(str.toCharArray(), 0, str.length)
 }
 
-fun printAnagram(a: CharArray, max: Int, n: Int) {
-    if (max == 1) {
-        println(a)
+fun printAnagram(arr: CharArray, i: Int, length: Int) {
+    if (length == i) {
+        println(arr)
+        return;
     }
-    var temp: Char
-    for (i in -1 until max - 1) {
-        if (i != -1) {
-            temp = a[i]
-            a[i] = a[max - 1]
-            a[max - 1] = temp
-        }
-        printAnagram(a, max - 1, n)
-        if (i != -1) {
-            temp = a[i]
-            a[i] = a[max - 1]
-            a[max - 1] = temp
-        }
+
+    var temp : Char
+    for (j in i until length) {
+        temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
+
+        printAnagram(arr, i+1, length)
+        
+        temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
     }
 }
 
+/* Testing code. */
 fun main12() {
     printAnagram("123")
 }
+
+/*
+123
+132
+213
+231
+321
+312
+*/
 
 fun shuffle(str: String) {
     val ar = str.toCharArray()
     val n = ar.size / 2
     var count = 0
-    var k = 1
-    var temp = '\u0000'
     var i = 1
     while (i < n) {
-        temp = ar[i]
-        k = i
+        var temp = ar[i]
+        var k = i
         do {
             k = 2 * k % (2 * n - 1)
             //swap
@@ -363,6 +422,7 @@ fun shuffle(str: String) {
     }
 }
 
+/* Testing code. */
 fun main13() {
     shuffle("ABCDE12345")
 }
@@ -400,10 +460,14 @@ fun addBinary(firstStr: String, secondStr: String): CharArray {
     return total
 }
 
+/* Testing code. */
 fun main14() {
     println(addBinary("1000", "11111111"))
 }
 
+/*
+100000111
+*/
 
 fun main() {
     main1()

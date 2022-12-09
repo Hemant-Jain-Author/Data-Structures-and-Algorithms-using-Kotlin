@@ -4,11 +4,10 @@ fun greater(value1: Int, value2: Int): Boolean {
 
 fun ShellSort(arr: IntArray) {
     val n = arr.size
-
     // Gap starts with n/2 and half in each iteration.
     var gap = n / 2
-    while (gap > 0) {
 
+    while (gap > 0) {
         // Do a gapped insertion sort.
         var i = gap
         while (i < n) {
@@ -22,7 +21,6 @@ fun ShellSort(arr: IntArray) {
                 arr[j] = arr[j - gap]
                 j -= gap
             }
-
             // Put current value in its correct location
             arr[j] = curr
             i += 1
@@ -38,3 +36,7 @@ fun main() {
         print(array[i].toString() + " ")
     }
 }
+
+/*
+3 6 11 17 19 31 32 36 
+*/

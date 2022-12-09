@@ -51,3 +51,12 @@ fun main() {
     val hf = HuffmanTree(ar, fr)
     hf.print()
 }
+
+/*
+Char = Huffman code
+C = 00
+E = 010
+D = 011
+B = 10
+A = 11
+*/

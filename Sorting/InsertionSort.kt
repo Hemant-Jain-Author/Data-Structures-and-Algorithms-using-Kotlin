@@ -4,11 +4,9 @@ private fun greater(value1: Int, value2: Int): Boolean {
 
 fun InsertionSort(arr: IntArray) {
     val size = arr.size
-    var temp: Int
-    var j: Int
     for (i in 1 until size) {
-        temp = arr[i]
-        j = i
+        var temp = arr[i]
+        var j = i
         while (j > 0 && greater(arr[j - 1], temp)) {
             arr[j] = arr[j - 1]
             j--

@@ -28,3 +28,7 @@ fun main() {
     val arr = intArrayOf(1, 6, 3, 11, 1, 9, 5, 12, 3, 14, 6, 17, 3, 19, 2, 19)
     println("Length of lbs is " + lbs(arr))
 }
+
+/*
+Length of lbs is 8
+*/

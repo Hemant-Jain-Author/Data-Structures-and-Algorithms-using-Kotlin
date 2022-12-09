@@ -12,28 +12,27 @@ class StringTree {
     }
 
     fun add(value: String) {
-        root = add(value, root)
+        root = add(root, value.lowercase())
     }
 
-    fun add(value: String, cur: Node?): Node {
+    private fun add(cur: Node?, value: String): Node {
         var curr = cur
         if (curr == null)
             return Node(value)
 
         val compare = curr.value!!.compareTo(value)
         if (compare == 1)
-            curr.lChild = add(value, curr.lChild)
+            curr.lChild = add(curr.lChild, value)
         else if (compare == -1)
-            curr.rChild = add(value, curr.rChild)
+            curr.rChild = add(curr.rChild, value)
         return curr
     }
 
     fun find(value: String): Boolean {
-        val ret = find(root, value)
-        return ret
+        return find(root, value.lowercase())
     }
 
-    fun find(curr: Node?, value: String): Boolean {
+    private fun find(curr: Node?, value: String): Boolean {
         if (curr == null)
             return false
         val compare = curr.value!!.compareTo(value)
@@ -61,3 +60,9 @@ fun main() {
     println("Banana Found : " + tt.find("banana"));
     println("Grapes Found : " + tt.find("grapes"));
 }
+
+/*
+Apple Found : true
+Banana Found : true
+Grapes Found : false
+*/

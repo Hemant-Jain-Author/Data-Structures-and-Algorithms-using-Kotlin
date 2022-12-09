@@ -33,3 +33,9 @@ fun main() {
     val n = arr.size
     subsetSum(arr, n, target)
 }
+
+/* 
+15 22 16 
+15 14 16 8 
+22 14 9 8 
+*/

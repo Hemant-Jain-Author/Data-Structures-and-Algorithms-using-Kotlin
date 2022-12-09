@@ -40,3 +40,8 @@ fun main() {
     println(gridUniqueWays(3, 3))
     println(gridUnique3Ways(3, 3))
 }
+
+/* 
+6
+13
+*/

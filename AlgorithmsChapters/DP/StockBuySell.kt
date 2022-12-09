@@ -56,3 +56,10 @@ fun main() {
     println("Total profit: " + maxProfitTC(arr, 2))
     println("Total profit: " + maxProfitTC2(arr, 2))
 }
+
+/*
+Total profit: 69
+Total profit: 69
+Total profit: 63
+Total profit: 63 
+*/

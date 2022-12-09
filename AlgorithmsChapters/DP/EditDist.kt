@@ -35,12 +35,12 @@ fun editDistDP(str1: String, str2: String): Int {
     for (i in 0..m) {
         for (j in 0..n) {
             // If any one string is empty, then empty the other string.
-            if (i == 0 || j == 0) dp[i][j] = i + j else if (str1[i - 1] == str2[j - 1]) dp[i][j] =
-                dp[i - 1][j - 1] else dp[i][j] = 1 + min(
-                dp[i][j - 1],  // Insert
-                dp[i - 1][j],  // Remove
-                dp[i - 1][j - 1]
-            ) // Replace
+            if (i == 0 || j == 0) dp[i][j] = i + j 
+            else if (str1[i - 1] == str2[j - 1]) dp[i][j] = dp[i - 1][j - 1] 
+            else dp[i][j] = 1 + min( dp[i][j - 1],  // Insert
+                                     dp[i - 1][j],  // Remove
+                                     dp[i - 1][j - 1] // Replace 
+                                    ) 
         }
     }
     return dp[m][n]
@@ -53,3 +53,8 @@ fun main() {
     println(editDist(str1, str2))
     println(editDistDP(str1, str2))
 }
+
+/*
+3
+3 
+*/

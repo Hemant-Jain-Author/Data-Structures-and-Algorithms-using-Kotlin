@@ -11,6 +11,7 @@ class Stack constructor(s: Int = 1000) {
     }
 
     /* Other methods */
+
     fun size(): Int {
         return top + 1
     }
@@ -18,7 +19,6 @@ class Stack constructor(s: Int = 1000) {
     val isEmpty: Boolean
         get() = top == -1
 
-    @Throws(IllegalStateException::class)
     fun push(value: Int) {
         if (top + 1 == capacity) {
             throw IllegalStateException("StackOverflowException")
@@ -27,7 +27,6 @@ class Stack constructor(s: Int = 1000) {
         data[top] = value
     }
 
-    @Throws(IllegalStateException::class)
     fun top(): Int {
         if (isEmpty) {
             throw IllegalStateException("StackEmptyException")
@@ -80,6 +79,7 @@ class Stack constructor(s: Int = 1000) {
     }
 }
 
+// Testing code.
 fun main1() {
     val s = Stack()
     s.push(1)
@@ -96,6 +96,7 @@ fun main1() {
 2
 */
 
+// Testing code.
 fun main2() {
     val s = Stack(5)
     for (i in 0..11) {

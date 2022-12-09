@@ -8,16 +8,13 @@ private fun greater(value1: Int, value2: Int): Boolean {
 
 fun BubbleSort(arr: IntArray) {
     val size = arr.size
-    var i: Int
-    var j: Int
-    var temp: Int
-    i = 0
+    var i = 0
     while (i < size - 1) {
-        j = 0
+        var j = 0
         while (j < size - i - 1) {
             if (greater(arr[j], arr[j + 1])) {
                 /* Swapping */
-                temp = arr[j]
+                var temp = arr[j]
                 arr[j] = arr[j + 1]
                 arr[j + 1] = temp
             }
@@ -29,17 +26,14 @@ fun BubbleSort(arr: IntArray) {
 
 fun BubbleSort2(arr: IntArray) {
     val size = arr.size
-    var i: Int
-    var j: Int
-    var temp: Int
     var swapped = 1
-    i = 0
+    var i = 0
     while (i < size - 1 && swapped == 1) {
         swapped = 0
-        j = 0
+        var j = 0
         while (j < size - i - 1) {
             if (greater(arr[j], arr[j + 1])) {
-                temp = arr[j]
+                var temp = arr[j]
                 arr[j] = arr[j + 1]
                 arr[j + 1] = temp
                 swapped = 1

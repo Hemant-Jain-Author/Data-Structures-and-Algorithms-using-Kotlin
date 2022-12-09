@@ -1,4 +1,3 @@
-// Testing code
 fun main() {
     // Create a hash map.
     val hm: HashMap<String, Int> = HashMap<String, Int>()

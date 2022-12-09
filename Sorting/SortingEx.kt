@@ -93,6 +93,7 @@ fun main1() {
 [ 0 0 0 0 0 0 1 1 1 1 1 1 ]
 [ 0 0 0 0 0 1 1 1 1 1 2 2 ]
 */
+
 fun rangePartition(arr: IntArray, size: Int, lower: Int, higher: Int) {
     var start = 0
     var end = size - 1
@@ -121,6 +122,7 @@ fun main2() {
 /*
 [ 1 2 3 4 5 6 7 8 10 12 9 11 14 13 15 16 17 18 ]
 */
+
 fun minSwaps(arr: IntArray, size: Int, `val`: Int): Int {
     var swapCount = 0
     var first = 0
@@ -144,6 +146,7 @@ fun main3() {
 }
 
 // minSwaps 3
+
 fun separateEvenAndOdd(data: IntArray, size: Int) {
     var left = 0
     var right = size - 1
@@ -183,6 +186,7 @@ fun main4() {
 }
 
 // [ 4 6 8 2 7 3 1 9 5 ]
+
 fun absGreater(value1: Int, value2: Int, ref: Int): Boolean {
     return java.lang.Math.abs(value1 - ref) > java.lang.Math.abs(value2 - ref)
 }
@@ -208,6 +212,7 @@ fun main5() {
 /*
 [ 5 6 4 7 3 8 2 9 1 ]
 */
+
 fun eqGreater(value1: Int, value2: Int, A: Int): Boolean {
     return A * value1 * value1 > A * value2 * value2
 }
@@ -220,10 +225,8 @@ fun arrayReduction(arr: IntArray, size: Int) {
         if (arr[i] - reduction > 0) {
             reduction = arr[i]
             count += 1
-            println(size - i) // after all the reduction the array will be empty.
         }
     }
-    println(0)
     println("Total number of reductions: $count")
 }
 
@@ -277,6 +280,7 @@ fun main7() {
 /*
 2 2 1 1 8 8 3 5 7 9 6 
 */
+
 fun merge(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int) {
     var index = 0
     var temp: Int
@@ -314,6 +318,7 @@ fun main8() {
 [ 1 2 3 5 8 9 ]
 [ 10 13 15 20 ]
 */
+
 fun checkReverse(arr: IntArray, size: Int): Boolean {
     var start = -1
     var stop = -1
@@ -349,6 +354,7 @@ fun main9() {
 }
 
 // true
+
 fun min(X: Int, Y: Int): Int {
     return if (X < Y) {
         X

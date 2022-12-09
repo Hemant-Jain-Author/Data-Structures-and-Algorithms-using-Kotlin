@@ -101,3 +101,10 @@ fun main() {
     maxCost = maxCost01KnapsackTD(wt, cost, capacity).toDouble()
     println("Maximum cost obtained = $maxCost")
 }
+
+/*
+Maximum cost obtained = 300.0
+Maximum cost obtained = 210.0
+Selected items are: (wt:30, cost:120) (wt:20, cost:90)Maximum cost obtained = 210.0
+Maximum cost obtained = 210.0
+*/

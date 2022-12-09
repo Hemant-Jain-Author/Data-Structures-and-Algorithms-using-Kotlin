@@ -64,3 +64,9 @@ fun main() {
     println(fastestWayBU(a, t, e, x, n))
     println(fastestWayTD(a, t, e, x, n))
 }
+
+/* 
+38
+38
+38
+*/

@@ -81,3 +81,8 @@ fun main() {
     if (!graphColouring(graph, V, m)) 
         println("Solution does not exist")
 }
+
+/*
+Assigned colours are:: 1 2 1 2 3
+Assigned colours are:: 1 2 1 2 3
+*/
