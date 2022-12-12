@@ -1,4 +1,4 @@
-fun quickSelect(arr: IntArray, start: Int, stop: Int, k: Int) {
+fun quickSelectUtil(arr: IntArray, start: Int, stop: Int, k: Int) {
     if (stop <= start) return
 
     val pivot = arr[start]
@@ -17,8 +17,8 @@ fun quickSelect(arr: IntArray, start: Int, stop: Int, k: Int) {
         }
     }
     swap(arr, upper, start) // upper is the pivot position
-    if (k < upper) quickSelect(arr, start, upper-1, k) // pivot -1 is the upper for left sub array.
-    if (k > upper) quickSelect(arr, upper+1, stop, k) // pivot + 1 is the lower for right sub array.
+    if (k < upper) quickSelectUtil(arr, start, upper-1, k) // pivot -1 is the upper for left sub array.
+    if (k > upper) quickSelectUtil(arr, upper+1, stop, k) // pivot + 1 is the lower for right sub array.
 }
 
 fun swap(arr: IntArray, first: Int, second: Int) {
@@ -28,7 +28,7 @@ fun swap(arr: IntArray, first: Int, second: Int) {
 }
 
 fun quickSelect(arr: IntArray, k: Int): Int {
-    quickSelect(arr, 0, arr.size - 1, k - 1)
+    quickSelectUtil(arr, 0, arr.size - 1, k - 1)
     return arr[k - 1]
 }
 

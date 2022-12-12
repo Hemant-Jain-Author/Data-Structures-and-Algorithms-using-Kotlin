@@ -1,4 +1,4 @@
-fun MatrixChainMulBruteForce(p: IntArray, i: Int, j: Int): Int {
+fun matrixChainMulBruteForce(p: IntArray, i: Int, j: Int): Int {
     if (i == j) return 0
     var min = Int.MAX_VALUE
 
@@ -8,7 +8,7 @@ fun MatrixChainMulBruteForce(p: IntArray, i: Int, j: Int): Int {
     // placement and return the minimum count
     for (k in i until j) {
         val count =
-            MatrixChainMulBruteForce(p, i, k) + MatrixChainMulBruteForce(p, k + 1, j) + p[i - 1] * p[k] * p[j]
+            matrixChainMulBruteForce(p, i, k) + matrixChainMulBruteForce(p, k + 1, j) + p[i - 1] * p[k] * p[j]
         if (count < min) min = count
     }
 
@@ -16,20 +16,20 @@ fun MatrixChainMulBruteForce(p: IntArray, i: Int, j: Int): Int {
     return min
 }
 
-fun MatrixChainMulBruteForce(p: IntArray, n: Int): Int {
+fun matrixChainMulBruteForce(p: IntArray, n: Int): Int {
     val i = 1
     val j = n - 1
-    return MatrixChainMulBruteForce(p, i, j)
+    return matrixChainMulBruteForce(p, i, j)
 }
 
-fun MatrixChainMulTD(p: IntArray, n: Int): Int {
+fun matrixChainMulTD(p: IntArray, n: Int): Int {
     val dp = Array(n) { IntArray(n){Int.MAX_VALUE} }
     for (i in 1 until n) dp[i][i] = 0
-    return MatrixChainMulTD(dp, p, 1, n - 1)
+    return matrixChainMulTD(dp, p, 1, n - 1)
 }
 
 // Function for matrix chain multiplication
-fun MatrixChainMulTD(dp: Array<IntArray>, p: IntArray, i: Int, j: Int): Int {
+fun matrixChainMulTD(dp: Array<IntArray>, p: IntArray, i: Int, j: Int): Int {
     // Base Case
     if (dp[i][j] != Int.MAX_VALUE) {
         return dp[i][j]
@@ -37,13 +37,13 @@ fun MatrixChainMulTD(dp: Array<IntArray>, p: IntArray, i: Int, j: Int): Int {
     for (k in i until j) {
         dp[i][j] = Math.min(
             dp[i][j],
-            MatrixChainMulTD(dp, p, i, k) + MatrixChainMulTD(dp, p, k + 1, j) + p[i - 1] * p[k] * p[j]
+            matrixChainMulTD(dp, p, i, k) + matrixChainMulTD(dp, p, k + 1, j) + p[i - 1] * p[k] * p[j]
         )
     }
     return dp[i][j]
 }
 
-fun MatrixChainMulBU(p: IntArray, n: Int): Int {
+fun matrixChainMulBU(p: IntArray, n: Int): Int {
     val dp = Array(n) { IntArray(n){Int.MAX_VALUE} }
     for (i in 1 until n) dp[i][i] = 0
     for (l in 1 until n) { // l is length of range.
@@ -75,7 +75,7 @@ fun PrintOptimalParenthesis(n: Int, pos: Array<IntArray>) {
     println("")
 }
 
-fun MatrixChainMulBU2(p: IntArray, n: Int): Int {
+fun matrixChainMulBU2(p: IntArray, n: Int): Int {
     val dp = Array(n) { IntArray(n){Int.MAX_VALUE} }
     val pos = Array(n) { IntArray(n) }
     for (i in 1 until n) {
@@ -102,8 +102,8 @@ fun MatrixChainMulBU2(p: IntArray, n: Int): Int {
 fun main() {
     val arr = intArrayOf(1, 2, 3, 4)
     val n = arr.size
-    println("Matrix Chain Multiplication is: " + MatrixChainMulBruteForce(arr, n))
-    println("Matrix Chain Multiplication is: " + MatrixChainMulTD(arr, n))
-    println("Matrix Chain Multiplication is: " + MatrixChainMulBU(arr, n))
-    println("Matrix Chain Multiplication is: " + MatrixChainMulBU2(arr, n))
+    println("Matrix Chain Multiplication is: " + matrixChainMulBruteForce(arr, n))
+    println("Matrix Chain Multiplication is: " + matrixChainMulTD(arr, n))
+    println("Matrix Chain Multiplication is: " + matrixChainMulBU(arr, n))
+    println("Matrix Chain Multiplication is: " + matrixChainMulBU2(arr, n))
 }

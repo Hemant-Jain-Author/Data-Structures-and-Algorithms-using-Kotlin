@@ -1,4 +1,4 @@
-fun CountSort(arr: IntArray, lowerRange: Int, upperRange: Int) {
+fun countSort(arr: IntArray, lowerRange: Int, upperRange: Int) {
     val size = arr.size
     val range = upperRange - lowerRange
     val count = IntArray(range)
@@ -22,7 +22,7 @@ fun CountSort(arr: IntArray, lowerRange: Int, upperRange: Int) {
 // Testing code
 fun main() {
     val array = intArrayOf(23, 24, 22, 21, 26, 25, 27, 28, 21, 21)
-    CountSort(array, 20, 30)
+    countSort(array, 20, 30)
     for (i in array.indices) {
         print(array[i].toString() + " ")
     }

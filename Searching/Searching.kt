@@ -88,7 +88,7 @@ fun fibonacciSearch(arr: IntArray, size: Int, value: Int): Boolean {
     }
     var low = 0
     while (fibN > 1) { // fibonacci series start with 0, 1, 1, 2
-        val i: Int = java.lang.Math.min(low + fibNMn2, size - 1)
+        val i: Int = Math.min(low + fibNMn2, size - 1)
         if (arr[i] == value) return true else if (arr[i] < value) {
             fibN = fibNMn1
             fibNMn1 = fibNMn2
@@ -501,15 +501,18 @@ fun oddCount3(arr: IntArray, size: Int) {
     /*
     * xor of all elements in arr[] even occurrence will cancel each other. sum will
     * contain sum of two odd elements.
-    */for (i in 0 until size) xorSum = xorSum xor arr[i]
+    */
+    for (i in 0 until size) xorSum = xorSum xor arr[i]
 
-    /* Rightmost set bit. */setBit = xorSum and (xorSum - 1).inv()
+    /* Rightmost set bit. */
+    setBit = xorSum and (xorSum - 1).inv()
 
     /*
     * Dividing elements in two group: Elements having setBit bit as 1. Elements
     * having setBit bit as 0. Even elements cancelled themselves if group and we
     * get our numbers.
-    */for (i in 0 until size) {
+    */
+    for (i in 0 until size) {
         if (arr[i] and setBit != 0) first = first xor arr[i] else second = second xor arr[i]
     }
     println("Odd values: $first $second")
@@ -569,12 +572,12 @@ fun minAbsSumPair(arr: IntArray, size: Int) {
     // Initialisation of values
     minFirst = 0
     minSecond = 1
-    minSum = java.lang.Math.abs(arr[0] + arr[1])
+    minSum = Math.abs(arr[0] + arr[1])
     l = 0
     while (l < size - 1) {
         r = l + 1
         while (r < size) {
-            sum = java.lang.Math.abs(arr[l] + arr[r])
+            sum = Math.abs(arr[l] + arr[r])
             if (sum < minSum) {
                 minSum = sum
                 minFirst = l
@@ -604,13 +607,13 @@ fun minAbsSumPair2(arr: IntArray, size: Int) {
     // Initialisation of values
     minFirst = 0
     minSecond = size - 1
-    minSum = java.lang.Math.abs(arr[minFirst] + arr[minSecond])
+    minSum = Math.abs(arr[minFirst] + arr[minSecond])
     l = 0
     r = size - 1
     while (l < r) {
         sum = arr[l] + arr[r]
-        if (java.lang.Math.abs(sum) < minSum) {
-            minSum = java.lang.Math.abs(sum)
+        if (Math.abs(sum) < minSum) {
+            minSum = Math.abs(sum)
             minFirst = l
             minSecond = r
         }
@@ -657,7 +660,7 @@ fun findPair2(arr: IntArray, size: Int, value: Int): Boolean {
     while (first < second) {
         curr = arr[first] + arr[second]
         if (curr == value) {
-            println("The pair is " + arr[first] + ", " + arr[second])
+            println("The pair is : " + arr[first] + ", " + arr[second])
             return true
         } else if (curr < value) {
             first++
@@ -725,7 +728,7 @@ fun findPairTwoLists2(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int, va
     Arrays.sort(arr2)
     for (i in 0 until size1) {
         if (binarySearch(arr2, size2, value - arr1[i])) {
-            println("The pair is " + arr1[i] + ", " + (value - arr1[i]))
+            println("The pair is : " + arr1[i] + ", " + (value - arr1[i]))
             return true
         }
     }
@@ -740,7 +743,7 @@ fun findPairTwoLists3(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int, va
     while (first < size1 && second >= 0) {
         var curr = arr1[first] + arr2[second]
         if (curr == value) {
-            println("The pair is " + arr1[first] + ", " + arr2[second])
+            println("The pair is : " + arr1[first] + ", " + arr2[second])
             return true
         } else if (curr < value) {
             first++
@@ -798,8 +801,8 @@ fun main10A() {
 fun findDifference(arr: IntArray, size: Int, value: Int): Boolean {
     for (i in 0 until size) {
         for (j in i + 1 until size) {
-            if (java.lang.Math.abs(arr[i] - arr[j]) == value) {
-                println("The pair is:: " + arr[i] + " & " + arr[j])
+            if (Math.abs(arr[i] - arr[j]) == value) {
+                println("The pair is : " + arr[i] + " & " + arr[j])
                 return true
             }
         }
@@ -813,9 +816,9 @@ fun findDifference2(arr: IntArray, size: Int, value: Int): Boolean {
     var diff: Int
     Arrays.sort(arr)
     while (first < size && second < size) {
-        diff = java.lang.Math.abs(arr[first] - arr[second])
+        diff = Math.abs(arr[first] - arr[second])
         if (diff == value) {
-            println("The pair is::" + arr[first] + " & " + arr[second])
+            println("The pair is : " + arr[first] + " & " + arr[second])
             return true
         } else if (diff > value) first += 1 else second += 1
     }
@@ -838,7 +841,7 @@ fun findMinDiff(arr: IntArray, size: Int): Int {
     var diff = Int.MAX_VALUE
     for (i in 0 until size) {
         for (j in i + 1 until size) {
-            val value: Int = java.lang.Math.abs(arr[i] - arr[j])
+            val value: Int = Math.abs(arr[i] - arr[j])
             if (diff > value) diff = value
         }
     }
@@ -871,7 +874,7 @@ fun minDiffPair(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int): Int {
     var second = 0
     for (i in 0 until size1) {
         for (j in 0 until size2) {
-            val value: Int = java.lang.Math.abs(arr1[i] - arr2[j])
+            val value: Int = Math.abs(arr1[i] - arr2[j])
             if (diff > value) {
                 diff = value
                 first = arr1[i]
@@ -894,7 +897,7 @@ fun minDiffPair2(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int): Int {
     Arrays.sort(arr1)
     Arrays.sort(arr2)
     while (i < size1 && j < size2) {
-        diff = java.lang.Math.abs(arr1[i] - arr2[j])
+        diff = Math.abs(arr1[i] - arr2[j])
         if (minDiff > diff) {
             minDiff = diff
             first = arr1[i]
@@ -927,7 +930,7 @@ fun closestPair(arr: IntArray, size: Int, value: Int) {
     var curr: Int
     for (i in 0 until size) {
         for (j in i + 1 until size) {
-            curr = java.lang.Math.abs(value - (arr[i] + arr[j]))
+            curr = Math.abs(value - (arr[i] + arr[j]))
             if (curr < diff) {
                 diff = curr
                 first = arr[i]
@@ -950,8 +953,8 @@ fun closestPair2(arr: IntArray, size: Int, value: Int) {
     run {
         while (start < stop) {
             curr = value - (arr[start] + arr[stop])
-            if (java.lang.Math.abs(curr) < diff) {
-                diff = java.lang.Math.abs(curr)
+            if (Math.abs(curr) < diff) {
+                diff = Math.abs(curr)
                 first = arr[start]
                 second = arr[stop]
             }
@@ -1261,7 +1264,8 @@ fun numberOfTriangles2(arr: IntArray, size: Int): Int {
             /*
             * if sum of arr[i] & arr[j] is greater arr[k] then sum of arr[i] & arr[j + 1]
             * is also greater than arr[k] this improvement make algo O(n2)
-            */while (k < size && arr[i] + arr[j] > arr[k]) k += 1
+            */
+            while (k < size && arr[i] + arr[j] > arr[k]) k += 1
             count += k - j - 1
             j++
         }
@@ -1477,15 +1481,12 @@ fun searchBitonicArrayMax2(arr: IntArray, size: Int): Int {
     }
     while (start <= end) {
         mid = (start + end) / 2
-        if (arr[mid - 1] < arr[mid] && arr[mid + 1] < arr[mid]) // maxima
-        {
+        if (arr[mid - 1] < arr[mid] && arr[mid + 1] < arr[mid]) { // maxima
             maximaFound = 1
             break
-        } else if (arr[mid - 1] < arr[mid] && arr[mid] < arr[mid + 1]) // increasing
-        {
+        } else if (arr[mid - 1] < arr[mid] && arr[mid] < arr[mid + 1]) { // increasing
             start = mid + 1
-        } else if (arr[mid - 1] > arr[mid] && arr[mid] > arr[mid + 1]) // decreasing
-        {
+        } else if (arr[mid - 1] > arr[mid] && arr[mid] > arr[mid + 1]) { // decreasing
             end = mid - 1
         } else {
             break
@@ -1518,14 +1519,11 @@ fun findMaxBitonicArray(arr: IntArray, size: Int): Int {
     }
     while (start <= end) {
         mid = (start + end) / 2
-        if (arr[mid - 1] < arr[mid] && arr[mid + 1] < arr[mid]) // maxima
-        {
+        if (arr[mid - 1] < arr[mid] && arr[mid + 1] < arr[mid]) { // maxima
             return mid
-        } else if (arr[mid - 1] < arr[mid] && arr[mid] < arr[mid + 1]) // increasing
-        {
+        } else if (arr[mid - 1] < arr[mid] && arr[mid] < arr[mid + 1]) { // increasing
             start = mid + 1
-        } else if (arr[mid - 1] > arr[mid] && arr[mid] > arr[mid + 1]) // decreasing
-        {
+        } else if (arr[mid - 1] > arr[mid] && arr[mid] > arr[mid + 1]) { // decreasing
             end = mid - 1
         } else {
             break
@@ -1619,21 +1617,16 @@ fun firstIndex(arr: IntArray, size: Int, low: Int, high: Int, value: Int): Int {
     /*
     * Find first occurrence of value, either it should be the first element of the
     * array or the value before it is smaller than it.
-    */return if ((mid == 0 || arr[mid - 1] < value) && arr[mid] == value) mid else if (arr[mid] < value) firstIndex(
-        arr,
-        size,
-        mid + 1,
-        high,
-        value
-    ) else firstIndex(arr, size, low, mid - 1, value)
+    */return if ((mid == 0 || arr[mid - 1] < value) && arr[mid] == value) mid 
+            else if (arr[mid] < value) firstIndex(arr,size,mid+1,high,value) 
+            else firstIndex(arr, size, low, mid - 1, value)
 }
 
 fun isMajority2(arr: IntArray, size: Int): Boolean {
     val majority = arr[size / 2]
     val i = firstIndex(arr, size, 0, size - 1, majority)
     /*
-    * we are using majority element form array so we will get some valid index
-    * always.
+    * we are using majority element form array so we will get some valid index always.
     */
     return if (i + size / 2 <= size - 1 && arr[i + size / 2] == majority) true else false
 }
@@ -1709,8 +1702,7 @@ fun main29() {
 */
 
 fun findMedian(arrFirst: IntArray, sizeFirst: Int, arrSecond: IntArray, sizeSecond: Int): Int {
-    val medianIndex = (sizeFirst + sizeSecond + (sizeFirst + sizeSecond) % 2) / 2 // ceiling
-    // function.
+    val medianIndex = (sizeFirst + sizeSecond + (sizeFirst + sizeSecond) % 2) / 2 // ceiling function.
     var i = 0
     var j = 0
     var count = 0
@@ -1788,11 +1780,8 @@ fun rotationMaxUtil(arr: IntArray, start: Int, end: Int): Int {
     }
     val mid = (start + end) / 2
     if (arr[mid] > arr[mid + 1]) return arr[mid]
-    return if (arr[start] <= arr[mid]) /* increasing part. */ rotationMaxUtil(
-        arr,
-        mid + 1,
-        end
-    ) else rotationMaxUtil(arr, start, mid - 1)
+    return if (arr[start] <= arr[mid]) rotationMaxUtil(arr,mid+1,end)/* increasing part. */ 
+           else rotationMaxUtil(arr, start, mid - 1)
 }
 
 fun rotationMax2(arr: IntArray, size: Int): Int {
@@ -1821,11 +1810,8 @@ fun findRotationMaxUtil(arr: IntArray, start: Int, end: Int): Int {
     if (end <= start) return start
     val mid = (start + end) / 2
     if (arr[mid] > arr[mid + 1]) return mid
-    return if (arr[start] <= arr[mid]) /* increasing part. */ findRotationMaxUtil(
-        arr,
-        mid + 1,
-        end
-    ) else findRotationMaxUtil(arr, start, mid - 1)
+    return if (arr[start] <= arr[mid]) findRotationMaxUtil(arr,mid+1,end) /* increasing part. */  
+        else findRotationMaxUtil(arr, start, mid - 1)
 }
 
 fun findRotationMax2(arr: IntArray, size: Int): Int {
@@ -1909,7 +1895,7 @@ fun main35() {
 fun minAbsDiffAdjCircular(arr: IntArray, size: Int): Int {
     var diff = 9999999
     if (size < 2) return -1
-    for (i in 0 until size) diff = java.lang.Math.min(diff, java.lang.Math.abs(arr[i] - arr[(i + 1) % size]))
+    for (i in 0 until size) diff = Math.min(diff, Math.abs(arr[i] - arr[(i + 1) % size]))
     return diff
 }
 
@@ -2137,8 +2123,10 @@ fun findFloor(arr: IntArray, size: Int, value: Int): Int {
         * search value is equal to arr[mid] value.. search value is greater than mid
         * index value and less than mid+1 index value. value is greater than
         * arr[size-1] then floor is arr[size-1]
-        */if (arr[mid] == value || arr[mid] < value && (mid == size - 1 || arr[mid + 1] > value)) return arr[mid] else if (arr[mid] < value) start =
-            mid + 1 else stop = mid - 1
+        */
+        if (arr[mid] == value || arr[mid] < value && (mid == size - 1 || arr[mid + 1] > value)) return arr[mid] 
+        else if (arr[mid] < value) start = mid + 1 
+        else stop = mid - 1
     }
     return -1
 }
@@ -2153,8 +2141,10 @@ fun findCeil(arr: IntArray, size: Int, value: Int): Int {
         * search value is equal to arr[mid] value.. search value is less than mid index
         * value and greater than mid-1 index value. value is less than arr[0] then ceil
         * is arr[0]
-        */if (arr[mid] == value || arr[mid] > value && (mid == 0 || arr[mid - 1] < value)) return arr[mid] else if (arr[mid] < value) start =
-            mid + 1 else stop = mid - 1
+        */
+        if (arr[mid] == value || arr[mid] > value && (mid == 0 || arr[mid - 1] < value)) return arr[mid] 
+        else if (arr[mid] < value) start = mid + 1 
+        else stop = mid - 1
     }
     return -1
 }
@@ -2179,11 +2169,13 @@ fun closestNumber(arr: IntArray, size: Int, num: Int): Int {
     var mid: Int
     while (start <= stop) {
         mid = (start + stop) / 2
-        if (minDist > java.lang.Math.abs(arr[mid] - num)) {
-            minDist = java.lang.Math.abs(arr[mid] - num)
+        if (minDist > Math.abs(arr[mid] - num)) {
+            minDist = Math.abs(arr[mid] - num)
             output = arr[mid]
         }
-        if (arr[mid] == num) break else if (arr[mid] > num) stop = mid - 1 else start = mid + 1
+        if (arr[mid] == num) break 
+        else if (arr[mid] > num) stop = mid - 1 
+        else start = mid + 1
     }
     return output
 }
@@ -2272,7 +2264,7 @@ fun frequencyCounts4(arr: IntArray, size: Int) {
             }
         }
     }
-    for (i in 0 until size) if (arr[i] != 0) print("(" + (i + 1) + " : " + java.lang.Math.abs(arr[i]) + ") ")
+    for (i in 0 until size) if (arr[i] != 0) print("(" + (i + 1) + " : " + Math.abs(arr[i]) + ") ")
     println()
 }
 
@@ -2368,7 +2360,9 @@ fun fixPoint2(arr: IntArray, size: Int): Int {
     var mid: Int
     while (low <= high) {
         mid = (low + high) / 2
-        if (arr[mid] == mid) return mid else if (arr[mid] < mid) low = mid + 1 else high = mid - 1
+        if (arr[mid] == mid) return mid 
+        else if (arr[mid] < mid) low = mid + 1 
+        else high = mid - 1
     }
     /* fix point not found so return invalid index */return -1
 }
@@ -2487,7 +2481,7 @@ fun rainWater(arr: IntArray, size: Int): Int {
         rightHigh[i] = max
     }
     var water = 0
-    for (i in 0 until size) water += java.lang.Math.min(leftHigh[i], rightHigh[i]) - arr[i]
+    for (i in 0 until size) water += Math.min(leftHigh[i], rightHigh[i]) - arr[i]
     println("Water : $water")
     return water
 }
@@ -2559,7 +2553,7 @@ fun arrayIndexMaxDiff(arr: IntArray, size: Int): Int {
         j = size - 1
         while (i < j) {
             if (arr[i] <= arr[j]) {
-                maxDiff = java.lang.Math.max(maxDiff, j - i)
+                maxDiff = Math.max(maxDiff, j - i)
                 break
             }
             j -= 1
@@ -2571,13 +2565,13 @@ fun arrayIndexMaxDiff(arr: IntArray, size: Int): Int {
 fun arrayIndexMaxDiff2(arr: IntArray, size: Int): Int {
     val rightMax = IntArray(size)
     rightMax[size - 1] = arr[size - 1]
-    for (i in size - 2 downTo 0) rightMax[i] = java.lang.Math.max(rightMax[i + 1], arr[i])
+    for (i in size - 2 downTo 0) rightMax[i] = Math.max(rightMax[i + 1], arr[i])
     var maxDiff = -1
     var i = 0
     var j = 1
     while (i < size && j < size) {
         if (arr[i] <= rightMax[j]) {
-            if (i < j) maxDiff = java.lang.Math.max(maxDiff, j - i)
+            if (i < j) maxDiff = Math.max(maxDiff, j - i)
             j = j + 1
         } else {
             i = i + 1
@@ -2612,7 +2606,7 @@ fun maxPathSum(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int): Int {
             sum2 += arr2[j]
             j += 1
         } else {
-            result += java.lang.Math.max(sum1, sum2)
+            result += Math.max(sum1, sum2)
             result = result + arr1[i]
             sum1 = 0
             sum2 = 0
@@ -2628,7 +2622,7 @@ fun maxPathSum(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int): Int {
         sum2 += arr2[j]
         j += 1
     }
-    result += java.lang.Math.max(sum1, sum2)
+    result += Math.max(sum1, sum2)
     return result
 }
 

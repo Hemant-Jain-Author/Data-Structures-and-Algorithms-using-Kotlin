@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04dc547-09ef-425c-a8d9-bd299eb00d13" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Data-Structures-and-Algorithms-in-Kotlin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Data-Structures-and-Algorithms-in-Kotlin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/Knapsack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/Knapsack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/BinaryIndexTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/BinaryIndexTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/Tree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/Tree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/rmqST.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/rmqST.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,10 +116,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "/home/hemant/Documents/Github/Data-Structures-and-Algorithms-in-Kotlin",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Kotlin"
+    "settings.editor.selected.configurable": "preferences.language.Kotlin"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -197,6 +207,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AlgorithmsChapters/twitter.txt">

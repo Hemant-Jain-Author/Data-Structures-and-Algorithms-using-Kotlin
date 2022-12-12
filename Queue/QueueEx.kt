@@ -1,7 +1,7 @@
 import java.util.ArrayDeque
 import java.util.Stack
 
-fun CircularTour(arr: Array<IntArray>, n: Int): Int {
+fun circularTour(arr: Array<IntArray>, n: Int): Int {
     for (i in 0 until n) {
         var total = 0
         var found = true
@@ -17,7 +17,7 @@ fun CircularTour(arr: Array<IntArray>, n: Int): Int {
     return -1
 }
 
-fun CircularTour2(arr: Array<IntArray>, n: Int): Int {
+fun circularTour2(arr: Array<IntArray>, n: Int): Int {
     val que: java.util.ArrayDeque<Int> = java.util.ArrayDeque<Int>()
     var nextPump = 0
     var prevPump: Int
@@ -43,8 +43,8 @@ fun CircularTour2(arr: Array<IntArray>, n: Int): Int {
 // Testing code
 fun main1() {
     val tour = arrayOf(intArrayOf(8, 6), intArrayOf(1, 4), intArrayOf(7, 6))
-    println("Circular Tour : " + CircularTour(tour, 3))
-    println("Circular Tour : " + CircularTour2(tour, 3))
+    println("Circular Tour : " + circularTour(tour, 3))
+    println("Circular Tour : " + circularTour2(tour, 3))
 }
 
 /*

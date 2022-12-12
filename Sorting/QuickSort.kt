@@ -1,4 +1,4 @@
-fun quickSort(arr: IntArray, start: Int, stop: Int) {
+fun quickSortUtil(arr: IntArray, start: Int, stop: Int) {
     if (stop <= start) return
 
     val pivot = arr[start]
@@ -17,12 +17,12 @@ fun quickSort(arr: IntArray, start: Int, stop: Int) {
         }
     }
     swap(arr, upper, start) // upper is the pivot position
-    quickSort(arr, start, upper - 1) // pivot -1 is the upper for left sub array.
-    quickSort(arr, upper + 1, stop) // pivot + 1 is the lower for right sub array
+    quickSortUtil(arr, start, upper - 1) // pivot -1 is the upper for left sub array.
+    quickSortUtil(arr, upper + 1, stop) // pivot + 1 is the lower for right sub array
 }
 
 fun quickSort(arr: IntArray) {
-    quickSort(arr, 0, arr.size - 1)
+    quickSortUtil(arr, 0, arr.size - 1)
 }
 
 fun swap(arr: IntArray, first: Int, second: Int) {

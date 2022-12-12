@@ -1,4 +1,4 @@
-class Queue @JvmOverloads constructor(private val capacity: Int = 1000) {
+class Queue constructor(private val capacity: Int = 1000) {
     private val data: IntArray
     private var size = 0
     var front = 0

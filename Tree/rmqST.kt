@@ -110,3 +110,12 @@ fun main() {
     println("Min value in the range(0, 4): " + tree.getMin(0, 4))
     println("Min value of all the elements: " + tree.getMin(0, arr.size - 1))
 }
+
+/*
+Min value in the range(1, 5): 1
+Min value of all the elements: 1
+Min value in the range(1, 5): -1
+Min value of all the elements: -1
+Min value in the range(0, 4): -1
+Min value of all the elements: -2
+*/

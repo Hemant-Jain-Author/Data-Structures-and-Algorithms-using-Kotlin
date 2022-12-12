@@ -1,14 +1,13 @@
-import java.util.ArrayList
 import java.util.Arrays
 import java.util.Collections
 
 // Allowed values from 0 to maxValue.
-fun BucketSort(arr: IntArray, maxValue: Int) {
+fun bucketSort(arr: IntArray, maxValue: Int) {
     val numBucket = 5
-    BucketSortUtil(arr, maxValue, numBucket)
+    bucketSortUtil(arr, maxValue, numBucket)
 }
 
-fun BucketSortUtil(arr: IntArray, maxValue: Int, numBucket: Int) {
+fun bucketSortUtil(arr: IntArray, maxValue: Int, numBucket: Int) {
     val length = arr.size
     if (length == 0) return
     val bucket: ArrayList<ArrayList<Int>> = ArrayList<ArrayList<Int>>(numBucket)
@@ -54,7 +53,7 @@ fun BucketSortUtil(arr: IntArray, maxValue: Int, numBucket: Int) {
 fun main() {
     val array = intArrayOf(1, 34, 7, 99, 5, 23, 45, 88, 77, 19, 91, 100)
     val maxValue = 100
-    BucketSort(array, maxValue)
+    bucketSort(array, maxValue)
     for (i in array.indices) {
         print(array[i].toString() + " ")
     }

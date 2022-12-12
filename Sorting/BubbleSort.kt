@@ -1,12 +1,12 @@
-private fun less(value1: Int, value2: Int): Boolean {
+fun less(value1: Int, value2: Int): Boolean {
     return value1 < value2
 }
 
-private fun greater(value1: Int, value2: Int): Boolean {
+fun greater(value1: Int, value2: Int): Boolean {
     return value1 > value2
 }
 
-fun BubbleSort(arr: IntArray) {
+fun bubbleSort(arr: IntArray) {
     val size = arr.size
     var i = 0
     while (i < size - 1) {
@@ -24,7 +24,7 @@ fun BubbleSort(arr: IntArray) {
     }
 }
 
-fun BubbleSort2(arr: IntArray) {
+fun bubbleSort2(arr: IntArray) {
     val size = arr.size
     var swapped = 1
     var i = 0
@@ -47,13 +47,13 @@ fun BubbleSort2(arr: IntArray) {
 // Testing code
 fun main() {
     val array = intArrayOf(9, 1, 8, 2, 7, 3, 6, 4, 5)
-    BubbleSort(array)
+    bubbleSort(array)
     for (i in array.indices) {
         print(array[i].toString() + " ")
     }
     println()
     val array2 = intArrayOf(9, 1, 8, 2, 7, 3, 6, 4, 5)
-    BubbleSort2(array2)
+    bubbleSort2(array2)
     for (i in array2.indices) {
         print(array2[i].toString() + " ")
     }

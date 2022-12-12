@@ -1,7 +1,5 @@
 import java.util.Arrays
 
-
-
 fun closestPairBF(arr: Array<IntArray>): Double {
     val n = arr.size
     var dmin = Double.MAX_VALUE

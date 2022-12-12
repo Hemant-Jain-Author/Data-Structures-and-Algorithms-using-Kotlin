@@ -143,21 +143,21 @@ false
 */
 
 
-fun ToUpper(s: Char): Char {
+fun toUpper(s: Char): Char {
     if (s.code >= 97 && s.code <= 97 + 25) {
         return (s.code - 32).toChar()
     }
     return s
 }
 
-fun ToLower(s: Char): Char {
+fun toLower(s: Char): Char {
     if (s.code >= 65 && s.code <= 65 + 25) {
         return (s.code + 32).toChar()
     }
     return s
 }
 
-fun LowerUpper(s: Char): Char {
+fun lowerUpper(s: Char): Char {
     if (s.code >= 97 && s.code <= 97 + 25) {
         return (s.code - 32).toChar()
     } else if (s.code >= 65 && s.code <= 65 + 25) {
@@ -168,10 +168,10 @@ fun LowerUpper(s: Char): Char {
 
 /* Testing code. */
 fun main6() {
-    println(ToLower('A'))
-    println(ToUpper('a'))
-    println(LowerUpper('s'))
-    println(LowerUpper('S'))
+    println(toLower('A'))
+    println(toUpper('a'))
+    println(lowerUpper('s'))
+    println(lowerUpper('S'))
 }
 
 /*

@@ -17,6 +17,14 @@ fun main1() {
     println("main line 2")
 }
 
+/*
+main line 1
+fun1 line 1
+fun2 line 1
+fun1 line 2
+main line 2
+*/
+
 fun factorial(i:Int):Int {
     // Termination Condition
     if (i <= 1) {
@@ -25,16 +33,19 @@ fun factorial(i:Int):Int {
     // Body, Recursive Expansion
     return i * factorial(i - 1)
 }
-///////////////
 
-fun printInt(numberInput:Int) {
+// Testing Code.
+fun main18() {
+    println("Factorial:" + factorial(5))
+}
+
+fun printInt(numberInput:Int, base:Int) {
     var conversion = "0123456789ABCDEF"
-    var base = 16
-    var number = numberInput;
+    var number = numberInput
     var digit = conversion[number % base]
     number = number / base
     if (number != 0) {
-        printInt(number)
+        printInt(number, base)
     }
     print(digit)
 }
@@ -42,8 +53,12 @@ fun printInt(numberInput:Int) {
 // Testing Code.
 fun main2() {
     var i = 1000
-    printInt(i)
+    printInt(i, 16)
 }
+
+/*
+3E8
+*/
 
 fun printArray(arr:IntArray, count:Int) {
     print("[")
@@ -74,6 +89,10 @@ fun main3() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
     println("Sum of values in array:" + SumArray(arr))
 }
+
+/*
+Sum of values in array:45
+*/
 
 fun SequentialSearch(arr:IntArray, size:Int, value:Int):Int {
     for (i in 0 until size) {
@@ -106,9 +125,14 @@ fun BinarySearch(arr:IntArray, size:Int, value:Int):Int {
 // Testing Code.
 fun main4() {
     var arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
-    println("Sum of values in array:" + SequentialSearch(arr, arr.size, 7))
-    println("Sum of values in array:" + BinarySearch(arr, arr.size, 7))
+    println("Sequential Search:" + SequentialSearch(arr, arr.size, 7))
+    println("Binary Search:" + BinarySearch(arr, arr.size, 7))
 }
+
+/*
+Sequential Search:6
+Binary Search:6
+*/
 
 fun rotateArray(a:IntArray, n:Int, k:Int) {
     reverseArray(a, 0, k - 1)
@@ -149,6 +173,10 @@ fun main5() {
     printArray(arr, arr.size)
 }
 
+/*
+[ 3 4 5 6 1 2 ]
+*/
+
 fun maxSubArraySum(a:IntArray, size:Int):Int {
     var maxSoFar = 0
     var maxEndingHere = 0
@@ -170,6 +198,10 @@ fun main6() {
     println("Max sub array sum :" + maxSubArraySum(arr, 9))
 }
 
+/*
+Max sub array sum :10
+*/
+
 fun WaveArray2(arr:IntArray) {
     var size = arr.size
     /* Odd elements are lesser then even elements. */
@@ -188,7 +220,6 @@ fun WaveArray2(arr:IntArray) {
 fun WaveArray(arr:IntArray) {
     var size = arr.size
     Arrays.sort(arr)
-    printArray(arr, arr.size)
     var i = 0
     while (i < size - 1) {
         swap(arr, i, i + 1)
@@ -199,13 +230,17 @@ fun WaveArray(arr:IntArray) {
 // Testing Code.
 fun main7() {
     var arr = intArrayOf(8, 1, 2, 3, 4, 5, 6, 4, 2)
-    printArray(arr, arr.size)
     WaveArray(arr)
     printArray(arr, arr.size)
     var arr2 = intArrayOf(8, 1, 2, 3, 4, 5, 6, 4, 2)
     WaveArray2(arr2)
     printArray(arr2, arr2.size)
 }
+
+/*
+[ 2 1 3 2 4 4 6 5 8 ]
+[ 8 1 3 2 5 4 6 2 4 ]
+*/
 
 fun indexArray(arr:IntArray, size:Int) {
     for (i in 0 until size) {
@@ -249,6 +284,11 @@ fun main8() {
     printArray(arr2, size)
 }
 
+/*
+[ -1 1 2 3 4 -1 6 7 8 9 ]
+[ -1 1 2 3 4 -1 6 7 8 9 ]
+*/
+
 fun Sort1toN(arr:IntArray, size:Int) {
     var curr:Int
     var value:Int
@@ -288,6 +328,11 @@ fun main9() {
     Sort1toN(arr2, size)
     printArray(arr2, size)
 }
+
+/*
+[ 1 2 3 4 5 6 7 8 9 10 ]
+[ 1 2 3 4 5 6 7 8 9 10 ]
+*/
 
 fun SmallestPositiveMissingNumber(arr:IntArray, size:Int):Int {
     var found:Int
@@ -356,11 +401,18 @@ fun SmallestPositiveMissingNumber4(arr:IntArray, size:Int):Int {
 fun main10() {
     var arr = intArrayOf(8, 5, 6, 1, 9, 11, 2, 7, 4, 10)
     var size = arr.size
-    println("Max sub array sum :" + SmallestPositiveMissingNumber(arr, size))
-    println("Max sub array sum :" + SmallestPositiveMissingNumber2(arr, size))
-    println("Max sub array sum :" + SmallestPositiveMissingNumber3(arr, size))
-    println("Max sub array sum :" + SmallestPositiveMissingNumber4(arr, size))
+    println("Smallest Positive Missing Number : " + SmallestPositiveMissingNumber(arr, size))
+    println("Smallest Positive Missing Number : " + SmallestPositiveMissingNumber2(arr, size))
+    println("Smallest Positive Missing Number : " + SmallestPositiveMissingNumber3(arr, size))
+    println("Smallest Positive Missing Number : " + SmallestPositiveMissingNumber4(arr, size))
 }
+
+/*
+Smallest Positive Missing Number : 3
+Smallest Positive Missing Number : 3
+Smallest Positive Missing Number : 3
+Smallest Positive Missing Number : 3
+*/
 
 fun MaxMinArr(arr:IntArray, size:Int) {
     var aux = Arrays.copyOf(arr, size)
@@ -405,6 +457,11 @@ fun main11() {
     printArray(arr2, size2)
 }
 
+/*
+[ 7 1 6 2 5 3 4 ]
+[ 7 1 6 2 5 3 4 ]
+*/
+
 fun maxCircularSum(arr:IntArray, size:Int):Int {
     var sumAll = 0
     var currvar = 0
@@ -428,6 +485,10 @@ fun main12() {
     var arr = intArrayOf(10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
     println("MaxCirculrSm: " + maxCircularSum(arr, arr.size))
 }
+
+/*
+MaxCirculrSm: 290
+*/
 
 fun ArrayIndexMaxDiff(arr:IntArray, size:Int):Int {
     var maxDiff = -1
@@ -490,8 +551,13 @@ fun main13() {
     var arr = intArrayOf(33, 9, 10, 3, 2, 60, 30, 33, 1)
     println("ArrayIndexMaxDiff : " + ArrayIndexMaxDiff(arr, arr.size))
     println("ArrayIndexMaxDiff : " + ArrayIndexMaxDiff2(arr, arr.size))
-    // System.out.println("ArrayIndexMaxDiff : " + ArrayIndexMaxDiff3(arr, arr.length));
+    // System.out.println("ArrayIndexMaxDiff : " + ArrayIndexMaxDiff3(arr, arr.length))
 }
+
+/*
+ArrayIndexMaxDiff : 6
+ArrayIndexMaxDiff : 6
+*/
 
 fun maxPathSum(arr1:IntArray, size1:Int, arr2:IntArray, size2:Int):Int {
     var i = 0
@@ -534,6 +600,10 @@ fun main14() {
     println("Max Path Sum :: " + maxPathSum(arr1, arr1.size, arr2, arr2.size))
 }
 
+/*
+Max Path Sum :: 201
+*/
+
 fun towerOfHanoi(num:Int, src:Char, dst:Char, temp:Char) {
     if (num < 1) {
         return
@@ -545,26 +615,49 @@ fun towerOfHanoi(num:Int, src:Char, dst:Char, temp:Char) {
 
 // Testing Code.
 fun main15() {
-    var num = 4
-    println("The sequence of moves involved in the Tower of Hanoi are :\n")
+    var num = 3
+    println("The sequence of moves involved in the Tower of Hanoi are :")
     towerOfHanoi(num, 'A', 'C', 'B')
 }
 
-fun GCD(m:Int, n:Int):Int {
-    if (m < n) {
-        return (GCD(n, m))
+/*
+The sequence of moves involved in the Tower of Hanoi are :
+Move 1 disk from peg A to peg C
+Move 2 disk from peg A to peg B
+Move 1 disk from peg C to peg B
+Move 3 disk from peg A to peg C
+Move 1 disk from peg B to peg A
+Move 2 disk from peg B to peg C
+Move 1 disk from peg A to peg C
+*/
+
+fun gcd(m:Int, n:Int):Int {
+    if (m == 0) {
+        return n
     }
-    if (m % n == 0) {
-        return (n)
+    if (n == 0) {
+        return m
     }
-    return (GCD(n, m % n))
+    return gcd(n, m % n)
 }
+
+// Testing code.
+fun main19() {
+    println("Gcd is:: " + gcd(5, 2));
+}
+
+
 
 fun fibonacci(n:Int):Int {
     if (n <= 1) {
         return n
     }
     return fibonacci(n - 1) + fibonacci(n - 2)
+}
+
+// Testing code.
+fun main20() {
+    println(fibonacci(10));
 }
 
 fun permutation(arr:IntArray, i:Int, length:Int) {
@@ -584,12 +677,21 @@ fun permutation(arr:IntArray, i:Int, length:Int) {
 
 // Testing Code.
 fun main16() {
-    var arr = IntArray(5)
-    for (i in 0..4) {
+    var arr = IntArray(3)
+    for (i in 0..2) {
         arr[i] = i
     }
-    permutation(arr, 0, 5)
+    permutation(arr, 0, 3)
 }
+
+/*
+[ 0 1 2 ]
+[ 0 2 1 ]
+[ 1 0 2 ]
+[ 1 2 0 ]
+[ 2 1 0 ]
+[ 2 0 1 ]
+*/
 
 // Binary Search Algorithm - Recursive
 fun BinarySearchRecursive(arr:IntArray, low:Int, high:Int, value:Int):Int {
@@ -612,23 +714,30 @@ fun main17() {
     println(BinarySearchRecursive(arr, 0, arr.size - 1, 16))
 }
 
+/*
+5
+-1
+*/
+
 fun main(){
-    main1();
-    main2();
-    main3();
-    main4();
-    main5();
-    main6();
-    main7();
-    main8();
-    main9();
-    main10();
-    main11();
-    main12();
-    main13();
-    main14();
-    main15();
-    main16();
-    main17();
-    
+    main1()
+    main2()
+    main3()
+    main4()
+    main5()
+    main6()
+    main7()
+    main8()
+    main9()
+    main10()
+    main11()
+    main12()
+    main13()
+    main14()
+    main15()
+    main16()
+    main17()
+	main18()
+    main19()
+    main20()   
 }

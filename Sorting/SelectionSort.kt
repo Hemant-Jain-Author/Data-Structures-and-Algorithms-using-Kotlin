@@ -1,8 +1,5 @@
-fun greater(value1: Int, value2: Int): Boolean {
-    return value1 > value2
-}
 
-fun SelectionSort(arr: IntArray) { // sorted array created in reverse order.
+fun selectionSort(arr: IntArray) { // sorted array created in reverse order.
     val size = arr.size
     var i = 0
     while (i < size - 1) {
@@ -21,7 +18,7 @@ fun SelectionSort(arr: IntArray) { // sorted array created in reverse order.
     }
 }
 
-fun SelectionSort2(arr: IntArray) { // sorted array created in forward direction    
+fun selectionSort2(arr: IntArray) { // sorted array created in forward direction    
     val size = arr.size
     var i = 0
     while (i < size - 1) {
@@ -43,13 +40,13 @@ fun SelectionSort2(arr: IntArray) { // sorted array created in forward direction
 // Testing code.
 fun main() {
     val array = intArrayOf(9, 1, 8, 2, 7, 3, 6, 4, 5)
-    SelectionSort(array)
+    selectionSort(array)
     for (i in array.indices) {
         print(array[i].toString() + " ")
     }
     println()
     val array2 = intArrayOf(9, 1, 8, 2, 7, 3, 6, 4, 5)
-    SelectionSort2(array2)
+    selectionSort2(array2)
     for (i in array2.indices) {
         print(array2[i].toString() + " ")
     }

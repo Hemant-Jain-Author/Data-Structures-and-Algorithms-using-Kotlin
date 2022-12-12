@@ -1,4 +1,4 @@
-fun RadixSort(arr: IntArray) {
+fun radixSort(arr: IntArray) {
     val n = arr.size
     val m = getMax(arr, n)
 
@@ -46,7 +46,7 @@ fun printArray(arr: IntArray) {
 
 fun main() {
     val array = intArrayOf(100, 49, 65, 91, 702, 29, 4, 55)
-    RadixSort(array)
+    radixSort(array)
     printArray(array)
 }
 

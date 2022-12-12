@@ -786,26 +786,6 @@ class Tree (var root: Node? = null) {
         curr.right = createBinarySearchTree(arr, mid + 1, end)
         return curr
     }
-
-    fun isBSTArray(preorder: IntArray): Boolean {
-        val size = preorder.size
-        val stk: Stack<Int> = Stack<Int>()
-        var value: Int
-        var root = -999999
-        for (i in 0 until size) {
-            value = preorder[i]
-
-            // If value of the right child is less than root.
-            if (value < root) return false
-            // First left child values will be popped
-            // Last popped value will be the root.
-            while (stk.size > 0 && stk.peek() < value) root = stk.pop()
-
-            // add current value to the stack.
-            stk.push(value)
-        }
-        return true
-    }
 }
 
 fun main1() {
@@ -837,6 +817,11 @@ fun main1() {
 */
     t.printLevelOrderLineByLine2()
 /*
+1 
+2 3 
+4 5 6 7 
+8 9 10 
+
 1 
 2 3 
 4 5 6 7 
@@ -949,7 +934,7 @@ true
 */
 }
 
-fun main8() {
+fun main5() {
     val t = Tree()
     t.insert(2)
     t.insert(1)
@@ -969,7 +954,7 @@ After delete operation.
 1 3 4 
 */
 
-fun main5() {
+fun main6() {
     val t = Tree()
     val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     t.createBinarySearchTree(arr)
@@ -988,7 +973,7 @@ lca is :2
 lca is :5
 */
 
-fun main6() {
+fun main7() {
     val t = Tree()
     val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     t.createBinarySearchTree(arr)
@@ -1004,7 +989,7 @@ fun main6() {
 4 5 6 7 
 */
 
-fun main7() {
+fun main8() {
     val t = Tree()
     val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     t.createBinarySearchTree(arr)
@@ -1014,15 +999,39 @@ fun main7() {
     // 6
     println(t.floorBST(5.5))
     // 5
+}
+
+fun isBSTArray(preorder: IntArray): Boolean {
+    val size = preorder.size
+    val stk: Stack<Int> = Stack<Int>()
+    var value: Int
+    var root = -999999
+    for (i in 0 until size) {
+        value = preorder[i]
+
+        // If value of the right child is less than root.
+        if (value < root) return false
+        // First left child values will be popped
+        // Last popped value will be the root.
+        while (stk.size > 0 && stk.peek() < value) root = stk.pop()
+
+        // add current value to the stack.
+        stk.push(value)
+    }
+    return true
+}
+
+fun main9() {
     val arr1 = intArrayOf(5, 2, 4, 6, 9, 10)
     val arr2 = intArrayOf(5, 2, 6, 4, 7, 9, 10)
-    println(t.isBSTArray(arr1))
-    println(t.isBSTArray(arr2))
+    println(isBSTArray(arr1))
+    println(isBSTArray(arr2))
+}
+
 /*
 true
 false
 */
-}
 
 fun main() {
     main1()
@@ -1032,4 +1041,6 @@ fun main() {
     main5()
     main6()
     main7()
+    main8()
+    main9()
 }

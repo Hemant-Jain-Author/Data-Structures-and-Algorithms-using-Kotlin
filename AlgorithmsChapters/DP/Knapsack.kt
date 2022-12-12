@@ -83,7 +83,7 @@ fun KS01UnboundBU(wt: IntArray, cost: IntArray, capacity: Int): Int {
             if (wt[i - 1] <= w) dp[w] = Math.max(dp[w], dp[w - wt[i - 1]] + cost[i - 1])
         }
     }
-    // printItems(dp, wt, cost, n, capacity);
+    // printItems(dp, wt, cost, n, capacity)
     return dp[capacity] // Number of weights considered and final capacity.
 }
 

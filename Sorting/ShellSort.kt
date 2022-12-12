@@ -2,7 +2,7 @@ fun greater(value1: Int, value2: Int): Boolean {
     return value1 > value2
 }
 
-fun ShellSort(arr: IntArray) {
+fun shellSort(arr: IntArray) {
     val n = arr.size
     // Gap starts with n/2 and half in each iteration.
     var gap = n / 2
@@ -31,7 +31,7 @@ fun ShellSort(arr: IntArray) {
 
 fun main() {
     val array = intArrayOf(36, 32, 11, 6, 19, 31, 17, 3)
-    ShellSort(array)
+    shellSort(array)
     for (i in array.indices) {
         print(array[i].toString() + " ")
     }

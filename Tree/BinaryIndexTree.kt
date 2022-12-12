@@ -74,4 +74,9 @@ fun main() {
     println("Sum of elements in range(0, 5): " + tree.prefixSum(5))
 }
 
+/*
+Sum of elements in range(0, 5): 21
+Sum of elements in range(2, 5): 18
+Sum of elements in range(0, 5): 27
+*/
 
