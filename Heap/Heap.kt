@@ -26,6 +26,21 @@ class Heap {
             return arr[first] - arr[second] < 0 // Max heap compare
     }
 
+    fun isEmpty(): Boolean {
+        return size == 0
+    }
+
+    fun length(): Int {
+        return size
+    }
+
+    fun peek(): Int {
+        if (isEmpty()) {
+            throw IllegalStateException()
+        }
+        return arr[0]
+    }
+
     // Other Methods.
     private fun percolateDown(parent: Int) {
         val lChild = 2 * parent + 1
@@ -55,21 +70,6 @@ class Heap {
         }
     }
 
-    fun isEmpty(): Boolean {
-        return size == 0
-    }
-
-    fun length(): Int {
-        return size
-    }
-
-    fun peek(): Int {
-        if (isEmpty()) {
-            throw IllegalStateException()
-        }
-        return arr[0]
-    }
-
     fun add(value: Int) {
         if (size == arr.size) {
             doubleSize()
@@ -77,7 +77,7 @@ class Heap {
         arr[size++] = value
         percolateUp(size - 1)
     }
-    
+
     private fun doubleSize() {
         val old = arr
         arr = IntArray(arr.size * 2)

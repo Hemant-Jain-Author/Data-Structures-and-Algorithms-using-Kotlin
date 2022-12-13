@@ -1,6 +1,6 @@
 fun isAnagram(str1: CharArray, str2: CharArray): Boolean {
-    val size1 = str1.size
-    val size2 = str2.size
+    val size1: Int = str1.size
+    val size2: Int = str2.size
     if (size1 != size2) return false
     val hm: HashMap<Char, Int> = HashMap<Char, Int>()
     for (ch in str1) {
@@ -71,11 +71,12 @@ fun main3() {
 /*
 4
 */
+
 fun printRepeating(arr: IntArray) {
     val hs: HashSet<Int> = HashSet<Int>()
     print("Repeating elements are:")
-    for (`val` in arr) {
-        if (hs.contains(`val`)) print(" $`val`") else hs.add(`val`)
+    for (ele in arr) {
+        if (hs.contains(ele)) print(" $ele") else hs.add(ele)
     }
 }
 
@@ -88,12 +89,12 @@ fun main4() {
 /*
 Repeating elements are: 4 1
 */
+
 fun printFirstRepeating(arr: IntArray) {
-    var i: Int
-    val size = arr.size
+    val size: Int = arr.size
     val hs: HashSet<Int> = HashSet<Int>()
     var firstRepeating = Int.MAX_VALUE
-    i = size - 1
+    var i: Int = size - 1
     while (i >= 0) {
         if (hs.contains(arr[i])) {
             firstRepeating = arr[i]
@@ -113,11 +114,11 @@ fun main5() {
 /*
 First Repeating number is:1
 */
+
 fun hornerHash(key: CharArray, tableSize: Int): Int {
-    val size = key.size
-    var h = 0
-    var i: Int
-    i = 0
+    val size: Int = key.size
+    var h: Int = 0
+    var i: Int = 0
     while (i < size) {
         h = (32 * h + key[i].code) % tableSize
         i++

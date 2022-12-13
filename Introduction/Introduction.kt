@@ -289,7 +289,7 @@ fun main8() {
 [ -1 1 2 3 4 -1 6 7 8 9 ]
 */
 
-fun Sort1toN(arr:IntArray, size:Int) {
+fun sort1toN(arr:IntArray, size:Int) {
     var curr:Int
     var value:Int
     var next:Int
@@ -306,7 +306,7 @@ fun Sort1toN(arr:IntArray, size:Int) {
     }
 }
 
-fun Sort1toN2(arr:IntArray, size:Int) {
+fun sort1toN2(arr:IntArray, size:Int) {
     var temp:Int
     for (i in 0 until size) {
         while (arr[i] != i + 1 && arr[i] > 1) {
@@ -321,11 +321,11 @@ fun Sort1toN2(arr:IntArray, size:Int) {
 fun main9() {
     var arr = intArrayOf(8, 5, 6, 1, 9, 3, 2, 7, 4, 10)
     var size = arr.size
-    Sort1toN2(arr, size)
+    sort1toN2(arr, size)
     printArray(arr, size)
     var arr2 = intArrayOf(8, 5, 6, 1, 9, 3, 2, 7, 4, 10)
     size = arr2.size
-    Sort1toN(arr2, size)
+    sort1toN(arr2, size)
     printArray(arr2, size)
 }
 

@@ -12,12 +12,13 @@ class LinkedList {
         return size
     }
 
-    // Other Methods.
 
     fun peek(): Int {
         if (isEmpty) throw IllegalStateException("EmptyListException")
-        return head!!.value
+    return head!!.value
     }
+
+    // Other Methods.
 
     fun addHead(value: Int) {
         head = Node(value, head)
@@ -504,9 +505,9 @@ fun main1() {
     ll.addHead(3)
     ll.print()
     println("Size : " + ll.size())
-    println("Size : " + ll.findLength())
-    println("Is empty : " + ll.isEmpty)
-    println("Peek : " + ll.peek())
+	println("Size : " + ll.findLength())
+	println("Is empty : " + ll.isEmpty)
+	println("Peek : " + ll.peek())
     ll.addTail(4)
     ll.print()
 }
@@ -549,8 +550,8 @@ fun main3() {
     ll.addHead(3)
     ll.print()
     println("deleteNode : " + ll.deleteNode(2))
-    ll.print()
-    println("deleteNodes : " + ll.deleteNodes(1))
+	ll.print()
+	println("deleteNodes : " + ll.deleteNodes(1))
     ll.print()
 }
 
@@ -640,7 +641,6 @@ fun main7() {
     ll.sortedInsert(1)
     ll.sortedInsert(2)
     ll.sortedInsert(3)
-    ll.print()
     ll.sortedInsert(1)
     ll.sortedInsert(2)
     ll.sortedInsert(3)
@@ -650,7 +650,6 @@ fun main7() {
 }
 
 /*
-1 2 3 
 1 1 2 2 3 3 
 1 2 3
 */
@@ -667,7 +666,7 @@ fun main8() {
     ll.loopDetect2()
     ll.loopTypeDetect()
     ll.removeLoop()
-    ll.loopDetect2()
+    ll.loopDetect()
 }
 
 /*

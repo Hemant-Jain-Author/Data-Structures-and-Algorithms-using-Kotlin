@@ -1,3 +1,7 @@
+fun quickSort(arr: IntArray) {
+    quickSortUtil(arr, 0, arr.size - 1)
+}
+
 fun quickSortUtil(arr: IntArray, start: Int, stop: Int) {
     if (stop <= start) return
 
@@ -21,16 +25,13 @@ fun quickSortUtil(arr: IntArray, start: Int, stop: Int) {
     quickSortUtil(arr, upper + 1, stop) // pivot + 1 is the lower for right sub array
 }
 
-fun quickSort(arr: IntArray) {
-    quickSortUtil(arr, 0, arr.size - 1)
-}
-
 fun swap(arr: IntArray, first: Int, second: Int) {
     val temp = arr[first]
     arr[first] = arr[second]
     arr[second] = temp
 }
 
+// Testing code.
 fun main() {
     val array = intArrayOf(3, 4, 2, 1, 6, 5, 7, 8, 10, 9)
     quickSort(array)

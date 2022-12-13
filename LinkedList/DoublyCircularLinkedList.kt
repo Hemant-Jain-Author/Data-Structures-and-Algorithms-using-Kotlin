@@ -1,18 +1,18 @@
 class DoublyCircularLinkedList {
-    private var head: Node? = null
+    private class Node(val value: Int, var next: Node?, var prev: Node?)
+
+	private var head: Node? = null
     private var tail: Node? = null
     private var size = 0
 
     val isEmpty: Boolean
         get() = size == 0
     
-    private class Node(val value: Int, var next: Node?, var prev: Node?)
-
-    /* Other methods */
     fun size(): Int {
         return size
     }
-
+    /* Other methods */
+}
     fun peekHead(): Int {
         if (isEmpty) throw IllegalStateException("EmptyListException")
         return head!!.value

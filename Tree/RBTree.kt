@@ -40,7 +40,9 @@ class RBTree {
         printTree(node.right, indent, false)
     }
 
-    /* Other methods */ // Function to right rotate subtree rooted with x
+    /* Other methods */
+	
+	// Function to right rotate subtree rooted with x
     fun rightRotate(x: Node?): Node? {
         val y = x!!.left
         val T = y!!.right

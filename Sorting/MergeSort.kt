@@ -1,3 +1,20 @@
+
+fun mergeSort(arr: IntArray) {
+    val size = arr.size
+    val tempArray = IntArray(size)
+    mergeSortUtil(arr, tempArray, 0, size - 1)
+}
+
+fun mergeSortUtil(arr: IntArray, tempArray: IntArray, lowerIndex: Int, upperIndex: Int) {
+    if (lowerIndex >= upperIndex) {
+        return
+    }
+    val middleIndex = (lowerIndex + upperIndex) / 2
+    mergeSortUtil(arr, tempArray, lowerIndex, middleIndex)
+    mergeSortUtil(arr, tempArray, middleIndex + 1, upperIndex)
+    merge(arr, tempArray, lowerIndex, middleIndex, upperIndex)
+}
+
 fun merge(arr: IntArray, tempArray: IntArray, lowerIndex: Int, middleIndex: Int, upperIndex: Int) {
     var lowerStart = lowerIndex
     var upperStart = middleIndex + 1
@@ -18,22 +35,6 @@ fun merge(arr: IntArray, tempArray: IntArray, lowerIndex: Int, middleIndex: Int,
     for (i in lowerIndex..upperIndex) {
         arr[i] = tempArray[i]
     }
-}
-
-fun mergeSortUtil(arr: IntArray, tempArray: IntArray, lowerIndex: Int, upperIndex: Int) {
-    if (lowerIndex >= upperIndex) {
-        return
-    }
-    val middleIndex = (lowerIndex + upperIndex) / 2
-    mergeSortUtil(arr, tempArray, lowerIndex, middleIndex)
-    mergeSortUtil(arr, tempArray, middleIndex + 1, upperIndex)
-    merge(arr, tempArray, lowerIndex, middleIndex, upperIndex)
-}
-
-fun mergeSort(arr: IntArray) {
-    val size = arr.size
-    val tempArray = IntArray(size)
-    mergeSortUtil(arr, tempArray, 0, size - 1)
 }
 
 // Testing code

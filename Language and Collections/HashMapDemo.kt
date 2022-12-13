@@ -11,7 +11,7 @@ fun main() {
     for (key in hm.keys) {
         println(key + " cost : " + hm.get(key))
     }
-    println("Apple present :" + hm.containsKey("Apple"))
+    println("Apple present : " + hm.containsKey("Apple"))
     println("Grapes present : " + hm.containsKey("Grapes"))
 }
 
@@ -20,6 +20,6 @@ Size : 3
 Apple cost : 40
 Mango cost : 20
 Banana cost : 10
-Apple present :true
+Apple present : true
 Grapes present : false
 */

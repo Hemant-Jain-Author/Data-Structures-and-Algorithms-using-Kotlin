@@ -9,7 +9,7 @@ class BinaryIndexTree internal constructor(arr: IntArray) {
         for (i in 0 until size) update(i, arr[i])
     }
 
-    operator fun set(arr: IntArray, index: Int, value: Int) {
+    fun set(arr: IntArray, index: Int, value: Int) {
         val diff = value - arr[index]
         arr[index] = value
 
@@ -66,10 +66,8 @@ fun main() {
     val tree = BinaryIndexTree(arr)
     println("Sum of elements in range(0, 5): " + tree.prefixSum(5))
     println("Sum of elements in range(2, 5): " + tree.rangeSum(2, 5))
-
     // Set fourth element to 10.
     tree[arr, 3] = 10
-
     // Find sum after the value is updated
     println("Sum of elements in range(0, 5): " + tree.prefixSum(5))
 }

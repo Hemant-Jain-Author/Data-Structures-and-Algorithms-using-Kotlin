@@ -29,6 +29,7 @@ fun shellSort(arr: IntArray) {
     }
 }
 
+// Testing code.
 fun main() {
     val array = intArrayOf(36, 32, 11, 6, 19, 31, 17, 3)
     shellSort(array)

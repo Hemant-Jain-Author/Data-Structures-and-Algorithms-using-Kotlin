@@ -1,3 +1,8 @@
+fun quickSelect(arr: IntArray, k: Int): Int {
+    quickSelectUtil(arr, 0, arr.size - 1, k - 1)
+    return arr[k - 1]
+}
+
 fun quickSelectUtil(arr: IntArray, start: Int, stop: Int, k: Int) {
     if (stop <= start) return
 
@@ -27,11 +32,7 @@ fun swap(arr: IntArray, first: Int, second: Int) {
     arr[second] = temp
 }
 
-fun quickSelect(arr: IntArray, k: Int): Int {
-    quickSelectUtil(arr, 0, arr.size - 1, k - 1)
-    return arr[k - 1]
-}
-
+// Testing code.
 fun main() {
     val array = intArrayOf(3, 4, 2, 1, 6, 5, 7, 8)
     print("value at index 5 is : " + quickSelect(array, 5))

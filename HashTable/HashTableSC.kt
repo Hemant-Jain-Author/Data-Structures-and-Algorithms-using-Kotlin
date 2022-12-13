@@ -1,8 +1,8 @@
 class HashTableSC {
-    private val tableSize = 512
-    var listArray: Array<Node?>
-
     inner class Node( val key: Int, val value: Int, var next: Node?)
+
+    var listArray: Array<Node?>
+    private val tableSize = 512
 
     init {
         listArray = arrayOfNulls(tableSize)

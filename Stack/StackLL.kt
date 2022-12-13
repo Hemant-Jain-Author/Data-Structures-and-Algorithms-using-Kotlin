@@ -1,8 +1,8 @@
 class StackLL {
-    private var head: Node? = null
-    private var length = 0
-
     private class Node(val value: Int, var next: Node?)
+
+	private var head: Node? = null
+    private var length = 0
 
     fun size(): Int {
         return length

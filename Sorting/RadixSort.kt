@@ -37,17 +37,13 @@ fun countSort(arr: IntArray, n: Int, dividend: Int) {
     }
 }
 
-fun printArray(arr: IntArray) {
-    for (i in arr.indices) {
-        print(arr[i].toString() + " ")
-    }
-    println()
-}
-
+// Testing code.
 fun main() {
     val array = intArrayOf(100, 49, 65, 91, 702, 29, 4, 55)
     radixSort(array)
-    printArray(array)
+    for (i in array.indices) {
+        print(array[i].toString() + " ")
+    }
 }
 
 // 4 29 49 55 65 91 100 702

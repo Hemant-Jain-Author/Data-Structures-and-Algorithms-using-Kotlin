@@ -1,17 +1,33 @@
 class QueueLL {
-    private var tail: Node? = null
+    private class Node(val value: Int, var next: Node?)
+
+	private var tail: Node? = null
     private var size = 0
 
     val isEmpty: Boolean
         get() = size == 0
 
-    private class Node(val value: Int, var next: Node?)
 
     fun size(): Int {
         return size
     }
 
-    fun peek(): Int {
+
+    fun print() {
+        if (size == 0) {
+            print("Queue is empty.")
+            return
+        }
+        var temp = tail!!.next
+        print("Queue is : ")
+        for (i in 0 until size) {
+            print(temp!!.value.toString() + " ")
+            temp = temp.next
+        }
+        println()
+    }
+	
+	fun peek(): Int {
         if (isEmpty) throw IllegalStateException("StackEmptyException")
 
         val value: Int
@@ -50,19 +66,6 @@ class QueueLL {
         return value
     }
 
-    fun print() {
-        if (size == 0) {
-            print("Queue is empty.")
-            return
-        }
-        var temp = tail!!.next
-        print("Queue is : ")
-        for (i in 0 until size) {
-            print(temp!!.value.toString() + " ")
-            temp = temp.next
-        }
-        println()
-    }
 }
 
 fun main() {

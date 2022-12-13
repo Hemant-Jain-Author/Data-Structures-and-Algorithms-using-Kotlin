@@ -136,7 +136,7 @@ fun minOfMaxSlidingWindows(arr: IntArray, size: Int, k: Int): Int {
         if (i >= k - 1 && minVal > arr[que.peek()]) 
             minVal = arr[que.peek()]
     }
-    println("Min of max is :: $minVal")
+    println("Min of max is : $minVal")
     return minVal
 }
 
@@ -147,7 +147,7 @@ fun main4() {
 }
 
 /*
-Min of max is :: 75
+Min of max is : 75
 */
 
 fun maxOfMinSlidingWindows(arr: IntArray, size: Int, k: Int) {
@@ -492,15 +492,8 @@ fun main9() {
 */
 fun findLargestIslandUtil(arr: Array<IntArray>, maxCol: Int, maxRow: Int, currCol: Int, currRow: Int,
                         traversed: Array<BooleanArray>): Int {
-    val dir = arrayOf(
-        intArrayOf(-1, -1),
-        intArrayOf(-1, 0),
-        intArrayOf(-1, 1),
-        intArrayOf(0, -1),
-        intArrayOf(0, 1),
-        intArrayOf(1, -1),
-        intArrayOf(1, 0),
-        intArrayOf(1, 1)
+    val dir = arrayOf(intArrayOf(-1, -1), intArrayOf(-1, 0), intArrayOf(-1, 1), intArrayOf(0, -1),
+    				  intArrayOf(0, 1), intArrayOf(1, -1), intArrayOf(1, 0), intArrayOf(1, 1)
     )
     var x: Int
     var y: Int

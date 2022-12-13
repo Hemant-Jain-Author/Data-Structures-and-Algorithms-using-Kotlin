@@ -1,18 +1,18 @@
 class DoublyLinkedList {
-    private var head: Node? = null
+    private class Node(val value: Int, var next: Node?, var prev: Node?)
+
+	private var head: Node? = null
     private var tail: Node? = null
     private var size = 0
 
     val isEmpty: Boolean
         get() = size == 0
-        
-    private class Node(val value: Int, var next: Node?, var prev: Node?)
-
-    /* Other methods */
-
+    
     fun size(): Int {
         return size
     }
+	
+    /* Other methods */
 
     fun print() {
         var temp = head
@@ -56,7 +56,7 @@ class DoublyLinkedList {
 
     fun removeHead(): Int {
         if (isEmpty) throw IllegalStateException("EmptyListException")
-    
+
         val value = head!!.value
         head = head!!.next
         if (head == null) 
@@ -144,8 +144,8 @@ class DoublyLinkedList {
     }
 
     /*
-	 * Reverse a doubly linked List iteratively
-	 */
+    * Reverse a doubly linked List iteratively
+    */
     fun reverseList() {
         var curr = head
         var tempNode: Node?
@@ -199,6 +199,7 @@ class DoublyLinkedList {
         return dll
     }
 }
+
 // Testing code.
 fun main1() {
     val ll = DoublyLinkedList()

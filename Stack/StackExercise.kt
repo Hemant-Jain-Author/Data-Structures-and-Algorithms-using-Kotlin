@@ -723,14 +723,11 @@ fun printParenthesisNumber(expn: String, size: Int) {
 /* Testing code */
 fun main19() {
     val expn1 = "(((a+(b))+(c+d)))"
-    val expn2 = "(((a+b))+c)((("
     printParenthesisNumber(expn1, expn1.length)
-    printParenthesisNumber(expn2, expn2.length)
 }
 
 /*
 Parenthesis Count :: 1 2 3 4 4 3 5 5 2 1
-Parenthesis Count :: 1 2 3 3 2 1 4 5 6
 */
 
 fun nextLargerElement(arr: IntArray, size: Int) {

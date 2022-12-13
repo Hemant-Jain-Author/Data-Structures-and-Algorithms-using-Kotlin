@@ -7,8 +7,7 @@ class rangeMaxST(input: IntArray) {
         val x: Int = Math.ceil(Math.log(n.toDouble()) / Math.log(2.0)).toInt()
         //Maximum size of segment tree
         val max_size: Int = 2 * Math.pow(2.0, x.toDouble()).toInt() - 1
-        // Allocate memory for segment tree
-        segArr = IntArray(max_size)
+        segArr = IntArray(max_size) // Allocate memory for segment tree
         constructST(input, 0, n - 1, 0)
     }
 

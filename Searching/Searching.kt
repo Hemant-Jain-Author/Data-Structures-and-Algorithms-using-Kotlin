@@ -107,12 +107,12 @@ fun fibonacciSearch(arr: IntArray, size: Int, value: Int): Boolean {
 fun main1() {
     val first = intArrayOf(1, 3, 5, 7, 9, 25, 30)
     println(linearSearchUnsorted(first, 7, 8))
-    println(linearSearchSorted(first, 7, 8))
-    println(binarySearch(first, 7, 8))
-    println(binarySearchRec(first, 7, 8))
     println(linearSearchUnsorted(first, 7, 25))
+    println(linearSearchSorted(first, 7, 8))
     println(linearSearchSorted(first, 7, 25))
+    println(binarySearch(first, 7, 8))
     println(binarySearch(first, 7, 25))
+    println(binarySearchRec(first, 7, 8))
     println(binarySearchRec(first, 7, 25))
     println(fibonacciSearch(first, 7, 8))
     println(fibonacciSearch(first, 7, 25))
@@ -1094,8 +1094,11 @@ fun main17() {
 */
 
 fun abcTriplet(arr: IntArray, size: Int) {
-    for (i in 0 until size - 1) for (j in i + 1 until size) for (k in 0 until size) {
-        if (k != i && k != j && arr[i] + arr[j] == arr[k]) println("abcTriplet:: " + arr[i] + " " + arr[j] + " " + arr[k])
+    for (i in 0 until size - 1)
+		for (j in i + 1 until size)
+			for (k in 0 until size) {
+				if (k != i && k != j && arr[i] + arr[j] == arr[k])
+					println("abcTriplet:: " + arr[i] + " " + arr[j] + " " + arr[k])
     }
 }
 
@@ -1131,7 +1134,11 @@ fun main18() {
 
 fun smallerThenTripletCount(arr: IntArray, size: Int, value: Int) {
     var count = 0
-    for (i in 0 until size - 1) for (j in i + 1 until size) for (k in j + 1 until size) if (arr[i] + arr[j] + arr[k] < value) count += 1
+    for (i in 0 until size - 1)
+		for (j in i + 1 until size)
+			for (k in j + 1 until size)
+				if (arr[i] + arr[j] + arr[k] < value)
+					count += 1
     println("smallerThenTripletCount:: $count")
 }
 
@@ -1157,7 +1164,7 @@ fun smallerThenTripletCount2(arr: IntArray, size: Int, value: Int) {
 fun main19() {
     val first = intArrayOf(-2, -1, 0, 1)
     smallerThenTripletCount(first, first.size, 2)
-    smallerThenTripletCount(first, first.size, 2)
+    smallerThenTripletCount2(first, first.size, 2)
 }
 
 /*
@@ -1166,10 +1173,9 @@ fun main19() {
 */
 
 fun apTriplets(arr: IntArray, size: Int) {
-    var i: Int
+    var i: Int = 1
     var j: Int
     var k: Int
-    i = 1
     while (i < size - 1) {
         j = i - 1
         k = i + 1
@@ -1197,10 +1203,9 @@ fun main20() {
 */
 
 fun gpTriplets(arr: IntArray, size: Int) {
-    var i: Int
+    var i: Int = 1
     var j: Int
     var k: Int
-    i = 1
     while (i < size - 1) {
         j = i - 1
         k = i + 1
@@ -1617,9 +1622,10 @@ fun firstIndex(arr: IntArray, size: Int, low: Int, high: Int, value: Int): Int {
     /*
     * Find first occurrence of value, either it should be the first element of the
     * array or the value before it is smaller than it.
-    */return if ((mid == 0 || arr[mid - 1] < value) && arr[mid] == value) mid 
-            else if (arr[mid] < value) firstIndex(arr,size,mid+1,high,value) 
-            else firstIndex(arr, size, low, mid - 1, value)
+    */
+	return if ((mid == 0 || arr[mid - 1] < value) && arr[mid] == value) mid 
+           else if (arr[mid] < value) firstIndex(arr,size,mid+1,high,value) 
+           else firstIndex(arr, size, low, mid - 1, value)
 }
 
 fun isMajority2(arr: IntArray, size: Int): Boolean {
@@ -1692,13 +1698,13 @@ fun maxProfit2(stocks: IntArray, size: Int): Int {
 fun main29() {
     val first = intArrayOf(10, 150, 6, 67, 61, 16, 86, 6, 67, 78, 150, 3, 28, 143)
     println(maxProfit(first, first.size))
-    println(maxProfit2(first, first.size))
+    println("Profit is " + maxProfit2(first, first.size))
 }
 
 /*
 * Purchase day is- 2 at price 6 
 * Sell day is- 10 at price 150 
-* 144
+* Profit is 144
 */
 
 fun findMedian(arrFirst: IntArray, sizeFirst: Int, arrSecond: IntArray, sizeSecond: Int): Int {
@@ -1770,7 +1776,8 @@ fun main31() {
 */
 
 fun rotationMax(arr: IntArray, size: Int): Int {
-    for (i in 0 until size - 1) if (arr[i] > arr[i + 1]) return arr[i]
+    for (i in 0 until size - 1)
+		if (arr[i] > arr[i + 1]) return arr[i]
     return -1
 }
 
@@ -1886,16 +1893,17 @@ fun main35() {
 }
 
 /*
-* 15 
-* 3 
-* 7
-* 7
+15
+15
+3
+77
 */
 
 fun minAbsDiffAdjCircular(arr: IntArray, size: Int): Int {
     var diff = 9999999
     if (size < 2) return -1
-    for (i in 0 until size) diff = Math.min(diff, Math.abs(arr[i] - arr[(i + 1) % size]))
+    for (i in 0 until size)
+		diff = Math.min(diff, Math.abs(arr[i] - arr[(i + 1) % size]))
     return diff
 }
 
@@ -1915,7 +1923,7 @@ fun swapch(arr: CharArray, first: Int, second: Int) {
     arr[second] = temp
 }
 
-fun transformArrayAB1(arr: CharArray, size: Int) {
+fun transformArrayAB(arr: CharArray, size: Int) {
     val N = size / 2
     var i: Int
     var j: Int
@@ -1933,7 +1941,7 @@ fun transformArrayAB1(arr: CharArray, size: Int) {
 // Testing Code
 fun main37() {
     val str: CharArray = "aaaabbbb".toCharArray()
-    transformArrayAB1(str, str.size)
+    transformArrayAB(str, str.size)
     println(str)
 }
 
@@ -2348,8 +2356,8 @@ fun main45() {
 fun fixPoint(arr: IntArray, size: Int): Int {
     for (i in 0 until size) {
         if (arr[i] == i) return i
-    } /* fix point not found so return invalid index */
-    return -1
+    } 
+    return -1 /* fix point not found so return invalid index */
 }
 
 /* Binary search method */
@@ -2364,7 +2372,7 @@ fun fixPoint2(arr: IntArray, size: Int): Int {
         else if (arr[mid] < mid) low = mid + 1 
         else high = mid - 1
     }
-    /* fix point not found so return invalid index */return -1
+    return -1 /* fix point not found so return invalid index */
 }
 
 // Testing Code
@@ -2655,11 +2663,11 @@ fun maxSubArraySum(a: IntArray, size: Int): Int {
 // Testing Code
 fun main53() {
     val arr = intArrayOf(1, -2, 3, 4, -4, 6, -4, 3, 2)
-    println("Max sub array sum :" + maxSubArraySum(arr, 9))
+    println("Max sub array sum : " + maxSubArraySum(arr, 9))
 }
 
 /*
-Max sub array sum :10
+Max sub array sum : 10
 */
 
 // Testing Code

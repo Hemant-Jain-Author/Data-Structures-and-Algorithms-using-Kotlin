@@ -1,22 +1,22 @@
 class CircularLinkedList {
+    private class Node(val value: Int, var next: Node?)
+
     private var tail: Node? = null
     private var size = 0
 
     val isEmpty: Boolean
         get() = size == 0
      
-    private class Node(val value: Int, var next: Node?)
-
     fun size(): Int {
         return size
     }
-
-    /* Other methods */
 
     fun peek(): Int {
         if (isEmpty) throw IllegalStateException("EmptyListException")
         return tail!!.next!!.value
     }
+    /* Other methods */
+
 
     fun addTail(value: Int) {
         val temp = Node(value, null)

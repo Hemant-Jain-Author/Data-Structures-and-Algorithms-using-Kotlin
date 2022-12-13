@@ -185,6 +185,7 @@ fun main4() {
     printArray(array2, array2.size)
 }
 
+// [ 8 2 6 4 5 3 7 1 9 ]
 // [ 4 6 8 2 7 3 1 9 5 ]
 
 fun absGreater(value1: Int, value2: Int, ref: Int): Boolean {
@@ -348,6 +349,7 @@ fun checkReverse(arr: IntArray, size: Int): Boolean {
     return true
 }
 
+// Testing code.
 fun main9() {
     val arr1 = intArrayOf(1, 2, 6, 5, 4, 7)
     println(checkReverse(arr1, arr1.size))
@@ -355,17 +357,11 @@ fun main9() {
 
 // true
 
-fun min(X: Int, Y: Int): Int {
-    return if (X < Y) {
-        X
-    } else Y
-}
-
 fun unionIntersectionSorted(arr1: IntArray, size1: Int, arr2: IntArray, size2: Int) {
     var first = 0
     var second = 0
     val unionArr = IntArray(size1 + size2)
-    val interArr = IntArray(min(size1, size2))
+    val interArr = IntArray(Math.min(size1, size2))
     var uIndex = 0
     var iIndex = 0
     while (first < size1 && second < size2) {
@@ -400,6 +396,7 @@ fun unionIntersectionUnsorted(arr1: IntArray, size1: Int, arr2: IntArray, size2:
     unionIntersectionSorted(arr1, size1, arr2, size2)
 }
 
+// Testing code.
 fun main10() {
     val arr1 = intArrayOf(1, 11, 2, 3, 14, 5, 6, 8, 9)
     val arr2 = intArrayOf(2, 4, 5, 12, 7, 8, 13, 10)
