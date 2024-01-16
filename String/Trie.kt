@@ -1,11 +1,11 @@
 class Trie {
-    var root: Node? = null
-    private val CharCount = 26
-
     inner class Node() {
         var isLastChar : Boolean = false
         var child: Array<Node?>  = arrayOfNulls(CharCount)
     }
+
+	var root: Node? = null
+    private val CharCount = 26
 
     init {
         root = Node() // first node with dummy value.

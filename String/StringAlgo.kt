@@ -26,7 +26,7 @@ fun main1() {
 
 // true
 
-fun match(src: String, ptn: String): Boolean {
+fun matchPattern(src: String, ptn: String): Boolean {
     val source = src.toCharArray()
     val pattern = ptn.toCharArray()
     val sourceLen = source.size
@@ -47,7 +47,7 @@ fun match(src: String, ptn: String): Boolean {
 
 /* Testing code. */
 fun main2() {
-    println(match("harrypottermustnotgotoschool", "pottergo"))
+    println(matchPattern("harrypottermustnotgotoschool", "pottergo"))
 }
 
 // true
@@ -236,8 +236,8 @@ fun isPalindrome(str: String): Boolean {
 
 /* Testing code. */
 fun main8() {
-    println(isPalindrome("hello"))
-    println(isPalindrome("oyo"))
+    isPalindrome("hello")
+    isPalindrome("oyo")
 }
 
 /* 
@@ -294,11 +294,15 @@ fun myStrcmp(a: String, b: String): Int {
 
 /* Testing code. */
 fun main10() {
-    println(myStrcmp("abs", "abs"))
+    println(myStrcmp("apple", "appke"))
+    println(myStrcmp("apple", "apple"))
+    println(myStrcmp("apple", "appme"))
 }
-
-// 0
-
+/* 
+1
+0
+-1
+ */
 fun reverseString(str: String): String {
     val a = str.toCharArray()
     reverseStringUtil(a)

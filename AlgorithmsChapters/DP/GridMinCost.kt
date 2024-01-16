@@ -2,16 +2,16 @@ fun min(x: Int, y: Int, z: Int): Int {
     return Math.min(Math.min(x, y), z)
 }
 
-fun minCost(cost: Array<IntArray>, m: Int, n: Int): Int {
+fun gridMinCost(cost: Array<IntArray>, m: Int, n: Int): Int {
     if (m == 0 || n == 0) return 99999
     return if (m == 1 && n == 1) cost[0][0] else cost[m - 1][n - 1] + min(
-        minCost(cost, m - 1, n - 1),
-        minCost(cost, m - 1, n),
-        minCost(cost, m, n - 1)
+        gridMinCost(cost, m - 1, n - 1),
+        gridMinCost(cost, m - 1, n),
+        gridMinCost(cost, m, n - 1)
     )
 }
 
-fun minCostBU(cost: Array<IntArray>, m: Int, n: Int): Int {
+fun gridMinCostBU(cost: Array<IntArray>, m: Int, n: Int): Int {
     val tc = Array(m) { IntArray(n) }
     tc[0][0] = cost[0][0]
 
@@ -34,8 +34,8 @@ fun minCostBU(cost: Array<IntArray>, m: Int, n: Int): Int {
 // Testing code.
 fun main() {
     val cost = arrayOf(intArrayOf(1, 3, 4), intArrayOf(4, 7, 5), intArrayOf(1, 5, 3))
-    println(minCost(cost, 3, 3))
-    println(minCostBU(cost, 3, 3))
+    println(gridMinCost(cost, 3, 3))
+    println(gridMinCostBU(cost, 3, 3))
 }
 
 /* 

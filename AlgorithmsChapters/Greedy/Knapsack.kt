@@ -1,16 +1,14 @@
 import java.util.Arrays
 
-class Items internal constructor(var wt: Int, var cost: Int) {
+class Items internal constructor(var wt: Int, var cost: Int) : Comparable<Items> {
     var density: Double
 
     init {
         density = cost.toDouble() / wt
     }
-}
 
-internal class decDensity : java.util.Comparator<Items> {
-    override fun compare(a: Items, b: Items): Int {
-        return (b.density - a.density).toInt()
+    override operator fun compareTo(other: Items): Int { // decreasing order.
+        return (other.density - density).toInt()
     }
 }
 
@@ -21,7 +19,8 @@ fun getMaxCostGreedy(wt: IntArray, cost: IntArray, capacty: Int): Int {
     val n = wt.size
     val itemList = Array(n){Items(0,0)}
     for (i in 0 until n) itemList[i] = Items(wt[i], cost[i])
-    Arrays.sort<Items>(itemList, decDensity())
+    itemList.sort()
+	
     var i = 0
     while (i < n && capacity > 0) {
         if (capacity - itemList[i].wt >= 0) {

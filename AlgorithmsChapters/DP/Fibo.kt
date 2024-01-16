@@ -1,7 +1,5 @@
 fun fibonacci(n: Int): Int {
-    return if (n < 2) {
-        n
-    } else fibonacci(n - 1) + fibonacci(n - 2)
+    return if (n < 2) n else fibonacci(n-1) + fibonacci(n-2)
 }
 
 fun fibonacciBU(n: Int): Int {

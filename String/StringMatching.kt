@@ -30,24 +30,19 @@ fun robinKarp(txt: String, ptn: String): Int {
         return -1
     }
 
-    var i = 0
-    while (i < m - 1) {
+    for (i in  0 until m-1) {
         powm = (powm shl 1) % prime
-        i++
     }
 
     var TextHash = 0
     var PatternHash = 0
-    i = 0
-    while (i < m) {
+    for (i in  0 until m) {
         PatternHash = ((PatternHash shl 1) + pattern[i].code) % prime
         TextHash = ((TextHash shl 1) + text[i].code) % prime
-        i++
     }
 
-    i = 0
     var j: Int
-    while (i <= n - m) {
+    for (i in 0 ..n - m) {
         if (TextHash == PatternHash) {
             j = 0
             while (j < m) {
@@ -63,7 +58,6 @@ fun robinKarp(txt: String, ptn: String): Int {
         if (TextHash < 0) {
             TextHash = TextHash + prime
         }
-        i++
     }
     return -1
 }

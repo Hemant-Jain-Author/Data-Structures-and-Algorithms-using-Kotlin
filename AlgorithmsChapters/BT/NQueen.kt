@@ -1,18 +1,3 @@
-fun print(Q: IntArray, n: Int) {
-    for (i in 0 until n) {
-        print(" " + Q[i])
-    }
-    println(" ")
-}
-
-fun feasible(Q: IntArray, k: Int): Boolean {
-    for (i in 0 until k) {
-        if (Q[k] == Q[i] || java.lang.Math.abs(Q[i] - Q[k]) == java.lang.Math.abs(i - k)) {
-            return false
-        }
-    }
-    return true
-}
 
 fun nQueens(Q: IntArray, k: Int, n: Int) {
     if (k == n) {
@@ -27,6 +12,23 @@ fun nQueens(Q: IntArray, k: Int, n: Int) {
     }
 }
 
+fun feasible(Q: IntArray, k: Int): Boolean {
+    for (i in 0 until k) {
+        if (Q[k] == Q[i] || java.lang.Math.abs(Q[i] - Q[k]) == java.lang.Math.abs(i - k)) {
+            return false
+        }
+    }
+    return true
+}
+
+fun print(Q: IntArray, n: Int) {
+    for (i in 0 until n) {
+        print(" " + Q[i])
+    }
+    println(" ")
+}
+
+// Testing code.
 fun main() {
     val Q = IntArray(8)
     nQueens(Q, 0, 8)

@@ -14,6 +14,7 @@ fun maxActivities(s: IntArray, f: IntArray, n: Int) {
     val act = arrayOfNulls<Activity>(n)
     for (i in 0 until n) act[i] = Activity(s[i], f[i])
     Arrays.sort(act) // sort according to finish time.
+	
     var i = 0 // The first activity at index 0 is always gets selected.
     print("Activities are : (" + act[i]!!.start + "," + act[i]!!.stop + ")")
     for (j in 1 until n) {

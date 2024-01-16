@@ -1,5 +1,5 @@
 // Function to find the minimum weight Hamiltonian Cycle
-fun tsp( graph: Array<IntArray>, n: Int, path: IntArray, pSize: Int,
+fun tspUtil( graph: Array<IntArray>, n: Int, path: IntArray, pSize: Int,
     pCost: Int, visited: BooleanArray, ansIn: Int, ansPath: IntArray): Int {
     var ans = ansIn
     if (pCost > ans) return ans
@@ -15,7 +15,7 @@ fun tsp( graph: Array<IntArray>, n: Int, path: IntArray, pSize: Int,
         if (visited[i] == false && graph[curr][i] > 0) {
             visited[i] = true
             path[pSize] = i
-            ans = tsp(graph, n, path, pSize + 1, pCost + graph[curr][i], visited, ans, ansPath)
+            ans = tspUtil(graph, n, path, pSize + 1, pCost + graph[curr][i], visited, ans, ansPath)
             visited[i] = false
         }
     }
@@ -29,13 +29,14 @@ fun tsp(graph: Array<IntArray>, n: Int): Int {
     path[0] = 0
     visited[0] = true
     var ans = Int.MAX_VALUE
-    ans = tsp(graph, n, path, 1, 0, visited, ans, ansPath)
+    ans = tspUtil(graph, n, path, 1, 0, visited, ans, ansPath)
     println("Path length : $ans")
     print("Path : ")
     for (i in 0..n) print(ansPath[i].toString() + " ")
     return ans
 }
 
+// Testing code.
 fun main() {
     val n = 4
     val graph = arrayOf(

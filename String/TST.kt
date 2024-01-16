@@ -1,21 +1,9 @@
 class TST {
+
+    class Node(var data : Char, var left: Node? = null, var equal: Node? = null,
+               var right: Node? = null, var isLastChar: Boolean = false)
+
     var root: Node? = null
-
-    class Node {
-        var isLastChar: Boolean
-        var left: Node?
-        var equal: Node?
-        var right: Node?
-        var data : Char
-
-        constructor(dta: Char){
-            isLastChar = false
-            right = null
-            equal = null
-            left = null
-            data = dta
-        }
-    }
 
     fun add(word: String) {
         root = add(root, word.lowercase(), 0)

@@ -102,7 +102,7 @@ fun printFirstRepeating(arr: IntArray) {
         hs.add(arr[i])
         i--
     }
-    println("First Repeating number is:$firstRepeating")
+    println("First Repeating number is : $firstRepeating")
 }
 
 //Testing code.

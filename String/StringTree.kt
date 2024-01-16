@@ -1,8 +1,8 @@
 class StringTree {
-    var root: Node? = null
-
     class Node(var value: String? = null, var lChild: Node? = null, var rChild: Node? = null )
 
+    var root: Node? = null
+	
     fun print(curr: Node? = root) /* pre order */ {
         if (curr != null) {
             print("Value is :: " + curr.value!!)

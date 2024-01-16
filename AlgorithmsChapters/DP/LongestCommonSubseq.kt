@@ -1,4 +1,4 @@
-fun LCSubStr(st1: String, st2: String): Int {
+fun LCSubSeq(st1: String, st2: String): Int {
     val X: CharArray = st1.toCharArray()
     val Y: CharArray = st2.toCharArray()
     val m = st1.length
@@ -34,5 +34,5 @@ fun PrintLCS(p: Array<IntArray>, X: CharArray, i: Int, j: Int) {
 fun main() {
     val X = "carpenter"
     val Y = "sharpener"
-    println(LCSubStr(X, Y))
+    println(LCSubSeq(X, Y))
 }

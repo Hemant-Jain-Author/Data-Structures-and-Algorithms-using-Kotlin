@@ -2,7 +2,6 @@ import java.util.PriorityQueue
 import java.util.Collections
 
 class HuffmanTree internal constructor(arr: CharArray, freq: IntArray) {
-    var root: Node? = null
 
     inner class Node(var c: Char, var freq: Int, var left: Node?, var right: Node?) :
         Comparable<Node> {
@@ -10,6 +9,8 @@ class HuffmanTree internal constructor(arr: CharArray, freq: IntArray) {
             return freq - other.freq
         }
     }
+
+    var root: Node? = null
 
     init {
         val n = arr.size

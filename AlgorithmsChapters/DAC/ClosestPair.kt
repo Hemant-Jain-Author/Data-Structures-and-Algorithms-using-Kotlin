@@ -20,7 +20,6 @@ fun closestPairBF(arr: Array<IntArray>): Double {
 
 class Point internal constructor(var x: Int = 0, var y: Int = 0)
 
-
 internal class xComp : Comparator<Point> {
     public override fun compare(s1: Point, s2: Point): Int {
         return s1.x - s2.x

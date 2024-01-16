@@ -1,39 +1,31 @@
 
 fun selectionSort(arr: IntArray) { // sorted array created in reverse order.
     val size = arr.size
-    var i = 0
-    while (i < size - 1) {
+    for (i in 0 until size - 1) {
         var max = 0
-        var j = 1
-        while (j < size - i) {
+        for (j in 1 until (size - i)) {
             if (arr[j] > arr[max]) {
                 max = j
             }
-            j++
         }
         var temp = arr[size - 1 - i]
         arr[size - 1 - i] = arr[max]
         arr[max] = temp
-        i++
     }
 }
 
 fun selectionSort2(arr: IntArray) { // sorted array created in forward direction    
     val size = arr.size
-    var i = 0
-    while (i < size - 1) {
+    for (i in 0 until size - 1) {
         var min = i
-        var j = i + 1
-        while (j < size) {
+        for (j in i+1 until size) {
             if (arr[j] < arr[min]) {
                 min = j
             }
-            j++
         }
         var temp = arr[i]
         arr[i] = arr[min]
         arr[min] = temp
-        i++
     }
 }
 

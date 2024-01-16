@@ -1,4 +1,9 @@
 // Towers Of Hanoi problem.
+fun toh(num: Int) {
+    println("The sequence of moves involved in the Tower of Hanoi are :")
+    tohUtil(num, 'A', 'C', 'B')
+}
+
 fun tohUtil(num: Int, from: Char, to: Char, temp: Char) {
     if (num < 1) {
         return
@@ -8,11 +13,7 @@ fun tohUtil(num: Int, from: Char, to: Char, temp: Char) {
     tohUtil(num - 1, temp, to, from)
 }
 
-fun toh(num: Int) {
-    println("The sequence of moves involved in the Tower of Hanoi are :")
-    tohUtil(num, 'A', 'C', 'B')
-}
-
+// Testing code.
 fun main() {
     toh(3)
 }

@@ -2,15 +2,132 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04dc547-09ef-425c-a8d9-bd299eb00d13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Data-Structures-and-Algorithms-in-Kotlin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Data-Structures-and-Algorithms-in-Kotlin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/BT/GraphColouring.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/BT/GraphColouring.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/BT/NQueen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/BT/NQueen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/BT/Permutations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/BT/Permutations.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/BT/SubsetSum.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/BT/SubsetSum.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/BT/TOH.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/BT/TOH.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/BT/TSP.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/BT/TSP.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/CA/IsPrime.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/CA/IsPrime.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DAC/ClosestPair.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DAC/ClosestPair.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DAC/NutsAndBolts.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DAC/NutsAndBolts.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/ALS.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/ALS.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/CoinChange.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/CoinChange.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/DiceThrow.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/DiceThrow.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/EditDist.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/EditDist.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/Fibo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/Fibo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/FloydWarshall.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/FloydWarshall.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/GridMinCost.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/GridMinCost.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/GridUniqueWays.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/GridUniqueWays.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/HouseRobber.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/HouseRobber.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/JobScheduling.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/JobScheduling.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/Knapsack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/Knapsack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/LargestBitonicSubseq.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/LargestBitonicSubseq.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/LargestIncreasingSubseq.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/LargestIncreasingSubseq.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/LargestPalindromicSubsequence.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/LargestPalindromicSubsequence.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/LargestPalindromicSubstr.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/LargestPalindromicSubstr.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/LongestCommonSubseq.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/LongestCommonSubseq.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/MatrixCM.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/MatrixCM.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/MinCostBinaryTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/MinCostBinaryTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/MinStairCost.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/MinStairCost.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/OptimalBST.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/OptimalBST.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/StairUniqueWays.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/StairUniqueWays.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/StockBuySell.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/StockBuySell.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/Vacation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/Vacation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/DP/WildCharMatch.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/DP/WildCharMatch.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/ActivitySelection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/ActivitySelection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/ChotaBhim.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/ChotaBhim.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/FractionalKnapsack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/FractionalKnapsack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/HuffmanTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/HuffmanTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/JobSequencing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/JobSequencing.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/JoinRopes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/JoinRopes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/Knapsack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/Knapsack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/MultipleStageGraph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/MultipleStageGraph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/OptimalMergePattern.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/Greedy/OptimalMergePattern.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlgorithmsChapters/algo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AlgorithmsChapters/algo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design/parkingLot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Design/parkingLot.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design/system.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Design/system.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graph/Graph.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/Graph.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graph/GraphAM.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Graph/GraphAM.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/CountMap.kt" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/CountMap.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/HashMapDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/HashMapDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/HashSetDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/HashSetDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/HashTableExercise.kt" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/HashTableExercise.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/HashTableLP.kt" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/HashTableLP.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable/HashTableSC.kt" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable/HashTableSC.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Heap/Heap.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Heap/Heap.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Heap/HeapEx.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Heap/HeapEx.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Heap/MedianHeap.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Heap/MedianHeap.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Introduction/Analysis.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Introduction/Analysis.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Introduction/Introduction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Introduction/Introduction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/ArrayDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/ArrayDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/ArrayListDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/ArrayListDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/ForDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/ForDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/HashMapDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/HashMapDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/HashSetDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/HashSetDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/LinkedHashSetDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/LinkedHashSetDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/LinkedListDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/LinkedListDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/MinMaxValueTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/MinMaxValueTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/PriorityQueueDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/PriorityQueueDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/Queue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/Queue.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/QueueDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/QueueDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/Stack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/Stack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/StackDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/StackDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/TreeMapDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/TreeMapDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language and Collections/TreeSetDemo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Language and Collections/TreeSetDemo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/CircularLinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/CircularLinkedList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/DoublyCircularLinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/DoublyCircularLinkedList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/DoublyLinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/DoublyLinkedList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/LinkedList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/LinkedList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinkedList/Polynomial.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList/Polynomial.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/Queue.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Queue/Queue.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/QueueEx.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Queue/QueueEx.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/QueueLL.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Queue/QueueLL.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/QueueUsingStack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Queue/QueueUsingStack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Queue/Stack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Queue/Stack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Searching/BitManipulation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Searching/BitManipulation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Searching/Searching.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Searching/Searching.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/BubbleSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/BubbleSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/BucketSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/BucketSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/CountSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/CountSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/InsertionSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/InsertionSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/MergeSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/MergeSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/QuickSelect.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/QuickSelect.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/QuickSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/QuickSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/RadixSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/RadixSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/SelectionSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/SelectionSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/ShellSort.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/ShellSort.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorting/SortingEx.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Sorting/SortingEx.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/Stack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/Stack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/StackExercise.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/StackExercise.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/StackLL.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/StackLL.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack/TwoStack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Stack/TwoStack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/StringAlgo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/StringAlgo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/StringMatching.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/StringMatching.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/StringTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/StringTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/Stringclass.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/TST.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/TST.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String/Trie.kt" beforeDir="false" afterPath="$PROJECT_DIR$/String/Trie.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/AVLTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/AVLTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/BTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/BTree.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tree/BinaryIndexTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/BinaryIndexTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/RBTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/RBTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/SPLAYTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/SPLAYTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/SegmentTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/SegmentTree.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tree/Tree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/Tree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tree/rangeMaxST.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/rangeMaxST.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tree/rmqST.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tree/rmqST.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +186,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
       <list>
@@ -120,6 +240,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/hemant/Documents/Github/Data-Structures-and-Algorithms-in-Kotlin",
     "settings.editor.selected.configurable": "preferences.language.Kotlin"
   }

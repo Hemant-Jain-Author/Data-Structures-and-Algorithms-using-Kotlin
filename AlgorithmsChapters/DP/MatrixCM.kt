@@ -28,7 +28,6 @@ fun matrixChainMulTD(p: IntArray, n: Int): Int {
     return matrixChainMulTD(dp, p, 1, n - 1)
 }
 
-// Function for matrix chain multiplication
 fun matrixChainMulTD(dp: Array<IntArray>, p: IntArray, i: Int, j: Int): Int {
     // Base Case
     if (dp[i][j] != Int.MAX_VALUE) {

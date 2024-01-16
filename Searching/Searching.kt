@@ -950,21 +950,20 @@ fun closestPair2(arr: IntArray, size: Int, value: Int) {
     var curr: Int
     Arrays.sort(arr)
     diff = 9999999
-    run {
-        while (start < stop) {
-            curr = value - (arr[start] + arr[stop])
-            if (Math.abs(curr) < diff) {
-                diff = Math.abs(curr)
-                first = arr[start]
-                second = arr[stop]
-            }
-            if (curr == 0) {
-                break
-            } else if (curr > 0) {
-                start += 1
-            } else {
-                stop -= 1
-            }
+    
+    while (start < stop) {
+        curr = value - (arr[start] + arr[stop])
+        if (Math.abs(curr) < diff) {
+            diff = Math.abs(curr)
+            first = arr[start]
+            second = arr[stop]
+        }
+        if (curr == 0) {
+            break
+        } else if (curr > 0) {
+            start += 1
+        } else {
+            stop -= 1
         }
     }
     println("closest pair is :: $first $second")
